@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,42 +17,42 @@ void main() {
   // final instance = TagsApi();
 
   group('tests for TagsApi', () {
-    //
+    // 
     //
     //Future deleteTag(int id) async
     test('test deleteTag', () async {
       // TODO
     });
 
+    // 
     //
+    //Future<List<TagDTO>> getGameTags(int id) async
+    test('test getGameTags', () async {
+      // TODO
+    });
+
+    // 
     //
     //Future<TagDTO> getTag(int id) async
     test('test getTag', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<List<GameDTO>> getTagGames(int id) async
-    test('test getTagGames', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<TagSearchResult> getTags(SearchDTO searchDTO, { String q }) async
+    //Future<TagPageResult> getTags(SearchDTO searchDTO, { String q }) async
     test('test getTags', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<TagDTO> postTag(NewTagDTO newTagDTO) async
     test('test postTag', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<TagDTO> putTag(int id, NewTagDTO newTagDTO) async
     test('test putTag', () async {

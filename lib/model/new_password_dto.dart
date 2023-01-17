@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -10,36 +9,36 @@
 
 part of n2t.game_collection.client;
 
-class SearchValueOneOf1 {
-  /// Returns a new [SearchValueOneOf1] instance.
-  SearchValueOneOf1({
-    this.values = const [],
+class NewPasswordDTO {
+  /// Returns a new [NewPasswordDTO] instance.
+  NewPasswordDTO({
+    required this.password,
   });
 
-  List<String> values;
+  String password;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SearchValueOneOf1 &&
-     other.values == values;
+  bool operator ==(Object other) => identical(this, other) || other is NewPasswordDTO &&
+     other.password == password;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (values.hashCode);
+    (password.hashCode);
 
   @override
-  String toString() => 'SearchValueOneOf1[values=$values]';
+  String toString() => 'NewPasswordDTO[password=$password]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'Values'] = this.values;
+      json[r'password'] = this.password;
     return json;
   }
 
-  /// Returns a new [SearchValueOneOf1] instance and imports its values from
+  /// Returns a new [NewPasswordDTO] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static SearchValueOneOf1? fromJson(dynamic value) {
+  static NewPasswordDTO? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,26 +47,24 @@ class SearchValueOneOf1 {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "SearchValueOneOf1[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "SearchValueOneOf1[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "NewPasswordDTO[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NewPasswordDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return SearchValueOneOf1(
-        values: json[r'Values'] is List
-            ? (json[r'Values'] as List).cast<String>()
-            : const [],
+      return NewPasswordDTO(
+        password: mapValueOfType<String>(json, r'password')!,
       );
     }
     return null;
   }
 
-  static List<SearchValueOneOf1>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <SearchValueOneOf1>[];
+  static List<NewPasswordDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <NewPasswordDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = SearchValueOneOf1.fromJson(row);
+        final value = NewPasswordDTO.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -76,12 +73,12 @@ class SearchValueOneOf1 {
     return result.toList(growable: growable);
   }
 
-  static Map<String, SearchValueOneOf1> mapFromJson(dynamic json) {
-    final map = <String, SearchValueOneOf1>{};
+  static Map<String, NewPasswordDTO> mapFromJson(dynamic json) {
+    final map = <String, NewPasswordDTO>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SearchValueOneOf1.fromJson(entry.value);
+        final value = NewPasswordDTO.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -90,13 +87,13 @@ class SearchValueOneOf1 {
     return map;
   }
 
-  // maps a json object with a list of SearchValueOneOf1-objects as value to a dart map
-  static Map<String, List<SearchValueOneOf1>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<SearchValueOneOf1>>{};
+  // maps a json object with a list of NewPasswordDTO-objects as value to a dart map
+  static Map<String, List<NewPasswordDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<NewPasswordDTO>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SearchValueOneOf1.listFromJson(entry.value, growable: growable,);
+        final value = NewPasswordDTO.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,6 +104,7 @@ class SearchValueOneOf1 {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'password',
   };
 }
 

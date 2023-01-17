@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -28,6 +28,11 @@ void main() {
 
     // String iconFilename
     test('to test the property `iconFilename`', () async {
+      // TODO
+    });
+
+    // String iconUrl
+    test('to test the property `iconUrl`', () async {
       // TODO
     });
 

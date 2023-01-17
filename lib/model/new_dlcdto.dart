@@ -13,7 +13,6 @@ class NewDLCDTO {
   /// Returns a new [NewDLCDTO] instance.
   NewDLCDTO({
     this.baseGameId,
-    this.coverFilename,
     this.name,
     this.releaseYear,
   });
@@ -25,14 +24,6 @@ class NewDLCDTO {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   int? baseGameId;
-
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? coverFilename;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -53,7 +44,6 @@ class NewDLCDTO {
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewDLCDTO &&
      other.baseGameId == baseGameId &&
-     other.coverFilename == coverFilename &&
      other.name == name &&
      other.releaseYear == releaseYear;
 
@@ -61,12 +51,11 @@ class NewDLCDTO {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (baseGameId == null ? 0 : baseGameId!.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
     (name == null ? 0 : name!.hashCode) +
     (releaseYear == null ? 0 : releaseYear!.hashCode);
 
   @override
-  String toString() => 'NewDLCDTO[baseGameId=$baseGameId, coverFilename=$coverFilename, name=$name, releaseYear=$releaseYear]';
+  String toString() => 'NewDLCDTO[baseGameId=$baseGameId, name=$name, releaseYear=$releaseYear]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -74,11 +63,6 @@ class NewDLCDTO {
       json[r'base_game_id'] = this.baseGameId;
     } else {
       json[r'base_game_id'] = null;
-    }
-    if (this.coverFilename != null) {
-      json[r'cover_filename'] = this.coverFilename;
-    } else {
-      json[r'cover_filename'] = null;
     }
     if (this.name != null) {
       json[r'name'] = this.name;
@@ -113,7 +97,6 @@ class NewDLCDTO {
 
       return NewDLCDTO(
         baseGameId: mapValueOfType<int>(json, r'base_game_id'),
-        coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         name: mapValueOfType<String>(json, r'name'),
         releaseYear: mapValueOfType<int>(json, r'release_year'),
       );

@@ -8,9 +8,8 @@ import 'package:game_collection_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**iconFilename** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
-**ptype** | [**PlatformType**](PlatformType.md) |  | [optional] 
+**type** | [**PlatformType**](PlatformType.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

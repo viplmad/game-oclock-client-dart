@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
 **backup** | **bool** |  | 
 **coverFilename** | **String** |  | [optional] 
+**coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
 **id** | **int** |  | 
 **logs** | [**List<GameLogDTO>**](GameLogDTO.md) |  | [default to const []]

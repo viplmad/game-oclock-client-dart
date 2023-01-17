@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
 **backup** | **bool** |  | 
 **coverFilename** | **String** |  | [optional] 
+**coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
 **finishDate** | [**DateTime**](DateTime.md) |  | 
 **id** | **int** |  | 

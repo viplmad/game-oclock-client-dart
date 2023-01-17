@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **availableDate** | [**DateTime**](DateTime.md) |  | 
 **baseGameId** | **int** |  | [optional] 
 **coverFilename** | **String** |  | [optional] 
+**coverUrl** | **String** |  | [optional] 
 **id** | **int** |  | 
 **name** | **String** |  | 
 **releaseYear** | **int** |  | [optional] 

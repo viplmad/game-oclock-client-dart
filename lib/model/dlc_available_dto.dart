@@ -9,25 +9,19 @@
 
 part of n2t.game_collection.client;
 
-class DLCAvailableDTO extends DLCDTO {
+class DLCAvailableDTO extends DLCDTO{
   /// Returns a new [DLCAvailableDTO] instance.
   DLCAvailableDTO({
-    required DateTime addedDatetime,
+    required super.addedDatetime,
     required this.availableDate,
-    int? baseGameId,
-    String? coverFilename,
-    required int id,
-    required String name,
-    int? releaseYear,
-    required DateTime updatedDatetime,
-  }) : super(
-            addedDatetime: addedDatetime,
-            baseGameId: baseGameId,
-            coverFilename: coverFilename,
-            id: id,
-            name: name,
-            releaseYear: releaseYear,
-            updatedDatetime: updatedDatetime);
+    super.baseGameId,
+    super.coverFilename,
+    super.coverUrl,
+    required super.id,
+    required super.name,
+    super.releaseYear,
+    required super.updatedDatetime,
+  });
 
   DateTime availableDate;
 
@@ -37,6 +31,7 @@ class DLCAvailableDTO extends DLCDTO {
      other.availableDate == availableDate &&
      other.baseGameId == baseGameId &&
      other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
      other.id == id &&
      other.name == name &&
      other.releaseYear == releaseYear &&
@@ -49,13 +44,14 @@ class DLCAvailableDTO extends DLCDTO {
     (availableDate.hashCode) +
     (baseGameId == null ? 0 : baseGameId!.hashCode) +
     (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (id.hashCode) +
     (name.hashCode) +
     (releaseYear == null ? 0 : releaseYear!.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'DLCAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, baseGameId=$baseGameId, coverFilename=$coverFilename, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
+  String toString() => 'DLCAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -70,6 +66,11 @@ class DLCAvailableDTO extends DLCDTO {
       json[r'cover_filename'] = this.coverFilename;
     } else {
       json[r'cover_filename'] = null;
+    }
+    if (this.coverUrl != null) {
+      json[r'cover_url'] = this.coverUrl;
+    } else {
+      json[r'cover_url'] = null;
     }
       json[r'id'] = this.id;
       json[r'name'] = this.name;
@@ -105,6 +106,7 @@ class DLCAvailableDTO extends DLCDTO {
         availableDate: mapDateTime(json, r'available_date', '')!,
         baseGameId: mapValueOfType<int>(json, r'base_game_id'),
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
+        coverUrl: mapValueOfType<String>(json, r'cover_url'),
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         releaseYear: mapValueOfType<int>(json, r'release_year'),

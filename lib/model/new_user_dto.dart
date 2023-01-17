@@ -12,31 +12,25 @@ part of n2t.game_collection.client;
 class NewUserDTO {
   /// Returns a new [NewUserDTO] instance.
   NewUserDTO({
-    required this.password,
     required this.username,
   });
-
-  String password;
 
   String username;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewUserDTO &&
-     other.password == password &&
      other.username == username;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (password.hashCode) +
     (username.hashCode);
 
   @override
-  String toString() => 'NewUserDTO[password=$password, username=$username]';
+  String toString() => 'NewUserDTO[username=$username]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'password'] = this.password;
       json[r'username'] = this.username;
     return json;
   }
@@ -60,7 +54,6 @@ class NewUserDTO {
       }());
 
       return NewUserDTO(
-        password: mapValueOfType<String>(json, r'password')!,
         username: mapValueOfType<String>(json, r'username')!,
       );
     }
@@ -111,7 +104,6 @@ class NewUserDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'password',
     'username',
   };
 }

@@ -9,16 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
-  /// Returns a new [PlatformSearchResult] instance.
-  PlatformSearchResult({
-    List<PlatformDTO> data = const [],
-    required int page,
-    required int size,
-  }) : super(data: data, page: page, size: size);
+class TagPageResult extends PageResultDTO<TagDTO> {
+  /// Returns a new [TagPageResult] instance.
+  TagPageResult({
+    super.data = const [],
+    required super.page,
+    required super.size,
+  });
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PlatformSearchResult &&
+  bool operator ==(Object other) => identical(this, other) || other is TagPageResult &&
      other.data == data &&
      other.page == page &&
      other.size == size;
@@ -31,7 +31,7 @@ class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
     (size.hashCode);
 
   @override
-  String toString() => 'PlatformSearchResult[data=$data, page=$page, size=$size]';
+  String toString() => 'TagPageResult[data=$data, page=$page, size=$size]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
     return json;
   }
 
-  /// Returns a new [PlatformSearchResult] instance and imports its values from
+  /// Returns a new [TagPageResult] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PlatformSearchResult? fromJson(dynamic value) {
+  static TagPageResult? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,14 +53,14 @@ class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PlatformSearchResult[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PlatformSearchResult[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "TagPageResult[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TagPageResult[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return PlatformSearchResult(
-        data: PlatformDTO.listFromJson(json[r'data'])!,
+      return TagPageResult(
+        data: TagDTO.listFromJson(json[r'data'])!,
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,11 +68,11 @@ class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
     return null;
   }
 
-  static List<PlatformSearchResult>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <PlatformSearchResult>[];
+  static List<TagPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TagPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = PlatformSearchResult.fromJson(row);
+        final value = TagPageResult.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +81,12 @@ class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
     return result.toList(growable: growable);
   }
 
-  static Map<String, PlatformSearchResult> mapFromJson(dynamic json) {
-    final map = <String, PlatformSearchResult>{};
+  static Map<String, TagPageResult> mapFromJson(dynamic json) {
+    final map = <String, TagPageResult>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PlatformSearchResult.fromJson(entry.value);
+        final value = TagPageResult.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,13 +95,13 @@ class PlatformSearchResult extends SearchResultDTO<PlatformDTO> {
     return map;
   }
 
-  // maps a json object with a list of PlatformSearchResult-objects as value to a dart map
-  static Map<String, List<PlatformSearchResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<PlatformSearchResult>>{};
+  // maps a json object with a list of TagPageResult-objects as value to a dart map
+  static Map<String, List<TagPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<TagPageResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PlatformSearchResult.listFromJson(entry.value, growable: growable,);
+        final value = TagPageResult.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }

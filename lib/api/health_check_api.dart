@@ -18,9 +18,9 @@ class HealthCheckApi {
   ///
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> isAliveWithHttpInfo() async {
+  Future<Response> healthWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/is-alive';
+    final path = r'/health';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -44,8 +44,8 @@ class HealthCheckApi {
   }
 
   ///
-  Future<void> isAlive() async {
-    final response = await isAliveWithHttpInfo();
+  Future<void> health() async {
+    final response = await healthWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

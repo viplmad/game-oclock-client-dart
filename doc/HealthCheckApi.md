@@ -9,11 +9,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**isAlive**](HealthCheckApi.md#isalive) | **GET** /is-alive | 
+[**health**](HealthCheckApi.md#health) | **GET** /health | 
 
 
-# **isAlive**
-> isAlive()
+# **health**
+> health()
 
 
 
@@ -26,9 +26,9 @@ import 'package:game_collection_client/api.dart';
 final api_instance = HealthCheckApi();
 
 try {
-    api_instance.isAlive();
+    api_instance.health();
 } catch (e) {
-    print('Exception when calling HealthCheckApi->isAlive: $e\n');
+    print('Exception when calling HealthCheckApi->health: $e\n');
 }
 ```
 

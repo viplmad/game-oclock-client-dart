@@ -15,6 +15,7 @@ class DLCDTO extends PrimaryModel {
     required this.addedDatetime,
     this.baseGameId,
     this.coverFilename,
+    this.coverUrl,
     required super.id,
     required this.name,
     this.releaseYear,
@@ -39,6 +40,14 @@ class DLCDTO extends PrimaryModel {
   ///
   String? coverFilename;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? coverUrl;
+
   String name;
 
   ///
@@ -51,17 +60,13 @@ class DLCDTO extends PrimaryModel {
 
   DateTime updatedDatetime;
 
-  String? coverUrl;
-
   NewDLCDTO newWith({
     int? baseGameId,
-    String? coverFilename,
     String? name,
     int? releaseYear,
   }) {
     return NewDLCDTO(
       baseGameId: baseGameId ?? this.baseGameId,
-      coverFilename: coverFilename ?? this.coverFilename,
       name: name ?? this.name,
       releaseYear: releaseYear ?? this.releaseYear,
     );
@@ -72,6 +77,7 @@ class DLCDTO extends PrimaryModel {
      other.addedDatetime == addedDatetime &&
      other.baseGameId == baseGameId &&
      other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
      other.id == id &&
      other.name == name &&
      other.releaseYear == releaseYear &&
@@ -83,13 +89,14 @@ class DLCDTO extends PrimaryModel {
     (addedDatetime.hashCode) +
     (baseGameId == null ? 0 : baseGameId!.hashCode) +
     (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (id.hashCode) +
     (name.hashCode) +
     (releaseYear == null ? 0 : releaseYear!.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'DLCDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
+  String toString() => 'DLCDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -103,6 +110,11 @@ class DLCDTO extends PrimaryModel {
       json[r'cover_filename'] = this.coverFilename;
     } else {
       json[r'cover_filename'] = null;
+    }
+    if (this.coverUrl != null) {
+      json[r'cover_url'] = this.coverUrl;
+    } else {
+      json[r'cover_url'] = null;
     }
       json[r'id'] = this.id;
       json[r'name'] = this.name;
@@ -137,6 +149,7 @@ class DLCDTO extends PrimaryModel {
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         baseGameId: mapValueOfType<int>(json, r'base_game_id'),
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
+        coverUrl: mapValueOfType<String>(json, r'cover_url'),
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         releaseYear: mapValueOfType<int>(json, r'release_year'),

@@ -15,6 +15,7 @@ class GameDTO extends PrimaryModel {
     required this.addedDatetime,
     required this.backup,
     this.coverFilename,
+    this.coverUrl,
     required this.edition,
     required super.id,
     required this.name,
@@ -38,6 +39,14 @@ class GameDTO extends PrimaryModel {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   String? coverFilename;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? coverUrl;
 
   String edition;
 
@@ -63,11 +72,8 @@ class GameDTO extends PrimaryModel {
 
   DateTime updatedDatetime;
 
-  String? coverUrl;
-
   NewGameDTO newWith({
     bool? backup,
-    String? coverFilename,
     String? edition,
     String? name,
     String? notes,
@@ -79,7 +85,6 @@ class GameDTO extends PrimaryModel {
   }) {
     return NewGameDTO(
       backup: backup ?? this.backup,
-      coverFilename: coverFilename ?? this.coverFilename,
       edition: edition ?? this.edition,
       name: name ?? this.name,
       notes: notes ?? this.notes,
@@ -96,6 +101,7 @@ class GameDTO extends PrimaryModel {
      other.addedDatetime == addedDatetime &&
      other.backup == backup &&
      other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
      other.edition == edition &&
      other.id == id &&
      other.name == name &&
@@ -113,6 +119,7 @@ class GameDTO extends PrimaryModel {
     (addedDatetime.hashCode) +
     (backup.hashCode) +
     (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
     (id.hashCode) +
     (name.hashCode) +
@@ -125,7 +132,7 @@ class GameDTO extends PrimaryModel {
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -135,6 +142,11 @@ class GameDTO extends PrimaryModel {
       json[r'cover_filename'] = this.coverFilename;
     } else {
       json[r'cover_filename'] = null;
+    }
+    if (this.coverUrl != null) {
+      json[r'cover_url'] = this.coverUrl;
+    } else {
+      json[r'cover_url'] = null;
     }
       json[r'edition'] = this.edition;
       json[r'id'] = this.id;
@@ -175,6 +187,7 @@ class GameDTO extends PrimaryModel {
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
+        coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,

@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -176,5 +175,3 @@ extension DurationExtension on Duration {
     return int.parse(timeString.substring(0, timeString.length - 1));
   }
 }
-
-

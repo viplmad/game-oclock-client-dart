@@ -10,30 +10,24 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteGame**](GamesApi.md#deletegame) | **DELETE** /api/v1/games/{id} | 
-[**deleteGameFinish**](GamesApi.md#deletegamefinish) | **DELETE** /api/v1/games/{id}/finishes | 
+[**deleteGameCover**](GamesApi.md#deletegamecover) | **DELETE** /api/v1/games/{id}/cover | 
 [**deleteGameLog**](GamesApi.md#deletegamelog) | **DELETE** /api/v1/games/{id}/logs | 
-[**getFirstFinishedGames**](GamesApi.md#getfirstfinishedgames) | **POST** /api/v1/games/finished/first | 
-[**getFirstGameFinish**](GamesApi.md#getfirstgamefinish) | **GET** /api/v1/games/{id}/finishes/first | 
 [**getFirstPlayedGames**](GamesApi.md#getfirstplayedgames) | **POST** /api/v1/games/played/first | 
 [**getGame**](GamesApi.md#getgame) | **GET** /api/v1/games/{id} | 
-[**getGameDlcs**](GamesApi.md#getgamedlcs) | **GET** /api/v1/games/{id}/dlcs | 
-[**getGameFinishes**](GamesApi.md#getgamefinishes) | **GET** /api/v1/games/{id}/finishes | 
 [**getGameLogs**](GamesApi.md#getgamelogs) | **GET** /api/v1/games/{id}/logs | 
-[**getGamePlatforms**](GamesApi.md#getgameplatforms) | **GET** /api/v1/games/{id}/platforms | 
-[**getGameTags**](GamesApi.md#getgametags) | **GET** /api/v1/games/{id}/tags | 
 [**getGames**](GamesApi.md#getgames) | **POST** /api/v1/games/list | 
-[**getLastFinishedGames**](GamesApi.md#getlastfinishedgames) | **POST** /api/v1/games/finished/last | 
 [**getLastPlayedGames**](GamesApi.md#getlastplayedgames) | **POST** /api/v1/games/played/last | 
+[**getPlatformGames**](GamesApi.md#getplatformgames) | **GET** /api/v1/platforms/{id}/games | 
 [**getPlayedGames**](GamesApi.md#getplayedgames) | **POST** /api/v1/games/played | 
+[**getTagGames**](GamesApi.md#gettaggames) | **GET** /api/v1/tags/{id}/games | 
 [**getTotalGameLogs**](GamesApi.md#gettotalgamelogs) | **GET** /api/v1/games/{id}/logs/total | 
-[**linkGameDlc**](GamesApi.md#linkgamedlc) | **PUT** /api/v1/games/{id}/dlcs/{other_id} | 
 [**linkGamePlatform**](GamesApi.md#linkgameplatform) | **PUT** /api/v1/games/{id}/platforms/{other_id} | 
 [**linkGameTag**](GamesApi.md#linkgametag) | **PUT** /api/v1/games/{id}/tags/{other_id} | 
 [**postGame**](GamesApi.md#postgame) | **POST** /api/v1/games | 
-[**postGameFinish**](GamesApi.md#postgamefinish) | **POST** /api/v1/games/{id}/finishes | 
+[**postGameCover**](GamesApi.md#postgamecover) | **POST** /api/v1/games/{id}/cover | 
 [**postGameLog**](GamesApi.md#postgamelog) | **POST** /api/v1/games/{id}/logs | 
 [**putGame**](GamesApi.md#putgame) | **PUT** /api/v1/games/{id} | 
-[**unlinkGameDlc**](GamesApi.md#unlinkgamedlc) | **DELETE** /api/v1/games/{id}/dlcs/{other_id} | 
+[**putGameCover**](GamesApi.md#putgamecover) | **PUT** /api/v1/games/{id}/cover | 
 [**unlinkGamePlatform**](GamesApi.md#unlinkgameplatform) | **DELETE** /api/v1/games/{id}/platforms/{other_id} | 
 [**unlinkGameTag**](GamesApi.md#unlinkgametag) | **DELETE** /api/v1/games/{id}/tags/{other_id} | 
 
@@ -86,8 +80,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteGameFinish**
-> deleteGameFinish(id, body)
+# **deleteGameCover**
+> deleteGameCover(id)
 
 
 
@@ -105,12 +99,11 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final id = 56; // int | Game id
-final body = DateTime(); // DateTime | Game finish date to be deleted
 
 try {
-    api_instance.deleteGameFinish(id, body);
+    api_instance.deleteGameCover(id);
 } catch (e) {
-    print('Exception when calling GamesApi->deleteGameFinish: $e\n');
+    print('Exception when calling GamesApi->deleteGameCover: $e\n');
 }
 ```
 
@@ -119,7 +112,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **body** | **DateTime**| Game finish date to be deleted | 
 
 ### Return type
 
@@ -131,7 +123,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -155,7 +147,7 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final id = 56; // int | Game id
-final body = DateTime(); // DateTime | Game log datetime to be deleted
+final body = String(); // String | Game log datetime to be deleted
 
 try {
     api_instance.deleteGameLog(id, body);
@@ -169,7 +161,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **body** | **DateTime**| Game log datetime to be deleted | 
+ **body** | **String**| Game log datetime to be deleted | 
 
 ### Return type
 
@@ -186,112 +178,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getFirstFinishedGames**
-> GameWithFinishSearchResult getFirstFinishedGames(searchDTO, startDate, endDate, q)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
-final q = q_example; // String | 
-
-try {
-    final result = api_instance.getFirstFinishedGames(searchDTO, startDate, endDate, q);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getFirstFinishedGames: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **DateTime**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **q** | **String**|  | [optional] 
-
-### Return type
-
-[**GameWithFinishSearchResult**](GameWithFinishSearchResult.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getFirstGameFinish**
-> DateTime getFirstGameFinish(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final id = 56; // int | Game id
-
-try {
-    final result = api_instance.getFirstGameFinish(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getFirstGameFinish: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
-
-### Return type
-
-[**DateTime**](DateTime.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getFirstPlayedGames**
-> List<GameWithLogDTO> getFirstPlayedGames(searchDTO, startDate, endDate, q)
+> GameWithLogPageResult getFirstPlayedGames(searchDTO, startDate, endDate, q)
 
 
 
@@ -309,8 +197,8 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
+final startDate = startDate_example; // String | 
+final endDate = endDate_example; // String | 
 final q = q_example; // String | 
 
 try {
@@ -326,13 +214,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **DateTime**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
+ **startDate** | **String**|  | [optional] 
+ **endDate** | **String**|  | [optional] 
  **q** | **String**|  | [optional] 
 
 ### Return type
 
-[**List<GameWithLogDTO>**](GameWithLogDTO.md)
+[**GameWithLogPageResult**](GameWithLogPageResult.md)
 
 ### Authorization
 
@@ -394,104 +282,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getGameDlcs**
-> List<DLCDTO> getGameDlcs(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final id = 56; // int | Game id
-
-try {
-    final result = api_instance.getGameDlcs(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getGameDlcs: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
-
-### Return type
-
-[**List<DLCDTO>**](DLCDTO.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getGameFinishes**
-> List<DateTime> getGameFinishes(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final id = 56; // int | Game id
-
-try {
-    final result = api_instance.getGameFinishes(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getGameFinishes: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
-
-### Return type
-
-[**List<DateTime>**](DateTime.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getGameLogs**
 > List<GameLogDTO> getGameLogs(id)
 
@@ -541,106 +331,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getGamePlatforms**
-> List<PlatformAvailableDTO> getGamePlatforms(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final id = 56; // int | Game id
-
-try {
-    final result = api_instance.getGamePlatforms(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getGamePlatforms: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
-
-### Return type
-
-[**List<PlatformAvailableDTO>**](PlatformAvailableDTO.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getGameTags**
-> List<TagDTO> getGameTags(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final id = 56; // int | Game id
-
-try {
-    final result = api_instance.getGameTags(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getGameTags: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
-
-### Return type
-
-[**List<TagDTO>**](TagDTO.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getGames**
-> GameSearchResult getGames(searchDTO, q)
+> GamePageResult getGames(searchDTO, q)
 
 
 
@@ -677,62 +369,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GameSearchResult**](GameSearchResult.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getLastFinishedGames**
-> GameWithFinishSearchResult getLastFinishedGames(searchDTO, startDate, endDate, q)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
-final q = q_example; // String | 
-
-try {
-    final result = api_instance.getLastFinishedGames(searchDTO, startDate, endDate, q);
-    print(result);
-} catch (e) {
-    print('Exception when calling GamesApi->getLastFinishedGames: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **DateTime**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **q** | **String**|  | [optional] 
-
-### Return type
-
-[**GameWithFinishSearchResult**](GameWithFinishSearchResult.md)
+[**GamePageResult**](GamePageResult.md)
 
 ### Authorization
 
@@ -746,7 +383,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLastPlayedGames**
-> List<GameWithLogDTO> getLastPlayedGames(searchDTO, startDate, endDate, q)
+> GameWithLogPageResult getLastPlayedGames(searchDTO, startDate, endDate, q)
 
 
 
@@ -764,8 +401,8 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
+final startDate = startDate_example; // String | 
+final endDate = endDate_example; // String | 
 final q = q_example; // String | 
 
 try {
@@ -781,13 +418,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **DateTime**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
+ **startDate** | **String**|  | [optional] 
+ **endDate** | **String**|  | [optional] 
  **q** | **String**|  | [optional] 
 
 ### Return type
 
-[**List<GameWithLogDTO>**](GameWithLogDTO.md)
+[**GameWithLogPageResult**](GameWithLogPageResult.md)
 
 ### Authorization
 
@@ -796,6 +433,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPlatformGames**
+> List<GameAvailableDTO> getPlatformGames(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = GamesApi();
+final id = 56; // int | Platform id
+
+try {
+    final result = api_instance.getPlatformGames(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling GamesApi->getPlatformGames: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Platform id | 
+
+### Return type
+
+[**List<GameAvailableDTO>**](GameAvailableDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -818,8 +504,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
+final startDate = startDate_example; // String | 
+final endDate = endDate_example; // String | 
 
 try {
     final result = api_instance.getPlayedGames(startDate, endDate);
@@ -833,12 +519,61 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **DateTime**|  | 
- **endDate** | **DateTime**|  | 
+ **startDate** | **String**|  | 
+ **endDate** | **String**|  | 
 
 ### Return type
 
 [**List<GameWithLogsDTO>**](GameWithLogsDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getTagGames**
+> List<GameDTO> getTagGames(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = GamesApi();
+final id = 56; // int | Tag id
+
+try {
+    final result = api_instance.getTagGames(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling GamesApi->getTagGames: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Tag id | 
+
+### Return type
+
+[**List<GameDTO>**](GameDTO.md)
 
 ### Authorization
 
@@ -900,56 +635,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **linkGameDlc**
-> linkGameDlc(id, otherId)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = GamesApi();
-final id = 56; // int | Game id
-final otherId = 56; // int | DLC id
-
-try {
-    api_instance.linkGameDlc(id, otherId);
-} catch (e) {
-    print('Exception when calling GamesApi->linkGameDlc: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
- **otherId** | **int**| DLC id | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **linkGamePlatform**
 > linkGamePlatform(id, otherId, body)
 
@@ -970,7 +655,7 @@ import 'package:game_collection_client/api.dart';
 final api_instance = GamesApi();
 final id = 56; // int | Game id
 final otherId = 56; // int | Platform id
-final body = DateTime(); // DateTime | Available date
+final body = String(); // String | Available date
 
 try {
     api_instance.linkGamePlatform(id, otherId, body);
@@ -985,7 +670,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
  **otherId** | **int**| Platform id | 
- **body** | **DateTime**| Available date | 
+ **body** | **String**| Available date | 
 
 ### Return type
 
@@ -1101,8 +786,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **postGameFinish**
-> postGameFinish(id, body)
+# **postGameCover**
+> postGameCover(id)
 
 
 
@@ -1120,12 +805,11 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final id = 56; // int | Game id
-final body = DateTime(); // DateTime | Game finish date to be added
 
 try {
-    api_instance.postGameFinish(id, body);
+    api_instance.postGameCover(id);
 } catch (e) {
-    print('Exception when calling GamesApi->postGameFinish: $e\n');
+    print('Exception when calling GamesApi->postGameCover: $e\n');
 }
 ```
 
@@ -1134,7 +818,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **body** | **DateTime**| Game finish date to be added | 
 
 ### Return type
 
@@ -1146,7 +829,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1252,8 +935,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **unlinkGameDlc**
-> unlinkGameDlc(id, otherId)
+# **putGameCover**
+> putGameCover(id, body)
 
 
 
@@ -1271,12 +954,12 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final id = 56; // int | Game id
-final otherId = 56; // int | DLC id
+final body = String(); // String | New game cover name
 
 try {
-    api_instance.unlinkGameDlc(id, otherId);
+    api_instance.putGameCover(id, body);
 } catch (e) {
-    print('Exception when calling GamesApi->unlinkGameDlc: $e\n');
+    print('Exception when calling GamesApi->putGameCover: $e\n');
 }
 ```
 
@@ -1285,7 +968,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **otherId** | **int**| DLC id | 
+ **body** | **String**| New game cover name | 
 
 ### Return type
 
@@ -1297,7 +980,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

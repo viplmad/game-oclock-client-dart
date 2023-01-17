@@ -9,7 +9,6 @@ import 'package:game_collection_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **baseGameId** | **int** |  | [optional] 
-**coverFilename** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **releaseYear** | **int** |  | [optional] 
 

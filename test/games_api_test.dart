@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,189 +17,147 @@ void main() {
   // final instance = GamesApi();
 
   group('tests for GamesApi', () {
-    //
+    // 
     //
     //Future deleteGame(int id) async
     test('test deleteGame', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future deleteGameFinish(int id, DateTime body) async
-    test('test deleteGameFinish', () async {
+    //Future deleteGameCover(int id) async
+    test('test deleteGameCover', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future deleteGameLog(int id, DateTime body) async
+    //Future deleteGameLog(int id, String body) async
     test('test deleteGameLog', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<GameWithFinishSearchResult> getFirstFinishedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
-    test('test getFirstFinishedGames', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<DateTime> getFirstGameFinish(int id) async
-    test('test getFirstGameFinish', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<List<GameWithLogDTO>> getFirstPlayedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
+    //Future<GameWithLogPageResult> getFirstPlayedGames(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
     test('test getFirstPlayedGames', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<GameDTO> getGame(int id) async
     test('test getGame', () async {
       // TODO
     });
 
-    //
-    //
-    //Future<List<DLCDTO>> getGameDlcs(int id) async
-    test('test getGameDlcs', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<List<DateTime>> getGameFinishes(int id) async
-    test('test getGameFinishes', () async {
-      // TODO
-    });
-
-    //
+    // 
     //
     //Future<List<GameLogDTO>> getGameLogs(int id) async
     test('test getGameLogs', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<List<PlatformAvailableDTO>> getGamePlatforms(int id) async
-    test('test getGamePlatforms', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<List<TagDTO>> getGameTags(int id) async
-    test('test getGameTags', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<GameSearchResult> getGames(SearchDTO searchDTO, { String q }) async
+    //Future<GamePageResult> getGames(SearchDTO searchDTO, { String q }) async
     test('test getGames', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<GameWithFinishSearchResult> getLastFinishedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
-    test('test getLastFinishedGames', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<List<GameWithLogDTO>> getLastPlayedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
+    //Future<GameWithLogPageResult> getLastPlayedGames(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
     test('test getLastPlayedGames', () async {
       // TODO
     });
 
+    // 
     //
+    //Future<List<GameAvailableDTO>> getPlatformGames(int id) async
+    test('test getPlatformGames', () async {
+      // TODO
+    });
+
+    // 
     //
-    //Future<List<GameWithLogsDTO>> getPlayedGames(DateTime startDate, DateTime endDate) async
+    //Future<List<GameWithLogsDTO>> getPlayedGames(String startDate, String endDate) async
     test('test getPlayedGames', () async {
       // TODO
     });
 
+    // 
     //
+    //Future<List<GameDTO>> getTagGames(int id) async
+    test('test getTagGames', () async {
+      // TODO
+    });
+
+    // 
     //
     //Future<String> getTotalGameLogs(int id) async
     test('test getTotalGameLogs', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future linkGameDlc(int id, int otherId) async
-    test('test linkGameDlc', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future linkGamePlatform(int id, int otherId, DateTime body) async
+    //Future linkGamePlatform(int id, int otherId, String body) async
     test('test linkGamePlatform', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future linkGameTag(int id, int otherId) async
     test('test linkGameTag', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<GameDTO> postGame(NewGameDTO newGameDTO) async
     test('test postGame', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future postGameFinish(int id, DateTime body) async
-    test('test postGameFinish', () async {
+    //Future postGameCover(int id) async
+    test('test postGameCover', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future postGameLog(int id, GameLogDTO gameLogDTO) async
     test('test postGameLog', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<GameDTO> putGame(int id, NewGameDTO newGameDTO) async
     test('test putGame', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future unlinkGameDlc(int id, int otherId) async
-    test('test unlinkGameDlc', () async {
+    //Future putGameCover(int id, String body) async
+    test('test putGameCover', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future unlinkGamePlatform(int id, int otherId) async
     test('test unlinkGamePlatform', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future unlinkGameTag(int id, int otherId) async
     test('test unlinkGameTag', () async {

@@ -12,18 +12,9 @@ part of n2t.game_collection.client;
 class NewPlatformDTO {
   /// Returns a new [NewPlatformDTO] instance.
   NewPlatformDTO({
-    this.iconFilename,
     this.name,
-    this.ptype,
+    this.type,
   });
-
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? iconFilename;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -39,40 +30,33 @@ class NewPlatformDTO {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  PlatformType? ptype;
+  PlatformType? type;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewPlatformDTO &&
-     other.iconFilename == iconFilename &&
      other.name == name &&
-     other.ptype == ptype;
+     other.type == type;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (iconFilename == null ? 0 : iconFilename!.hashCode) +
     (name == null ? 0 : name!.hashCode) +
-    (ptype == null ? 0 : ptype!.hashCode);
+    (type == null ? 0 : type!.hashCode);
 
   @override
-  String toString() => 'NewPlatformDTO[iconFilename=$iconFilename, name=$name, ptype=$ptype]';
+  String toString() => 'NewPlatformDTO[name=$name, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.iconFilename != null) {
-      json[r'icon_filename'] = this.iconFilename;
-    } else {
-      json[r'icon_filename'] = null;
-    }
     if (this.name != null) {
       json[r'name'] = this.name;
     } else {
       json[r'name'] = null;
     }
-    if (this.ptype != null) {
-      json[r'ptype'] = this.ptype;
+    if (this.type != null) {
+      json[r'type'] = this.type;
     } else {
-      json[r'ptype'] = null;
+      json[r'type'] = null;
     }
     return json;
   }
@@ -96,9 +80,8 @@ class NewPlatformDTO {
       }());
 
       return NewPlatformDTO(
-        iconFilename: mapValueOfType<String>(json, r'icon_filename'),
         name: mapValueOfType<String>(json, r'name'),
-        ptype: PlatformType.fromJson(json[r'ptype']),
+        type: PlatformType.fromJson(json[r'type']),
       );
     }
     return null;

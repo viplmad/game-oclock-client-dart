@@ -12,34 +12,22 @@ part of n2t.game_collection.client;
 class GameAvailableDTO extends GameDTO {
   /// Returns a new [GameAvailableDTO] instance.
   GameAvailableDTO({
-    required DateTime addedDatetime,
+    required super.addedDatetime,
     required this.availableDate,
-    required bool backup,
-    String? coverFilename,
-    required String edition,
-    required int id,
-    required String name,
-    required String notes,
-    required int rating,
-    int? releaseYear,
-    required String saveFolder,
-    required String screenshotFolder,
-    required GameStatus status,
-    required DateTime updatedDatetime,
-  }) : super(
-            addedDatetime: addedDatetime,
-            backup: backup,
-            coverFilename: coverFilename,
-            edition: edition,
-            id: id,
-            name: name,
-            notes: notes,
-            rating: rating,
-            releaseYear: releaseYear,
-            saveFolder: saveFolder,
-            screenshotFolder: screenshotFolder,
-            status: status,
-            updatedDatetime: updatedDatetime);
+    required super.backup,
+    super.coverFilename,
+    super.coverUrl,
+    required super.edition,
+    required super.id,
+    required super.name,
+    required super.notes,
+    required super.rating,
+    super.releaseYear,
+    required super.saveFolder,
+    required super.screenshotFolder,
+    required super.status,
+    required super.updatedDatetime,
+  });
 
   DateTime availableDate;
 
@@ -49,6 +37,7 @@ class GameAvailableDTO extends GameDTO {
      other.availableDate == availableDate &&
      other.backup == backup &&
      other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
      other.edition == edition &&
      other.id == id &&
      other.name == name &&
@@ -67,6 +56,7 @@ class GameAvailableDTO extends GameDTO {
     (availableDate.hashCode) +
     (backup.hashCode) +
     (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
     (id.hashCode) +
     (name.hashCode) +
@@ -79,7 +69,7 @@ class GameAvailableDTO extends GameDTO {
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, backup=$backup, coverFilename=$coverFilename, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -90,6 +80,11 @@ class GameAvailableDTO extends GameDTO {
       json[r'cover_filename'] = this.coverFilename;
     } else {
       json[r'cover_filename'] = null;
+    }
+    if (this.coverUrl != null) {
+      json[r'cover_url'] = this.coverUrl;
+    } else {
+      json[r'cover_url'] = null;
     }
       json[r'edition'] = this.edition;
       json[r'id'] = this.id;
@@ -131,6 +126,7 @@ class GameAvailableDTO extends GameDTO {
         availableDate: mapDateTime(json, r'available_date', '')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
+        coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,

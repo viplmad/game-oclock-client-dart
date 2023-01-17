@@ -13,7 +13,6 @@ class NewGameDTO {
   /// Returns a new [NewGameDTO] instance.
   NewGameDTO({
     this.backup,
-    this.coverFilename,
     this.edition,
     this.name,
     this.notes,
@@ -31,14 +30,6 @@ class NewGameDTO {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   bool? backup;
-
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? coverFilename;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -107,7 +98,6 @@ class NewGameDTO {
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewGameDTO &&
      other.backup == backup &&
-     other.coverFilename == coverFilename &&
      other.edition == edition &&
      other.name == name &&
      other.notes == notes &&
@@ -121,7 +111,6 @@ class NewGameDTO {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (backup == null ? 0 : backup!.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
     (edition == null ? 0 : edition!.hashCode) +
     (name == null ? 0 : name!.hashCode) +
     (notes == null ? 0 : notes!.hashCode) +
@@ -132,7 +121,7 @@ class NewGameDTO {
     (status == null ? 0 : status!.hashCode);
 
   @override
-  String toString() => 'NewGameDTO[backup=$backup, coverFilename=$coverFilename, edition=$edition, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status]';
+  String toString() => 'NewGameDTO[backup=$backup, edition=$edition, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -140,11 +129,6 @@ class NewGameDTO {
       json[r'backup'] = this.backup;
     } else {
       json[r'backup'] = null;
-    }
-    if (this.coverFilename != null) {
-      json[r'cover_filename'] = this.coverFilename;
-    } else {
-      json[r'cover_filename'] = null;
     }
     if (this.edition != null) {
       json[r'edition'] = this.edition;
@@ -209,7 +193,6 @@ class NewGameDTO {
 
       return NewGameDTO(
         backup: mapValueOfType<bool>(json, r'backup'),
-        coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         edition: mapValueOfType<String>(json, r'edition'),
         name: mapValueOfType<String>(json, r'name'),
         notes: mapValueOfType<String>(json, r'notes'),

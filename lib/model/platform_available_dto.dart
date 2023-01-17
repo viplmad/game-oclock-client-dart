@@ -12,67 +12,66 @@ part of n2t.game_collection.client;
 class PlatformAvailableDTO extends PlatformDTO {
   /// Returns a new [PlatformAvailableDTO] instance.
   PlatformAvailableDTO({
-    required DateTime addedDatetime,
+    required super.addedDatetime,
     required this.availableDate,
-    String? iconFilename,
-    required int id,
-    required String name,
-    PlatformType? type,
-    required DateTime updatedDatetime,
-  }) : super(
-            addedDatetime: addedDatetime,
-            iconFilename: iconFilename,
-            id: id,
-            name: name,
-            type: type,
-            updatedDatetime: updatedDatetime);
+    super.iconFilename,
+    super.iconUrl,
+    required super.id,
+    required super.name,
+    super.type,
+    required super.updatedDatetime,
+  });
 
   DateTime availableDate;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is PlatformAvailableDTO &&
-          other.addedDatetime == addedDatetime &&
-          other.availableDate == availableDate &&
-          other.iconFilename == iconFilename &&
-          other.id == id &&
-          other.name == name &&
-          other.type == type &&
-          other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) => identical(this, other) || other is PlatformAvailableDTO &&
+     other.addedDatetime == addedDatetime &&
+     other.availableDate == availableDate &&
+     other.iconFilename == iconFilename &&
+     other.iconUrl == iconUrl &&
+     other.id == id &&
+     other.name == name &&
+     other.type == type &&
+     other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (addedDatetime.hashCode) +
-      (availableDate.hashCode) +
-      (iconFilename == null ? 0 : iconFilename!.hashCode) +
-      (id.hashCode) +
-      (name.hashCode) +
-      (type == null ? 0 : type!.hashCode) +
-      (updatedDatetime.hashCode);
+    // ignore: unnecessary_parenthesis
+    (addedDatetime.hashCode) +
+    (availableDate.hashCode) +
+    (iconFilename == null ? 0 : iconFilename!.hashCode) +
+    (iconUrl == null ? 0 : iconUrl!.hashCode) +
+    (id.hashCode) +
+    (name.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (updatedDatetime.hashCode);
 
   @override
-  String toString() =>
-      'PlatformAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, iconFilename=$iconFilename, id=$id, name=$name, type=$type, updatedDatetime=$updatedDatetime]';
+  String toString() => 'PlatformAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, iconFilename=$iconFilename, iconUrl=$iconUrl, id=$id, name=$name, type=$type, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
-    json[r'available_date'] = _dateFormatter.format(this.availableDate.toUtc());
+      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'available_date'] = _dateFormatter.format(this.availableDate.toUtc());
     if (this.iconFilename != null) {
       json[r'icon_filename'] = this.iconFilename;
     } else {
       json[r'icon_filename'] = null;
     }
-    json[r'id'] = this.id;
-    json[r'name'] = this.name;
+    if (this.iconUrl != null) {
+      json[r'icon_url'] = this.iconUrl;
+    } else {
+      json[r'icon_url'] = null;
+    }
+      json[r'id'] = this.id;
+      json[r'name'] = this.name;
     if (this.type != null) {
       json[r'type'] = this.type;
     } else {
       json[r'type'] = null;
     }
-    json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
     return json;
   }
 
@@ -88,10 +87,8 @@ class PlatformAvailableDTO extends PlatformDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "PlatformAvailableDTO[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "PlatformAvailableDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PlatformAvailableDTO[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PlatformAvailableDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -100,6 +97,7 @@ class PlatformAvailableDTO extends PlatformDTO {
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         availableDate: mapDateTime(json, r'available_date', '')!,
         iconFilename: mapValueOfType<String>(json, r'icon_filename'),
+        iconUrl: mapValueOfType<String>(json, r'icon_url'),
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         type: PlatformType.fromJson(json[r'type']),
@@ -109,10 +107,7 @@ class PlatformAvailableDTO extends PlatformDTO {
     return null;
   }
 
-  static List<PlatformAvailableDTO>? listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<PlatformAvailableDTO>? listFromJson(dynamic json, {bool growable = false,}) {
     final result = <PlatformAvailableDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -140,18 +135,12 @@ class PlatformAvailableDTO extends PlatformDTO {
   }
 
   // maps a json object with a list of PlatformAvailableDTO-objects as value to a dart map
-  static Map<String, List<PlatformAvailableDTO>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<PlatformAvailableDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PlatformAvailableDTO>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PlatformAvailableDTO.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        final value = PlatformAvailableDTO.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -169,3 +158,4 @@ class PlatformAvailableDTO extends PlatformDTO {
     'updated_datetime',
   };
 }
+

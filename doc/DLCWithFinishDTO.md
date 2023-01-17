@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
 **baseGameId** | **int** |  | [optional] 
 **coverFilename** | **String** |  | [optional] 
+**coverUrl** | **String** |  | [optional] 
 **finishDate** | [**DateTime**](DateTime.md) |  | 
 **id** | **int** |  | 
 **name** | **String** |  | 

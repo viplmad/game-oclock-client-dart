@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
 **iconFilename** | **String** |  | [optional] 
+**iconUrl** | **String** |  | [optional] 
 **id** | **int** |  | 
 **name** | **String** |  | 
 **type** | [**PlatformType**](PlatformType.md) |  | [optional] 

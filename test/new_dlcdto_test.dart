@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,11 +18,6 @@ void main() {
   group('test NewDLCDTO', () {
     // int baseGameId
     test('to test the property `baseGameId`', () async {
-      // TODO
-    });
-
-    // String coverFilename
-    test('to test the property `coverFilename`', () async {
       // TODO
     });
 

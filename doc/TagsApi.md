@@ -10,8 +10,8 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteTag**](TagsApi.md#deletetag) | **DELETE** /api/v1/tags/{id} | 
+[**getGameTags**](TagsApi.md#getgametags) | **GET** /api/v1/games/{id}/tags | 
 [**getTag**](TagsApi.md#gettag) | **GET** /api/v1/tags/{id} | 
-[**getTagGames**](TagsApi.md#gettaggames) | **GET** /api/v1/tags/{id}/games | 
 [**getTags**](TagsApi.md#gettags) | **POST** /api/v1/tags/list | 
 [**postTag**](TagsApi.md#posttag) | **POST** /api/v1/tags | 
 [**putTag**](TagsApi.md#puttag) | **PUT** /api/v1/tags/{id} | 
@@ -53,6 +53,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGameTags**
+> List<TagDTO> getGameTags(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = TagsApi();
+final id = 56; // int | Game id
+
+try {
+    final result = api_instance.getGameTags(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling TagsApi->getGameTags: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Game id | 
+
+### Return type
+
+[**List<TagDTO>**](TagDTO.md)
 
 ### Authorization
 
@@ -114,57 +163,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getTagGames**
-> List<GameDTO> getTagGames(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = TagsApi();
-final id = 56; // int | Tag id
-
-try {
-    final result = api_instance.getTagGames(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling TagsApi->getTagGames: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Tag id | 
-
-### Return type
-
-[**List<GameDTO>**](GameDTO.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getTags**
-> TagSearchResult getTags(searchDTO, q)
+> TagPageResult getTags(searchDTO, q)
 
 
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagSearchResult**](TagSearchResult.md)
+[**TagPageResult**](TagPageResult.md)
 
 ### Authorization
 

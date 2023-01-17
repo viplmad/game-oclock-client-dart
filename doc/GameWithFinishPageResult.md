@@ -1,4 +1,4 @@
-# game_collection_client.model.GameWithFinishSearchResult
+# game_collection_client.model.GameWithFinishPageResult
 
 ## Load the model package
 ```dart

@@ -12,108 +12,100 @@ part of n2t.game_collection.client;
 class GameWithLogDTO extends GameDTO {
   /// Returns a new [GameWithLogDTO] instance.
   GameWithLogDTO({
-    required DateTime addedDatetime,
-    required bool backup,
-    String? coverFilename,
-    required String edition,
-    required int id,
+    required super.addedDatetime,
+    required super.backup,
+    super.coverFilename,
+    super.coverUrl,
+    required super.edition,
+    required super.id,
     required this.logDatetime,
     required this.logTime,
-    required String name,
-    required String notes,
-    required int rating,
-    int? releaseYear,
-    required String saveFolder,
-    required String screenshotFolder,
-    required GameStatus status,
-    required DateTime updatedDatetime,
-  }) : super(
-            addedDatetime: addedDatetime,
-            backup: backup,
-            coverFilename: coverFilename,
-            edition: edition,
-            id: id,
-            name: name,
-            notes: notes,
-            rating: rating,
-            releaseYear: releaseYear,
-            saveFolder: saveFolder,
-            screenshotFolder: screenshotFolder,
-            status: status,
-            updatedDatetime: updatedDatetime);
+    required super.name,
+    required super.notes,
+    required super.rating,
+    super.releaseYear,
+    required super.saveFolder,
+    required super.screenshotFolder,
+    required super.status,
+    required super.updatedDatetime,
+  });
 
   DateTime logDatetime;
 
   Duration logTime;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GameWithLogDTO &&
-          other.addedDatetime == addedDatetime &&
-          other.backup == backup &&
-          other.coverFilename == coverFilename &&
-          other.edition == edition &&
-          other.id == id &&
-          other.logDatetime == logDatetime &&
-          other.logTime == logTime &&
-          other.name == name &&
-          other.notes == notes &&
-          other.rating == rating &&
-          other.releaseYear == releaseYear &&
-          other.saveFolder == saveFolder &&
-          other.screenshotFolder == screenshotFolder &&
-          other.status == status &&
-          other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) => identical(this, other) || other is GameWithLogDTO &&
+     other.addedDatetime == addedDatetime &&
+     other.backup == backup &&
+     other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
+     other.edition == edition &&
+     other.id == id &&
+     other.logDatetime == logDatetime &&
+     other.logTime == logTime &&
+     other.name == name &&
+     other.notes == notes &&
+     other.rating == rating &&
+     other.releaseYear == releaseYear &&
+     other.saveFolder == saveFolder &&
+     other.screenshotFolder == screenshotFolder &&
+     other.status == status &&
+     other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (addedDatetime.hashCode) +
-      (backup.hashCode) +
-      (coverFilename == null ? 0 : coverFilename!.hashCode) +
-      (edition.hashCode) +
-      (id.hashCode) +
-      (logDatetime.hashCode) +
-      (logTime.hashCode) +
-      (name.hashCode) +
-      (notes.hashCode) +
-      (rating.hashCode) +
-      (releaseYear == null ? 0 : releaseYear!.hashCode) +
-      (saveFolder.hashCode) +
-      (screenshotFolder.hashCode) +
-      (status.hashCode) +
-      (updatedDatetime.hashCode);
+    // ignore: unnecessary_parenthesis
+    (addedDatetime.hashCode) +
+    (backup.hashCode) +
+    (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
+    (edition.hashCode) +
+    (id.hashCode) +
+    (logDatetime.hashCode) +
+    (logTime.hashCode) +
+    (name.hashCode) +
+    (notes.hashCode) +
+    (rating.hashCode) +
+    (releaseYear == null ? 0 : releaseYear!.hashCode) +
+    (saveFolder.hashCode) +
+    (screenshotFolder.hashCode) +
+    (status.hashCode) +
+    (updatedDatetime.hashCode);
 
   @override
-  String toString() =>
-      'GameWithLogDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, edition=$edition, id=$id, logDatetime=$logDatetime, logTime=$logTime, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameWithLogDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, logDatetime=$logDatetime, logTime=$logTime, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
-    json[r'backup'] = this.backup;
+      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;
     } else {
       json[r'cover_filename'] = null;
     }
-    json[r'edition'] = this.edition;
-    json[r'id'] = this.id;
-    json[r'log_datetime'] = this.logDatetime.toUtc().toIso8601String();
-    json[r'log_time'] = this.logTime.toIso8601String();
-    json[r'name'] = this.name;
-    json[r'notes'] = this.notes;
-    json[r'rating'] = this.rating;
+    if (this.coverUrl != null) {
+      json[r'cover_url'] = this.coverUrl;
+    } else {
+      json[r'cover_url'] = null;
+    }
+      json[r'edition'] = this.edition;
+      json[r'id'] = this.id;
+      json[r'log_datetime'] = this.logDatetime.toUtc().toIso8601String();
+      json[r'log_time'] = this.logTime.toIso8601String();
+      json[r'name'] = this.name;
+      json[r'notes'] = this.notes;
+      json[r'rating'] = this.rating;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-    json[r'save_folder'] = this.saveFolder;
-    json[r'screenshot_folder'] = this.screenshotFolder;
-    json[r'status'] = this.status;
-    json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'save_folder'] = this.saveFolder;
+      json[r'screenshot_folder'] = this.screenshotFolder;
+      json[r'status'] = this.status;
+      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
     return json;
   }
 
@@ -129,10 +121,8 @@ class GameWithLogDTO extends GameDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GameWithLogDTO[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GameWithLogDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GameWithLogDTO[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GameWithLogDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -141,6 +131,7 @@ class GameWithLogDTO extends GameDTO {
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
+        coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         id: mapValueOfType<int>(json, r'id')!,
         logDatetime: mapDateTime(json, r'log_datetime', '')!,
@@ -158,10 +149,7 @@ class GameWithLogDTO extends GameDTO {
     return null;
   }
 
-  static List<GameWithLogDTO>? listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GameWithLogDTO>? listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameWithLogDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -189,18 +177,12 @@ class GameWithLogDTO extends GameDTO {
   }
 
   // maps a json object with a list of GameWithLogDTO-objects as value to a dart map
-  static Map<String, List<GameWithLogDTO>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GameWithLogDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameWithLogDTO>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GameWithLogDTO.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        final value = GameWithLogDTO.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -226,3 +208,4 @@ class GameWithLogDTO extends GameDTO {
     'updated_datetime',
   };
 }
+

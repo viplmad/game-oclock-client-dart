@@ -9,8 +9,8 @@
 
 part of n2t.game_collection.client;
 
-class SearchResultDTO<T extends Object> {
-  SearchResultDTO({
+class PageResultDTO<T extends Object> {
+  PageResultDTO({
     this.data = const [],
     this.page = 0,
     this.size = 0,

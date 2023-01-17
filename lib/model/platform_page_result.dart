@@ -9,16 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
-  /// Returns a new [DLCWithFinishSearchResult] instance.
-  DLCWithFinishSearchResult({
-    List<DLCWithFinishDTO> data = const [],
-    required int page,
-    required int size,
-  }) : super(data: data, page: page, size: size);
+class PlatformPageResult extends PageResultDTO<PlatformDTO> {
+  /// Returns a new [PlatformPageResult] instance.
+  PlatformPageResult({
+    super.data = const [],
+    required super.page,
+    required super.size,
+  });
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DLCWithFinishSearchResult &&
+  bool operator ==(Object other) => identical(this, other) || other is PlatformPageResult &&
      other.data == data &&
      other.page == page &&
      other.size == size;
@@ -31,7 +31,7 @@ class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
     (size.hashCode);
 
   @override
-  String toString() => 'DLCWithFinishSearchResult[data=$data, page=$page, size=$size]';
+  String toString() => 'PlatformPageResult[data=$data, page=$page, size=$size]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
     return json;
   }
 
-  /// Returns a new [DLCWithFinishSearchResult] instance and imports its values from
+  /// Returns a new [PlatformPageResult] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DLCWithFinishSearchResult? fromJson(dynamic value) {
+  static PlatformPageResult? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,14 +53,14 @@ class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DLCWithFinishSearchResult[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DLCWithFinishSearchResult[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PlatformPageResult[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PlatformPageResult[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DLCWithFinishSearchResult(
-        data: DLCWithFinishDTO.listFromJson(json[r'data'])!,
+      return PlatformPageResult(
+        data: PlatformDTO.listFromJson(json[r'data'])!,
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,11 +68,11 @@ class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
     return null;
   }
 
-  static List<DLCWithFinishSearchResult>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <DLCWithFinishSearchResult>[];
+  static List<PlatformPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PlatformPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DLCWithFinishSearchResult.fromJson(row);
+        final value = PlatformPageResult.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +81,12 @@ class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DLCWithFinishSearchResult> mapFromJson(dynamic json) {
-    final map = <String, DLCWithFinishSearchResult>{};
+  static Map<String, PlatformPageResult> mapFromJson(dynamic json) {
+    final map = <String, PlatformPageResult>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DLCWithFinishSearchResult.fromJson(entry.value);
+        final value = PlatformPageResult.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,13 +95,13 @@ class DLCWithFinishSearchResult extends SearchResultDTO<DLCWithFinishDTO> {
     return map;
   }
 
-  // maps a json object with a list of DLCWithFinishSearchResult-objects as value to a dart map
-  static Map<String, List<DLCWithFinishSearchResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<DLCWithFinishSearchResult>>{};
+  // maps a json object with a list of PlatformPageResult-objects as value to a dart map
+  static Map<String, List<PlatformPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PlatformPageResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DLCWithFinishSearchResult.listFromJson(entry.value, growable: growable,);
+        final value = PlatformPageResult.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }

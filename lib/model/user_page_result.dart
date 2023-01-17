@@ -9,16 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class GameSearchResult extends SearchResultDTO<GameDTO> {
-  /// Returns a new [GameSearchResult] instance.
-  GameSearchResult({
-    List<GameDTO> data = const [],
-    required int page,
-    required int size,
-  }) : super(data: data, page: page, size: size);
+class UserPageResult extends PageResultDTO<UserDTO> {
+  /// Returns a new [UserPageResult] instance.
+  UserPageResult({
+    super.data = const [],
+    required super.page,
+    required super.size,
+  });
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GameSearchResult &&
+  bool operator ==(Object other) => identical(this, other) || other is UserPageResult &&
      other.data == data &&
      other.page == page &&
      other.size == size;
@@ -31,7 +31,7 @@ class GameSearchResult extends SearchResultDTO<GameDTO> {
     (size.hashCode);
 
   @override
-  String toString() => 'GameSearchResult[data=$data, page=$page, size=$size]';
+  String toString() => 'UserPageResult[data=$data, page=$page, size=$size]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class GameSearchResult extends SearchResultDTO<GameDTO> {
     return json;
   }
 
-  /// Returns a new [GameSearchResult] instance and imports its values from
+  /// Returns a new [UserPageResult] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GameSearchResult? fromJson(dynamic value) {
+  static UserPageResult? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,14 +53,14 @@ class GameSearchResult extends SearchResultDTO<GameDTO> {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GameSearchResult[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GameSearchResult[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "UserPageResult[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "UserPageResult[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GameSearchResult(
-        data: GameDTO.listFromJson(json[r'data'])!,
+      return UserPageResult(
+        data: UserDTO.listFromJson(json[r'data'])!,
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,11 +68,11 @@ class GameSearchResult extends SearchResultDTO<GameDTO> {
     return null;
   }
 
-  static List<GameSearchResult>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <GameSearchResult>[];
+  static List<UserPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UserPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GameSearchResult.fromJson(row);
+        final value = UserPageResult.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +81,12 @@ class GameSearchResult extends SearchResultDTO<GameDTO> {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GameSearchResult> mapFromJson(dynamic json) {
-    final map = <String, GameSearchResult>{};
+  static Map<String, UserPageResult> mapFromJson(dynamic json) {
+    final map = <String, UserPageResult>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GameSearchResult.fromJson(entry.value);
+        final value = UserPageResult.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,13 +95,13 @@ class GameSearchResult extends SearchResultDTO<GameDTO> {
     return map;
   }
 
-  // maps a json object with a list of GameSearchResult-objects as value to a dart map
-  static Map<String, List<GameSearchResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<GameSearchResult>>{};
+  // maps a json object with a list of UserPageResult-objects as value to a dart map
+  static Map<String, List<UserPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<UserPageResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GameSearchResult.listFromJson(entry.value, growable: growable,);
+        final value = UserPageResult.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }

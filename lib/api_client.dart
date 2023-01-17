@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -189,12 +188,12 @@ class ApiClient {
           return DLCAvailableDTO.fromJson(value);
         case 'DLCDTO':
           return DLCDTO.fromJson(value);
-        case 'DLCSearchResult':
-          return DLCSearchResult.fromJson(value);
+        case 'DLCPageResult':
+          return DLCPageResult.fromJson(value);
         case 'DLCWithFinishDTO':
           return DLCWithFinishDTO.fromJson(value);
-        case 'DLCWithFinishSearchResult':
-          return DLCWithFinishSearchResult.fromJson(value);
+        case 'DLCWithFinishPageResult':
+          return DLCWithFinishPageResult.fromJson(value);
         case 'ErrorMessage':
           return ErrorMessage.fromJson(value);
         case 'FilterDTO':
@@ -205,24 +204,26 @@ class ApiClient {
           return GameDTO.fromJson(value);
         case 'GameLogDTO':
           return GameLogDTO.fromJson(value);
-        case 'GameSearchResult':
-          return GameSearchResult.fromJson(value);
+        case 'GamePageResult':
+          return GamePageResult.fromJson(value);
         case 'GameStatus':
           return GameStatusTypeTransformer().decode(value);
         case 'GameWithFinishDTO':
           return GameWithFinishDTO.fromJson(value);
-        case 'GameWithFinishSearchResult':
-          return GameWithFinishSearchResult.fromJson(value);
+        case 'GameWithFinishPageResult':
+          return GameWithFinishPageResult.fromJson(value);
         case 'GameWithLogDTO':
           return GameWithLogDTO.fromJson(value);
-        case 'GameWithLogSearchResult':
-          return GameWithLogSearchResult.fromJson(value);
+        case 'GameWithLogPageResult':
+          return GameWithLogPageResult.fromJson(value);
         case 'GameWithLogsDTO':
           return GameWithLogsDTO.fromJson(value);
         case 'NewDLCDTO':
           return NewDLCDTO.fromJson(value);
         case 'NewGameDTO':
           return NewGameDTO.fromJson(value);
+        case 'NewPasswordDTO':
+          return NewPasswordDTO.fromJson(value);
         case 'NewPlatformDTO':
           return NewPlatformDTO.fromJson(value);
         case 'NewTagDTO':
@@ -239,8 +240,8 @@ class ApiClient {
           return PlatformAvailableDTO.fromJson(value);
         case 'PlatformDTO':
           return PlatformDTO.fromJson(value);
-        case 'PlatformSearchResult':
-          return PlatformSearchResult.fromJson(value);
+        case 'PlatformPageResult':
+          return PlatformPageResult.fromJson(value);
         case 'PlatformType':
           return PlatformTypeTypeTransformer().decode(value);
         case 'SearchDTO':
@@ -249,18 +250,18 @@ class ApiClient {
           return SearchValue.fromJson(value);
         case 'SearchValueOneOf':
           return SearchValueOneOf.fromJson(value);
-        case 'SearchValueOneOf1':
-          return SearchValueOneOf1.fromJson(value);
         case 'SortDTO':
           return SortDTO.fromJson(value);
         case 'TagDTO':
           return TagDTO.fromJson(value);
-        case 'TagSearchResult':
-          return TagSearchResult.fromJson(value);
+        case 'TagPageResult':
+          return TagPageResult.fromJson(value);
         case 'TokenResponse':
           return TokenResponse.fromJson(value);
         case 'UserDTO':
           return UserDTO.fromJson(value);
+        case 'UserPageResult':
+          return UserPageResult.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

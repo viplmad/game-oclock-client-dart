@@ -70,22 +70,19 @@ class DLCsApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  ///
-  /// * [DateTime] body (required):
-  ///   DLC finish date to be deleted
-  Future<Response> deleteDlcFinishWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> deleteDlcCoverWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/{id}/finishes'
+    final path = r'/api/v1/dlcs/{id}/cover'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -105,11 +102,8 @@ class DLCsApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  ///
-  /// * [DateTime] body (required):
-  ///   DLC finish date to be deleted
-  Future<void> deleteDlcFinish(int id, DateTime body,) async {
-    final response = await deleteDlcFinishWithHttpInfo(id, body,);
+  Future<void> deleteDlcCover(int id,) async {
+    final response = await deleteDlcCoverWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -167,7 +161,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCDTO',) as DLCDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -222,123 +216,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameDTO',) as GameDTO;
 
     }
-    throw ApiException(500, "Object was null");
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   DLC id
-  Future<Response> getDlcFinishesWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/{id}/finishes'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   DLC id
-  Future<List<DateTime>> getDlcFinishes(int id,) async {
-    final response = await getDlcFinishesWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<DateTime>') as List)
-        .cast<DateTime>()
-        .toList();
-
-    }
-    throw ApiException(500, "Object was null");
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   DLC id
-  Future<Response> getDlcPlatformsWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/{id}/platforms'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   DLC id
-  Future<List<PlatformAvailableDTO>> getDlcPlatforms(int id,) async {
-    final response = await getDlcPlatformsWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<PlatformAvailableDTO>') as List)
-        .cast<PlatformAvailableDTO>()
-        .toList();
-
-    }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -388,7 +266,7 @@ class DLCsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<DLCSearchResult> getDlcs(SearchDTO searchDTO, { String? q, }) async {
+  Future<DLCPageResult> getDlcs(SearchDTO searchDTO, { String? q, }) async {
     final response = await getDlcsWithHttpInfo(searchDTO,  q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -397,10 +275,10 @@ class DLCsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCSearchResult',) as DLCSearchResult;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCPageResult',) as DLCPageResult;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -410,10 +288,10 @@ class DLCsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   DLC id
-  Future<Response> getFirstDlcFinishWithHttpInfo(int id,) async {
+  ///   Game id
+  Future<Response> getGameDlcsWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/{id}/finishes/first'
+    final path = r'/api/v1/games/{id}/dlcs'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -442,63 +320,113 @@ class DLCsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
+  ///   Game id
+  Future<List<DLCDTO>> getGameDlcs(int id,) async {
+    final response = await getGameDlcsWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<DLCDTO>') as List)
+        .cast<DLCDTO>()
+        .toList();
+
+    }
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  Future<Response> getPlatformDlcsWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/platforms/{id}/dlcs'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  Future<List<DLCAvailableDTO>> getPlatformDlcs(int id,) async {
+    final response = await getPlatformDlcsWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<DLCAvailableDTO>') as List)
+        .cast<DLCAvailableDTO>()
+        .toList();
+
+    }
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
   ///   DLC id
-  Future<DateTime> getFirstDlcFinish(int id,) async {
-    final response = await getFirstDlcFinishWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DateTime',) as DateTime;
-
-    }
-    throw ApiException(500, "Object was null");
-  }
-
   ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [DateTime] startDate:
-  ///
-  /// * [DateTime] endDate:
-  ///
-  /// * [String] q:
-  Future<Response> getFirstFinishedDlcsWithHttpInfo(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
+  /// * [int] otherId (required):
+  ///   Game id
+  Future<Response> linkDlcGameWithHttpInfo(int id, int otherId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/finished/first';
+    final path = r'/api/v1/dlcs/{id}/base-game/{other_id}'
+      .replaceAll('{id}', id.toString())
+      .replaceAll('{other_id}', otherId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = searchDTO;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (startDate != null) {
-      queryParams.addAll(_queryParams('', 'start_date', startDate));
-    }
-    if (endDate != null) {
-      queryParams.addAll(_queryParams('', 'end_date', endDate));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
-    }
-
-    const contentTypes = <String>['application/json'];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
       path,
-      'POST',
+      'PUT',
       queryParams,
       postBody,
       headerParams,
@@ -511,103 +439,16 @@ class DLCsApi {
   ///
   /// Parameters:
   ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
+  /// * [int] id (required):
+  ///   DLC id
   ///
-  /// * [DateTime] startDate:
-  ///
-  /// * [DateTime] endDate:
-  ///
-  /// * [String] q:
-  Future<DLCWithFinishSearchResult> getFirstFinishedDlcs(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
-    final response = await getFirstFinishedDlcsWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
+  /// * [int] otherId (required):
+  ///   Game id
+  Future<void> linkDlcGame(int id, int otherId,) async {
+    final response = await linkDlcGameWithHttpInfo(id, otherId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCWithFinishSearchResult',) as DLCWithFinishSearchResult;
-
-    }
-    throw ApiException(500, "Object was null");
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [DateTime] startDate:
-  ///
-  /// * [DateTime] endDate:
-  ///
-  /// * [String] q:
-  Future<Response> getLastFinishedDlcsWithHttpInfo(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/finished/last';
-
-    // ignore: prefer_final_locals
-    Object? postBody = searchDTO;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (startDate != null) {
-      queryParams.addAll(_queryParams('', 'start_date', startDate));
-    }
-    if (endDate != null) {
-      queryParams.addAll(_queryParams('', 'end_date', endDate));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
-    }
-
-    const contentTypes = <String>['application/json'];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [DateTime] startDate:
-  ///
-  /// * [DateTime] endDate:
-  ///
-  /// * [String] q:
-  Future<DLCWithFinishSearchResult> getLastFinishedDlcs(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
-    final response = await getLastFinishedDlcsWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCWithFinishSearchResult',) as DLCWithFinishSearchResult;
-
-    }
-    throw ApiException(500, "Object was null");
   }
 
   ///
@@ -622,9 +463,9 @@ class DLCsApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [DateTime] body (required):
+  /// * [String] body (required):
   ///   Available date
-  Future<Response> linkDlcPlatformWithHttpInfo(int id, int otherId, DateTime body,) async {
+  Future<Response> linkDlcPlatformWithHttpInfo(int id, int otherId, String body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/platforms/{other_id}'
       .replaceAll('{id}', id.toString())
@@ -661,9 +502,9 @@ class DLCsApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [DateTime] body (required):
+  /// * [String] body (required):
   ///   Available date
-  Future<void> linkDlcPlatform(int id, int otherId, DateTime body,) async {
+  Future<void> linkDlcPlatform(int id, int otherId, String body,) async {
     final response = await linkDlcPlatformWithHttpInfo(id, otherId, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -721,7 +562,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCDTO',) as DLCDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -732,23 +573,25 @@ class DLCsApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  ///
-  /// * [DateTime] body (required):
-  ///   DLC finish date to be added
-  Future<Response> postDlcFinishWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> postDlcCoverWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/dlcs/{id}/finishes'
+    final path = r'/api/v1/dlcs/{id}/cover'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    const contentTypes = <String>['multipart/form-data'];
 
+    bool hasFields = false;
+    final mp = MultipartRequest('POST', Uri.parse(path));
+    if (hasFields) {
+      postBody = mp;
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -767,11 +610,8 @@ class DLCsApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  ///
-  /// * [DateTime] body (required):
-  ///   DLC finish date to be added
-  Future<void> postDlcFinish(int id, DateTime body,) async {
-    final response = await postDlcFinishWithHttpInfo(id, body,);
+  Future<void> postDlcCover(int id,) async {
+    final response = await postDlcCoverWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -835,7 +675,107 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCDTO',) as DLCDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   DLC id
+  ///
+  /// * [String] body (required):
+  ///   New dlc cover name
+  Future<Response> putDlcCoverWithHttpInfo(int id, String body,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/dlcs/{id}/cover'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody = body;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   DLC id
+  ///
+  /// * [String] body (required):
+  ///   New dlc cover name
+  Future<void> putDlcCover(int id, String body,) async {
+    final response = await putDlcCoverWithHttpInfo(id, body,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   DLC id
+  Future<Response> unlinkDlcGameWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/dlcs/{id}/base-game'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   DLC id
+  Future<void> unlinkDlcGame(int id,) async {
+    final response = await unlinkDlcGameWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
   }
 
   ///

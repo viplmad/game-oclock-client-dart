@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,10 +17,10 @@ void main() {
   // final instance = HealthCheckApi();
 
   group('tests for HealthCheckApi', () {
+    // 
     //
-    //
-    //Future isAlive() async
-    test('test isAlive', () async {
+    //Future health() async
+    test('test health', () async {
       // TODO
     });
 

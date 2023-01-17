@@ -70,6 +70,169 @@ class PlatformsApi {
   ///
   /// * [int] id (required):
   ///   Platform id
+  Future<Response> deletePlatformIconWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/platforms/{id}/icon'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  Future<void> deletePlatformIcon(int id,) async {
+    final response = await deletePlatformIconWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   DLC id
+  Future<Response> getDlcPlatformsWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/dlcs/{id}/platforms'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   DLC id
+  Future<List<PlatformAvailableDTO>> getDlcPlatforms(int id,) async {
+    final response = await getDlcPlatformsWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<PlatformAvailableDTO>') as List)
+        .cast<PlatformAvailableDTO>()
+        .toList();
+
+    }
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Game id
+  Future<Response> getGamePlatformsWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/games/{id}/platforms'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Game id
+  Future<List<PlatformAvailableDTO>> getGamePlatforms(int id,) async {
+    final response = await getGamePlatformsWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<PlatformAvailableDTO>') as List)
+        .cast<PlatformAvailableDTO>()
+        .toList();
+
+    }
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
   Future<Response> getPlatformWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}'
@@ -114,123 +277,7 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformDTO',) as PlatformDTO;
 
     }
-    throw ApiException(500, "Object was null");
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Platform id
-  Future<Response> getPlatformDlcsWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/platforms/{id}/dlcs'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Platform id
-  Future<List<DLCAvailableDTO>> getPlatformDlcs(int id,) async {
-    final response = await getPlatformDlcsWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<DLCAvailableDTO>') as List)
-        .cast<DLCAvailableDTO>()
-        .toList();
-
-    }
-    throw ApiException(500, "Object was null");
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Platform id
-  Future<Response> getPlatformGamesWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/platforms/{id}/games'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Platform id
-  Future<List<GameAvailableDTO>> getPlatformGames(int id,) async {
-    final response = await getPlatformGamesWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<GameAvailableDTO>') as List)
-        .cast<GameAvailableDTO>()
-        .toList();
-
-    }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -280,7 +327,7 @@ class PlatformsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PlatformSearchResult> getPlatforms(SearchDTO searchDTO, { String? q, }) async {
+  Future<PlatformPageResult> getPlatforms(SearchDTO searchDTO, { String? q, }) async {
     final response = await getPlatformsWithHttpInfo(searchDTO,  q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -289,10 +336,10 @@ class PlatformsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformSearchResult',) as PlatformSearchResult;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformPageResult',) as PlatformPageResult;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -346,7 +393,59 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformDTO',) as PlatformDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  Future<Response> postPlatformIconWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/platforms/{id}/icon'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['multipart/form-data'];
+
+    bool hasFields = false;
+    final mp = MultipartRequest('POST', Uri.parse(path));
+    if (hasFields) {
+      postBody = mp;
+    }
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  Future<void> postPlatformIcon(int id,) async {
+    final response = await postPlatformIconWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
   }
 
   ///
@@ -407,6 +506,59 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformDTO',) as PlatformDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  ///
+  /// * [String] body (required):
+  ///   New platform filename
+  Future<Response> putPlatformIconWithHttpInfo(int id, String body,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/platforms/{id}/icon'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody = body;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Platform id
+  ///
+  /// * [String] body (required):
+  ///   New platform filename
+  Future<void> putPlatformIcon(int id, String body,) async {
+    final response = await putPlatformIconWithHttpInfo(id, body,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
   }
 }

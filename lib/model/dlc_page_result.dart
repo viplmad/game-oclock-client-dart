@@ -9,16 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class DLCSearchResult extends SearchResultDTO<DLCDTO> {
-  /// Returns a new [DLCSearchResult] instance.
-  DLCSearchResult({
-    List<DLCDTO> data = const [],
-    required int page,
-    required int size,
-  }) : super(data: data, page: page, size: size);
+class DLCPageResult extends PageResultDTO<DLCDTO> {
+  /// Returns a new [DLCPageResult] instance.
+  DLCPageResult({
+    super.data = const [],
+    required super.page,
+    required super.size,
+  });
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DLCSearchResult &&
+  bool operator ==(Object other) => identical(this, other) || other is DLCPageResult &&
      other.data == data &&
      other.page == page &&
      other.size == size;
@@ -31,7 +31,7 @@ class DLCSearchResult extends SearchResultDTO<DLCDTO> {
     (size.hashCode);
 
   @override
-  String toString() => 'DLCSearchResult[data=$data, page=$page, size=$size]';
+  String toString() => 'DLCPageResult[data=$data, page=$page, size=$size]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -41,10 +41,10 @@ class DLCSearchResult extends SearchResultDTO<DLCDTO> {
     return json;
   }
 
-  /// Returns a new [DLCSearchResult] instance and imports its values from
+  /// Returns a new [DLCPageResult] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DLCSearchResult? fromJson(dynamic value) {
+  static DLCPageResult? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -53,13 +53,13 @@ class DLCSearchResult extends SearchResultDTO<DLCDTO> {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DLCSearchResult[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DLCSearchResult[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DLCPageResult[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DLCPageResult[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DLCSearchResult(
+      return DLCPageResult(
         data: DLCDTO.listFromJson(json[r'data'])!,
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
@@ -68,11 +68,11 @@ class DLCSearchResult extends SearchResultDTO<DLCDTO> {
     return null;
   }
 
-  static List<DLCSearchResult>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <DLCSearchResult>[];
+  static List<DLCPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DLCPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DLCSearchResult.fromJson(row);
+        final value = DLCPageResult.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +81,12 @@ class DLCSearchResult extends SearchResultDTO<DLCDTO> {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DLCSearchResult> mapFromJson(dynamic json) {
-    final map = <String, DLCSearchResult>{};
+  static Map<String, DLCPageResult> mapFromJson(dynamic json) {
+    final map = <String, DLCPageResult>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DLCSearchResult.fromJson(entry.value);
+        final value = DLCPageResult.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,13 +95,13 @@ class DLCSearchResult extends SearchResultDTO<DLCDTO> {
     return map;
   }
 
-  // maps a json object with a list of DLCSearchResult-objects as value to a dart map
-  static Map<String, List<DLCSearchResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<DLCSearchResult>>{};
+  // maps a json object with a list of DLCPageResult-objects as value to a dart map
+  static Map<String, List<DLCPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<DLCPageResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DLCSearchResult.listFromJson(entry.value, growable: growable,);
+        final value = DLCPageResult.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }

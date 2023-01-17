@@ -9,9 +9,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changePassword**](UsersApi.md#changepassword) | **PUT** /api/v1/change-password | 
+[**changePassword**](UsersApi.md#changepassword) | **PUT** /api/v1/myself/change-password | 
+[**deleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/v1/users/{id} | 
 [**getCurrentUser**](UsersApi.md#getcurrentuser) | **GET** /api/v1/myself | 
+[**getUser**](UsersApi.md#getuser) | **GET** /api/v1/users/{id} | 
+[**getUsers**](UsersApi.md#getusers) | **POST** /api/v1/users/list | 
 [**postUser**](UsersApi.md#postuser) | **POST** /api/v1/users | 
+[**putUser**](UsersApi.md#putuser) | **PUT** /api/v1/users/{id} | 
 
 
 # **changePassword**
@@ -62,6 +66,54 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **deleteUser**
+> deleteUser(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UsersApi();
+final id = 56; // int | User id
+
+try {
+    api_instance.deleteUser(id);
+} catch (e) {
+    print('Exception when calling UsersApi->deleteUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| User id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getCurrentUser**
 > UserDTO getCurrentUser()
 
@@ -107,6 +159,106 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getUser**
+> UserDTO getUser(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UsersApi();
+final id = 56; // int | User id
+
+try {
+    final result = api_instance.getUser(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling UsersApi->getUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| User id | 
+
+### Return type
+
+[**UserDTO**](UserDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getUsers**
+> UserPageResult getUsers(searchDTO, q)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UsersApi();
+final searchDTO = SearchDTO(); // SearchDTO | Query
+final q = q_example; // String | 
+
+try {
+    final result = api_instance.getUsers(searchDTO, q);
+    print(result);
+} catch (e) {
+    print('Exception when calling UsersApi->getUsers: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
+ **q** | **String**|  | [optional] 
+
+### Return type
+
+[**UserPageResult**](UserPageResult.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **postUser**
 > UserDTO postUser(newUserDTO)
 
@@ -140,6 +292,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **newUserDTO** | [**NewUserDTO**](NewUserDTO.md)| User to be created | 
+
+### Return type
+
+[**UserDTO**](UserDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **putUser**
+> UserDTO putUser(id, newUserDTO)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = UsersApi();
+final id = 56; // int | User id
+final newUserDTO = NewUserDTO(); // NewUserDTO | User to be updated
+
+try {
+    final result = api_instance.putUser(id, newUserDTO);
+    print(result);
+} catch (e) {
+    print('Exception when calling UsersApi->putUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| User id | 
+ **newUserDTO** | [**NewUserDTO**](NewUserDTO.md)| User to be updated | 
 
 ### Return type
 

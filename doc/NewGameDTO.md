@@ -9,7 +9,6 @@ import 'package:game_collection_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **backup** | **bool** |  | [optional] 
-**coverFilename** | **String** |  | [optional] 
 **edition** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **notes** | **String** |  | [optional] 

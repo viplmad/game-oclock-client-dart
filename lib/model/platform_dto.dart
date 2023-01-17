@@ -14,6 +14,7 @@ class PlatformDTO extends PrimaryModel {
   PlatformDTO({
     required this.addedDatetime,
     this.iconFilename,
+    this.iconUrl,
     required super.id,
     required this.name,
     this.type,
@@ -30,6 +31,14 @@ class PlatformDTO extends PrimaryModel {
   ///
   String? iconFilename;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? iconUrl;
+
   String name;
 
   ///
@@ -42,17 +51,13 @@ class PlatformDTO extends PrimaryModel {
 
   DateTime updatedDatetime;
 
-  String? iconUrl;
-
   NewPlatformDTO newWith({
-    String? iconFilename,
     String? name,
     PlatformType? type,
   }) {
     return NewPlatformDTO(
-      iconFilename: iconFilename ?? this.iconFilename,
       name: name ?? this.name,
-      ptype: type ?? this.type,
+      type: type ?? this.type,
     );
   }
 
@@ -60,6 +65,7 @@ class PlatformDTO extends PrimaryModel {
   bool operator ==(Object other) => identical(this, other) || other is PlatformDTO &&
      other.addedDatetime == addedDatetime &&
      other.iconFilename == iconFilename &&
+     other.iconUrl == iconUrl &&
      other.id == id &&
      other.name == name &&
      other.type == type &&
@@ -70,13 +76,14 @@ class PlatformDTO extends PrimaryModel {
     // ignore: unnecessary_parenthesis
     (addedDatetime.hashCode) +
     (iconFilename == null ? 0 : iconFilename!.hashCode) +
+    (iconUrl == null ? 0 : iconUrl!.hashCode) +
     (id.hashCode) +
     (name.hashCode) +
     (type == null ? 0 : type!.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'PlatformDTO[addedDatetime=$addedDatetime, iconFilename=$iconFilename, id=$id, name=$name, type=$type, updatedDatetime=$updatedDatetime]';
+  String toString() => 'PlatformDTO[addedDatetime=$addedDatetime, iconFilename=$iconFilename, iconUrl=$iconUrl, id=$id, name=$name, type=$type, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -85,6 +92,11 @@ class PlatformDTO extends PrimaryModel {
       json[r'icon_filename'] = this.iconFilename;
     } else {
       json[r'icon_filename'] = null;
+    }
+    if (this.iconUrl != null) {
+      json[r'icon_url'] = this.iconUrl;
+    } else {
+      json[r'icon_url'] = null;
     }
       json[r'id'] = this.id;
       json[r'name'] = this.name;
@@ -118,6 +130,7 @@ class PlatformDTO extends PrimaryModel {
       return PlatformDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         iconFilename: mapValueOfType<String>(json, r'icon_filename'),
+        iconUrl: mapValueOfType<String>(json, r'icon_url'),
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         type: PlatformType.fromJson(json[r'type']),

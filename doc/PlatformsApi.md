@@ -10,12 +10,15 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deletePlatform**](PlatformsApi.md#deleteplatform) | **DELETE** /api/v1/platforms/{id} | 
+[**deletePlatformIcon**](PlatformsApi.md#deleteplatformicon) | **DELETE** /api/v1/platforms/{id}/icon | 
+[**getDlcPlatforms**](PlatformsApi.md#getdlcplatforms) | **GET** /api/v1/dlcs/{id}/platforms | 
+[**getGamePlatforms**](PlatformsApi.md#getgameplatforms) | **GET** /api/v1/games/{id}/platforms | 
 [**getPlatform**](PlatformsApi.md#getplatform) | **GET** /api/v1/platforms/{id} | 
-[**getPlatformDlcs**](PlatformsApi.md#getplatformdlcs) | **GET** /api/v1/platforms/{id}/dlcs | 
-[**getPlatformGames**](PlatformsApi.md#getplatformgames) | **GET** /api/v1/platforms/{id}/games | 
 [**getPlatforms**](PlatformsApi.md#getplatforms) | **POST** /api/v1/platforms/list | 
 [**postPlatform**](PlatformsApi.md#postplatform) | **POST** /api/v1/platforms | 
+[**postPlatformIcon**](PlatformsApi.md#postplatformicon) | **POST** /api/v1/platforms/{id}/icon | 
 [**putPlatform**](PlatformsApi.md#putplatform) | **PUT** /api/v1/platforms/{id} | 
+[**putPlatformIcon**](PlatformsApi.md#putplatformicon) | **PUT** /api/v1/platforms/{id}/icon | 
 
 
 # **deletePlatform**
@@ -54,6 +57,152 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deletePlatformIcon**
+> deletePlatformIcon(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = PlatformsApi();
+final id = 56; // int | Platform id
+
+try {
+    api_instance.deletePlatformIcon(id);
+} catch (e) {
+    print('Exception when calling PlatformsApi->deletePlatformIcon: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Platform id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDlcPlatforms**
+> List<PlatformAvailableDTO> getDlcPlatforms(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = PlatformsApi();
+final id = 56; // int | DLC id
+
+try {
+    final result = api_instance.getDlcPlatforms(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling PlatformsApi->getDlcPlatforms: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| DLC id | 
+
+### Return type
+
+[**List<PlatformAvailableDTO>**](PlatformAvailableDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGamePlatforms**
+> List<PlatformAvailableDTO> getGamePlatforms(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = PlatformsApi();
+final id = 56; // int | Game id
+
+try {
+    final result = api_instance.getGamePlatforms(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling PlatformsApi->getGamePlatforms: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Game id | 
+
+### Return type
+
+[**List<PlatformAvailableDTO>**](PlatformAvailableDTO.md)
 
 ### Authorization
 
@@ -115,106 +264,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getPlatformDlcs**
-> List<DLCAvailableDTO> getPlatformDlcs(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
-
-try {
-    final result = api_instance.getPlatformDlcs(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling PlatformsApi->getPlatformDlcs: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
-
-### Return type
-
-[**List<DLCAvailableDTO>**](DLCAvailableDTO.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getPlatformGames**
-> List<GameAvailableDTO> getPlatformGames(id)
-
-
-
-
-
-### Example
-```dart
-import 'package:game_collection_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
-
-try {
-    final result = api_instance.getPlatformGames(id);
-    print(result);
-} catch (e) {
-    print('Exception when calling PlatformsApi->getPlatformGames: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
-
-### Return type
-
-[**List<GameAvailableDTO>**](GameAvailableDTO.md)
-
-### Authorization
-
-[bearer_token](../README.md#bearer_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getPlatforms**
-> PlatformSearchResult getPlatforms(searchDTO, q)
+> PlatformPageResult getPlatforms(searchDTO, q)
 
 
 
@@ -251,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformSearchResult**](PlatformSearchResult.md)
+[**PlatformPageResult**](PlatformPageResult.md)
 
 ### Authorization
 
@@ -313,6 +364,54 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **postPlatformIcon**
+> postPlatformIcon(id)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = PlatformsApi();
+final id = 56; // int | Platform id
+
+try {
+    api_instance.postPlatformIcon(id);
+} catch (e) {
+    print('Exception when calling PlatformsApi->postPlatformIcon: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Platform id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **putPlatform**
 > PlatformDTO putPlatform(id, newPlatformDTO)
 
@@ -352,6 +451,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PlatformDTO**](PlatformDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **putPlatformIcon**
+> putPlatformIcon(id, body)
+
+
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = PlatformsApi();
+final id = 56; // int | Platform id
+final body = String(); // String | New platform filename
+
+try {
+    api_instance.putPlatformIcon(id, body);
+} catch (e) {
+    print('Exception when calling PlatformsApi->putPlatformIcon: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Platform id | 
+ **body** | **String**| New platform filename | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

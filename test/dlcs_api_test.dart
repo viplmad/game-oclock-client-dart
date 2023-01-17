@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,105 +17,105 @@ void main() {
   // final instance = DLCsApi();
 
   group('tests for DLCsApi', () {
-    //
+    // 
     //
     //Future deleteDlc(int id) async
     test('test deleteDlc', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future deleteDlcFinish(int id, DateTime body) async
-    test('test deleteDlcFinish', () async {
+    //Future deleteDlcCover(int id) async
+    test('test deleteDlcCover', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<DLCDTO> getDlc(int id) async
     test('test getDlc', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<GameDTO> getDlcBaseGame(int id) async
     test('test getDlcBaseGame', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<List<DateTime>> getDlcFinishes(int id) async
-    test('test getDlcFinishes', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<List<PlatformAvailableDTO>> getDlcPlatforms(int id) async
-    test('test getDlcPlatforms', () async {
-      // TODO
-    });
-
-    //
-    //
-    //Future<DLCSearchResult> getDlcs(SearchDTO searchDTO, { String q }) async
+    //Future<DLCPageResult> getDlcs(SearchDTO searchDTO, { String q }) async
     test('test getDlcs', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<DateTime> getFirstDlcFinish(int id) async
-    test('test getFirstDlcFinish', () async {
+    //Future<List<DLCDTO>> getGameDlcs(int id) async
+    test('test getGameDlcs', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<DLCWithFinishSearchResult> getFirstFinishedDlcs(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
-    test('test getFirstFinishedDlcs', () async {
+    //Future<List<DLCAvailableDTO>> getPlatformDlcs(int id) async
+    test('test getPlatformDlcs', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future<DLCWithFinishSearchResult> getLastFinishedDlcs(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
-    test('test getLastFinishedDlcs', () async {
+    //Future linkDlcGame(int id, int otherId) async
+    test('test linkDlcGame', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future linkDlcPlatform(int id, int otherId, DateTime body) async
+    //Future linkDlcPlatform(int id, int otherId, String body) async
     test('test linkDlcPlatform', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<DLCDTO> postDlc(NewDLCDTO newDLCDTO) async
     test('test postDlc', () async {
       // TODO
     });
 
+    // 
     //
-    //
-    //Future postDlcFinish(int id, DateTime body) async
-    test('test postDlcFinish', () async {
+    //Future postDlcCover(int id) async
+    test('test postDlcCover', () async {
       // TODO
     });
 
-    //
+    // 
     //
     //Future<DLCDTO> putDlc(int id, NewDLCDTO newDLCDTO) async
     test('test putDlc', () async {
       // TODO
     });
 
+    // 
     //
+    //Future putDlcCover(int id, String body) async
+    test('test putDlcCover', () async {
+      // TODO
+    });
+
+    // 
+    //
+    //Future unlinkDlcGame(int id) async
+    test('test unlinkDlcGame', () async {
+      // TODO
+    });
+
+    // 
     //
     //Future unlinkDlcPlatform(int id, int otherId) async
     test('test unlinkDlcPlatform', () async {

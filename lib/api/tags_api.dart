@@ -69,6 +69,64 @@ class TagsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
+  ///   Game id
+  Future<Response> getGameTagsWithHttpInfo(int id,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/games/{id}/tags'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
+  ///   Game id
+  Future<List<TagDTO>> getGameTags(int id,) async {
+    final response = await getGameTagsWithHttpInfo(id,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<TagDTO>') as List)
+        .cast<TagDTO>()
+        .toList();
+
+    }
+    throw ApiException.unreachabe();
+  }
+
+  ///
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] id (required):
   ///   Tag id
   Future<Response> getTagWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
@@ -114,65 +172,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TagDTO',) as TagDTO;
 
     }
-    throw ApiException(500, "Object was null");
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Tag id
-  Future<Response> getTagGamesWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/tags/{id}/games'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Tag id
-  Future<List<GameDTO>> getTagGames(int id,) async {
-    final response = await getTagGamesWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<GameDTO>') as List)
-        .cast<GameDTO>()
-        .toList();
-
-    }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -222,7 +222,7 @@ class TagsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<TagSearchResult> getTags(SearchDTO searchDTO, { String? q, }) async {
+  Future<TagPageResult> getTags(SearchDTO searchDTO, { String? q, }) async {
     final response = await getTagsWithHttpInfo(searchDTO,  q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -231,10 +231,10 @@ class TagsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TagSearchResult',) as TagSearchResult;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TagPageResult',) as TagPageResult;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -288,7 +288,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TagDTO',) as TagDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 
   ///
@@ -349,6 +349,6 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TagDTO',) as TagDTO;
 
     }
-    throw ApiException(500, "Object was null");
+    throw ApiException.unreachabe();
   }
 }

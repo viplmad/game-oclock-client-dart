@@ -1,4 +1,4 @@
-# game_collection_client.model.GameWithLogSearchResult
+# game_collection_client.model.GamePageResult
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:game_collection_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<GameWithLogDTO>**](GameWithLogDTO.md) |  | [default to const []]
+**data** | [**List<GameDTO>**](GameDTO.md) |  | [default to const []]
 **page** | **int** |  | 
 **size** | **int** |  | 
 

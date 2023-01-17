@@ -1,4 +1,4 @@
-# game_collection_client.model.PlatformSearchResult
+# game_collection_client.model.DLCWithFinishPageResult
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:game_collection_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<PlatformDTO>**](PlatformDTO.md) |  | [default to const []]
+**data** | [**List<DLCWithFinishDTO>**](DLCWithFinishDTO.md) |  | [default to const []]
 **page** | **int** |  | 
 **size** | **int** |  | 
 
