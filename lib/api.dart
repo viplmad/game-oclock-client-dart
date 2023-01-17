@@ -30,6 +30,7 @@ part 'api/auth_api.dart';
 part 'api/dlc_finish_api.dart';
 part 'api/dlcs_api.dart';
 part 'api/game_finish_api.dart';
+part 'api/game_logs_api.dart';
 part 'api/games_api.dart';
 part 'api/health_check_api.dart';
 part 'api/platforms_api.dart';

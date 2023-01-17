@@ -439,7 +439,7 @@ import 'package:game_collection_client/api.dart';
 final api_instance = DLCsApi();
 final id = 56; // int | DLC id
 final otherId = 56; // int | Platform id
-final body = String(); // String | Available date
+final body = DateTime(); // DateTime | Available date
 
 try {
     api_instance.linkDlcPlatform(id, otherId, body);
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
  **otherId** | **int**| Platform id | 
- **body** | **String**| Available date | 
+ **body** | **DateTime**| Available date | 
 
 ### Return type
 

@@ -117,135 +117,6 @@ class GamesApi {
   ///
   /// * [int] id (required):
   ///   Game id
-  ///
-  /// * [String] body (required):
-  ///   Game log datetime to be deleted
-  Future<Response> deleteGameLogWithHttpInfo(int id, String body,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/{id}/logs'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody = body;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>['application/json'];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'DELETE',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  ///
-  /// * [String] body (required):
-  ///   Game log datetime to be deleted
-  Future<void> deleteGameLog(int id, String body,) async {
-    final response = await deleteGameLogWithHttpInfo(id, body,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [String] startDate:
-  ///
-  /// * [String] endDate:
-  ///
-  /// * [String] q:
-  Future<Response> getFirstPlayedGamesWithHttpInfo(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/played/first';
-
-    // ignore: prefer_final_locals
-    Object? postBody = searchDTO;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (startDate != null) {
-      queryParams.addAll(_queryParams('', 'start_date', startDate));
-    }
-    if (endDate != null) {
-      queryParams.addAll(_queryParams('', 'end_date', endDate));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
-    }
-
-    const contentTypes = <String>['application/json'];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [String] startDate:
-  ///
-  /// * [String] endDate:
-  ///
-  /// * [String] q:
-  Future<GameWithLogPageResult> getFirstPlayedGames(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
-    final response = await getFirstPlayedGamesWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameWithLogPageResult',) as GameWithLogPageResult;
-
-    }
-    throw ApiException.unreachabe();
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
   Future<Response> getGameWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}'
@@ -290,65 +161,7 @@ class GamesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameDTO',) as GameDTO;
 
     }
-    throw ApiException.unreachabe();
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  Future<Response> getGameLogsWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/{id}/logs'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  Future<List<GameLogDTO>> getGameLogs(int id,) async {
-    final response = await getGameLogsWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<GameLogDTO>') as List)
-        .cast<GameLogDTO>()
-        .toList();
-
-    }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -410,83 +223,7 @@ class GamesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GamePageResult',) as GamePageResult;
 
     }
-    throw ApiException.unreachabe();
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [String] startDate:
-  ///
-  /// * [String] endDate:
-  ///
-  /// * [String] q:
-  Future<Response> getLastPlayedGamesWithHttpInfo(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/played/last';
-
-    // ignore: prefer_final_locals
-    Object? postBody = searchDTO;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (startDate != null) {
-      queryParams.addAll(_queryParams('', 'start_date', startDate));
-    }
-    if (endDate != null) {
-      queryParams.addAll(_queryParams('', 'end_date', endDate));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
-    }
-
-    const contentTypes = <String>['application/json'];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [SearchDTO] searchDTO (required):
-  ///   Query
-  ///
-  /// * [String] startDate:
-  ///
-  /// * [String] endDate:
-  ///
-  /// * [String] q:
-  Future<GameWithLogPageResult> getLastPlayedGames(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
-    final response = await getLastPlayedGamesWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameWithLogPageResult',) as GameWithLogPageResult;
-
-    }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -544,69 +281,7 @@ class GamesApi {
         .toList();
 
     }
-    throw ApiException.unreachabe();
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] startDate (required):
-  ///
-  /// * [String] endDate (required):
-  Future<Response> getPlayedGamesWithHttpInfo(String startDate, String endDate,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/played';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-      queryParams.addAll(_queryParams('', 'start_date', startDate));
-      queryParams.addAll(_queryParams('', 'end_date', endDate));
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [String] startDate (required):
-  ///
-  /// * [String] endDate (required):
-  Future<List<GameWithLogsDTO>> getPlayedGames(String startDate, String endDate,) async {
-    final response = await getPlayedGamesWithHttpInfo(startDate, endDate,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<GameWithLogsDTO>') as List)
-        .cast<GameWithLogsDTO>()
-        .toList();
-
-    }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -664,62 +339,7 @@ class GamesApi {
         .toList();
 
     }
-    throw ApiException.unreachabe();
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  Future<Response> getTotalGameLogsWithHttpInfo(int id,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/{id}/logs/total'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  Future<String> getTotalGameLogs(int id,) async {
-    final response = await getTotalGameLogsWithHttpInfo(id,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-
-    }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -734,9 +354,9 @@ class GamesApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Available date
-  Future<Response> linkGamePlatformWithHttpInfo(int id, int otherId, String body,) async {
+  Future<Response> linkGamePlatformWithHttpInfo(int id, int otherId, DateTime body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/platforms/{other_id}'
       .replaceAll('{id}', id.toString())
@@ -773,9 +393,9 @@ class GamesApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Available date
-  Future<void> linkGamePlatform(int id, int otherId, String body,) async {
+  Future<void> linkGamePlatform(int id, int otherId, DateTime body,) async {
     final response = await linkGamePlatformWithHttpInfo(id, otherId, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -887,7 +507,7 @@ class GamesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameDTO',) as GameDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -951,59 +571,6 @@ class GamesApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [GameLogDTO] gameLogDTO (required):
-  ///   Game log to be added
-  Future<Response> postGameLogWithHttpInfo(int id, GameLogDTO gameLogDTO,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/{id}/logs'
-      .replaceAll('{id}', id.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody = gameLogDTO;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>['application/json'];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  ///
-  /// * [GameLogDTO] gameLogDTO (required):
-  ///   Game log to be added
-  Future<void> postGameLog(int id, GameLogDTO gameLogDTO,) async {
-    final response = await postGameLogWithHttpInfo(id, gameLogDTO,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-  }
-
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] id (required):
-  ///   Game id
-  ///
   /// * [NewGameDTO] newGameDTO (required):
   ///   Game to be updated
   Future<Response> putGameWithHttpInfo(int id, NewGameDTO newGameDTO,) async {
@@ -1053,7 +620,7 @@ class GamesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameDTO',) as GameDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///

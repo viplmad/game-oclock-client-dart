@@ -161,7 +161,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCDTO',) as DLCDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -216,7 +216,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameDTO',) as GameDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -278,7 +278,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCPageResult',) as DLCPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -336,7 +336,7 @@ class DLCsApi {
         .toList();
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -394,7 +394,7 @@ class DLCsApi {
         .toList();
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -463,9 +463,9 @@ class DLCsApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Available date
-  Future<Response> linkDlcPlatformWithHttpInfo(int id, int otherId, String body,) async {
+  Future<Response> linkDlcPlatformWithHttpInfo(int id, int otherId, DateTime body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/platforms/{other_id}'
       .replaceAll('{id}', id.toString())
@@ -502,9 +502,9 @@ class DLCsApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Available date
-  Future<void> linkDlcPlatform(int id, int otherId, String body,) async {
+  Future<void> linkDlcPlatform(int id, int otherId, DateTime body,) async {
     final response = await linkDlcPlatformWithHttpInfo(id, otherId, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -562,7 +562,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCDTO',) as DLCDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -675,7 +675,7 @@ class DLCsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCDTO',) as DLCDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///

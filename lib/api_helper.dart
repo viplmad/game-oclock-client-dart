@@ -54,6 +54,9 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
+  if (value is Duration) {
+    return value.toIso8601String();
+  }
   if (value is ChainOperatorType) {
     return ChainOperatorTypeTypeTransformer().encode(value).toString();
   }

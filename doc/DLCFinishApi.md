@@ -36,7 +36,7 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCFinishApi();
 final id = 56; // int | DLC id
-final body = String(); // String | DLC finish date to be deleted
+final body = DateTime(); // DateTime | DLC finish date to be deleted
 
 try {
     api_instance.deleteDlcFinish(id, body);
@@ -50,7 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
- **body** | **String**| DLC finish date to be deleted | 
+ **body** | **DateTime**| DLC finish date to be deleted | 
 
 ### Return type
 
@@ -68,7 +68,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDlcFinishes**
-> List<String> getDlcFinishes(id)
+> List<DateTime> getDlcFinishes(id)
 
 
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+[**List<DateTime>**](DateTime.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFirstDlcFinish**
-> String getFirstDlcFinish(id)
+> DateTime getFirstDlcFinish(id)
 
 
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**DateTime**](DateTime.md)
 
 ### Authorization
 
@@ -184,8 +184,8 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCFinishApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = startDate_example; // String | 
-final endDate = endDate_example; // String | 
+final startDate = 2013-10-20; // DateTime | 
+final endDate = 2013-10-20; // DateTime | 
 final q = q_example; // String | 
 
 try {
@@ -201,8 +201,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **String**|  | [optional] 
- **endDate** | **String**|  | [optional] 
+ **startDate** | **DateTime**|  | [optional] 
+ **endDate** | **DateTime**|  | [optional] 
  **q** | **String**|  | [optional] 
 
 ### Return type
@@ -239,8 +239,8 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCFinishApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = startDate_example; // String | 
-final endDate = endDate_example; // String | 
+final startDate = 2013-10-20; // DateTime | 
+final endDate = 2013-10-20; // DateTime | 
 final q = q_example; // String | 
 
 try {
@@ -256,8 +256,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **String**|  | [optional] 
- **endDate** | **String**|  | [optional] 
+ **startDate** | **DateTime**|  | [optional] 
+ **endDate** | **DateTime**|  | [optional] 
  **q** | **String**|  | [optional] 
 
 ### Return type
@@ -294,7 +294,7 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCFinishApi();
 final id = 56; // int | DLC id
-final body = String(); // String | DLC finish date to be added
+final body = DateTime(); // DateTime | DLC finish date to be added
 
 try {
     api_instance.postDlcFinish(id, body);
@@ -308,7 +308,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
- **body** | **String**| DLC finish date to be added | 
+ **body** | **DateTime**| DLC finish date to be added | 
 
 ### Return type
 

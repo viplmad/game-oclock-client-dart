@@ -164,7 +164,7 @@ class PlatformsApi {
         .toList();
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -222,7 +222,7 @@ class PlatformsApi {
         .toList();
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -277,7 +277,7 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformDTO',) as PlatformDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -339,7 +339,7 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformPageResult',) as PlatformPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -393,7 +393,7 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformDTO',) as PlatformDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -506,7 +506,7 @@ class PlatformsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlatformDTO',) as PlatformDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///

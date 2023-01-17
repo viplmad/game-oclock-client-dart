@@ -31,6 +31,24 @@ class GameWithLogsDTO extends GameDTO {
 
   List<GameLogDTO> logs;
 
+  static GameWithLogsDTO withLogs(GameDTO game, List<GameLogDTO> logs) {
+    return GameWithLogsDTO(
+        addedDatetime: game.addedDatetime,
+        backup: game.backup,
+        coverFilename: game.coverFilename,
+        edition: game.edition,
+        id: game.id,
+        logs: logs,
+        name: game.name,
+        notes: game.notes,
+        rating: game.rating,
+        releaseYear: game.releaseYear,
+        saveFolder: game.saveFolder,
+        screenshotFolder: game.screenshotFolder,
+        status: game.status,
+        updatedDatetime: game.updatedDatetime);
+  }
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameWithLogsDTO &&
      other.addedDatetime == addedDatetime &&

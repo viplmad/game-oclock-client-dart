@@ -9,18 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class UserDTO {
+class UserDTO extends PrimaryModel {
   /// Returns a new [UserDTO] instance.
   UserDTO({
     required this.addedDatetime,
-    required this.id,
+    required super.id,
     required this.updatedDatetime,
     required this.username,
   });
 
   DateTime addedDatetime;
-
-  int id;
 
   DateTime updatedDatetime;
 

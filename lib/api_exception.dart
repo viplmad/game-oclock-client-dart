@@ -13,7 +13,7 @@ class ApiException implements Exception {
   ApiException(this.code, this.message);
 
   ApiException.withInner(this.code, this.message, this.innerException, this.stackTrace);
-  ApiException.unreachabe();
+  ApiException.unreachable();
 
   int code = 0;
   String? message;

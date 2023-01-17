@@ -24,9 +24,9 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Game finish date to be deleted
-  Future<Response> deleteGameFinishWithHttpInfo(int id, String body,) async {
+  Future<Response> deleteGameFinishWithHttpInfo(int id, DateTime body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
       .replaceAll('{id}', id.toString());
@@ -59,9 +59,9 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Game finish date to be deleted
-  Future<void> deleteGameFinish(int id, String body,) async {
+  Future<void> deleteGameFinish(int id, DateTime body,) async {
     final response = await deleteGameFinishWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -77,12 +77,12 @@ class GameFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<Response> getFirstFinishedGamesWithHttpInfo(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<Response> getFirstFinishedGamesWithHttpInfo(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/finished/first';
 
@@ -124,12 +124,12 @@ class GameFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<GameWithFinishPageResult> getFirstFinishedGames(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<GameWithFinishPageResult> getFirstFinishedGames(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     final response = await getFirstFinishedGamesWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -141,7 +141,7 @@ class GameFinishApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameWithFinishPageResult',) as GameWithFinishPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -184,7 +184,7 @@ class GameFinishApi {
   ///
   /// * [int] id (required):
   ///   Game id
-  Future<String> getFirstGameFinish(int id,) async {
+  Future<DateTime> getFirstGameFinish(int id,) async {
     final response = await getFirstGameFinishWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -193,10 +193,10 @@ class GameFinishApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DateTime',) as DateTime;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -239,7 +239,7 @@ class GameFinishApi {
   ///
   /// * [int] id (required):
   ///   Game id
-  Future<List<String>> getGameFinishes(int id,) async {
+  Future<List<DateTime>> getGameFinishes(int id,) async {
     final response = await getGameFinishesWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -249,12 +249,12 @@ class GameFinishApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<DateTime>') as List)
+        .cast<DateTime>()
         .toList();
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -266,12 +266,12 @@ class GameFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<Response> getLastFinishedGamesWithHttpInfo(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<Response> getLastFinishedGamesWithHttpInfo(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/finished/last';
 
@@ -313,12 +313,12 @@ class GameFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<GameWithFinishPageResult> getLastFinishedGames(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<GameWithFinishPageResult> getLastFinishedGames(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     final response = await getLastFinishedGamesWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -330,7 +330,7 @@ class GameFinishApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GameWithFinishPageResult',) as GameWithFinishPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -342,9 +342,9 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Game finish date to be added
-  Future<Response> postGameFinishWithHttpInfo(int id, String body,) async {
+  Future<Response> postGameFinishWithHttpInfo(int id, DateTime body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
       .replaceAll('{id}', id.toString());
@@ -377,9 +377,9 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   Game finish date to be added
-  Future<void> postGameFinish(int id, String body,) async {
+  Future<void> postGameFinish(int id, DateTime body,) async {
     final response = await postGameFinishWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

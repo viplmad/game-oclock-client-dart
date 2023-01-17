@@ -149,7 +149,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDTO',) as UserDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -204,7 +204,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDTO',) as UserDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -266,7 +266,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserPageResult',) as UserPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -320,7 +320,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDTO',) as UserDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -381,6 +381,6 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDTO',) as UserDTO;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 }

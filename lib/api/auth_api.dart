@@ -88,6 +88,6 @@ class AuthApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TokenResponse',) as TokenResponse;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 }

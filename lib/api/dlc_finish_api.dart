@@ -24,9 +24,9 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   DLC finish date to be deleted
-  Future<Response> deleteDlcFinishWithHttpInfo(int id, String body,) async {
+  Future<Response> deleteDlcFinishWithHttpInfo(int id, DateTime body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
       .replaceAll('{id}', id.toString());
@@ -59,9 +59,9 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   DLC finish date to be deleted
-  Future<void> deleteDlcFinish(int id, String body,) async {
+  Future<void> deleteDlcFinish(int id, DateTime body,) async {
     final response = await deleteDlcFinishWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -108,7 +108,7 @@ class DLCFinishApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  Future<List<String>> getDlcFinishes(int id,) async {
+  Future<List<DateTime>> getDlcFinishes(int id,) async {
     final response = await getDlcFinishesWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -118,12 +118,12 @@ class DLCFinishApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<DateTime>') as List)
+        .cast<DateTime>()
         .toList();
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -166,7 +166,7 @@ class DLCFinishApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  Future<String> getFirstDlcFinish(int id,) async {
+  Future<DateTime> getFirstDlcFinish(int id,) async {
     final response = await getFirstDlcFinishWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -175,10 +175,10 @@ class DLCFinishApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DateTime',) as DateTime;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -190,12 +190,12 @@ class DLCFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<Response> getFirstFinishedDlcsWithHttpInfo(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<Response> getFirstFinishedDlcsWithHttpInfo(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/finished/first';
 
@@ -237,12 +237,12 @@ class DLCFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<DLCWithFinishPageResult> getFirstFinishedDlcs(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<DLCWithFinishPageResult> getFirstFinishedDlcs(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     final response = await getFirstFinishedDlcsWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -254,7 +254,7 @@ class DLCFinishApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCWithFinishPageResult',) as DLCWithFinishPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -266,12 +266,12 @@ class DLCFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<Response> getLastFinishedDlcsWithHttpInfo(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<Response> getLastFinishedDlcsWithHttpInfo(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/finished/last';
 
@@ -313,12 +313,12 @@ class DLCFinishApi {
   /// * [SearchDTO] searchDTO (required):
   ///   Query
   ///
-  /// * [String] startDate:
+  /// * [DateTime] startDate:
   ///
-  /// * [String] endDate:
+  /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<DLCWithFinishPageResult> getLastFinishedDlcs(SearchDTO searchDTO, { String? startDate, String? endDate, String? q, }) async {
+  Future<DLCWithFinishPageResult> getLastFinishedDlcs(SearchDTO searchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     final response = await getLastFinishedDlcsWithHttpInfo(searchDTO,  startDate: startDate, endDate: endDate, q: q, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -330,7 +330,7 @@ class DLCFinishApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DLCWithFinishPageResult',) as DLCWithFinishPageResult;
 
     }
-    throw ApiException.unreachabe();
+    throw ApiException.unreachable();
   }
 
   ///
@@ -342,9 +342,9 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   DLC finish date to be added
-  Future<Response> postDlcFinishWithHttpInfo(int id, String body,) async {
+  Future<Response> postDlcFinishWithHttpInfo(int id, DateTime body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
       .replaceAll('{id}', id.toString());
@@ -377,9 +377,9 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [String] body (required):
+  /// * [DateTime] body (required):
   ///   DLC finish date to be added
-  Future<void> postDlcFinish(int id, String body,) async {
+  Future<void> postDlcFinish(int id, DateTime body,) async {
     final response = await postDlcFinishWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
