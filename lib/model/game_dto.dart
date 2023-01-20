@@ -72,6 +72,10 @@ class GameDTO extends PrimaryModel {
 
   DateTime updatedDatetime;
 
+  DateTime? firstFinish;
+
+  Duration? totalTime;
+
   NewGameDTO newWith({
     bool? backup,
     String? edition,

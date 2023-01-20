@@ -60,6 +60,8 @@ class DLCDTO extends PrimaryModel {
 
   DateTime updatedDatetime;
 
+  DateTime? firstFinish;
+
   NewDLCDTO newWith({
     int? baseGameId,
     String? name,
