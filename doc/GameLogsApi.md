@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **deleteGameLog**
-> deleteGameLog(id, body)
+> deleteGameLog(id, dateTimeDTO)
 
 
 
@@ -37,10 +37,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GameLogsApi();
 final id = 56; // int | Game id
-final body = DateTime(); // DateTime | Game log datetime to be deleted
+final dateTimeDTO = DateTimeDTO(); // DateTimeDTO | Game log datetime to be deleted
 
 try {
-    api_instance.deleteGameLog(id, body);
+    api_instance.deleteGameLog(id, dateTimeDTO);
 } catch (e) {
     print('Exception when calling GameLogsApi->deleteGameLog: $e\n');
 }
@@ -51,7 +51,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **body** | **DateTime**| Game log datetime to be deleted | 
+ **dateTimeDTO** | [**DateTimeDTO**](DateTimeDTO.md)| Game log datetime to be deleted | 
 
 ### Return type
 

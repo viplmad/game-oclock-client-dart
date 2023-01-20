@@ -19,42 +19,42 @@ void main() {
   group('tests for GameFinishApi', () {
     // 
     //
-    //Future deleteGameFinish(int id, String body) async
+    //Future deleteGameFinish(int id, DateDTO dateDTO) async
     test('test deleteGameFinish', () async {
       // TODO
     });
 
     // 
     //
-    //Future<GameWithFinishPageResult> getFirstFinishedGames(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
+    //Future<GameWithFinishPageResult> getFirstFinishedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getFirstFinishedGames', () async {
       // TODO
     });
 
     // 
     //
-    //Future<String> getFirstGameFinish(int id) async
+    //Future<DateTime> getFirstGameFinish(int id) async
     test('test getFirstGameFinish', () async {
       // TODO
     });
 
     // 
     //
-    //Future<List<String>> getGameFinishes(int id) async
+    //Future<List<DateTime>> getGameFinishes(int id) async
     test('test getGameFinishes', () async {
       // TODO
     });
 
     // 
     //
-    //Future<GameWithFinishPageResult> getLastFinishedGames(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
+    //Future<GameWithFinishPageResult> getLastFinishedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getLastFinishedGames', () async {
       // TODO
     });
 
     // 
     //
-    //Future postGameFinish(int id, String body) async
+    //Future postGameFinish(int id, DateDTO dateDTO) async
     test('test postGameFinish', () async {
       // TODO
     });

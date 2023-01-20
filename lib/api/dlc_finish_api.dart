@@ -24,15 +24,15 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be deleted
-  Future<Response> deleteDlcFinishWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> deleteDlcFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = dateDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -59,10 +59,10 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be deleted
-  Future<void> deleteDlcFinish(int id, DateTime body,) async {
-    final response = await deleteDlcFinishWithHttpInfo(id, body,);
+  Future<void> deleteDlcFinish(int id, DateDTO dateDTO,) async {
+    final response = await deleteDlcFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -342,15 +342,15 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be added
-  Future<Response> postDlcFinishWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> postDlcFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = dateDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -377,10 +377,10 @@ class DLCFinishApi {
   /// * [int] id (required):
   ///   DLC id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be added
-  Future<void> postDlcFinish(int id, DateTime body,) async {
-    final response = await postDlcFinishWithHttpInfo(id, body,);
+  Future<void> postDlcFinish(int id, DateDTO dateDTO,) async {
+    final response = await postDlcFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

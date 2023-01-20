@@ -194,6 +194,10 @@ class ApiClient {
           return DLCWithFinishDTO.fromJson(value);
         case 'DLCWithFinishPageResult':
           return DLCWithFinishPageResult.fromJson(value);
+        case 'DateDTO':
+          return DateDTO.fromJson(value);
+        case 'DateTimeDTO':
+          return DateTimeDTO.fromJson(value);
         case 'ErrorMessage':
           return ErrorMessage.fromJson(value);
         case 'FilterDTO':

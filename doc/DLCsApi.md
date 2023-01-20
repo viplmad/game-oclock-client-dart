@@ -420,7 +420,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **linkDlcPlatform**
-> linkDlcPlatform(id, otherId, body)
+> linkDlcPlatform(id, otherId, dateDTO)
 
 
 
@@ -439,10 +439,10 @@ import 'package:game_collection_client/api.dart';
 final api_instance = DLCsApi();
 final id = 56; // int | DLC id
 final otherId = 56; // int | Platform id
-final body = DateTime(); // DateTime | Available date
+final dateDTO = DateDTO(); // DateDTO | Available date
 
 try {
-    api_instance.linkDlcPlatform(id, otherId, body);
+    api_instance.linkDlcPlatform(id, otherId, dateDTO);
 } catch (e) {
     print('Exception when calling DLCsApi->linkDlcPlatform: $e\n');
 }
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
  **otherId** | **int**| Platform id | 
- **body** | **DateTime**| Available date | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| Available date | 
 
 ### Return type
 

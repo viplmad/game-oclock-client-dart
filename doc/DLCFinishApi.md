@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **deleteDlcFinish**
-> deleteDlcFinish(id, body)
+> deleteDlcFinish(id, dateDTO)
 
 
 
@@ -36,10 +36,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCFinishApi();
 final id = 56; // int | DLC id
-final body = DateTime(); // DateTime | DLC finish date to be deleted
+final dateDTO = DateDTO(); // DateDTO | DLC finish date to be deleted
 
 try {
-    api_instance.deleteDlcFinish(id, body);
+    api_instance.deleteDlcFinish(id, dateDTO);
 } catch (e) {
     print('Exception when calling DLCFinishApi->deleteDlcFinish: $e\n');
 }
@@ -50,7 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
- **body** | **DateTime**| DLC finish date to be deleted | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| DLC finish date to be deleted | 
 
 ### Return type
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDlcFinish**
-> postDlcFinish(id, body)
+> postDlcFinish(id, dateDTO)
 
 
 
@@ -294,10 +294,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCFinishApi();
 final id = 56; // int | DLC id
-final body = DateTime(); // DateTime | DLC finish date to be added
+final dateDTO = DateDTO(); // DateDTO | DLC finish date to be added
 
 try {
-    api_instance.postDlcFinish(id, body);
+    api_instance.postDlcFinish(id, dateDTO);
 } catch (e) {
     print('Exception when calling DLCFinishApi->postDlcFinish: $e\n');
 }
@@ -308,7 +308,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
- **body** | **DateTime**| DLC finish date to be added | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| DLC finish date to be added | 
 
 ### Return type
 

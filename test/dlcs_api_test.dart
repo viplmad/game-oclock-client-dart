@@ -75,7 +75,7 @@ void main() {
 
     // 
     //
-    //Future linkDlcPlatform(int id, int otherId, String body) async
+    //Future linkDlcPlatform(int id, int otherId, DateDTO dateDTO) async
     test('test linkDlcPlatform', () async {
       // TODO
     });

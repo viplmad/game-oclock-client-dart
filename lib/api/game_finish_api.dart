@@ -24,15 +24,15 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be deleted
-  Future<Response> deleteGameFinishWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> deleteGameFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = dateDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -59,10 +59,10 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be deleted
-  Future<void> deleteGameFinish(int id, DateTime body,) async {
-    final response = await deleteGameFinishWithHttpInfo(id, body,);
+  Future<void> deleteGameFinish(int id, DateDTO dateDTO,) async {
+    final response = await deleteGameFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -342,15 +342,15 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be added
-  Future<Response> postGameFinishWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> postGameFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = dateDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -377,10 +377,10 @@ class GameFinishApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be added
-  Future<void> postGameFinish(int id, DateTime body,) async {
-    final response = await postGameFinishWithHttpInfo(id, body,);
+  Future<void> postGameFinish(int id, DateDTO dateDTO,) async {
+    final response = await postGameFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

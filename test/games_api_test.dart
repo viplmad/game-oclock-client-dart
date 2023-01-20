@@ -33,29 +33,8 @@ void main() {
 
     // 
     //
-    //Future deleteGameLog(int id, String body) async
-    test('test deleteGameLog', () async {
-      // TODO
-    });
-
-    // 
-    //
-    //Future<GameWithLogPageResult> getFirstPlayedGames(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
-    test('test getFirstPlayedGames', () async {
-      // TODO
-    });
-
-    // 
-    //
     //Future<GameDTO> getGame(int id) async
     test('test getGame', () async {
-      // TODO
-    });
-
-    // 
-    //
-    //Future<List<GameLogDTO>> getGameLogs(int id) async
-    test('test getGameLogs', () async {
       // TODO
     });
 
@@ -68,22 +47,8 @@ void main() {
 
     // 
     //
-    //Future<GameWithLogPageResult> getLastPlayedGames(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
-    test('test getLastPlayedGames', () async {
-      // TODO
-    });
-
-    // 
-    //
     //Future<List<GameAvailableDTO>> getPlatformGames(int id) async
     test('test getPlatformGames', () async {
-      // TODO
-    });
-
-    // 
-    //
-    //Future<List<GameWithLogsDTO>> getPlayedGames(String startDate, String endDate) async
-    test('test getPlayedGames', () async {
       // TODO
     });
 
@@ -96,14 +61,7 @@ void main() {
 
     // 
     //
-    //Future<String> getTotalGameLogs(int id) async
-    test('test getTotalGameLogs', () async {
-      // TODO
-    });
-
-    // 
-    //
-    //Future linkGamePlatform(int id, int otherId, String body) async
+    //Future linkGamePlatform(int id, int otherId, DateDTO dateDTO) async
     test('test linkGamePlatform', () async {
       // TODO
     });
@@ -126,13 +84,6 @@ void main() {
     //
     //Future postGameCover(int id) async
     test('test postGameCover', () async {
-      // TODO
-    });
-
-    // 
-    //
-    //Future postGameLog(int id, GameLogDTO gameLogDTO) async
-    test('test postGameLog', () async {
       // TODO
     });
 

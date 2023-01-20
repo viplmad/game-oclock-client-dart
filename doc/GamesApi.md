@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **linkGamePlatform**
-> linkGamePlatform(id, otherId, body)
+> linkGamePlatform(id, otherId, dateDTO)
 
 
 
@@ -339,10 +339,10 @@ import 'package:game_collection_client/api.dart';
 final api_instance = GamesApi();
 final id = 56; // int | Game id
 final otherId = 56; // int | Platform id
-final body = DateTime(); // DateTime | Available date
+final dateDTO = DateDTO(); // DateDTO | Available date
 
 try {
-    api_instance.linkGamePlatform(id, otherId, body);
+    api_instance.linkGamePlatform(id, otherId, dateDTO);
 } catch (e) {
     print('Exception when calling GamesApi->linkGamePlatform: $e\n');
 }
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
  **otherId** | **int**| Platform id | 
- **body** | **DateTime**| Available date | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| Available date | 
 
 ### Return type
 

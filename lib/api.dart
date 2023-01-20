@@ -43,6 +43,8 @@ part 'model/dlcdto.dart';
 part 'model/dlc_page_result.dart';
 part 'model/dlc_with_finish_dto.dart';
 part 'model/dlc_with_finish_page_result.dart';
+part 'model/date_dto.dart';
+part 'model/date_time_dto.dart';
 part 'model/error_message.dart';
 part 'model/filter_dto.dart';
 part 'model/game_available_dto.dart';

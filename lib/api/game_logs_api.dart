@@ -24,15 +24,15 @@ class GameLogsApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateTimeDTO] dateTimeDTO (required):
   ///   Game log datetime to be deleted
-  Future<Response> deleteGameLogWithHttpInfo(int id, DateTime body,) async {
+  Future<Response> deleteGameLogWithHttpInfo(int id, DateTimeDTO dateTimeDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/logs'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = dateTimeDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -59,10 +59,10 @@ class GameLogsApi {
   /// * [int] id (required):
   ///   Game id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateTimeDTO] dateTimeDTO (required):
   ///   Game log datetime to be deleted
-  Future<void> deleteGameLog(int id, DateTime body,) async {
-    final response = await deleteGameLogWithHttpInfo(id, body,);
+  Future<void> deleteGameLog(int id, DateTimeDTO dateTimeDTO,) async {
+    final response = await deleteGameLogWithHttpInfo(id, dateTimeDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

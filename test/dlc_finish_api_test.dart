@@ -19,42 +19,42 @@ void main() {
   group('tests for DLCFinishApi', () {
     // 
     //
-    //Future deleteDlcFinish(int id, String body) async
+    //Future deleteDlcFinish(int id, DateDTO dateDTO) async
     test('test deleteDlcFinish', () async {
       // TODO
     });
 
     // 
     //
-    //Future<List<String>> getDlcFinishes(int id) async
+    //Future<List<DateTime>> getDlcFinishes(int id) async
     test('test getDlcFinishes', () async {
       // TODO
     });
 
     // 
     //
-    //Future<String> getFirstDlcFinish(int id) async
+    //Future<DateTime> getFirstDlcFinish(int id) async
     test('test getFirstDlcFinish', () async {
       // TODO
     });
 
     // 
     //
-    //Future<DLCWithFinishPageResult> getFirstFinishedDlcs(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
+    //Future<DLCWithFinishPageResult> getFirstFinishedDlcs(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getFirstFinishedDlcs', () async {
       // TODO
     });
 
     // 
     //
-    //Future<DLCWithFinishPageResult> getLastFinishedDlcs(SearchDTO searchDTO, { String startDate, String endDate, String q }) async
+    //Future<DLCWithFinishPageResult> getLastFinishedDlcs(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getLastFinishedDlcs', () async {
       // TODO
     });
 
     // 
     //
-    //Future postDlcFinish(int id, String body) async
+    //Future postDlcFinish(int id, DateDTO dateDTO) async
     test('test postDlcFinish', () async {
       // TODO
     });

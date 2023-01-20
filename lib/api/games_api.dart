@@ -354,16 +354,16 @@ class GamesApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   Available date
-  Future<Response> linkGamePlatformWithHttpInfo(int id, int otherId, DateTime body,) async {
+  Future<Response> linkGamePlatformWithHttpInfo(int id, int otherId, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/platforms/{other_id}'
       .replaceAll('{id}', id.toString())
       .replaceAll('{other_id}', otherId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = dateDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -393,10 +393,10 @@ class GamesApi {
   /// * [int] otherId (required):
   ///   Platform id
   ///
-  /// * [DateTime] body (required):
+  /// * [DateDTO] dateDTO (required):
   ///   Available date
-  Future<void> linkGamePlatform(int id, int otherId, DateTime body,) async {
-    final response = await linkGamePlatformWithHttpInfo(id, otherId, body,);
+  Future<void> linkGamePlatform(int id, int otherId, DateDTO dateDTO,) async {
+    final response = await linkGamePlatformWithHttpInfo(id, otherId, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

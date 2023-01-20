@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **deleteGameFinish**
-> deleteGameFinish(id, body)
+> deleteGameFinish(id, dateDTO)
 
 
 
@@ -36,10 +36,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GameFinishApi();
 final id = 56; // int | Game id
-final body = DateTime(); // DateTime | Game finish date to be deleted
+final dateDTO = DateDTO(); // DateDTO | Game finish date to be deleted
 
 try {
-    api_instance.deleteGameFinish(id, body);
+    api_instance.deleteGameFinish(id, dateDTO);
 } catch (e) {
     print('Exception when calling GameFinishApi->deleteGameFinish: $e\n');
 }
@@ -50,7 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **body** | **DateTime**| Game finish date to be deleted | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be deleted | 
 
 ### Return type
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postGameFinish**
-> postGameFinish(id, body)
+> postGameFinish(id, dateDTO)
 
 
 
@@ -294,10 +294,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GameFinishApi();
 final id = 56; // int | Game id
-final body = DateTime(); // DateTime | Game finish date to be added
+final dateDTO = DateDTO(); // DateDTO | Game finish date to be added
 
 try {
-    api_instance.postGameFinish(id, body);
+    api_instance.postGameFinish(id, dateDTO);
 } catch (e) {
     print('Exception when calling GameFinishApi->postGameFinish: $e\n');
 }
@@ -308,7 +308,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
- **body** | **DateTime**| Game finish date to be added | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be added | 
 
 ### Return type
 
