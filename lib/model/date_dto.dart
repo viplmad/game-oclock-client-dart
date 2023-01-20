@@ -31,7 +31,7 @@ class DateDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'date'] = _dateFormatter.format(this.date.toUtc());
+      json[r'date'] = _dateFormatter.format(this.date);
     return json;
   }
 

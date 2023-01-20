@@ -55,8 +55,8 @@ class DLCAvailableDTO extends DLCDTO{
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
-      json[r'available_date'] = _dateFormatter.format(this.availableDate.toUtc());
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+      json[r'available_date'] = _dateFormatter.format(this.availableDate);
     if (this.baseGameId != null) {
       json[r'base_game_id'] = this.baseGameId;
     } else {
@@ -79,7 +79,7 @@ class DLCAvailableDTO extends DLCDTO{
     } else {
       json[r'release_year'] = null;
     }
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 

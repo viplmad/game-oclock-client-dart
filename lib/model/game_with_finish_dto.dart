@@ -73,7 +73,7 @@ class GameWithFinishDTO extends GameDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
       json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;
@@ -86,7 +86,7 @@ class GameWithFinishDTO extends GameDTO {
       json[r'cover_url'] = null;
     }
       json[r'edition'] = this.edition;
-      json[r'finish_date'] = _dateFormatter.format(this.finishDate.toUtc());
+      json[r'finish_date'] = _dateFormatter.format(this.finishDate);
       json[r'id'] = this.id;
       json[r'name'] = this.name;
       json[r'notes'] = this.notes;
@@ -99,7 +99,7 @@ class GameWithFinishDTO extends GameDTO {
       json[r'save_folder'] = this.saveFolder;
       json[r'screenshot_folder'] = this.screenshotFolder;
       json[r'status'] = this.status;
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 

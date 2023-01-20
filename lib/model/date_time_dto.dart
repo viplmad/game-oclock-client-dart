@@ -31,7 +31,7 @@ class DateTimeDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'datetime'] = this.datetime.toUtc().toIso8601String();
+      json[r'datetime'] = this.datetime.toIso8601String();
     return json;
   }
 

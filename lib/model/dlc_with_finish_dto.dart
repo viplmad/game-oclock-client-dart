@@ -55,7 +55,7 @@ class DLCWithFinishDTO extends DLCDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
     if (this.baseGameId != null) {
       json[r'base_game_id'] = this.baseGameId;
     } else {
@@ -71,7 +71,7 @@ class DLCWithFinishDTO extends DLCDTO {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'finish_date'] = _dateFormatter.format(this.finishDate.toUtc());
+      json[r'finish_date'] = _dateFormatter.format(this.finishDate);
       json[r'id'] = this.id;
       json[r'name'] = this.name;
     if (this.releaseYear != null) {
@@ -79,7 +79,7 @@ class DLCWithFinishDTO extends DLCDTO {
     } else {
       json[r'release_year'] = null;
     }
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 

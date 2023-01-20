@@ -87,7 +87,7 @@ class PlatformDTO extends PrimaryModel {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
     if (this.iconFilename != null) {
       json[r'icon_filename'] = this.iconFilename;
     } else {
@@ -105,7 +105,7 @@ class PlatformDTO extends PrimaryModel {
     } else {
       json[r'type'] = null;
     }
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
