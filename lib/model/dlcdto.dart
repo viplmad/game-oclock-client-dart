@@ -74,37 +74,49 @@ class DLCDTO extends PrimaryModel {
     );
   }
 
+  DLCAvailableDTO withAvailableDate(DateTime date) {
+    return DLCAvailableDTO(
+        addedDatetime: addedDatetime,
+        availableDate: date,
+        id: id,
+        name: name,
+        updatedDatetime: updatedDatetime);
+  }
+
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DLCDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.baseGameId == baseGameId &&
-     other.coverFilename == coverFilename &&
-     other.coverUrl == coverUrl &&
-     other.id == id &&
-     other.name == name &&
-     other.releaseYear == releaseYear &&
-     other.updatedDatetime == updatedDatetime &&
-     other.firstFinish == firstFinish;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DLCDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.baseGameId == baseGameId &&
+          other.coverFilename == coverFilename &&
+          other.coverUrl == coverUrl &&
+          other.id == id &&
+          other.name == name &&
+          other.releaseYear == releaseYear &&
+          other.updatedDatetime == updatedDatetime &&
+          other.firstFinish == firstFinish;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (baseGameId == null ? 0 : baseGameId!.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
-    (coverUrl == null ? 0 : coverUrl!.hashCode) +
-    (id.hashCode) +
-    (name.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (updatedDatetime.hashCode) +
-    (firstFinish == null ? 0 : firstFinish!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (baseGameId == null ? 0 : baseGameId!.hashCode) +
+      (coverFilename == null ? 0 : coverFilename!.hashCode) +
+      (coverUrl == null ? 0 : coverUrl!.hashCode) +
+      (id.hashCode) +
+      (name.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (updatedDatetime.hashCode) +
+      (firstFinish == null ? 0 : firstFinish!.hashCode);
 
   @override
-  String toString() => 'DLCDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'DLCDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
     if (this.baseGameId != null) {
       json[r'base_game_id'] = this.baseGameId;
     } else {
@@ -120,14 +132,14 @@ class DLCDTO extends PrimaryModel {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'id'] = this.id;
-      json[r'name'] = this.name;
+    json[r'id'] = this.id;
+    json[r'name'] = this.name;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -143,8 +155,10 @@ class DLCDTO extends PrimaryModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DLCDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DLCDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "DLCDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DLCDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -163,7 +177,10 @@ class DLCDTO extends PrimaryModel {
     return null;
   }
 
-  static List<DLCDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DLCDTO>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DLCDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -191,12 +208,18 @@ class DLCDTO extends PrimaryModel {
   }
 
   // maps a json object with a list of DLCDTO-objects as value to a dart map
-  static Map<String, List<DLCDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DLCDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DLCDTO>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DLCDTO.listFromJson(entry.value, growable: growable,);
+        final value = DLCDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -213,4 +236,3 @@ class DLCDTO extends PrimaryModel {
     'updated_datetime',
   };
 }
-
