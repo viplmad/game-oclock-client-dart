@@ -13,7 +13,7 @@ class SearchValue {
   /// Returns a new [SearchValue] instance.
   SearchValue({
     this.value,
-    this.values = const [],
+    this.values,
   });
 
   ///
@@ -24,7 +24,7 @@ class SearchValue {
   ///
   String? value;
 
-  List<String> values;
+  List<String>? values;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchValue &&
@@ -35,20 +35,18 @@ class SearchValue {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (value == null ? 0 : value!.hashCode) +
-    (values.hashCode);
+    (values == null? 0 : values!.hashCode);
 
   @override
   String toString() => 'SearchValue[value=$value, values=$values]';
 
-  Map<String, dynamic> toJson() {
-    final json = <String, dynamic>{};
+  dynamic toJson() {
     if (this.value != null) {
-      json[r'Value'] = this.value;
-    } else {
-      json[r'Value'] = null;
+      return this.value;
+    } else if (this.values != null) {
+      return this.values;
     }
-      json[r'Values'] = this.values;
-    return json;
+    return null;
   }
 
   /// Returns a new [SearchValue] instance and imports its values from

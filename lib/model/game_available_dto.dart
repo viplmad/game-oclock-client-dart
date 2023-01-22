@@ -74,7 +74,7 @@ class GameAvailableDTO extends GameDTO {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-      json[r'available_date'] = this.availableDate.toIso8601String();
+      json[r'available_date'] = _dateFormatter.format(this.availableDate);
       json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;

@@ -54,8 +54,6 @@ class FilterDTO {
     final json = <String, dynamic>{};
     if (this.chainOperator != null) {
       json[r'chain_operator'] = this.chainOperator;
-    } else {
-      json[r'chain_operator'] = null;
     }
       json[r'field'] = this.field;
       json[r'operator'] = this.operator_;

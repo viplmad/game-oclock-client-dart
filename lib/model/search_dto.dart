@@ -61,13 +61,9 @@ class SearchDTO {
       json[r'filter'] = this.filter;
     if (this.page != null) {
       json[r'page'] = this.page;
-    } else {
-      json[r'page'] = null;
     }
     if (this.size != null) {
       json[r'size'] = this.size;
-    } else {
-      json[r'size'] = null;
     }
       json[r'sort'] = this.sort;
     return json;
