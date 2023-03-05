@@ -226,8 +226,6 @@ class ApiClient {
           return NewDLCDTO.fromJson(value);
         case 'NewGameDTO':
           return NewGameDTO.fromJson(value);
-        case 'NewPasswordDTO':
-          return NewPasswordDTO.fromJson(value);
         case 'NewPlatformDTO':
           return NewPlatformDTO.fromJson(value);
         case 'NewTagDTO':
@@ -238,8 +236,6 @@ class ApiClient {
           return OperatorTypeTypeTransformer().decode(value);
         case 'OrderType':
           return OrderTypeTypeTransformer().decode(value);
-        case 'PasswordChangeDTO':
-          return PasswordChangeDTO.fromJson(value);
         case 'PlatformAvailableDTO':
           return PlatformAvailableDTO.fromJson(value);
         case 'PlatformDTO':
