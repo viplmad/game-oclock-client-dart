@@ -369,7 +369,7 @@ class UsersApi {
   ///
   /// * [NewUserDTO] newUserDTO (required):
   ///   User to be created
-  Future<UserDTO?> postUser(String password, NewUserDTO newUserDTO,) async {
+  Future<UserDTO> postUser(String password, NewUserDTO newUserDTO,) async {
     final response = await postUserWithHttpInfo(password, newUserDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
