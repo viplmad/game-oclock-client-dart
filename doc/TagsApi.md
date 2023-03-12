@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **putTag**
-> TagDTO putTag(id, newTagDTO)
+> putTag(id, newTagDTO)
 
 
 
@@ -285,8 +285,7 @@ final id = 56; // int | Tag id
 final newTagDTO = NewTagDTO(); // NewTagDTO | Tag to be updated
 
 try {
-    final result = api_instance.putTag(id, newTagDTO);
-    print(result);
+    api_instance.putTag(id, newTagDTO);
 } catch (e) {
     print('Exception when calling TagsApi->putTag: $e\n');
 }
@@ -301,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagDTO**](TagDTO.md)
+void (empty response body)
 
 ### Authorization
 

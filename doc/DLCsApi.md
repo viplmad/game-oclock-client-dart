@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDlcCover**
-> postDlcCover(id)
+> postDlcCover(id, file)
 
 
 
@@ -539,9 +539,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = DLCsApi();
 final id = 56; // int | DLC id
+final file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.postDlcCover(id);
+    api_instance.postDlcCover(id, file);
 } catch (e) {
     print('Exception when calling DLCsApi->postDlcCover: $e\n');
 }
@@ -552,6 +553,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| DLC id | 
+ **file** | **MultipartFile**|  | 
 
 ### Return type
 
@@ -569,7 +571,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **putDlc**
-> DLCDTO putDlc(id, newDLCDTO)
+> putDlc(id, newDLCDTO)
 
 
 
@@ -590,8 +592,7 @@ final id = 56; // int | DLC id
 final newDLCDTO = NewDLCDTO(); // NewDLCDTO | DLC to be updated
 
 try {
-    final result = api_instance.putDlc(id, newDLCDTO);
-    print(result);
+    api_instance.putDlc(id, newDLCDTO);
 } catch (e) {
     print('Exception when calling DLCsApi->putDlc: $e\n');
 }
@@ -606,7 +607,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DLCDTO**](DLCDTO.md)
+void (empty response body)
 
 ### Authorization
 

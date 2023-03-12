@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,13 +10,13 @@
 import 'package:game_collection_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for SearchValueOneOf1
+// tests for DateTimeDTO
 void main() {
-  // final instance = SearchValueOneOf1();
+  // final instance = DateTimeDTO();
 
-  group('test SearchValueOneOf1', () {
-    // List<String> values (default value: const [])
-    test('to test the property `values`', () async {
+  group('test DateTimeDTO', () {
+    // DateTime datetime
+    test('to test the property `datetime`', () async {
       // TODO
     });
 

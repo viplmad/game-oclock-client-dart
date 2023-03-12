@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,7 +16,7 @@ void main() {
   // final instance = AuthApi();
 
   group('tests for AuthApi', () {
-    // 
+    //
     //
     //Future<TokenResponse> token(GrantType grantType, { String password, String refreshToken, String username }) async
     test('test token', () async {

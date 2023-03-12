@@ -9,6 +9,7 @@ import 'package:game_collection_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
+**admin** | **bool** |  | 
 **id** | **int** |  | 
 **updatedDatetime** | [**DateTime**](DateTime.md) |  | 
 **username** | **String** |  | 

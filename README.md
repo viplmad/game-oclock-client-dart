@@ -89,23 +89,23 @@ Class | Method | HTTP request | Description
 *GameFinishApi* | [**getGameFinishes**](doc\/GameFinishApi.md#getgamefinishes) | **GET** /api/v1/games/{id}/finishes |
 *GameFinishApi* | [**getLastFinishedGames**](doc\/GameFinishApi.md#getlastfinishedgames) | **POST** /api/v1/games/finished/last |
 *GameFinishApi* | [**postGameFinish**](doc\/GameFinishApi.md#postgamefinish) | **POST** /api/v1/games/{id}/finishes |
+*GameLogsApi* | [**deleteGameLog**](doc\/GameLogsApi.md#deletegamelog) | **DELETE** /api/v1/games/{id}/logs |
+*GameLogsApi* | [**getFirstPlayedGames**](doc\/GameLogsApi.md#getfirstplayedgames) | **POST** /api/v1/games/played/first |
+*GameLogsApi* | [**getGameLogs**](doc\/GameLogsApi.md#getgamelogs) | **GET** /api/v1/games/{id}/logs |
+*GameLogsApi* | [**getLastPlayedGames**](doc\/GameLogsApi.md#getlastplayedgames) | **POST** /api/v1/games/played/last |
+*GameLogsApi* | [**getPlayedGames**](doc\/GameLogsApi.md#getplayedgames) | **POST** /api/v1/games/played |
+*GameLogsApi* | [**getTotalGameLogs**](doc\/GameLogsApi.md#gettotalgamelogs) | **GET** /api/v1/games/{id}/logs/total |
+*GameLogsApi* | [**postGameLog**](doc\/GameLogsApi.md#postgamelog) | **POST** /api/v1/games/{id}/logs |
 *GamesApi* | [**deleteGame**](doc\/GamesApi.md#deletegame) | **DELETE** /api/v1/games/{id} |
 *GamesApi* | [**deleteGameCover**](doc\/GamesApi.md#deletegamecover) | **DELETE** /api/v1/games/{id}/cover |
-*GamesApi* | [**deleteGameLog**](doc\/GamesApi.md#deletegamelog) | **DELETE** /api/v1/games/{id}/logs |
-*GamesApi* | [**getFirstPlayedGames**](doc\/GamesApi.md#getfirstplayedgames) | **POST** /api/v1/games/played/first |
 *GamesApi* | [**getGame**](doc\/GamesApi.md#getgame) | **GET** /api/v1/games/{id} |
-*GamesApi* | [**getGameLogs**](doc\/GamesApi.md#getgamelogs) | **GET** /api/v1/games/{id}/logs |
 *GamesApi* | [**getGames**](doc\/GamesApi.md#getgames) | **POST** /api/v1/games/list |
-*GamesApi* | [**getLastPlayedGames**](doc\/GamesApi.md#getlastplayedgames) | **POST** /api/v1/games/played/last |
 *GamesApi* | [**getPlatformGames**](doc\/GamesApi.md#getplatformgames) | **GET** /api/v1/platforms/{id}/games |
-*GamesApi* | [**getPlayedGames**](doc\/GamesApi.md#getplayedgames) | **POST** /api/v1/games/played |
 *GamesApi* | [**getTagGames**](doc\/GamesApi.md#gettaggames) | **GET** /api/v1/tags/{id}/games |
-*GamesApi* | [**getTotalGameLogs**](doc\/GamesApi.md#gettotalgamelogs) | **GET** /api/v1/games/{id}/logs/total |
 *GamesApi* | [**linkGamePlatform**](doc\/GamesApi.md#linkgameplatform) | **PUT** /api/v1/games/{id}/platforms/{other_id} |
 *GamesApi* | [**linkGameTag**](doc\/GamesApi.md#linkgametag) | **PUT** /api/v1/games/{id}/tags/{other_id} |
 *GamesApi* | [**postGame**](doc\/GamesApi.md#postgame) | **POST** /api/v1/games |
 *GamesApi* | [**postGameCover**](doc\/GamesApi.md#postgamecover) | **POST** /api/v1/games/{id}/cover |
-*GamesApi* | [**postGameLog**](doc\/GamesApi.md#postgamelog) | **POST** /api/v1/games/{id}/logs |
 *GamesApi* | [**putGame**](doc\/GamesApi.md#putgame) | **PUT** /api/v1/games/{id} |
 *GamesApi* | [**putGameCover**](doc\/GamesApi.md#putgamecover) | **PUT** /api/v1/games/{id}/cover |
 *GamesApi* | [**unlinkGamePlatform**](doc\/GamesApi.md#unlinkgameplatform) | **DELETE** /api/v1/games/{id}/platforms/{other_id} |
@@ -129,10 +129,12 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**putTag**](doc\/TagsApi.md#puttag) | **PUT** /api/v1/tags/{id} |
 *UsersApi* | [**changePassword**](doc\/UsersApi.md#changepassword) | **PUT** /api/v1/myself/change-password |
 *UsersApi* | [**deleteUser**](doc\/UsersApi.md#deleteuser) | **DELETE** /api/v1/users/{id} |
+*UsersApi* | [**demoteUser**](doc\/UsersApi.md#demoteuser) | **PUT** /api/v1/users/{id}/demote |
 *UsersApi* | [**getCurrentUser**](doc\/UsersApi.md#getcurrentuser) | **GET** /api/v1/myself |
 *UsersApi* | [**getUser**](doc\/UsersApi.md#getuser) | **GET** /api/v1/users/{id} |
 *UsersApi* | [**getUsers**](doc\/UsersApi.md#getusers) | **POST** /api/v1/users/list |
 *UsersApi* | [**postUser**](doc\/UsersApi.md#postuser) | **POST** /api/v1/users |
+*UsersApi* | [**promoteUser**](doc\/UsersApi.md#promoteuser) | **PUT** /api/v1/users/{id}/promote |
 *UsersApi* | [**putUser**](doc\/UsersApi.md#putuser) | **PUT** /api/v1/users/{id} |
 
 
@@ -144,6 +146,8 @@ Class | Method | HTTP request | Description
  - [DLCPageResult](doc\/DLCPageResult.md)
  - [DLCWithFinishDTO](doc\/DLCWithFinishDTO.md)
  - [DLCWithFinishPageResult](doc\/DLCWithFinishPageResult.md)
+ - [DateDTO](doc\/DateDTO.md)
+ - [DateTimeDTO](doc\/DateTimeDTO.md)
  - [ErrorMessage](doc\/ErrorMessage.md)
  - [FilterDTO](doc\/FilterDTO.md)
  - [GameAvailableDTO](doc\/GameAvailableDTO.md)
@@ -158,13 +162,11 @@ Class | Method | HTTP request | Description
  - [GameWithLogsDTO](doc\/GameWithLogsDTO.md)
  - [NewDLCDTO](doc\/NewDLCDTO.md)
  - [NewGameDTO](doc\/NewGameDTO.md)
- - [NewPasswordDTO](doc\/NewPasswordDTO.md)
  - [NewPlatformDTO](doc\/NewPlatformDTO.md)
  - [NewTagDTO](doc\/NewTagDTO.md)
  - [NewUserDTO](doc\/NewUserDTO.md)
  - [OperatorType](doc\/OperatorType.md)
  - [OrderType](doc\/OrderType.md)
- - [PasswordChangeDTO](doc\/PasswordChangeDTO.md)
  - [PlatformAvailableDTO](doc\/PlatformAvailableDTO.md)
  - [PlatformDTO](doc\/PlatformDTO.md)
  - [PlatformPageResult](doc\/PlatformPageResult.md)

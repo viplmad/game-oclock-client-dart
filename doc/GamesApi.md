@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postGameCover**
-> postGameCover(id)
+> postGameCover(id, file)
 
 
 
@@ -489,9 +489,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GamesApi();
 final id = 56; // int | Game id
+final file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.postGameCover(id);
+    api_instance.postGameCover(id, file);
 } catch (e) {
     print('Exception when calling GamesApi->postGameCover: $e\n');
 }
@@ -502,6 +503,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Game id | 
+ **file** | **MultipartFile**|  | 
 
 ### Return type
 
@@ -519,7 +521,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **putGame**
-> GameDTO putGame(id, newGameDTO)
+> putGame(id, newGameDTO)
 
 
 
@@ -540,8 +542,7 @@ final id = 56; // int | Game id
 final newGameDTO = NewGameDTO(); // NewGameDTO | Game to be updated
 
 try {
-    final result = api_instance.putGame(id, newGameDTO);
-    print(result);
+    api_instance.putGame(id, newGameDTO);
 } catch (e) {
     print('Exception when calling GamesApi->putGame: $e\n');
 }
@@ -556,7 +557,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GameDTO**](GameDTO.md)
+void (empty response body)
 
 ### Authorization
 

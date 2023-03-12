@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,13 +10,13 @@
 import 'package:game_collection_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for NewPasswordDTO
+// tests for DateDTO
 void main() {
-  // final instance = NewPasswordDTO();
+  // final instance = DateDTO();
 
-  group('test NewPasswordDTO', () {
-    // String password
-    test('to test the property `password`', () async {
+  group('test DateDTO', () {
+    // DateTime date
+    test('to test the property `date`', () async {
       // TODO
     });
 

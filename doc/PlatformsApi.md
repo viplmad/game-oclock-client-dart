@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postPlatformIcon**
-> postPlatformIcon(id)
+> postPlatformIcon(id, file)
 
 
 
@@ -383,9 +383,10 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = PlatformsApi();
 final id = 56; // int | Platform id
+final file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.postPlatformIcon(id);
+    api_instance.postPlatformIcon(id, file);
 } catch (e) {
     print('Exception when calling PlatformsApi->postPlatformIcon: $e\n');
 }
@@ -396,6 +397,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Platform id | 
+ **file** | **MultipartFile**|  | 
 
 ### Return type
 
@@ -413,7 +415,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **putPlatform**
-> PlatformDTO putPlatform(id, newPlatformDTO)
+> putPlatform(id, newPlatformDTO)
 
 
 
@@ -434,8 +436,7 @@ final id = 56; // int | Platform id
 final newPlatformDTO = NewPlatformDTO(); // NewPlatformDTO | Platform to be updated
 
 try {
-    final result = api_instance.putPlatform(id, newPlatformDTO);
-    print(result);
+    api_instance.putPlatform(id, newPlatformDTO);
 } catch (e) {
     print('Exception when calling PlatformsApi->putPlatform: $e\n');
 }
@@ -450,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformDTO**](PlatformDTO.md)
+void (empty response body)
 
 ### Authorization
 
