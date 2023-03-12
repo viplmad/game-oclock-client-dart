@@ -573,7 +573,9 @@ class DLCsApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  Future<Response> postDlcCoverWithHttpInfo(int id,) async {
+  ///
+  /// * [MultipartFile] file (required):
+  Future<Response> postDlcCoverWithHttpInfo(int id, MultipartFile file,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/cover'
       .replaceAll('{id}', id.toString());
@@ -589,6 +591,11 @@ class DLCsApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
+    if (file != null) {
+      hasFields = true;
+      mp.fields[r'file'] = file.field;
+      mp.files.add(file);
+    }
     if (hasFields) {
       postBody = mp;
     }
@@ -610,8 +617,10 @@ class DLCsApi {
   ///
   /// * [int] id (required):
   ///   DLC id
-  Future<void> postDlcCover(int id,) async {
-    final response = await postDlcCoverWithHttpInfo(id,);
+  ///
+  /// * [MultipartFile] file (required):
+  Future<void> postDlcCover(int id, MultipartFile file,) async {
+    final response = await postDlcCoverWithHttpInfo(id, file,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

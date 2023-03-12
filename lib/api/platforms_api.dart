@@ -404,7 +404,9 @@ class PlatformsApi {
   ///
   /// * [int] id (required):
   ///   Platform id
-  Future<Response> postPlatformIconWithHttpInfo(int id,) async {
+  ///
+  /// * [MultipartFile] file (required):
+  Future<Response> postPlatformIconWithHttpInfo(int id, MultipartFile file,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/icon'
       .replaceAll('{id}', id.toString());
@@ -420,6 +422,11 @@ class PlatformsApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
+    if (file != null) {
+      hasFields = true;
+      mp.fields[r'file'] = file.field;
+      mp.files.add(file);
+    }
     if (hasFields) {
       postBody = mp;
     }
@@ -441,8 +448,10 @@ class PlatformsApi {
   ///
   /// * [int] id (required):
   ///   Platform id
-  Future<void> postPlatformIcon(int id,) async {
-    final response = await postPlatformIconWithHttpInfo(id,);
+  ///
+  /// * [MultipartFile] file (required):
+  Future<void> postPlatformIcon(int id, MultipartFile file,) async {
+    final response = await postPlatformIconWithHttpInfo(id, file,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

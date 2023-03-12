@@ -518,7 +518,9 @@ class GamesApi {
   ///
   /// * [int] id (required):
   ///   Game id
-  Future<Response> postGameCoverWithHttpInfo(int id,) async {
+  ///
+  /// * [MultipartFile] file (required):
+  Future<Response> postGameCoverWithHttpInfo(int id, MultipartFile file,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/cover'
       .replaceAll('{id}', id.toString());
@@ -534,6 +536,11 @@ class GamesApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
+    if (file != null) {
+      hasFields = true;
+      mp.fields[r'file'] = file.field;
+      mp.files.add(file);
+    }
     if (hasFields) {
       postBody = mp;
     }
@@ -555,8 +562,10 @@ class GamesApi {
   ///
   /// * [int] id (required):
   ///   Game id
-  Future<void> postGameCover(int id,) async {
-    final response = await postGameCoverWithHttpInfo(id,);
+  ///
+  /// * [MultipartFile] file (required):
+  Future<void> postGameCover(int id, MultipartFile file,) async {
+    final response = await postGameCoverWithHttpInfo(id, file,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
