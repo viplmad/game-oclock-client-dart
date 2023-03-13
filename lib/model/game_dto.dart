@@ -32,20 +32,8 @@ class GameDTO extends PrimaryModel {
 
   bool backup;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? coverFilename;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? coverUrl;
 
   String edition;
@@ -56,12 +44,6 @@ class GameDTO extends PrimaryModel {
 
   int rating;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   int? releaseYear;
 
   String saveFolder;
@@ -117,49 +99,42 @@ class GameDTO extends PrimaryModel {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GameDTO &&
-          other.addedDatetime == addedDatetime &&
-          other.backup == backup &&
-          other.coverFilename == coverFilename &&
-          other.coverUrl == coverUrl &&
-          other.edition == edition &&
-          other.id == id &&
-          other.name == name &&
-          other.notes == notes &&
-          other.rating == rating &&
-          other.releaseYear == releaseYear &&
-          other.saveFolder == saveFolder &&
-          other.screenshotFolder == screenshotFolder &&
-          other.status == status &&
-          other.updatedDatetime == updatedDatetime &&
-          other.firstFinish == firstFinish &&
-          other.totalTime == totalTime;
+  bool operator ==(Object other) => identical(this, other) || other is GameDTO &&
+     other.addedDatetime == addedDatetime &&
+     other.backup == backup &&
+     other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
+     other.edition == edition &&
+     other.id == id &&
+     other.name == name &&
+     other.notes == notes &&
+     other.rating == rating &&
+     other.releaseYear == releaseYear &&
+     other.saveFolder == saveFolder &&
+     other.screenshotFolder == screenshotFolder &&
+     other.status == status &&
+     other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (addedDatetime.hashCode) +
-      (backup.hashCode) +
-      (coverFilename == null ? 0 : coverFilename!.hashCode) +
-      (coverUrl == null ? 0 : coverUrl!.hashCode) +
-      (edition.hashCode) +
-      (id.hashCode) +
-      (name.hashCode) +
-      (notes.hashCode) +
-      (rating.hashCode) +
-      (releaseYear == null ? 0 : releaseYear!.hashCode) +
-      (saveFolder.hashCode) +
-      (screenshotFolder.hashCode) +
-      (status.hashCode) +
-      (updatedDatetime.hashCode) +
-      (firstFinish == null ? 0 : firstFinish!.hashCode) +
-      (totalTime == null ? 0 : totalTime!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (addedDatetime.hashCode) +
+    (backup.hashCode) +
+    (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
+    (edition.hashCode) +
+    (id.hashCode) +
+    (name.hashCode) +
+    (notes.hashCode) +
+    (rating.hashCode) +
+    (releaseYear == null ? 0 : releaseYear!.hashCode) +
+    (saveFolder.hashCode) +
+    (screenshotFolder.hashCode) +
+    (status.hashCode) +
+    (updatedDatetime.hashCode);
 
   @override
-  String toString() =>
-      'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -218,7 +193,7 @@ class GameDTO extends PrimaryModel {
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         notes: mapValueOfType<String>(json, r'notes')!,
         rating: mapValueOfType<int>(json, r'rating')!,

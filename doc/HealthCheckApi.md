@@ -17,8 +17,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';

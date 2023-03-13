@@ -15,9 +15,7 @@ class HealthCheckApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
+  /// Performs an HTTP 'GET /health' operation and returns the [Response].
   Future<Response> healthWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/health';
@@ -43,7 +41,6 @@ class HealthCheckApi {
     );
   }
 
-  ///
   Future<void> health() async {
     final response = await healthWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {

@@ -173,8 +173,6 @@ Class | Method | HTTP request | Description
  - [PlatformType](doc\/PlatformType.md)
  - [SearchDTO](doc\/SearchDTO.md)
  - [SearchValue](doc\/SearchValue.md)
- - [SearchValueOneOf](doc\/SearchValueOneOf.md)
- - [SearchValueOneOf1](doc\/SearchValueOneOf1.md)
  - [SortDTO](doc\/SortDTO.md)
  - [TagDTO](doc\/TagDTO.md)
  - [TagPageResult](doc\/TagPageResult.md)

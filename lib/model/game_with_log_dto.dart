@@ -133,7 +133,7 @@ class GameWithLogDTO extends GameDTO {
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         logDatetime: mapDateTime(json, r'log_datetime', '')!,
         logTime: mapDuration(json, r'log_time')!,
         name: mapValueOfType<String>(json, r'name')!,

@@ -25,8 +25,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -75,8 +73,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -88,7 +84,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UsersApi();
-final id = 56; // int | User id
+final id = id_example; // String | User id
 
 try {
     api_instance.deleteUser(id);
@@ -101,7 +97,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| User id | 
+ **id** | **String**| User id | 
 
 ### Return type
 
@@ -123,8 +119,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -136,7 +130,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UsersApi();
-final id = 56; // int | User id
+final id = id_example; // String | User id
 
 try {
     api_instance.demoteUser(id);
@@ -149,7 +143,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| User id | 
+ **id** | **String**| User id | 
 
 ### Return type
 
@@ -168,8 +162,6 @@ void (empty response body)
 
 # **getCurrentUser**
 > UserDTO getCurrentUser()
-
-
 
 
 
@@ -216,8 +208,6 @@ This endpoint does not need any parameter.
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -229,7 +219,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UsersApi();
-final id = 56; // int | User id
+final id = id_example; // String | User id
 
 try {
     final result = api_instance.getUser(id);
@@ -243,7 +233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| User id | 
+ **id** | **String**| User id | 
 
 ### Return type
 
@@ -262,8 +252,6 @@ Name | Type | Description  | Notes
 
 # **getUsers**
 > UserPageResult getUsers(searchDTO, q)
-
-
 
 
 
@@ -316,8 +304,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -367,8 +353,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -380,7 +364,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UsersApi();
-final id = 56; // int | User id
+final id = id_example; // String | User id
 
 try {
     api_instance.promoteUser(id);
@@ -393,7 +377,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| User id | 
+ **id** | **String**| User id | 
 
 ### Return type
 
@@ -415,8 +399,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -428,7 +410,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = UsersApi();
-final id = 56; // int | User id
+final id = id_example; // String | User id
 final newUserDTO = NewUserDTO(); // NewUserDTO | User to be updated
 
 try {
@@ -442,7 +424,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| User id | 
+ **id** | **String**| User id | 
  **newUserDTO** | [**NewUserDTO**](NewUserDTO.md)| User to be updated | 
 
 ### Return type

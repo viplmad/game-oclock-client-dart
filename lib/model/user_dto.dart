@@ -13,12 +13,15 @@ class UserDTO extends PrimaryModel {
   /// Returns a new [UserDTO] instance.
   UserDTO({
     required this.addedDatetime,
+    required this.admin,
     required super.id,
     required this.updatedDatetime,
     required this.username,
   });
 
   DateTime addedDatetime;
+
+  bool admin;
 
   DateTime updatedDatetime;
 
@@ -27,6 +30,7 @@ class UserDTO extends PrimaryModel {
   @override
   bool operator ==(Object other) => identical(this, other) || other is UserDTO &&
      other.addedDatetime == addedDatetime &&
+     other.admin == admin &&
      other.id == id &&
      other.updatedDatetime == updatedDatetime &&
      other.username == username;
@@ -35,16 +39,18 @@ class UserDTO extends PrimaryModel {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (addedDatetime.hashCode) +
+    (admin.hashCode) +
     (id.hashCode) +
     (updatedDatetime.hashCode) +
     (username.hashCode);
 
   @override
-  String toString() => 'UserDTO[addedDatetime=$addedDatetime, id=$id, updatedDatetime=$updatedDatetime, username=$username]';
+  String toString() => 'UserDTO[addedDatetime=$addedDatetime, admin=$admin, id=$id, updatedDatetime=$updatedDatetime, username=$username]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+      json[r'admin'] = this.admin;
       json[r'id'] = this.id;
       json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
       json[r'username'] = this.username;
@@ -71,7 +77,8 @@ class UserDTO extends PrimaryModel {
 
       return UserDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
-        id: mapValueOfType<int>(json, r'id')!,
+        admin: mapValueOfType<bool>(json, r'admin')!,
+        id: mapValueOfType<String>(json, r'id')!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
         username: mapValueOfType<String>(json, r'username')!,
       );
@@ -124,6 +131,7 @@ class UserDTO extends PrimaryModel {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'added_datetime',
+    'admin',
     'id',
     'updated_datetime',
     'username',

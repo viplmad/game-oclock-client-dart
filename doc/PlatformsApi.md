@@ -26,8 +26,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -39,7 +37,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 
 try {
     api_instance.deletePlatform(id);
@@ -52,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
 
 ### Return type
 
@@ -74,8 +72,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -87,7 +83,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 
 try {
     api_instance.deletePlatformIcon(id);
@@ -100,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
 
 ### Return type
 
@@ -122,8 +118,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -135,7 +129,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     final result = api_instance.getDlcPlatforms(id);
@@ -149,7 +143,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -171,8 +165,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -184,7 +176,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getGamePlatforms(id);
@@ -198,7 +190,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -220,8 +212,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -233,7 +223,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 
 try {
     final result = api_instance.getPlatform(id);
@@ -247,7 +237,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
 
 ### Return type
 
@@ -266,8 +256,6 @@ Name | Type | Description  | Notes
 
 # **getPlatforms**
 > PlatformPageResult getPlatforms(searchDTO, q)
-
-
 
 
 
@@ -320,8 +308,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -369,8 +355,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -382,7 +366,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 final file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
@@ -396,7 +380,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
  **file** | **MultipartFile**|  | 
 
 ### Return type
@@ -419,8 +403,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -432,7 +414,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 final newPlatformDTO = NewPlatformDTO(); // NewPlatformDTO | Platform to be updated
 
 try {
@@ -446,7 +428,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
  **newPlatformDTO** | [**NewPlatformDTO**](NewPlatformDTO.md)| Platform to be updated | 
 
 ### Return type
@@ -469,8 +451,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -482,7 +462,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = PlatformsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 final body = String(); // String | New platform filename
 
 try {
@@ -496,7 +476,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
  **body** | **String**| New platform filename | 
 
 ### Return type

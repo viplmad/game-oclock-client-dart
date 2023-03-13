@@ -98,7 +98,7 @@ class PlatformAvailableDTO extends PlatformDTO {
         availableDate: mapDateTime(json, r'available_date', '')!,
         iconFilename: mapValueOfType<String>(json, r'icon_filename'),
         iconUrl: mapValueOfType<String>(json, r'icon_url'),
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         type: PlatformType.fromJson(json[r'type']),
         updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,

@@ -31,8 +31,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -44,7 +42,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     api_instance.deleteDlc(id);
@@ -57,7 +55,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -79,8 +77,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -92,7 +88,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     api_instance.deleteDlcCover(id);
@@ -105,7 +101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -127,8 +123,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -140,7 +134,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     final result = api_instance.getDlc(id);
@@ -154,7 +148,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -176,8 +170,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -189,7 +181,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     final result = api_instance.getDlcBaseGame(id);
@@ -203,7 +195,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -222,8 +214,6 @@ Name | Type | Description  | Notes
 
 # **getDlcs**
 > DLCPageResult getDlcs(searchDTO, q)
-
-
 
 
 
@@ -276,8 +266,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -289,7 +277,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getGameDlcs(id);
@@ -303,7 +291,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -325,8 +313,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -338,7 +324,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 
 try {
     final result = api_instance.getPlatformDlcs(id);
@@ -352,7 +338,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
 
 ### Return type
 
@@ -374,8 +360,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -387,8 +371,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
-final otherId = 56; // int | Game id
+final id = id_example; // String | DLC id
+final otherId = otherId_example; // String | Game id
 
 try {
     api_instance.linkDlcGame(id, otherId);
@@ -401,8 +385,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
- **otherId** | **int**| Game id | 
+ **id** | **String**| DLC id | 
+ **otherId** | **String**| Game id | 
 
 ### Return type
 
@@ -424,8 +408,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -437,8 +419,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
-final otherId = 56; // int | Platform id
+final id = id_example; // String | DLC id
+final otherId = otherId_example; // String | Platform id
 final dateDTO = DateDTO(); // DateDTO | Available date
 
 try {
@@ -452,8 +434,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
- **otherId** | **int**| Platform id | 
+ **id** | **String**| DLC id | 
+ **otherId** | **String**| Platform id | 
  **dateDTO** | [**DateDTO**](DateDTO.md)| Available date | 
 
 ### Return type
@@ -473,8 +455,6 @@ void (empty response body)
 
 # **postDlc**
 > DLCDTO postDlc(newDLCDTO)
-
-
 
 
 
@@ -525,8 +505,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -538,7 +516,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 final file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
@@ -552,7 +530,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
  **file** | **MultipartFile**|  | 
 
 ### Return type
@@ -575,8 +553,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -588,7 +564,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 final newDLCDTO = NewDLCDTO(); // NewDLCDTO | DLC to be updated
 
 try {
@@ -602,7 +578,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
  **newDLCDTO** | [**NewDLCDTO**](NewDLCDTO.md)| DLC to be updated | 
 
 ### Return type
@@ -625,8 +601,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -638,7 +612,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 final body = String(); // String | New dlc cover name
 
 try {
@@ -652,7 +626,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
  **body** | **String**| New dlc cover name | 
 
 ### Return type
@@ -675,8 +649,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -688,7 +660,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     api_instance.unlinkDlcGame(id);
@@ -701,7 +673,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -723,8 +695,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -736,8 +706,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCsApi();
-final id = 56; // int | DLC id
-final otherId = 56; // int | Platform id
+final id = id_example; // String | DLC id
+final otherId = otherId_example; // String | Platform id
 
 try {
     api_instance.unlinkDlcPlatform(id, otherId);
@@ -750,8 +720,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
- **otherId** | **int**| Platform id | 
+ **id** | **String**| DLC id | 
+ **otherId** | **String**| Platform id | 
 
 ### Return type
 

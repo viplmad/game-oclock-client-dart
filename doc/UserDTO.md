@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
 **admin** | **bool** |  | 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **updatedDatetime** | [**DateTime**](DateTime.md) |  | 
 **username** | **String** |  | 
 

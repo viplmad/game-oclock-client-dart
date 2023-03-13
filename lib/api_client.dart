@@ -248,8 +248,6 @@ class ApiClient {
           return SearchDTO.fromJson(value);
         case 'SearchValue':
           return SearchValue.fromJson(value);
-        case 'SearchValueOneOf':
-          return SearchValueOneOf.fromJson(value);
         case 'SortDTO':
           return SortDTO.fromJson(value);
         case 'TagDTO':

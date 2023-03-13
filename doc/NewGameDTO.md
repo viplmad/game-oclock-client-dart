@@ -8,15 +8,15 @@ import 'package:game_collection_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**backup** | **bool** |  | [optional] 
-**edition** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
-**notes** | **String** |  | [optional] 
-**rating** | **int** |  | [optional] 
-**releaseYear** | **int** |  | [optional] 
-**saveFolder** | **String** |  | [optional] 
-**screenshotFolder** | **String** |  | [optional] 
-**status** | [**GameStatus**](GameStatus.md) |  | [optional] 
+**backup** | **bool** |  | 
+**edition** | **String** |  | 
+**name** | **String** |  | 
+**notes** | **String** |  | 
+**rating** | **int** |  | 
+**releaseYear** | **int** |  | 
+**saveFolder** | **String** |  | 
+**screenshotFolder** | **String** |  | 
+**status** | [**GameStatus**](GameStatus.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

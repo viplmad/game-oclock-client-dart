@@ -15,10 +15,7 @@ class UsersApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/myself/change-password' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [String] currentPassword (required):
@@ -55,8 +52,6 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [String] currentPassword (required):
@@ -69,18 +64,15 @@ class UsersApi {
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/users/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<Response> deleteUserWithHttpInfo(int id,) async {
+  Future<Response> deleteUserWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/users/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -103,31 +95,26 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<void> deleteUser(int id,) async {
+  Future<void> deleteUser(String id,) async {
     final response = await deleteUserWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/users/{id}/demote' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<Response> demoteUserWithHttpInfo(int id,) async {
+  Future<Response> demoteUserWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/users/{id}/demote'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -150,22 +137,18 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<void> demoteUser(int id,) async {
+  Future<void> demoteUser(String id,) async {
     final response = await demoteUserWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
+  /// Performs an HTTP 'GET /api/v1/myself' operation and returns the [Response].
   Future<Response> getCurrentUserWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/myself';
@@ -191,7 +174,6 @@ class UsersApi {
     );
   }
 
-  ///
   Future<UserDTO> getCurrentUser() async {
     final response = await getCurrentUserWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -207,18 +189,15 @@ class UsersApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/users/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<Response> getUserWithHttpInfo(int id,) async {
+  Future<Response> getUserWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/users/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -241,13 +220,11 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<UserDTO> getUser(int id,) async {
+  Future<UserDTO> getUser(String id,) async {
     final response = await getUserWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -262,10 +239,7 @@ class UsersApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/users/list' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -301,8 +275,6 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -324,10 +296,7 @@ class UsersApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/users' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [String] password (required):
@@ -361,8 +330,6 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [String] password (required):
@@ -384,18 +351,15 @@ class UsersApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/users/{id}/promote' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<Response> promoteUserWithHttpInfo(int id,) async {
+  Future<Response> promoteUserWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/users/{id}/promote'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -418,34 +382,29 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
-  Future<void> promoteUser(int id,) async {
+  Future<void> promoteUser(String id,) async {
     final response = await promoteUserWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/users/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
   ///
   /// * [NewUserDTO] newUserDTO (required):
   ///   User to be updated
-  Future<Response> putUserWithHttpInfo(int id, NewUserDTO newUserDTO,) async {
+  Future<Response> putUserWithHttpInfo(String id, NewUserDTO newUserDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/users/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = newUserDTO;
@@ -468,16 +427,14 @@ class UsersApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   User id
   ///
   /// * [NewUserDTO] newUserDTO (required):
   ///   User to be updated
-  Future<void> putUser(int id, NewUserDTO newUserDTO,) async {
+  Future<void> putUser(String id, NewUserDTO newUserDTO,) async {
     final response = await putUserWithHttpInfo(id, newUserDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

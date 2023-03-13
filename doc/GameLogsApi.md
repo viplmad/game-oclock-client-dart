@@ -23,8 +23,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -36,7 +34,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final dateTimeDTO = DateTimeDTO(); // DateTimeDTO | Game log datetime to be deleted
 
 try {
@@ -50,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **dateTimeDTO** | [**DateTimeDTO**](DateTimeDTO.md)| Game log datetime to be deleted | 
 
 ### Return type
@@ -70,8 +68,6 @@ void (empty response body)
 
 # **getFirstPlayedGames**
 > GameWithLogPageResult getFirstPlayedGames(searchDTO, startDate, endDate, q)
-
-
 
 
 
@@ -128,8 +124,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -141,7 +135,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getGameLogs(id);
@@ -155,7 +149,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -174,8 +168,6 @@ Name | Type | Description  | Notes
 
 # **getLastPlayedGames**
 > GameWithLogPageResult getLastPlayedGames(searchDTO, startDate, endDate, q)
-
-
 
 
 
@@ -232,8 +224,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -283,8 +273,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -296,7 +284,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getTotalGameLogs(id);
@@ -310,7 +298,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -332,8 +320,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -345,7 +331,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final gameLogDTO = GameLogDTO(); // GameLogDTO | Game log to be added
 
 try {
@@ -359,7 +345,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **gameLogDTO** | [**GameLogDTO**](GameLogDTO.md)| Game log to be added | 
 
 ### Return type

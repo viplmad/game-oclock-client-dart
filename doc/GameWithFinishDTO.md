@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
 **finishDate** | [**DateTime**](DateTime.md) |  | 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **name** | **String** |  | 
 **notes** | **String** |  | 
 **rating** | **int** |  | 

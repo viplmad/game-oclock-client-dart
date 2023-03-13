@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **coverFilename** | **String** |  | [optional] 
 **coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **logs** | [**List<GameLogDTO>**](GameLogDTO.md) |  | [default to const []]
 **name** | **String** |  | 
 **notes** | **String** |  | 

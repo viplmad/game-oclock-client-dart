@@ -15,18 +15,15 @@ class DLCsApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> deleteDlcWithHttpInfo(int id,) async {
+  Future<Response> deleteDlcWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -49,31 +46,26 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<void> deleteDlc(int id,) async {
+  Future<void> deleteDlc(String id,) async {
     final response = await deleteDlcWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/cover' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> deleteDlcCoverWithHttpInfo(int id,) async {
+  Future<Response> deleteDlcCoverWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/cover'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -96,31 +88,26 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<void> deleteDlcCover(int id,) async {
+  Future<void> deleteDlcCover(String id,) async {
     final response = await deleteDlcCoverWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/dlcs/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> getDlcWithHttpInfo(int id,) async {
+  Future<Response> getDlcWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -143,13 +130,11 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<DLCDTO> getDlc(int id,) async {
+  Future<DLCDTO> getDlc(String id,) async {
     final response = await getDlcWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -164,18 +149,15 @@ class DLCsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/dlcs/{id}/base-game' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> getDlcBaseGameWithHttpInfo(int id,) async {
+  Future<Response> getDlcBaseGameWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/base-game'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,13 +180,11 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<GameDTO> getDlcBaseGame(int id,) async {
+  Future<GameDTO> getDlcBaseGame(String id,) async {
     final response = await getDlcBaseGameWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -219,10 +199,7 @@ class DLCsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/dlcs/list' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -258,8 +235,6 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -281,18 +256,15 @@ class DLCsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/dlcs' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getGameDlcsWithHttpInfo(int id,) async {
+  Future<Response> getGameDlcsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/dlcs'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -315,13 +287,11 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<List<DLCDTO>> getGameDlcs(int id,) async {
+  Future<List<DLCDTO>> getGameDlcs(String id,) async {
     final response = await getGameDlcsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -339,18 +309,15 @@ class DLCsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/platforms/{id}/dlcs' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<Response> getPlatformDlcsWithHttpInfo(int id,) async {
+  Future<Response> getPlatformDlcsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/dlcs'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -373,13 +340,11 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<List<DLCAvailableDTO>> getPlatformDlcs(int id,) async {
+  Future<List<DLCAvailableDTO>> getPlatformDlcs(String id,) async {
     final response = await getPlatformDlcsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -397,22 +362,19 @@ class DLCsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/dlcs/{id}/base-game/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Game id
-  Future<Response> linkDlcGameWithHttpInfo(int id, int otherId,) async {
+  Future<Response> linkDlcGameWithHttpInfo(String id, String otherId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/base-game/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -435,41 +397,36 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Game id
-  Future<void> linkDlcGame(int id, int otherId,) async {
+  Future<void> linkDlcGame(String id, String otherId,) async {
     final response = await linkDlcGameWithHttpInfo(id, otherId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/dlcs/{id}/platforms/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Available date
-  Future<Response> linkDlcPlatformWithHttpInfo(int id, int otherId, DateDTO dateDTO,) async {
+  Future<Response> linkDlcPlatformWithHttpInfo(String id, String otherId, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/platforms/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody = dateDTO;
@@ -492,29 +449,24 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Available date
-  Future<void> linkDlcPlatform(int id, int otherId, DateDTO dateDTO,) async {
+  Future<void> linkDlcPlatform(String id, String otherId, DateDTO dateDTO,) async {
     final response = await linkDlcPlatformWithHttpInfo(id, otherId, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/dlcs' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [NewDLCDTO] newDLCDTO (required):
@@ -544,8 +496,6 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [NewDLCDTO] newDLCDTO (required):
@@ -565,20 +515,17 @@ class DLCsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/dlcs/{id}/cover' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [MultipartFile] file (required):
-  Future<Response> postDlcCoverWithHttpInfo(int id, MultipartFile file,) async {
+  Future<Response> postDlcCoverWithHttpInfo(String id, MultipartFile file,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/cover'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -611,36 +558,31 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [MultipartFile] file (required):
-  Future<void> postDlcCover(int id, MultipartFile file,) async {
+  Future<void> postDlcCover(String id, MultipartFile file,) async {
     final response = await postDlcCoverWithHttpInfo(id, file,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/dlcs/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [NewDLCDTO] newDLCDTO (required):
   ///   DLC to be updated
-  Future<Response> putDlcWithHttpInfo(int id, NewDLCDTO newDLCDTO,) async {
+  Future<Response> putDlcWithHttpInfo(String id, NewDLCDTO newDLCDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = newDLCDTO;
@@ -663,37 +605,32 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [NewDLCDTO] newDLCDTO (required):
   ///   DLC to be updated
-  Future<void> putDlc(int id, NewDLCDTO newDLCDTO,) async {
+  Future<void> putDlc(String id, NewDLCDTO newDLCDTO,) async {
     final response = await putDlcWithHttpInfo(id, newDLCDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/dlcs/{id}/cover' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [String] body (required):
   ///   New dlc cover name
-  Future<Response> putDlcCoverWithHttpInfo(int id, String body,) async {
+  Future<Response> putDlcCoverWithHttpInfo(String id, String body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/cover'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -716,34 +653,29 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [String] body (required):
   ///   New dlc cover name
-  Future<void> putDlcCover(int id, String body,) async {
+  Future<void> putDlcCover(String id, String body,) async {
     final response = await putDlcCoverWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/base-game' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> unlinkDlcGameWithHttpInfo(int id,) async {
+  Future<Response> unlinkDlcGameWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/base-game'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -766,35 +698,30 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<void> unlinkDlcGame(int id,) async {
+  Future<void> unlinkDlcGame(String id,) async {
     final response = await unlinkDlcGameWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/platforms/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
-  Future<Response> unlinkDlcPlatformWithHttpInfo(int id, int otherId,) async {
+  Future<Response> unlinkDlcPlatformWithHttpInfo(String id, String otherId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/platforms/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -817,16 +744,14 @@ class DLCsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
-  Future<void> unlinkDlcPlatform(int id, int otherId,) async {
+  Future<void> unlinkDlcPlatform(String id, String otherId,) async {
     final response = await unlinkDlcPlatformWithHttpInfo(id, otherId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

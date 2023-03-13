@@ -14,7 +14,7 @@ class GameLogDTO extends PrimaryModel {
   GameLogDTO({
     required this.datetime,
     required this.time,
-  }) : super(id: datetime.microsecondsSinceEpoch);
+  }) : super(id: datetime.toIso8601String());
 
   DateTime datetime;
 

@@ -104,10 +104,10 @@ class DLCAvailableDTO extends DLCDTO{
       return DLCAvailableDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         availableDate: mapDateTime(json, r'available_date', '')!,
-        baseGameId: mapValueOfType<int>(json, r'base_game_id'),
+        baseGameId: mapValueOfType<String>(json, r'base_game_id'),
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         releaseYear: mapValueOfType<int>(json, r'release_year'),
         updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,

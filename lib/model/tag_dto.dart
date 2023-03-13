@@ -79,7 +79,7 @@ class TagDTO extends PrimaryModel {
 
       return TagDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
       );

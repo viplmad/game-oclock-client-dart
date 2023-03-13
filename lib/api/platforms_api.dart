@@ -15,18 +15,15 @@ class PlatformsApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/platforms/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<Response> deletePlatformWithHttpInfo(int id,) async {
+  Future<Response> deletePlatformWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -49,31 +46,26 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<void> deletePlatform(int id,) async {
+  Future<void> deletePlatform(String id,) async {
     final response = await deletePlatformWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/platforms/{id}/icon' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<Response> deletePlatformIconWithHttpInfo(int id,) async {
+  Future<Response> deletePlatformIconWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/icon'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -96,31 +88,26 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<void> deletePlatformIcon(int id,) async {
+  Future<void> deletePlatformIcon(String id,) async {
     final response = await deletePlatformIconWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/dlcs/{id}/platforms' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> getDlcPlatformsWithHttpInfo(int id,) async {
+  Future<Response> getDlcPlatformsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/platforms'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -143,13 +130,11 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<List<PlatformAvailableDTO>> getDlcPlatforms(int id,) async {
+  Future<List<PlatformAvailableDTO>> getDlcPlatforms(String id,) async {
     final response = await getDlcPlatformsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -167,18 +152,15 @@ class PlatformsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/platforms' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getGamePlatformsWithHttpInfo(int id,) async {
+  Future<Response> getGamePlatformsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/platforms'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -201,13 +183,11 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<List<PlatformAvailableDTO>> getGamePlatforms(int id,) async {
+  Future<List<PlatformAvailableDTO>> getGamePlatforms(String id,) async {
     final response = await getGamePlatformsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -225,18 +205,15 @@ class PlatformsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/platforms/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<Response> getPlatformWithHttpInfo(int id,) async {
+  Future<Response> getPlatformWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -259,13 +236,11 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<PlatformDTO> getPlatform(int id,) async {
+  Future<PlatformDTO> getPlatform(String id,) async {
     final response = await getPlatformWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -280,10 +255,7 @@ class PlatformsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/platforms/list' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -319,8 +291,6 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -342,10 +312,7 @@ class PlatformsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/platforms' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [NewPlatformDTO] newPlatformDTO (required):
@@ -375,8 +342,6 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [NewPlatformDTO] newPlatformDTO (required):
@@ -396,20 +361,17 @@ class PlatformsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/platforms/{id}/icon' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
   ///
   /// * [MultipartFile] file (required):
-  Future<Response> postPlatformIconWithHttpInfo(int id, MultipartFile file,) async {
+  Future<Response> postPlatformIconWithHttpInfo(String id, MultipartFile file,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/icon'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -442,36 +404,31 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
   ///
   /// * [MultipartFile] file (required):
-  Future<void> postPlatformIcon(int id, MultipartFile file,) async {
+  Future<void> postPlatformIcon(String id, MultipartFile file,) async {
     final response = await postPlatformIconWithHttpInfo(id, file,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/platforms/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
   ///
   /// * [NewPlatformDTO] newPlatformDTO (required):
   ///   Platform to be updated
-  Future<Response> putPlatformWithHttpInfo(int id, NewPlatformDTO newPlatformDTO,) async {
+  Future<Response> putPlatformWithHttpInfo(String id, NewPlatformDTO newPlatformDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = newPlatformDTO;
@@ -494,37 +451,32 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
   ///
   /// * [NewPlatformDTO] newPlatformDTO (required):
   ///   Platform to be updated
-  Future<void> putPlatform(int id, NewPlatformDTO newPlatformDTO,) async {
+  Future<void> putPlatform(String id, NewPlatformDTO newPlatformDTO,) async {
     final response = await putPlatformWithHttpInfo(id, newPlatformDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/platforms/{id}/icon' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
   ///
   /// * [String] body (required):
   ///   New platform filename
-  Future<Response> putPlatformIconWithHttpInfo(int id, String body,) async {
+  Future<Response> putPlatformIconWithHttpInfo(String id, String body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/icon'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -547,16 +499,14 @@ class PlatformsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
   ///
   /// * [String] body (required):
   ///   New platform filename
-  Future<void> putPlatformIcon(int id, String body,) async {
+  Future<void> putPlatformIcon(String id, String body,) async {
     final response = await putPlatformIconWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

@@ -17,8 +17,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -42,9 +40,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **grantType** | [**GrantType**](GrantType.md)|  | 
- **password** | **String**|  | [optional] 
- **refreshToken** | **String**|  | [optional] 
- **username** | **String**|  | [optional] 
+ **password** | **String**|  | 
+ **refreshToken** | **String**|  | 
+ **username** | **String**|  | 
 
 ### Return type
 

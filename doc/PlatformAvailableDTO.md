@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **availableDate** | [**DateTime**](DateTime.md) |  | 
 **iconFilename** | **String** |  | [optional] 
 **iconUrl** | **String** |  | [optional] 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **name** | **String** |  | 
 **type** | [**PlatformType**](PlatformType.md) |  | [optional] 
 **updatedDatetime** | [**DateTime**](DateTime.md) |  | 

@@ -17,28 +17,10 @@ class NewDLCDTO {
     this.releaseYear,
   });
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? baseGameId;
+  String? baseGameId;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? name;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   int? releaseYear;
 
   @override
@@ -96,7 +78,7 @@ class NewDLCDTO {
       }());
 
       return NewDLCDTO(
-        baseGameId: mapValueOfType<int>(json, r'base_game_id'),
+        baseGameId: mapValueOfType<String>(json, r'base_game_id'),
         name: mapValueOfType<String>(json, r'name'),
         releaseYear: mapValueOfType<int>(json, r'release_year'),
       );

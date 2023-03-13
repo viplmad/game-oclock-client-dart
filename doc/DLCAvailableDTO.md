@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
 **availableDate** | [**DateTime**](DateTime.md) |  | 
-**baseGameId** | **int** |  | [optional] 
+**baseGameId** | **String** |  | [optional] 
 **coverFilename** | **String** |  | [optional] 
 **coverUrl** | **String** |  | [optional] 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **name** | **String** |  | 
 **releaseYear** | **int** |  | [optional] 
 **updatedDatetime** | [**DateTime**](DateTime.md) |  | 

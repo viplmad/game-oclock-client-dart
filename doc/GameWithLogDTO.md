@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **coverFilename** | **String** |  | [optional] 
 **coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
-**id** | **int** |  | 
+**id** | **String** |  | 
 **logDatetime** | [**DateTime**](DateTime.md) |  | 
 **logTime** | **String** |  | 
 **name** | **String** |  | 

@@ -70,7 +70,6 @@ part 'model/platform_page_result.dart';
 part 'model/platform_type.dart';
 part 'model/search_dto.dart';
 part 'model/search_value.dart';
-part 'model/search_value_one_of.dart';
 part 'model/sort_dto.dart';
 part 'model/tag_dto.dart';
 part 'model/tag_page_result.dart';

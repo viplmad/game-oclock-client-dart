@@ -22,8 +22,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -35,7 +33,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameFinishApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final dateDTO = DateDTO(); // DateDTO | Game finish date to be deleted
 
 try {
@@ -49,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be deleted | 
 
 ### Return type
@@ -69,8 +67,6 @@ void (empty response body)
 
 # **getFirstFinishedGames**
 > GameWithFinishPageResult getFirstFinishedGames(searchDTO, startDate, endDate, q)
-
-
 
 
 
@@ -123,9 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFirstGameFinish**
-> DateTime getFirstGameFinish(id)
-
-
+> String getFirstGameFinish(id)
 
 
 
@@ -140,7 +134,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameFinishApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getFirstGameFinish(id);
@@ -154,11 +148,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
-[**DateTime**](DateTime.md)
+**String**
 
 ### Authorization
 
@@ -176,8 +170,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -189,7 +181,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameFinishApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getGameFinishes(id);
@@ -203,7 +195,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -222,8 +214,6 @@ Name | Type | Description  | Notes
 
 # **getLastFinishedGames**
 > GameWithFinishPageResult getLastFinishedGames(searchDTO, startDate, endDate, q)
-
-
 
 
 
@@ -280,8 +270,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -293,7 +281,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameFinishApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final dateDTO = DateDTO(); // DateDTO | Game finish date to be added
 
 try {
@@ -307,7 +295,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be added | 
 
 ### Return type

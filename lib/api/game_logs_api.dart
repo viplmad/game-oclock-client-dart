@@ -15,21 +15,18 @@ class GameLogsApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/games/{id}/logs' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [DateTimeDTO] dateTimeDTO (required):
   ///   Game log datetime to be deleted
-  Future<Response> deleteGameLogWithHttpInfo(int id, DateTimeDTO dateTimeDTO,) async {
+  Future<Response> deleteGameLogWithHttpInfo(String id, DateTimeDTO dateTimeDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/logs'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = dateTimeDTO;
@@ -52,26 +49,21 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [DateTimeDTO] dateTimeDTO (required):
   ///   Game log datetime to be deleted
-  Future<void> deleteGameLog(int id, DateTimeDTO dateTimeDTO,) async {
+  Future<void> deleteGameLog(String id, DateTimeDTO dateTimeDTO,) async {
     final response = await deleteGameLogWithHttpInfo(id, dateTimeDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/played/first' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -117,8 +109,6 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -144,18 +134,15 @@ class GameLogsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/logs' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getGameLogsWithHttpInfo(int id,) async {
+  Future<Response> getGameLogsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/logs'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -178,13 +165,11 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<List<GameLogDTO>> getGameLogs(int id,) async {
+  Future<List<GameLogDTO>> getGameLogs(String id,) async {
     final response = await getGameLogsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -202,10 +187,7 @@ class GameLogsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/played/last' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -251,8 +233,6 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -278,10 +258,7 @@ class GameLogsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/played' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [DateTime] startDate (required):
@@ -315,8 +292,6 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [DateTime] startDate (required):
@@ -340,18 +315,15 @@ class GameLogsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/logs/total' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getTotalGameLogsWithHttpInfo(int id,) async {
+  Future<Response> getTotalGameLogsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/logs/total'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -374,13 +346,11 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Duration> getTotalGameLogs(int id,) async {
+  Future<Duration> getTotalGameLogs(String id,) async {
     final response = await getTotalGameLogsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -395,21 +365,18 @@ class GameLogsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/{id}/logs' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [GameLogDTO] gameLogDTO (required):
   ///   Game log to be added
-  Future<Response> postGameLogWithHttpInfo(int id, GameLogDTO gameLogDTO,) async {
+  Future<Response> postGameLogWithHttpInfo(String id, GameLogDTO gameLogDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/logs'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = gameLogDTO;
@@ -432,16 +399,14 @@ class GameLogsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [GameLogDTO] gameLogDTO (required):
   ///   Game log to be added
-  Future<void> postGameLog(int id, GameLogDTO gameLogDTO,) async {
+  Future<void> postGameLog(String id, GameLogDTO gameLogDTO,) async {
     final response = await postGameLogWithHttpInfo(id, gameLogDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

@@ -15,21 +15,18 @@ class GameFinishApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/games/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be deleted
-  Future<Response> deleteGameFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
+  Future<Response> deleteGameFinishWithHttpInfo(String id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = dateDTO;
@@ -52,26 +49,21 @@ class GameFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be deleted
-  Future<void> deleteGameFinish(int id, DateDTO dateDTO,) async {
+  Future<void> deleteGameFinish(String id, DateDTO dateDTO,) async {
     final response = await deleteGameFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/finished/first' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -117,8 +109,6 @@ class GameFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -144,18 +134,15 @@ class GameFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/finishes/first' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getFirstGameFinishWithHttpInfo(int id,) async {
+  Future<Response> getFirstGameFinishWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes/first'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -178,13 +165,11 @@ class GameFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<DateTime> getFirstGameFinish(int id,) async {
+  Future<DateTime> getFirstGameFinish(String id,) async {
     final response = await getFirstGameFinishWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -199,18 +184,15 @@ class GameFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getGameFinishesWithHttpInfo(int id,) async {
+  Future<Response> getGameFinishesWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -233,13 +215,11 @@ class GameFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<List<DateTime>> getGameFinishes(int id,) async {
+  Future<List<DateTime>> getGameFinishes(String id,) async {
     final response = await getGameFinishesWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -257,10 +237,7 @@ class GameFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/finished/last' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -306,8 +283,6 @@ class GameFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -333,21 +308,18 @@ class GameFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be added
-  Future<Response> postGameFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
+  Future<Response> postGameFinishWithHttpInfo(String id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/finishes'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = dateDTO;
@@ -370,16 +342,14 @@ class GameFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Game finish date to be added
-  Future<void> postGameFinish(int id, DateDTO dateDTO,) async {
+  Future<void> postGameFinish(String id, DateDTO dateDTO,) async {
     final response = await postGameFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

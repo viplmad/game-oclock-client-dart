@@ -23,30 +23,12 @@ class PlatformDTO extends PrimaryModel {
 
   DateTime addedDatetime;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? iconFilename;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? iconUrl;
 
   String name;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   PlatformType? type;
 
   DateTime updatedDatetime;
@@ -145,7 +127,7 @@ class PlatformDTO extends PrimaryModel {
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
         iconFilename: mapValueOfType<String>(json, r'icon_filename'),
         iconUrl: mapValueOfType<String>(json, r'icon_url'),
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         type: PlatformType.fromJson(json[r'type']),
         updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,

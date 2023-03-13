@@ -22,8 +22,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -35,7 +33,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = TagsApi();
-final id = 56; // int | Tag id
+final id = id_example; // String | Tag id
 
 try {
     api_instance.deleteTag(id);
@@ -48,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Tag id | 
+ **id** | **String**| Tag id | 
 
 ### Return type
 
@@ -70,8 +68,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -83,7 +79,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = TagsApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getGameTags(id);
@@ -97,7 +93,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -119,8 +115,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -132,7 +126,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = TagsApi();
-final id = 56; // int | Tag id
+final id = id_example; // String | Tag id
 
 try {
     final result = api_instance.getTag(id);
@@ -146,7 +140,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Tag id | 
+ **id** | **String**| Tag id | 
 
 ### Return type
 
@@ -165,8 +159,6 @@ Name | Type | Description  | Notes
 
 # **getTags**
 > TagPageResult getTags(searchDTO, q)
-
-
 
 
 
@@ -219,8 +211,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -268,8 +258,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -281,7 +269,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = TagsApi();
-final id = 56; // int | Tag id
+final id = id_example; // String | Tag id
 final newTagDTO = NewTagDTO(); // NewTagDTO | Tag to be updated
 
 try {
@@ -295,7 +283,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Tag id | 
+ **id** | **String**| Tag id | 
  **newTagDTO** | [**NewTagDTO**](NewTagDTO.md)| Tag to be updated | 
 
 ### Return type

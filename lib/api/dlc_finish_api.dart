@@ -15,21 +15,18 @@ class DLCFinishApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be deleted
-  Future<Response> deleteDlcFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
+  Future<Response> deleteDlcFinishWithHttpInfo(String id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = dateDTO;
@@ -52,34 +49,29 @@ class DLCFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be deleted
-  Future<void> deleteDlcFinish(int id, DateDTO dateDTO,) async {
+  Future<void> deleteDlcFinish(String id, DateDTO dateDTO,) async {
     final response = await deleteDlcFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/dlcs/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> getDlcFinishesWithHttpInfo(int id,) async {
+  Future<Response> getDlcFinishesWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -102,13 +94,11 @@ class DLCFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<List<DateTime>> getDlcFinishes(int id,) async {
+  Future<List<DateTime>> getDlcFinishes(String id,) async {
     final response = await getDlcFinishesWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -126,18 +116,15 @@ class DLCFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/dlcs/{id}/finishes/first' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<Response> getFirstDlcFinishWithHttpInfo(int id,) async {
+  Future<Response> getFirstDlcFinishWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes/first'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -160,13 +147,11 @@ class DLCFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
-  Future<DateTime> getFirstDlcFinish(int id,) async {
+  Future<DateTime> getFirstDlcFinish(String id,) async {
     final response = await getFirstDlcFinishWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -181,10 +166,7 @@ class DLCFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/dlcs/finished/first' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -230,8 +212,6 @@ class DLCFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -257,10 +237,7 @@ class DLCFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/dlcs/finished/last' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -306,8 +283,6 @@ class DLCFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -333,21 +308,18 @@ class DLCFinishApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/dlcs/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be added
-  Future<Response> postDlcFinishWithHttpInfo(int id, DateDTO dateDTO,) async {
+  Future<Response> postDlcFinishWithHttpInfo(String id, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/dlcs/{id}/finishes'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = dateDTO;
@@ -370,16 +342,14 @@ class DLCFinishApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   DLC id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   DLC finish date to be added
-  Future<void> postDlcFinish(int id, DateDTO dateDTO,) async {
+  Future<void> postDlcFinish(String id, DateDTO dateDTO,) async {
     final response = await postDlcFinishWithHttpInfo(id, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

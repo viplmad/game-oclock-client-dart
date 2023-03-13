@@ -22,8 +22,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -35,7 +33,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCFinishApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 final dateDTO = DateDTO(); // DateDTO | DLC finish date to be deleted
 
 try {
@@ -49,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
  **dateDTO** | [**DateDTO**](DateDTO.md)| DLC finish date to be deleted | 
 
 ### Return type
@@ -72,8 +70,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -85,7 +81,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCFinishApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     final result = api_instance.getDlcFinishes(id);
@@ -99,7 +95,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
@@ -117,9 +113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFirstDlcFinish**
-> DateTime getFirstDlcFinish(id)
-
-
+> String getFirstDlcFinish(id)
 
 
 
@@ -134,7 +128,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCFinishApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 
 try {
     final result = api_instance.getFirstDlcFinish(id);
@@ -148,11 +142,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
 
 ### Return type
 
-[**DateTime**](DateTime.md)
+**String**
 
 ### Authorization
 
@@ -167,8 +161,6 @@ Name | Type | Description  | Notes
 
 # **getFirstFinishedDlcs**
 > DLCWithFinishPageResult getFirstFinishedDlcs(searchDTO, startDate, endDate, q)
-
-
 
 
 
@@ -225,8 +217,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -280,8 +270,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -293,7 +281,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = DLCFinishApi();
-final id = 56; // int | DLC id
+final id = id_example; // String | DLC id
 final dateDTO = DateDTO(); // DateDTO | DLC finish date to be added
 
 try {
@@ -307,7 +295,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| DLC id | 
+ **id** | **String**| DLC id | 
  **dateDTO** | [**DateDTO**](DateDTO.md)| DLC finish date to be added | 
 
 ### Return type

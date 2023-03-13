@@ -15,18 +15,15 @@ class GamesApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/games/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> deleteGameWithHttpInfo(int id,) async {
+  Future<Response> deleteGameWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -49,31 +46,26 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<void> deleteGame(int id,) async {
+  Future<void> deleteGame(String id,) async {
     final response = await deleteGameWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/games/{id}/cover' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> deleteGameCoverWithHttpInfo(int id,) async {
+  Future<Response> deleteGameCoverWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/cover'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -96,31 +88,26 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<void> deleteGameCover(int id,) async {
+  Future<void> deleteGameCover(String id,) async {
     final response = await deleteGameCoverWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getGameWithHttpInfo(int id,) async {
+  Future<Response> getGameWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -143,13 +130,11 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<GameDTO> getGame(int id,) async {
+  Future<GameDTO> getGame(String id,) async {
     final response = await getGameWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -164,10 +149,7 @@ class GamesApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/list' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -203,8 +185,6 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -226,18 +206,15 @@ class GamesApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/platforms/{id}/games' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<Response> getPlatformGamesWithHttpInfo(int id,) async {
+  Future<Response> getPlatformGamesWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/games'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -260,13 +237,11 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Platform id
-  Future<List<GameAvailableDTO>> getPlatformGames(int id,) async {
+  Future<List<GameAvailableDTO>> getPlatformGames(String id,) async {
     final response = await getPlatformGamesWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -284,18 +259,15 @@ class GamesApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/tags/{id}/games' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
-  Future<Response> getTagGamesWithHttpInfo(int id,) async {
+  Future<Response> getTagGamesWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/tags/{id}/games'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -318,13 +290,11 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
-  Future<List<GameDTO>> getTagGames(int id,) async {
+  Future<List<GameDTO>> getTagGames(String id,) async {
     final response = await getTagGamesWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -342,25 +312,22 @@ class GamesApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/games/{id}/platforms/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Available date
-  Future<Response> linkGamePlatformWithHttpInfo(int id, int otherId, DateDTO dateDTO,) async {
+  Future<Response> linkGamePlatformWithHttpInfo(String id, String otherId, DateDTO dateDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/platforms/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody = dateDTO;
@@ -383,41 +350,36 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
   ///
   /// * [DateDTO] dateDTO (required):
   ///   Available date
-  Future<void> linkGamePlatform(int id, int otherId, DateDTO dateDTO,) async {
+  Future<void> linkGamePlatform(String id, String otherId, DateDTO dateDTO,) async {
     final response = await linkGamePlatformWithHttpInfo(id, otherId, dateDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/games/{id}/tags/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Tag id
-  Future<Response> linkGameTagWithHttpInfo(int id, int otherId,) async {
+  Future<Response> linkGameTagWithHttpInfo(String id, String otherId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/tags/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -440,26 +402,21 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Tag id
-  Future<void> linkGameTag(int id, int otherId,) async {
+  Future<void> linkGameTag(String id, String otherId,) async {
     final response = await linkGameTagWithHttpInfo(id, otherId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [NewGameDTO] newGameDTO (required):
@@ -489,8 +446,6 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [NewGameDTO] newGameDTO (required):
@@ -510,20 +465,17 @@ class GamesApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/games/{id}/cover' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [MultipartFile] file (required):
-  Future<Response> postGameCoverWithHttpInfo(int id, MultipartFile file,) async {
+  Future<Response> postGameCoverWithHttpInfo(String id, MultipartFile file,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/cover'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -556,36 +508,31 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [MultipartFile] file (required):
-  Future<void> postGameCover(int id, MultipartFile file,) async {
+  Future<void> postGameCover(String id, MultipartFile file,) async {
     final response = await postGameCoverWithHttpInfo(id, file,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/games/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [NewGameDTO] newGameDTO (required):
   ///   Game to be updated
-  Future<Response> putGameWithHttpInfo(int id, NewGameDTO newGameDTO,) async {
+  Future<Response> putGameWithHttpInfo(String id, NewGameDTO newGameDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = newGameDTO;
@@ -608,37 +555,32 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [NewGameDTO] newGameDTO (required):
   ///   Game to be updated
-  Future<void> putGame(int id, NewGameDTO newGameDTO,) async {
+  Future<void> putGame(String id, NewGameDTO newGameDTO,) async {
     final response = await putGameWithHttpInfo(id, newGameDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/games/{id}/cover' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [String] body (required):
   ///   New game cover name
-  Future<Response> putGameCoverWithHttpInfo(int id, String body,) async {
+  Future<Response> putGameCoverWithHttpInfo(String id, String body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/cover'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -661,38 +603,33 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
   /// * [String] body (required):
   ///   New game cover name
-  Future<void> putGameCover(int id, String body,) async {
+  Future<void> putGameCover(String id, String body,) async {
     final response = await putGameCoverWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/games/{id}/platforms/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
-  Future<Response> unlinkGamePlatformWithHttpInfo(int id, int otherId,) async {
+  Future<Response> unlinkGamePlatformWithHttpInfo(String id, String otherId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/platforms/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -715,38 +652,33 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Platform id
-  Future<void> unlinkGamePlatform(int id, int otherId,) async {
+  Future<void> unlinkGamePlatform(String id, String otherId,) async {
     final response = await unlinkGamePlatformWithHttpInfo(id, otherId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/games/{id}/tags/{other_id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Tag id
-  Future<Response> unlinkGameTagWithHttpInfo(int id, int otherId,) async {
+  Future<Response> unlinkGameTagWithHttpInfo(String id, String otherId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/tags/{other_id}'
-      .replaceAll('{id}', id.toString())
-      .replaceAll('{other_id}', otherId.toString());
+      .replaceAll('{id}', id)
+      .replaceAll('{other_id}', otherId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -769,16 +701,14 @@ class GamesApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
   ///
-  /// * [int] otherId (required):
+  /// * [String] otherId (required):
   ///   Tag id
-  Future<void> unlinkGameTag(int id, int otherId,) async {
+  Future<void> unlinkGameTag(String id, String otherId,) async {
     final response = await unlinkGameTagWithHttpInfo(id, otherId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

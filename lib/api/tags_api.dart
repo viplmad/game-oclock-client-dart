@@ -15,18 +15,15 @@ class TagsApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'DELETE /api/v1/tags/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
-  Future<Response> deleteTagWithHttpInfo(int id,) async {
+  Future<Response> deleteTagWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/tags/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -49,31 +46,26 @@ class TagsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
-  Future<void> deleteTag(int id,) async {
+  Future<void> deleteTag(String id,) async {
     final response = await deleteTagWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/games/{id}/tags' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<Response> getGameTagsWithHttpInfo(int id,) async {
+  Future<Response> getGameTagsWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/tags'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -96,13 +88,11 @@ class TagsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Game id
-  Future<List<TagDTO>> getGameTags(int id,) async {
+  Future<List<TagDTO>> getGameTags(String id,) async {
     final response = await getGameTagsWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -120,18 +110,15 @@ class TagsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'GET /api/v1/tags/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
-  Future<Response> getTagWithHttpInfo(int id,) async {
+  Future<Response> getTagWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/tags/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -154,13 +141,11 @@ class TagsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
-  Future<TagDTO> getTag(int id,) async {
+  Future<TagDTO> getTag(String id,) async {
     final response = await getTagWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -175,10 +160,7 @@ class TagsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/tags/list' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -214,8 +196,6 @@ class TagsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [SearchDTO] searchDTO (required):
@@ -237,10 +217,7 @@ class TagsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /api/v1/tags' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [NewTagDTO] newTagDTO (required):
@@ -270,8 +247,6 @@ class TagsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [NewTagDTO] newTagDTO (required):
@@ -291,21 +266,18 @@ class TagsApi {
     throw ApiException.unreachable();
   }
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'PUT /api/v1/tags/{id}' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
   ///
   /// * [NewTagDTO] newTagDTO (required):
   ///   Tag to be updated
-  Future<Response> putTagWithHttpInfo(int id, NewTagDTO newTagDTO,) async {
+  Future<Response> putTagWithHttpInfo(String id, NewTagDTO newTagDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/tags/{id}'
-      .replaceAll('{id}', id.toString());
+      .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = newTagDTO;
@@ -328,16 +300,14 @@ class TagsApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
-  /// * [int] id (required):
+  /// * [String] id (required):
   ///   Tag id
   ///
   /// * [NewTagDTO] newTagDTO (required):
   ///   Tag to be updated
-  Future<void> putTag(int id, NewTagDTO newTagDTO,) async {
+  Future<void> putTag(String id, NewTagDTO newTagDTO,) async {
     final response = await putTagWithHttpInfo(id, newTagDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

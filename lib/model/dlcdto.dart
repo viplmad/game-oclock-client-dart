@@ -24,38 +24,14 @@ class DLCDTO extends PrimaryModel {
 
   DateTime addedDatetime;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? baseGameId;
+  String? baseGameId;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? coverFilename;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? coverUrl;
 
   String name;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   int? releaseYear;
 
   DateTime updatedDatetime;
@@ -63,7 +39,7 @@ class DLCDTO extends PrimaryModel {
   DateTime? firstFinish;
 
   NewDLCDTO newWith({
-    int? baseGameId,
+    String? baseGameId,
     String? name,
     int? releaseYear,
   }) {
@@ -84,31 +60,27 @@ class DLCDTO extends PrimaryModel {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DLCDTO &&
-          other.addedDatetime == addedDatetime &&
-          other.baseGameId == baseGameId &&
-          other.coverFilename == coverFilename &&
-          other.coverUrl == coverUrl &&
-          other.id == id &&
-          other.name == name &&
-          other.releaseYear == releaseYear &&
-          other.updatedDatetime == updatedDatetime &&
-          other.firstFinish == firstFinish;
+  bool operator ==(Object other) => identical(this, other) || other is DLCDTO &&
+     other.addedDatetime == addedDatetime &&
+     other.baseGameId == baseGameId &&
+     other.coverFilename == coverFilename &&
+     other.coverUrl == coverUrl &&
+     other.id == id &&
+     other.name == name &&
+     other.releaseYear == releaseYear &&
+     other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (addedDatetime.hashCode) +
-      (baseGameId == null ? 0 : baseGameId!.hashCode) +
-      (coverFilename == null ? 0 : coverFilename!.hashCode) +
-      (coverUrl == null ? 0 : coverUrl!.hashCode) +
-      (id.hashCode) +
-      (name.hashCode) +
-      (releaseYear == null ? 0 : releaseYear!.hashCode) +
-      (updatedDatetime.hashCode) +
-      (firstFinish == null ? 0 : firstFinish!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (addedDatetime.hashCode) +
+    (baseGameId == null ? 0 : baseGameId!.hashCode) +
+    (coverFilename == null ? 0 : coverFilename!.hashCode) +
+    (coverUrl == null ? 0 : coverUrl!.hashCode) +
+    (id.hashCode) +
+    (name.hashCode) +
+    (releaseYear == null ? 0 : releaseYear!.hashCode) +
+    (updatedDatetime.hashCode);
 
   @override
   String toString() =>
@@ -165,10 +137,10 @@ class DLCDTO extends PrimaryModel {
 
       return DLCDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', '')!,
-        baseGameId: mapValueOfType<int>(json, r'base_game_id'),
+        baseGameId: mapValueOfType<String>(json, r'base_game_id'),
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         releaseYear: mapValueOfType<int>(json, r'release_year'),
         updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,

@@ -30,8 +30,6 @@ Method | HTTP request | Description
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -43,7 +41,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     api_instance.deleteGame(id);
@@ -56,7 +54,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -78,8 +76,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -91,7 +87,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     api_instance.deleteGameCover(id);
@@ -104,7 +100,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -126,8 +122,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -139,7 +133,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 
 try {
     final result = api_instance.getGame(id);
@@ -153,7 +147,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -172,8 +166,6 @@ Name | Type | Description  | Notes
 
 # **getGames**
 > GamePageResult getGames(searchDTO, q)
-
-
 
 
 
@@ -226,8 +218,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -239,7 +229,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Platform id
+final id = id_example; // String | Platform id
 
 try {
     final result = api_instance.getPlatformGames(id);
@@ -253,7 +243,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Platform id | 
+ **id** | **String**| Platform id | 
 
 ### Return type
 
@@ -275,8 +265,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -288,7 +276,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Tag id
+final id = id_example; // String | Tag id
 
 try {
     final result = api_instance.getTagGames(id);
@@ -302,7 +290,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Tag id | 
+ **id** | **String**| Tag id | 
 
 ### Return type
 
@@ -324,8 +312,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -337,8 +323,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
-final otherId = 56; // int | Platform id
+final id = id_example; // String | Game id
+final otherId = otherId_example; // String | Platform id
 final dateDTO = DateDTO(); // DateDTO | Available date
 
 try {
@@ -352,8 +338,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
- **otherId** | **int**| Platform id | 
+ **id** | **String**| Game id | 
+ **otherId** | **String**| Platform id | 
  **dateDTO** | [**DateDTO**](DateDTO.md)| Available date | 
 
 ### Return type
@@ -376,8 +362,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -389,8 +373,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
-final otherId = 56; // int | Tag id
+final id = id_example; // String | Game id
+final otherId = otherId_example; // String | Tag id
 
 try {
     api_instance.linkGameTag(id, otherId);
@@ -403,8 +387,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
- **otherId** | **int**| Tag id | 
+ **id** | **String**| Game id | 
+ **otherId** | **String**| Tag id | 
 
 ### Return type
 
@@ -423,8 +407,6 @@ void (empty response body)
 
 # **postGame**
 > GameDTO postGame(newGameDTO)
-
-
 
 
 
@@ -475,8 +457,6 @@ Name | Type | Description  | Notes
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -488,7 +468,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
@@ -502,7 +482,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **file** | **MultipartFile**|  | 
 
 ### Return type
@@ -525,8 +505,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -538,7 +516,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final newGameDTO = NewGameDTO(); // NewGameDTO | Game to be updated
 
 try {
@@ -552,7 +530,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **newGameDTO** | [**NewGameDTO**](NewGameDTO.md)| Game to be updated | 
 
 ### Return type
@@ -575,8 +553,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -588,7 +564,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
+final id = id_example; // String | Game id
 final body = String(); // String | New game cover name
 
 try {
@@ -602,7 +578,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
+ **id** | **String**| Game id | 
  **body** | **String**| New game cover name | 
 
 ### Return type
@@ -625,8 +601,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -638,8 +612,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
-final otherId = 56; // int | Platform id
+final id = id_example; // String | Game id
+final otherId = otherId_example; // String | Platform id
 
 try {
     api_instance.unlinkGamePlatform(id, otherId);
@@ -652,8 +626,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
- **otherId** | **int**| Platform id | 
+ **id** | **String**| Game id | 
+ **otherId** | **String**| Platform id | 
 
 ### Return type
 
@@ -675,8 +649,6 @@ void (empty response body)
 
 
 
-
-
 ### Example
 ```dart
 import 'package:game_collection_client/api.dart';
@@ -688,8 +660,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GamesApi();
-final id = 56; // int | Game id
-final otherId = 56; // int | Tag id
+final id = id_example; // String | Game id
+final otherId = otherId_example; // String | Tag id
 
 try {
     api_instance.unlinkGameTag(id, otherId);
@@ -702,8 +674,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Game id | 
- **otherId** | **int**| Tag id | 
+ **id** | **String**| Game id | 
+ **otherId** | **String**| Tag id | 
 
 ### Return type
 

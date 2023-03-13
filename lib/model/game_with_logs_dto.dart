@@ -145,7 +145,7 @@ class GameWithLogsDTO extends GameDTO {
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
         logs: GameLogDTO.listFromJson(json[r'logs'])!,
         name: mapValueOfType<String>(json, r'name')!,
         notes: mapValueOfType<String>(json, r'notes')!,
