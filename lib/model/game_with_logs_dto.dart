@@ -36,6 +36,7 @@ class GameWithLogsDTO extends GameDTO {
         addedDatetime: game.addedDatetime,
         backup: game.backup,
         coverFilename: game.coverFilename,
+        coverUrl: game.coverUrl,
         edition: game.edition,
         id: game.id,
         logs: logs,
