@@ -68,7 +68,8 @@ class DLCDTO extends PrimaryModel {
      other.id == id &&
      other.name == name &&
      other.releaseYear == releaseYear &&
-     other.updatedDatetime == updatedDatetime;
+     other.updatedDatetime == updatedDatetime &&
+     other.firstFinish == firstFinish;
 
   @override
   int get hashCode =>
@@ -80,11 +81,12 @@ class DLCDTO extends PrimaryModel {
     (id.hashCode) +
     (name.hashCode) +
     (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (updatedDatetime.hashCode);
+    (updatedDatetime.hashCode) +
+    (firstFinish == null ? 0 : firstFinish!.hashCode);
 
   @override
   String toString() =>
-      'DLCDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
+      'DLCDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime, firstFinish=$firstFinish]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};

@@ -113,7 +113,9 @@ class GameDTO extends PrimaryModel {
      other.saveFolder == saveFolder &&
      other.screenshotFolder == screenshotFolder &&
      other.status == status &&
-     other.updatedDatetime == updatedDatetime;
+     other.updatedDatetime == updatedDatetime &&
+     other.firstFinish == firstFinish &&
+     other.totalTime == totalTime;
 
   @override
   int get hashCode =>
@@ -131,10 +133,12 @@ class GameDTO extends PrimaryModel {
     (saveFolder.hashCode) +
     (screenshotFolder.hashCode) +
     (status.hashCode) +
-    (updatedDatetime.hashCode);
+    (updatedDatetime.hashCode) +
+    (firstFinish == null ? 0 : firstFinish!.hashCode) +
+    (totalTime == null ? 0 : totalTime!.hashCode);
 
   @override
-  String toString() => 'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime, firstFinish=$firstFinish, totalTime=$totalTime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
