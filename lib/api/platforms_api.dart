@@ -386,7 +386,6 @@ class PlatformsApi {
     final mp = MultipartRequest('POST', Uri.parse(path));
     if (file != null) {
       hasFields = true;
-      mp.fields[r'file'] = file.field;
       mp.files.add(file);
     }
     if (hasFields) {
