@@ -41,9 +41,7 @@ class AuthApi {
 
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
-    if (grantType != null) {
-      formParams[r'grant_type'] = parameterToString(grantType);
-    }
+    formParams[r'grant_type'] = parameterToString(grantType);
     if (password != null) {
       formParams[r'password'] = parameterToString(password);
     }

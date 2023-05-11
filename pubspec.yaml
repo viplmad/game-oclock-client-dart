@@ -3,15 +3,15 @@
 #
 
 name: 'game_collection_client'
-version: '0.1.0+24'
+version: '1.0.0+25'
 description: 'Game collection client for dart'
 homepage: ''
 environment:
-  sdk: ">=2.18.6 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   http: ^0.13.0
-  intl: ^0.17.0
+  intl: ^0.18.1
   meta: ^1.8.0
 
 dev_dependencies:

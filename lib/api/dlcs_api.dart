@@ -536,15 +536,9 @@ class DLCsApi {
 
     const contentTypes = <String>['multipart/form-data'];
 
-    bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
-    if (file != null) {
-      hasFields = true;
-      mp.files.add(file);
-    }
-    if (hasFields) {
-      postBody = mp;
-    }
+    mp.files.add(file);
+    postBody = mp;
 
     return apiClient.invokeAPI(
       path,

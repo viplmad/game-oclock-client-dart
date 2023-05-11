@@ -34,12 +34,8 @@ class UsersApi {
 
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
-    if (currentPassword != null) {
-      formParams[r'current_password'] = parameterToString(currentPassword);
-    }
-    if (newPassword != null) {
-      formParams[r'new_password'] = parameterToString(newPassword);
-    }
+    formParams[r'current_password'] = parameterToString(currentPassword);
+    formParams[r'new_password'] = parameterToString(newPassword);
 
     return apiClient.invokeAPI(
       path,
