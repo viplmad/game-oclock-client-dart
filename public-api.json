@@ -6711,7 +6711,8 @@
                     "LowPriority",
                     "NextUp",
                     "Playing",
-                    "Played"
+                    "Played",
+                    "Wishlist"
                 ],
                 "type": "string"
             },

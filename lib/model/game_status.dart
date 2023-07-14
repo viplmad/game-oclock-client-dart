@@ -26,6 +26,7 @@ class GameStatus {
   static const nextUp = GameStatus._(r'NextUp');
   static const playing = GameStatus._(r'Playing');
   static const played = GameStatus._(r'Played');
+  static const wishlist = GameStatus._(r'Wishlist');
 
   /// List of all possible values in this [enum][GameStatus].
   static const values = <GameStatus>[
@@ -33,6 +34,7 @@ class GameStatus {
     nextUp,
     playing,
     played,
+    wishlist,
   ];
 
   static GameStatus? fromJson(dynamic value) => GameStatusTypeTransformer().decode(value);
@@ -75,6 +77,7 @@ class GameStatusTypeTransformer {
         case r'NextUp': return GameStatus.nextUp;
         case r'Playing': return GameStatus.playing;
         case r'Played': return GameStatus.played;
+        case r'Wishlist': return GameStatus.wishlist;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
