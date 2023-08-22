@@ -59,6 +59,7 @@ part 'model/game_with_log_page_result.dart';
 part 'model/game_with_logs_dto.dart';
 part 'model/new_dlcdto.dart';
 part 'model/new_game_dto.dart';
+part 'model/new_game_log_dto.dart';
 part 'model/new_platform_dto.dart';
 part 'model/new_tag_dto.dart';
 part 'model/new_user_dto.dart';

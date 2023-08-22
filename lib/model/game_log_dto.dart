@@ -12,31 +12,37 @@ part of n2t.game_collection.client;
 class GameLogDTO extends PrimaryModel {
   /// Returns a new [GameLogDTO] instance.
   GameLogDTO({
-    required this.datetime,
+    required this.startDatetime,
+    required this.endDatetime,
     required this.time,
-  }) : super(id: datetime.toIso8601String());
+  }) : super(id: startDatetime.toIso8601String());
 
-  DateTime datetime;
+  DateTime startDatetime;
+
+  DateTime endDatetime;
 
   Duration time;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameLogDTO &&
-     other.datetime == datetime &&
+     other.startDatetime == startDatetime &&
+     other.endDatetime == endDatetime &&
      other.time == time;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (datetime.hashCode) +
+    (startDatetime.hashCode) +
+    (endDatetime.hashCode) +
     (time.hashCode);
 
   @override
-  String toString() => 'GameLogDTO[datetime=$datetime, time=$time]';
+  String toString() => 'GameLogDTO[startDatetime=$startDatetime, endDatetime=$endDatetime, time=$time]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'datetime'] = this.datetime.toIso8601String();
+      json[r'start_datetime'] = this.startDatetime.toIso8601String();
+      json[r'end_datetime'] = this.endDatetime.toIso8601String();
       json[r'time'] = this.time.toIso8601String();
     return json;
   }
@@ -60,7 +66,8 @@ class GameLogDTO extends PrimaryModel {
       }());
 
       return GameLogDTO(
-        datetime: mapDateTime(json, r'datetime', '')!,
+        startDatetime: mapDateTime(json, r'start_datetime', '')!,
+        endDatetime: mapDateTime(json, r'end_datetime', '')!,
         time: mapDuration(json, r'time')!,
       );
     }
@@ -111,7 +118,8 @@ class GameLogDTO extends PrimaryModel {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'datetime',
+    'start_datetime',
+    'end_datetime',
     'time',
   };
 }

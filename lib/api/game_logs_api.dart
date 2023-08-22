@@ -371,15 +371,15 @@ class GameLogsApi {
   /// * [String] id (required):
   ///   Game id
   ///
-  /// * [GameLogDTO] gameLogDTO (required):
+  /// * [GameLogDTO] newGameLogDTO (required):
   ///   Game log to be added
-  Future<Response> postGameLogWithHttpInfo(String id, GameLogDTO gameLogDTO,) async {
+  Future<Response> postGameLogWithHttpInfo(String id, NewGameLogDTO newGameLogDTO,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/games/{id}/logs'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object? postBody = gameLogDTO;
+    Object? postBody = newGameLogDTO;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -404,10 +404,10 @@ class GameLogsApi {
   /// * [String] id (required):
   ///   Game id
   ///
-  /// * [GameLogDTO] gameLogDTO (required):
+  /// * [NewGameLogDTO] newGameLogDTO (required):
   ///   Game log to be added
-  Future<void> postGameLog(String id, GameLogDTO gameLogDTO,) async {
-    final response = await postGameLogWithHttpInfo(id, gameLogDTO,);
+  Future<void> postGameLog(String id, NewGameLogDTO newGameLogDTO,) async {
+    final response = await postGameLogWithHttpInfo(id, newGameLogDTO,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
