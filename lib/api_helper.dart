@@ -52,7 +52,7 @@ String parameterToString(dynamic value) {
     return '';
   }
   if (value is DateTime) {
-    return value.toIso8601String();
+    return _dateFormatter.format(value);
   }
   if (value is Duration) {
     return value.toIso8601String();
