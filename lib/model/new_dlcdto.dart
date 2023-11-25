@@ -25,9 +25,9 @@ class NewDLCDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewDLCDTO &&
-     other.baseGameId == baseGameId &&
-     other.name == name &&
-     other.releaseYear == releaseYear;
+    other.baseGameId == baseGameId &&
+    other.name == name &&
+    other.releaseYear == releaseYear;
 
   @override
   int get hashCode =>
@@ -86,7 +86,7 @@ class NewDLCDTO {
     return null;
   }
 
-  static List<NewDLCDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NewDLCDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <NewDLCDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -117,12 +117,10 @@ class NewDLCDTO {
   static Map<String, List<NewDLCDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<NewDLCDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = NewDLCDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = NewDLCDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -132,4 +130,3 @@ class NewDLCDTO {
   static const requiredKeys = <String>{
   };
 }
-

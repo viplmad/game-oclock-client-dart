@@ -303,7 +303,7 @@ class DLCsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DLCDTO>') as List)
         .cast<DLCDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();
@@ -356,7 +356,7 @@ class DLCsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DLCAvailableDTO>') as List)
         .cast<DLCAvailableDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();

@@ -32,7 +32,7 @@ void main() {
       // TODO
     });
 
-    //Future<List<DateTime>> getGameFinishes(String id) async
+    //Future<List<String>> getGameFinishes(String id) async
     test('test getGameFinishes', () async {
       // TODO
     });

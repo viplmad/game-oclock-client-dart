@@ -14,7 +14,8 @@ Name | Type | Description | Notes
 **coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
 **id** | **String** |  | 
-**logDatetime** | [**DateTime**](DateTime.md) |  | 
+**logEndDatetime** | [**DateTime**](DateTime.md) |  | 
+**logStartDatetime** | [**DateTime**](DateTime.md) |  | 
 **logTime** | **String** |  | 
 **name** | **String** |  | 
 **notes** | **String** |  | 

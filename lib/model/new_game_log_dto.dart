@@ -22,8 +22,8 @@ class NewGameLogDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewGameLogDTO &&
-     other.startDatetime == startDatetime &&
-     other.endDatetime == endDatetime;
+    other.startDatetime == startDatetime &&
+    other.endDatetime == endDatetime;
 
   @override
   int get hashCode =>
@@ -60,14 +60,14 @@ class NewGameLogDTO {
       }());
 
       return NewGameLogDTO(
-        startDatetime: mapDateTime(json, r'start_datetime', '')!,
-        endDatetime: mapDateTime(json, r'end_datetime', '')!,
+        startDatetime: mapDateTime(json, r'start_datetime', r'')!,
+        endDatetime: mapDateTime(json, r'end_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<NewGameLogDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NewGameLogDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <NewGameLogDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +98,10 @@ class NewGameLogDTO {
   static Map<String, List<NewGameLogDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<NewGameLogDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = NewGameLogDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = NewGameLogDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -115,4 +113,3 @@ class NewGameLogDTO {
     'end_datetime',
   };
 }
-

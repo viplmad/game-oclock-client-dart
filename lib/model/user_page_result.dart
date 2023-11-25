@@ -19,9 +19,9 @@ class UserPageResult extends PageResultDTO<UserDTO> {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is UserPageResult &&
-     other.data == data &&
-     other.page == page &&
-     other.size == size;
+    _deepEquality.equals(other.data, data) &&
+    other.page == page &&
+    other.size == size;
 
   @override
   int get hashCode =>
@@ -60,7 +60,7 @@ class UserPageResult extends PageResultDTO<UserDTO> {
       }());
 
       return UserPageResult(
-        data: UserDTO.listFromJson(json[r'data'])!,
+        data: UserDTO.listFromJson(json[r'data']),
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,7 +68,7 @@ class UserPageResult extends PageResultDTO<UserDTO> {
     return null;
   }
 
-  static List<UserPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<UserPageResult> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <UserPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +99,10 @@ class UserPageResult extends PageResultDTO<UserDTO> {
   static Map<String, List<UserPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<UserPageResult>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = UserPageResult.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = UserPageResult.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -117,4 +115,3 @@ class UserPageResult extends PageResultDTO<UserDTO> {
     'size',
   };
 }
-

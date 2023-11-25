@@ -52,7 +52,7 @@ String parameterToString(dynamic value) {
     return '';
   }
   if (value is DateTime) {
-    return _dateFormatter.format(value);
+    return value.toIso8601String();
   }
   if (value is Duration) {
     return value.toIso8601String();
@@ -62,6 +62,9 @@ String parameterToString(dynamic value) {
   }
   if (value is GameStatus) {
     return GameStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is GrantType) {
+    return GrantTypeTypeTransformer().encode(value).toString();
   }
   if (value is OperatorType) {
     return OperatorTypeTypeTransformer().encode(value).toString();
@@ -104,7 +107,7 @@ DateTime? mapDateTime(dynamic map, String key, [String? pattern]) {
     if (value is int) {
       millis = value;
     } else if (value is String) {
-      if (pattern == _dateEpochMarker) {
+      if (_isEpochMarker(pattern)) {
         millis = int.tryParse(value);
       } else {
         return DateTime.tryParse(value);

@@ -43,15 +43,15 @@ class NewGameDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewGameDTO &&
-     other.backup == backup &&
-     other.edition == edition &&
-     other.name == name &&
-     other.notes == notes &&
-     other.rating == rating &&
-     other.releaseYear == releaseYear &&
-     other.saveFolder == saveFolder &&
-     other.screenshotFolder == screenshotFolder &&
-     other.status == status;
+    other.backup == backup &&
+    other.edition == edition &&
+    other.name == name &&
+    other.notes == notes &&
+    other.rating == rating &&
+    other.releaseYear == releaseYear &&
+    other.saveFolder == saveFolder &&
+    other.screenshotFolder == screenshotFolder &&
+    other.status == status;
 
   @override
   int get hashCode =>
@@ -152,7 +152,7 @@ class NewGameDTO {
     return null;
   }
 
-  static List<NewGameDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NewGameDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <NewGameDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -183,12 +183,10 @@ class NewGameDTO {
   static Map<String, List<NewGameDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<NewGameDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = NewGameDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = NewGameDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -198,4 +196,3 @@ class NewGameDTO {
   static const requiredKeys = <String>{
   };
 }
-

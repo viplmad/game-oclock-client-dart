@@ -15,10 +15,7 @@ class AuthApi {
 
   final ApiClient apiClient;
 
-  ///
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
+  /// Performs an HTTP 'POST /auth/token' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [GrantType] grantType (required):
@@ -63,8 +60,6 @@ class AuthApi {
     );
   }
 
-  ///
-  ///
   /// Parameters:
   ///
   /// * [GrantType] grantType (required):

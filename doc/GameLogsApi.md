@@ -9,13 +9,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteGameLog**](GameLogsApi.md#deletegamelog) | **DELETE** /api/v1/games/{id}/logs | 
-[**getFirstPlayedGames**](GameLogsApi.md#getfirstplayedgames) | **POST** /api/v1/games/played/first | 
-[**getGameLogs**](GameLogsApi.md#getgamelogs) | **GET** /api/v1/games/{id}/logs | 
-[**getLastPlayedGames**](GameLogsApi.md#getlastplayedgames) | **POST** /api/v1/games/played/last | 
-[**getPlayedGames**](GameLogsApi.md#getplayedgames) | **POST** /api/v1/games/played | 
-[**getTotalGameLogs**](GameLogsApi.md#gettotalgamelogs) | **GET** /api/v1/games/{id}/logs/total | 
-[**postGameLog**](GameLogsApi.md#postgamelog) | **POST** /api/v1/games/{id}/logs | 
+[**deleteGameLog**](GameLogsApi.md#deletegamelog) | **DELETE** /api/v1/games/{id}/logs |
+[**getFirstPlayedGames**](GameLogsApi.md#getfirstplayedgames) | **POST** /api/v1/games/played/first |
+[**getGameLogs**](GameLogsApi.md#getgamelogs) | **GET** /api/v1/games/{id}/logs |
+[**getLastPlayedGames**](GameLogsApi.md#getlastplayedgames) | **POST** /api/v1/games/played/last |
+[**getPlayedGames**](GameLogsApi.md#getplayedgames) | **POST** /api/v1/games/played |
+[**getPlayedGamesDetailed**](GameLogsApi.md#getplayedgamesdetailed) | **POST** /api/v1/games/played/detailed |
+[**getTotalGameLogs**](GameLogsApi.md#gettotalgamelogs) | **GET** /api/v1/games/{id}/logs/total |
+[**postGameLog**](GameLogsApi.md#postgamelog) | **POST** /api/v1/games/{id}/logs |
 
 
 # **deleteGameLog**
@@ -48,8 +49,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id | 
- **dateTimeDTO** | [**DateTimeDTO**](DateTimeDTO.md)| Game log datetime to be deleted | 
+ **id** | **String**| Game id |
+ **dateTimeDTO** | [**DateTimeDTO**](DateTimeDTO.md)| Game log datetime to be deleted |
 
 ### Return type
 
@@ -83,9 +84,9 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GameLogsApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
-final q = q_example; // String | 
+final startDate = 2013-10-20; // DateTime |
+final endDate = 2013-10-20; // DateTime |
+final q = q_example; // String |
 
 try {
     final result = api_instance.getFirstPlayedGames(searchDTO, startDate, endDate, q);
@@ -99,10 +100,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **DateTime**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **q** | **String**|  | [optional] 
+ **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query |
+ **startDate** | **DateTime**|  | [optional]
+ **endDate** | **DateTime**|  | [optional]
+ **q** | **String**|  | [optional]
 
 ### Return type
 
@@ -149,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id | 
+ **id** | **String**| Game id |
 
 ### Return type
 
@@ -182,10 +183,10 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
-final q = q_example; // String | 
+final searchDTO = SearchDTO(); // SearchDTO |
+final startDate = 2013-10-20; // DateTime |
+final endDate = 2013-10-20; // DateTime |
+final q = q_example; // String |
 
 try {
     final result = api_instance.getLastPlayedGames(searchDTO, startDate, endDate, q);
@@ -199,10 +200,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
- **startDate** | **DateTime**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **q** | **String**|  | [optional] 
+ **searchDTO** | [**SearchDTO**](SearchDTO.md)|  |
+ **startDate** | **DateTime**|  | [optional]
+ **endDate** | **DateTime**|  | [optional]
+ **q** | **String**|  | [optional]
 
 ### Return type
 
@@ -235,8 +236,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final startDate = 2013-10-20; // DateTime | 
-final endDate = 2013-10-20; // DateTime | 
+final startDate = 2013-10-20; // DateTime |
+final endDate = 2013-10-20; // DateTime |
 
 try {
     final result = api_instance.getPlayedGames(startDate, endDate);
@@ -250,12 +251,61 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **DateTime**|  | 
- **endDate** | **DateTime**|  | 
+ **startDate** | **DateTime**|  |
+ **endDate** | **DateTime**|  |
 
 ### Return type
 
 [**List<GameWithLogsDTO>**](GameWithLogsDTO.md)
+
+### Authorization
+
+[bearer_token](../README.md#bearer_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPlayedGamesDetailed**
+> List<GamesWithLogsExtendedDTO> getPlayedGamesDetailed(startDate, endDate)
+
+
+
+### Example
+```dart
+import 'package:game_collection_client/api.dart';
+// TODO Configure HTTP Bearer authorization: bearer_token
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = GameLogsApi();
+final startDate = 2013-10-20; // DateTime |
+final endDate = 2013-10-20; // DateTime |
+
+try {
+    final result = api_instance.getPlayedGamesDetailed(startDate, endDate);
+    print(result);
+} catch (e) {
+    print('Exception when calling GameLogsApi->getPlayedGamesDetailed: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startDate** | **DateTime**|  |
+ **endDate** | **DateTime**|  |
+
+### Return type
+
+[**List<GamesWithLogsExtendedDTO>**](GamesWithLogsExtendedDTO.md)
 
 ### Authorization
 
@@ -284,7 +334,7 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final id = id_example; // String | Game id
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTotalGameLogs(id);
@@ -298,7 +348,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -316,7 +366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postGameLog**
-> postGameLog(id, gameLogDTO)
+> postGameLog(id, newGameLogDTO)
 
 
 
@@ -331,11 +381,11 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameLogsApi();
-final id = id_example; // String | Game id
-final gameLogDTO = GameLogDTO(); // GameLogDTO | Game log to be added
+final id = id_example; // String |
+final newGameLogDTO = NewGameLogDTO(); // NewGameLogDTO |
 
 try {
-    api_instance.postGameLog(id, gameLogDTO);
+    api_instance.postGameLog(id, newGameLogDTO);
 } catch (e) {
     print('Exception when calling GameLogsApi->postGameLog: $e\n');
 }
@@ -345,8 +395,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id | 
- **gameLogDTO** | [**GameLogDTO**](GameLogDTO.md)| Game log to be added | 
+ **id** | **String**|  |
+ **newGameLogDTO** | [**NewGameLogDTO**](NewGameLogDTO.md)|  |
 
 ### Return type
 
@@ -362,4 +412,3 @@ void (empty response body)
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

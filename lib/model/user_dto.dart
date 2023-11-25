@@ -29,11 +29,11 @@ class UserDTO extends PrimaryModel {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is UserDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.admin == admin &&
-     other.id == id &&
-     other.updatedDatetime == updatedDatetime &&
-     other.username == username;
+    other.addedDatetime == addedDatetime &&
+    other.admin == admin &&
+    other.id == id &&
+    other.updatedDatetime == updatedDatetime &&
+    other.username == username;
 
   @override
   int get hashCode =>
@@ -76,17 +76,17 @@ class UserDTO extends PrimaryModel {
       }());
 
       return UserDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         admin: mapValueOfType<bool>(json, r'admin')!,
         id: mapValueOfType<String>(json, r'id')!,
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
         username: mapValueOfType<String>(json, r'username')!,
       );
     }
     return null;
   }
 
-  static List<UserDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<UserDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <UserDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -117,12 +117,10 @@ class UserDTO extends PrimaryModel {
   static Map<String, List<UserDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<UserDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = UserDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = UserDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -137,4 +135,3 @@ class UserDTO extends PrimaryModel {
     'username',
   };
 }
-

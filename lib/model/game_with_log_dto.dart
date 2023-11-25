@@ -18,7 +18,8 @@ class GameWithLogDTO extends GameDTO {
     super.coverUrl,
     required super.edition,
     required super.id,
-    required this.logDatetime,
+    required this.logEndDatetime,
+    required this.logStartDatetime,
     required this.logTime,
     required super.name,
     required super.notes,
@@ -30,28 +31,31 @@ class GameWithLogDTO extends GameDTO {
     required super.updatedDatetime,
   });
 
-  DateTime logDatetime;
+  DateTime logEndDatetime;
+
+  DateTime logStartDatetime;
 
   Duration logTime;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameWithLogDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.backup == backup &&
-     other.coverFilename == coverFilename &&
-     other.coverUrl == coverUrl &&
-     other.edition == edition &&
-     other.id == id &&
-     other.logDatetime == logDatetime &&
-     other.logTime == logTime &&
-     other.name == name &&
-     other.notes == notes &&
-     other.rating == rating &&
-     other.releaseYear == releaseYear &&
-     other.saveFolder == saveFolder &&
-     other.screenshotFolder == screenshotFolder &&
-     other.status == status &&
-     other.updatedDatetime == updatedDatetime;
+    other.addedDatetime == addedDatetime &&
+    other.backup == backup &&
+    other.coverFilename == coverFilename &&
+    other.coverUrl == coverUrl &&
+    other.edition == edition &&
+    other.id == id &&
+    other.logEndDatetime == logEndDatetime &&
+    other.logStartDatetime == logStartDatetime &&
+    other.logTime == logTime &&
+    other.name == name &&
+    other.notes == notes &&
+    other.rating == rating &&
+    other.releaseYear == releaseYear &&
+    other.saveFolder == saveFolder &&
+    other.screenshotFolder == screenshotFolder &&
+    other.status == status &&
+    other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
@@ -62,7 +66,8 @@ class GameWithLogDTO extends GameDTO {
     (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
     (id.hashCode) +
-    (logDatetime.hashCode) +
+    (logEndDatetime.hashCode) +
+    (logStartDatetime.hashCode) +
     (logTime.hashCode) +
     (name.hashCode) +
     (notes.hashCode) +
@@ -74,7 +79,7 @@ class GameWithLogDTO extends GameDTO {
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameWithLogDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, logDatetime=$logDatetime, logTime=$logTime, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameWithLogDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, logEndDatetime=$logEndDatetime, logStartDatetime=$logStartDatetime, logTime=$logTime, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -92,8 +97,9 @@ class GameWithLogDTO extends GameDTO {
     }
       json[r'edition'] = this.edition;
       json[r'id'] = this.id;
-      json[r'log_datetime'] = this.logDatetime.toIso8601String();
-      json[r'log_time'] = this.logTime.toIso8601String();
+      json[r'log_end_datetime'] = this.logEndDatetime.toIso8601String();
+      json[r'log_start_datetime'] = this.logStartDatetime.toIso8601String();
+      json[r'log_time'] = this.logTime;
       json[r'name'] = this.name;
       json[r'notes'] = this.notes;
       json[r'rating'] = this.rating;
@@ -128,13 +134,14 @@ class GameWithLogDTO extends GameDTO {
       }());
 
       return GameWithLogDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         id: mapValueOfType<String>(json, r'id')!,
-        logDatetime: mapDateTime(json, r'log_datetime', '')!,
+        logEndDatetime: mapDateTime(json, r'log_end_datetime', r'')!,
+        logStartDatetime: mapDateTime(json, r'log_start_datetime', r'')!,
         logTime: mapDuration(json, r'log_time')!,
         name: mapValueOfType<String>(json, r'name')!,
         notes: mapValueOfType<String>(json, r'notes')!,
@@ -143,13 +150,13 @@ class GameWithLogDTO extends GameDTO {
         saveFolder: mapValueOfType<String>(json, r'save_folder')!,
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GameWithLogDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameWithLogDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameWithLogDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -180,12 +187,10 @@ class GameWithLogDTO extends GameDTO {
   static Map<String, List<GameWithLogDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameWithLogDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = GameWithLogDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = GameWithLogDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -197,7 +202,8 @@ class GameWithLogDTO extends GameDTO {
     'backup',
     'edition',
     'id',
-    'log_datetime',
+    'log_end_datetime',
+    'log_start_datetime',
     'log_time',
     'name',
     'notes',
@@ -208,4 +214,3 @@ class GameWithLogDTO extends GameDTO {
     'updated_datetime',
   };
 }
-

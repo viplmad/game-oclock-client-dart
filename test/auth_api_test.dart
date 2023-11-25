@@ -17,7 +17,7 @@ void main() {
   // final instance = AuthApi();
 
   group('tests for AuthApi', () {
-    //Future<TokenResponse> token(GrantType grantType, String password, String refreshToken, String username) async
+    //Future<TokenResponse> token(GrantType grantType, { String password, String refreshToken, String username }) async
     test('test token', () async {
       // TODO
     });

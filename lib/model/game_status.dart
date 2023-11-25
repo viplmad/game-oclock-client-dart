@@ -39,7 +39,7 @@ class GameStatus {
 
   static GameStatus? fromJson(dynamic value) => GameStatusTypeTransformer().decode(value);
 
-  static List<GameStatus>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameStatus> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,4 +90,3 @@ class GameStatusTypeTransformer {
   /// Singleton [GameStatusTypeTransformer] instance.
   static GameStatusTypeTransformer? _instance;
 }
-

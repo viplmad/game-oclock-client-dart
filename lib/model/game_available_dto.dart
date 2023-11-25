@@ -33,21 +33,21 @@ class GameAvailableDTO extends GameDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameAvailableDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.availableDate == availableDate &&
-     other.backup == backup &&
-     other.coverFilename == coverFilename &&
-     other.coverUrl == coverUrl &&
-     other.edition == edition &&
-     other.id == id &&
-     other.name == name &&
-     other.notes == notes &&
-     other.rating == rating &&
-     other.releaseYear == releaseYear &&
-     other.saveFolder == saveFolder &&
-     other.screenshotFolder == screenshotFolder &&
-     other.status == status &&
-     other.updatedDatetime == updatedDatetime;
+    other.addedDatetime == addedDatetime &&
+    other.availableDate == availableDate &&
+    other.backup == backup &&
+    other.coverFilename == coverFilename &&
+    other.coverUrl == coverUrl &&
+    other.edition == edition &&
+    other.id == id &&
+    other.name == name &&
+    other.notes == notes &&
+    other.rating == rating &&
+    other.releaseYear == releaseYear &&
+    other.saveFolder == saveFolder &&
+    other.screenshotFolder == screenshotFolder &&
+    other.status == status &&
+    other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
@@ -122,8 +122,8 @@ class GameAvailableDTO extends GameDTO {
       }());
 
       return GameAvailableDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
-        availableDate: mapDateTime(json, r'available_date', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
+        availableDate: mapDateTime(json, r'available_date', r'')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
@@ -136,13 +136,13 @@ class GameAvailableDTO extends GameDTO {
         saveFolder: mapValueOfType<String>(json, r'save_folder')!,
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GameAvailableDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameAvailableDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameAvailableDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -173,12 +173,10 @@ class GameAvailableDTO extends GameDTO {
   static Map<String, List<GameAvailableDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameAvailableDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = GameAvailableDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = GameAvailableDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -200,4 +198,3 @@ class GameAvailableDTO extends GameDTO {
     'updated_datetime',
   };
 }
-

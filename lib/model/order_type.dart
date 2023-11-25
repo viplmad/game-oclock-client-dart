@@ -33,7 +33,7 @@ class OrderType {
 
   static OrderType? fromJson(dynamic value) => OrderTypeTypeTransformer().decode(value);
 
-  static List<OrderType>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<OrderType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <OrderType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -81,4 +81,3 @@ class OrderTypeTypeTransformer {
   /// Singleton [OrderTypeTypeTransformer] instance.
   static OrderTypeTypeTransformer? _instance;
 }
-

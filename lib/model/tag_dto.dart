@@ -34,10 +34,10 @@ class TagDTO extends PrimaryModel {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TagDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.id == id &&
-     other.name == name &&
-     other.updatedDatetime == updatedDatetime;
+    other.addedDatetime == addedDatetime &&
+    other.id == id &&
+    other.name == name &&
+    other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
@@ -78,16 +78,16 @@ class TagDTO extends PrimaryModel {
       }());
 
       return TagDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<TagDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TagDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <TagDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -118,12 +118,10 @@ class TagDTO extends PrimaryModel {
   static Map<String, List<TagDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TagDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = TagDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = TagDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -137,4 +135,3 @@ class TagDTO extends PrimaryModel {
     'updated_datetime',
   };
 }
-

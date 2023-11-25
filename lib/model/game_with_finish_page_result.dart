@@ -19,9 +19,9 @@ class GameWithFinishPageResult extends PageResultDTO<GameWithFinishDTO> {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameWithFinishPageResult &&
-     other.data == data &&
-     other.page == page &&
-     other.size == size;
+    _deepEquality.equals(other.data, data) &&
+    other.page == page &&
+    other.size == size;
 
   @override
   int get hashCode =>
@@ -60,7 +60,7 @@ class GameWithFinishPageResult extends PageResultDTO<GameWithFinishDTO> {
       }());
 
       return GameWithFinishPageResult(
-        data: GameWithFinishDTO.listFromJson(json[r'data'])!,
+        data: GameWithFinishDTO.listFromJson(json[r'data']),
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,7 +68,7 @@ class GameWithFinishPageResult extends PageResultDTO<GameWithFinishDTO> {
     return null;
   }
 
-  static List<GameWithFinishPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameWithFinishPageResult> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameWithFinishPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +99,10 @@ class GameWithFinishPageResult extends PageResultDTO<GameWithFinishDTO> {
   static Map<String, List<GameWithFinishPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameWithFinishPageResult>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = GameWithFinishPageResult.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = GameWithFinishPageResult.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -117,4 +115,3 @@ class GameWithFinishPageResult extends PageResultDTO<GameWithFinishDTO> {
     'size',
   };
 }
-

@@ -33,7 +33,7 @@ class ChainOperatorType {
 
   static ChainOperatorType? fromJson(dynamic value) => ChainOperatorTypeTypeTransformer().decode(value);
 
-  static List<ChainOperatorType>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ChainOperatorType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ChainOperatorType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -81,4 +81,3 @@ class ChainOperatorTypeTypeTransformer {
   /// Singleton [ChainOperatorTypeTypeTransformer] instance.
   static ChainOperatorTypeTypeTransformer? _instance;
 }
-

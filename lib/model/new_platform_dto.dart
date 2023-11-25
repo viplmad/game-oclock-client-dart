@@ -22,8 +22,8 @@ class NewPlatformDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewPlatformDTO &&
-     other.name == name &&
-     other.type == type;
+    other.name == name &&
+    other.type == type;
 
   @override
   int get hashCode =>
@@ -75,7 +75,7 @@ class NewPlatformDTO {
     return null;
   }
 
-  static List<NewPlatformDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NewPlatformDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <NewPlatformDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,12 +106,10 @@ class NewPlatformDTO {
   static Map<String, List<NewPlatformDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<NewPlatformDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = NewPlatformDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = NewPlatformDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -121,4 +119,3 @@ class NewPlatformDTO {
   static const requiredKeys = <String>{
   };
 }
-

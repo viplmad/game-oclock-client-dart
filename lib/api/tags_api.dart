@@ -104,7 +104,7 @@ class TagsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<TagDTO>') as List)
         .cast<TagDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();

@@ -42,12 +42,17 @@ void main() {
       // TODO
     });
 
+    //Future<List<GamesWithLogsExtendedDTO>> getPlayedGamesDetailed(DateTime startDate, DateTime endDate) async
+    test('test getPlayedGamesDetailed', () async {
+      // TODO
+    });
+
     //Future<String> getTotalGameLogs(String id) async
     test('test getTotalGameLogs', () async {
       // TODO
     });
 
-    //Future postGameLog(String id, GameLogDTO gameLogDTO) async
+    //Future postGameLog(String id, NewGameLogDTO newGameLogDTO) async
     test('test postGameLog', () async {
       // TODO
     });

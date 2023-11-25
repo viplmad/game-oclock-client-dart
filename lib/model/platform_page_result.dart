@@ -19,9 +19,9 @@ class PlatformPageResult extends PageResultDTO<PlatformDTO> {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PlatformPageResult &&
-     other.data == data &&
-     other.page == page &&
-     other.size == size;
+    _deepEquality.equals(other.data, data) &&
+    other.page == page &&
+    other.size == size;
 
   @override
   int get hashCode =>
@@ -60,7 +60,7 @@ class PlatformPageResult extends PageResultDTO<PlatformDTO> {
       }());
 
       return PlatformPageResult(
-        data: PlatformDTO.listFromJson(json[r'data'])!,
+        data: PlatformDTO.listFromJson(json[r'data']),
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,7 +68,7 @@ class PlatformPageResult extends PageResultDTO<PlatformDTO> {
     return null;
   }
 
-  static List<PlatformPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PlatformPageResult> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <PlatformPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +99,10 @@ class PlatformPageResult extends PageResultDTO<PlatformDTO> {
   static Map<String, List<PlatformPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PlatformPageResult>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = PlatformPageResult.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = PlatformPageResult.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -117,4 +115,3 @@ class PlatformPageResult extends PageResultDTO<PlatformDTO> {
     'size',
   };
 }
-

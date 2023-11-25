@@ -53,35 +53,32 @@ class PlatformDTO extends PrimaryModel {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is PlatformDTO &&
-          other.addedDatetime == addedDatetime &&
-          other.iconFilename == iconFilename &&
-          other.iconUrl == iconUrl &&
-          other.id == id &&
-          other.name == name &&
-          other.type == type &&
-          other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) => identical(this, other) || other is PlatformDTO &&
+    other.addedDatetime == addedDatetime &&
+    other.iconFilename == iconFilename &&
+    other.iconUrl == iconUrl &&
+    other.id == id &&
+    other.name == name &&
+    other.type == type &&
+    other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (addedDatetime.hashCode) +
-      (iconFilename == null ? 0 : iconFilename!.hashCode) +
-      (iconUrl == null ? 0 : iconUrl!.hashCode) +
-      (id.hashCode) +
-      (name.hashCode) +
-      (type == null ? 0 : type!.hashCode) +
-      (updatedDatetime.hashCode);
+    // ignore: unnecessary_parenthesis
+    (addedDatetime.hashCode) +
+    (iconFilename == null ? 0 : iconFilename!.hashCode) +
+    (iconUrl == null ? 0 : iconUrl!.hashCode) +
+    (id.hashCode) +
+    (name.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (updatedDatetime.hashCode);
 
   @override
-  String toString() =>
-      'PlatformDTO[addedDatetime=$addedDatetime, iconFilename=$iconFilename, iconUrl=$iconUrl, id=$id, name=$name, type=$type, updatedDatetime=$updatedDatetime]';
+  String toString() => 'PlatformDTO[addedDatetime=$addedDatetime, iconFilename=$iconFilename, iconUrl=$iconUrl, id=$id, name=$name, type=$type, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
     if (this.iconFilename != null) {
       json[r'icon_filename'] = this.iconFilename;
     } else {
@@ -92,14 +89,14 @@ class PlatformDTO extends PrimaryModel {
     } else {
       json[r'icon_url'] = null;
     }
-    json[r'id'] = this.id;
-    json[r'name'] = this.name;
+      json[r'id'] = this.id;
+      json[r'name'] = this.name;
     if (this.type != null) {
       json[r'type'] = this.type;
     } else {
       json[r'type'] = null;
     }
-    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -115,31 +112,26 @@ class PlatformDTO extends PrimaryModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "PlatformDTO[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "PlatformDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PlatformDTO[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PlatformDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return PlatformDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         iconFilename: mapValueOfType<String>(json, r'icon_filename'),
         iconUrl: mapValueOfType<String>(json, r'icon_url'),
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         type: PlatformType.fromJson(json[r'type']),
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<PlatformDTO>? listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<PlatformDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <PlatformDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -167,21 +159,13 @@ class PlatformDTO extends PrimaryModel {
   }
 
   // maps a json object with a list of PlatformDTO-objects as value to a dart map
-  static Map<String, List<PlatformDTO>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<PlatformDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PlatformDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = PlatformDTO.listFromJson(
-          entry.value,
-          growable: growable,
-        );
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = PlatformDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

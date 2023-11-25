@@ -16,8 +16,13 @@ void main() {
   // final instance = GameLogDTO();
 
   group('test GameLogDTO', () {
-    // DateTime datetime
-    test('to test the property `datetime`', () async {
+    // DateTime endDatetime
+    test('to test the property `endDatetime`', () async {
+      // TODO
+    });
+
+    // DateTime startDatetime
+    test('to test the property `startDatetime`', () async {
       // TODO
     });
 

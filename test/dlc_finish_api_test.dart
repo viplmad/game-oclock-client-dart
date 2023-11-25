@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    //Future<List<DateTime>> getDlcFinishes(String id) async
+    //Future<List<String>> getDlcFinishes(String id) async
     test('test getDlcFinishes', () async {
       // TODO
     });

@@ -40,9 +40,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **grantType** | [**GrantType**](GrantType.md)|  | 
- **password** | **String**|  | 
- **refreshToken** | **String**|  | 
- **username** | **String**|  | 
+ **password** | **String**|  | [optional] 
+ **refreshToken** | **String**|  | [optional] 
+ **username** | **String**|  | [optional] 
 
 ### Return type
 

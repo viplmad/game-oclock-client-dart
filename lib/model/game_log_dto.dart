@@ -25,9 +25,9 @@ class GameLogDTO extends PrimaryModel {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameLogDTO &&
-     other.startDatetime == startDatetime &&
-     other.endDatetime == endDatetime &&
-     other.time == time;
+    other.startDatetime == startDatetime &&
+    other.endDatetime == endDatetime &&
+    other.time == time;
 
   @override
   int get hashCode =>
@@ -66,15 +66,15 @@ class GameLogDTO extends PrimaryModel {
       }());
 
       return GameLogDTO(
-        startDatetime: mapDateTime(json, r'start_datetime', '')!,
-        endDatetime: mapDateTime(json, r'end_datetime', '')!,
+        startDatetime: mapDateTime(json, r'start_datetime', r'')!,
+        endDatetime: mapDateTime(json, r'end_datetime', r'')!,
         time: mapDuration(json, r'time')!,
       );
     }
     return null;
   }
 
-  static List<GameLogDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameLogDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameLogDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +105,10 @@ class GameLogDTO extends PrimaryModel {
   static Map<String, List<GameLogDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameLogDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = GameLogDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = GameLogDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -123,4 +121,3 @@ class GameLogDTO extends PrimaryModel {
     'time',
   };
 }
-

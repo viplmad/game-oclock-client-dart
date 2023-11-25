@@ -231,7 +231,7 @@ class GameFinishApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DateTime>') as List)
         .cast<DateTime>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();

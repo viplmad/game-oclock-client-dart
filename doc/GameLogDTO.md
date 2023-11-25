@@ -8,7 +8,8 @@ import 'package:game_collection_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**datetime** | [**DateTime**](DateTime.md) |  | 
+**endDatetime** | [**DateTime**](DateTime.md) |  | 
+**startDatetime** | [**DateTime**](DateTime.md) |  | 
 **time** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

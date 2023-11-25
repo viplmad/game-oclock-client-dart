@@ -253,7 +253,7 @@ class GamesApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<GameAvailableDTO>') as List)
         .cast<GameAvailableDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();
@@ -306,7 +306,7 @@ class GamesApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<GameDTO>') as List)
         .cast<GameDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();

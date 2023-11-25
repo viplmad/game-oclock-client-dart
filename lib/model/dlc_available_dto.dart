@@ -9,7 +9,7 @@
 
 part of n2t.game_collection.client;
 
-class DLCAvailableDTO extends DLCDTO{
+class DLCAvailableDTO extends DLCDTO {
   /// Returns a new [DLCAvailableDTO] instance.
   DLCAvailableDTO({
     required super.addedDatetime,
@@ -27,15 +27,15 @@ class DLCAvailableDTO extends DLCDTO{
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DLCAvailableDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.availableDate == availableDate &&
-     other.baseGameId == baseGameId &&
-     other.coverFilename == coverFilename &&
-     other.coverUrl == coverUrl &&
-     other.id == id &&
-     other.name == name &&
-     other.releaseYear == releaseYear &&
-     other.updatedDatetime == updatedDatetime;
+    other.addedDatetime == addedDatetime &&
+    other.availableDate == availableDate &&
+    other.baseGameId == baseGameId &&
+    other.coverFilename == coverFilename &&
+    other.coverUrl == coverUrl &&
+    other.id == id &&
+    other.name == name &&
+    other.releaseYear == releaseYear &&
+    other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
@@ -102,21 +102,21 @@ class DLCAvailableDTO extends DLCDTO{
       }());
 
       return DLCAvailableDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
-        availableDate: mapDateTime(json, r'available_date', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
+        availableDate: mapDateTime(json, r'available_date', r'')!,
         baseGameId: mapValueOfType<String>(json, r'base_game_id'),
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         releaseYear: mapValueOfType<int>(json, r'release_year'),
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<DLCAvailableDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DLCAvailableDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DLCAvailableDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -147,12 +147,10 @@ class DLCAvailableDTO extends DLCDTO{
   static Map<String, List<DLCAvailableDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DLCAvailableDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = DLCAvailableDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = DLCAvailableDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -167,4 +165,3 @@ class DLCAvailableDTO extends DLCDTO{
     'updated_datetime',
   };
 }
-

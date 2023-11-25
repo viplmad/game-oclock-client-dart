@@ -8,7 +8,7 @@ import 'package:game_collection_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**chainOperator** | [**ChainOperatorType**](ChainOperatorType.md) |  | 
+**chainOperator** | [**ChainOperatorType**](ChainOperatorType.md) |  | [optional] 
 **field** | **String** |  | 
 **operator_** | [**OperatorType**](OperatorType.md) |  | 
 **value** | [**SearchValue**](SearchValue.md) |  | 

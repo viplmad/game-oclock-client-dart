@@ -33,7 +33,7 @@ class PlatformType {
 
   static PlatformType? fromJson(dynamic value) => PlatformTypeTypeTransformer().decode(value);
 
-  static List<PlatformType>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PlatformType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <PlatformType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -81,4 +81,3 @@ class PlatformTypeTypeTransformer {
   /// Singleton [PlatformTypeTypeTransformer] instance.
   static PlatformTypeTypeTransformer? _instance;
 }
-

@@ -57,7 +57,7 @@ class OperatorType {
 
   static OperatorType? fromJson(dynamic value) => OperatorTypeTypeTransformer().decode(value);
 
-  static List<OperatorType>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<OperatorType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <OperatorType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -117,4 +117,3 @@ class OperatorTypeTypeTransformer {
   /// Singleton [OperatorTypeTypeTransformer] instance.
   static OperatorTypeTypeTransformer? _instance;
 }
-

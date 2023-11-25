@@ -13,6 +13,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
@@ -52,11 +53,17 @@ part 'model/game_dto.dart';
 part 'model/game_log_dto.dart';
 part 'model/game_page_result.dart';
 part 'model/game_status.dart';
+part 'model/game_streak_dto.dart';
 part 'model/game_with_finish_dto.dart';
 part 'model/game_with_finish_page_result.dart';
 part 'model/game_with_log_dto.dart';
 part 'model/game_with_log_page_result.dart';
 part 'model/game_with_logs_dto.dart';
+part 'model/game_with_logs_extended_dto.dart';
+part 'model/games_log_dto.dart';
+part 'model/games_streak_dto.dart';
+part 'model/games_with_logs_extended_dto.dart';
+part 'model/grant_type.dart';
 part 'model/new_dlcdto.dart';
 part 'model/new_game_dto.dart';
 part 'model/new_game_log_dto.dart';
@@ -77,16 +84,20 @@ part 'model/tag_page_result.dart';
 part 'model/token_response.dart';
 part 'model/user_dto.dart';
 part 'model/user_page_result.dart';
-part 'model/grant_type.dart';
 part 'model/page_result.dart';
 part 'model/primary_model.dart';
 
 
+/// An [ApiClient] instance that uses the default values obtained from
+/// the OpenAPI specification file.
+var defaultApiClient = ApiClient();
+
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
+const _deepEquality = DeepCollectionEquality();
 final _dateFormatter = DateFormat('yyyy-MM-dd');
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-ApiClient defaultApiClient = ApiClient();
+bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

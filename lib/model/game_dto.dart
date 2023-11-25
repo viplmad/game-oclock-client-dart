@@ -100,22 +100,22 @@ class GameDTO extends PrimaryModel {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.backup == backup &&
-     other.coverFilename == coverFilename &&
-     other.coverUrl == coverUrl &&
-     other.edition == edition &&
-     other.id == id &&
-     other.name == name &&
-     other.notes == notes &&
-     other.rating == rating &&
-     other.releaseYear == releaseYear &&
-     other.saveFolder == saveFolder &&
-     other.screenshotFolder == screenshotFolder &&
-     other.status == status &&
-     other.updatedDatetime == updatedDatetime &&
-     other.firstFinish == firstFinish &&
-     other.totalTime == totalTime;
+    other.addedDatetime == addedDatetime &&
+    other.backup == backup &&
+    other.coverFilename == coverFilename &&
+    other.coverUrl == coverUrl &&
+    other.edition == edition &&
+    other.id == id &&
+    other.name == name &&
+    other.notes == notes &&
+    other.rating == rating &&
+    other.releaseYear == releaseYear &&
+    other.saveFolder == saveFolder &&
+    other.screenshotFolder == screenshotFolder &&
+    other.status == status &&
+    other.updatedDatetime == updatedDatetime &&
+    other.firstFinish == firstFinish &&
+    other.totalTime == totalTime;
 
   @override
   int get hashCode =>
@@ -142,8 +142,8 @@ class GameDTO extends PrimaryModel {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-    json[r'backup'] = this.backup;
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+      json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;
     } else {
@@ -154,20 +154,20 @@ class GameDTO extends PrimaryModel {
     } else {
       json[r'cover_url'] = null;
     }
-    json[r'edition'] = this.edition;
-    json[r'id'] = this.id;
-    json[r'name'] = this.name;
-    json[r'notes'] = this.notes;
-    json[r'rating'] = this.rating;
+      json[r'edition'] = this.edition;
+      json[r'id'] = this.id;
+      json[r'name'] = this.name;
+      json[r'notes'] = this.notes;
+      json[r'rating'] = this.rating;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-    json[r'save_folder'] = this.saveFolder;
-    json[r'screenshot_folder'] = this.screenshotFolder;
-    json[r'status'] = this.status;
-    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+      json[r'save_folder'] = this.saveFolder;
+      json[r'screenshot_folder'] = this.screenshotFolder;
+      json[r'status'] = this.status;
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -183,16 +183,14 @@ class GameDTO extends PrimaryModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GameDTO[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GameDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GameDTO[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GameDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return GameDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
@@ -205,16 +203,13 @@ class GameDTO extends PrimaryModel {
         saveFolder: mapValueOfType<String>(json, r'save_folder')!,
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GameDTO>? listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GameDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -242,21 +237,13 @@ class GameDTO extends PrimaryModel {
   }
 
   // maps a json object with a list of GameDTO-objects as value to a dart map
-  static Map<String, List<GameDTO>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GameDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = GameDTO.listFromJson(
-          entry.value,
-          growable: growable,
-        );
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = GameDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

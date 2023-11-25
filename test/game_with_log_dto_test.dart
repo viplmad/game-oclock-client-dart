@@ -46,8 +46,13 @@ void main() {
       // TODO
     });
 
-    // DateTime logDatetime
-    test('to test the property `logDatetime`', () async {
+    // DateTime logEndDatetime
+    test('to test the property `logEndDatetime`', () async {
+      // TODO
+    });
+
+    // DateTime logStartDatetime
+    test('to test the property `logStartDatetime`', () async {
       // TODO
     });
 

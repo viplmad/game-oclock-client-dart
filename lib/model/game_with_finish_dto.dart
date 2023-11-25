@@ -33,21 +33,21 @@ class GameWithFinishDTO extends GameDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameWithFinishDTO &&
-     other.addedDatetime == addedDatetime &&
-     other.backup == backup &&
-     other.coverFilename == coverFilename &&
-     other.coverUrl == coverUrl &&
-     other.edition == edition &&
-     other.finishDate == finishDate &&
-     other.id == id &&
-     other.name == name &&
-     other.notes == notes &&
-     other.rating == rating &&
-     other.releaseYear == releaseYear &&
-     other.saveFolder == saveFolder &&
-     other.screenshotFolder == screenshotFolder &&
-     other.status == status &&
-     other.updatedDatetime == updatedDatetime;
+    other.addedDatetime == addedDatetime &&
+    other.backup == backup &&
+    other.coverFilename == coverFilename &&
+    other.coverUrl == coverUrl &&
+    other.edition == edition &&
+    other.finishDate == finishDate &&
+    other.id == id &&
+    other.name == name &&
+    other.notes == notes &&
+    other.rating == rating &&
+    other.releaseYear == releaseYear &&
+    other.saveFolder == saveFolder &&
+    other.screenshotFolder == screenshotFolder &&
+    other.status == status &&
+    other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
@@ -122,12 +122,12 @@ class GameWithFinishDTO extends GameDTO {
       }());
 
       return GameWithFinishDTO(
-        addedDatetime: mapDateTime(json, r'added_datetime', '')!,
+        addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
-        finishDate: mapDateTime(json, r'finish_date', '')!,
+        finishDate: mapDateTime(json, r'finish_date', r'')!,
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         notes: mapValueOfType<String>(json, r'notes')!,
@@ -136,13 +136,13 @@ class GameWithFinishDTO extends GameDTO {
         saveFolder: mapValueOfType<String>(json, r'save_folder')!,
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
-        updatedDatetime: mapDateTime(json, r'updated_datetime', '')!,
+        updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GameWithFinishDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameWithFinishDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GameWithFinishDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -173,12 +173,10 @@ class GameWithFinishDTO extends GameDTO {
   static Map<String, List<GameWithFinishDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GameWithFinishDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = GameWithFinishDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = GameWithFinishDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -200,4 +198,3 @@ class GameWithFinishDTO extends GameDTO {
     'updated_datetime',
   };
 }
-

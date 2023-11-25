@@ -22,8 +22,8 @@ class ErrorMessage {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ErrorMessage &&
-     other.error == error &&
-     other.errorDescription == errorDescription;
+    other.error == error &&
+    other.errorDescription == errorDescription;
 
   @override
   int get hashCode =>
@@ -67,7 +67,7 @@ class ErrorMessage {
     return null;
   }
 
-  static List<ErrorMessage>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ErrorMessage> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ErrorMessage>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,12 +98,10 @@ class ErrorMessage {
   static Map<String, List<ErrorMessage>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ErrorMessage>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = ErrorMessage.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = ErrorMessage.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -115,4 +113,3 @@ class ErrorMessage {
     'error_description',
   };
 }
-

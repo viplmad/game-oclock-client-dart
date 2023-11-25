@@ -16,20 +16,14 @@ class SearchValue {
     this.values,
   });
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? value;
 
   List<String>? values;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchValue &&
-     other.value == value &&
-     other.values == values;
+    other.value == value &&
+    other.values == values;
 
   @override
   int get hashCode =>
@@ -77,7 +71,7 @@ class SearchValue {
     return null;
   }
 
-  static List<SearchValue>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SearchValue> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <SearchValue>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -108,12 +102,10 @@ class SearchValue {
   static Map<String, List<SearchValue>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<SearchValue>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = SearchValue.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = SearchValue.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -123,4 +115,3 @@ class SearchValue {
   static const requiredKeys = <String>{
   };
 }
-

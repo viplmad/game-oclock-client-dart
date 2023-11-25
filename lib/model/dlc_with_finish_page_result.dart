@@ -19,9 +19,9 @@ class DLCWithFinishPageResult extends PageResultDTO<DLCWithFinishDTO> {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DLCWithFinishPageResult &&
-     other.data == data &&
-     other.page == page &&
-     other.size == size;
+    _deepEquality.equals(other.data, data) &&
+    other.page == page &&
+    other.size == size;
 
   @override
   int get hashCode =>
@@ -60,7 +60,7 @@ class DLCWithFinishPageResult extends PageResultDTO<DLCWithFinishDTO> {
       }());
 
       return DLCWithFinishPageResult(
-        data: DLCWithFinishDTO.listFromJson(json[r'data'])!,
+        data: DLCWithFinishDTO.listFromJson(json[r'data']),
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -68,7 +68,7 @@ class DLCWithFinishPageResult extends PageResultDTO<DLCWithFinishDTO> {
     return null;
   }
 
-  static List<DLCWithFinishPageResult>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DLCWithFinishPageResult> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DLCWithFinishPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +99,10 @@ class DLCWithFinishPageResult extends PageResultDTO<DLCWithFinishDTO> {
   static Map<String, List<DLCWithFinishPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DLCWithFinishPageResult>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = DLCWithFinishPageResult.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = DLCWithFinishPageResult.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -117,4 +115,3 @@ class DLCWithFinishPageResult extends PageResultDTO<DLCWithFinishDTO> {
     'size',
   };
 }
-

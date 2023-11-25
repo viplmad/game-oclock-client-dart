@@ -146,7 +146,7 @@ class PlatformsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PlatformAvailableDTO>') as List)
         .cast<PlatformAvailableDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();
@@ -199,7 +199,7 @@ class PlatformsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PlatformAvailableDTO>') as List)
         .cast<PlatformAvailableDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();

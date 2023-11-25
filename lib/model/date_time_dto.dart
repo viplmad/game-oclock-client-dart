@@ -19,7 +19,7 @@ class DateTimeDTO {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DateTimeDTO &&
-     other.datetime == datetime;
+    other.datetime == datetime;
 
   @override
   int get hashCode =>
@@ -54,13 +54,13 @@ class DateTimeDTO {
       }());
 
       return DateTimeDTO(
-        datetime: mapDateTime(json, r'datetime', '')!,
+        datetime: mapDateTime(json, r'datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<DateTimeDTO>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DateTimeDTO> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DateTimeDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -91,12 +91,10 @@ class DateTimeDTO {
   static Map<String, List<DateTimeDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DateTimeDTO>>{};
     if (json is Map && json.isNotEmpty) {
-      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        final value = DateTimeDTO.listFromJson(entry.value, growable: growable,);
-        if (value != null) {
-          map[entry.key] = value;
-        }
+        map[entry.key] = DateTimeDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -107,4 +105,3 @@ class DateTimeDTO {
     'datetime',
   };
 }
-

@@ -33,7 +33,7 @@ class GrantType {
 
   static GrantType? fromJson(dynamic value) => GrantTypeTypeTransformer().decode(value);
 
-  static List<GrantType>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GrantType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GrantType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -78,7 +78,6 @@ class GrantTypeTypeTransformer {
     return null;
   }
 
-  /// Singleton [GrantTypesTypeTransformer] instance.
+  /// Singleton [GrantTypeTypeTransformer] instance.
   static GrantTypeTypeTransformer? _instance;
 }
-
