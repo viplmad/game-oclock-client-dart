@@ -9,7 +9,7 @@
 
 part of n2t.game_collection.client;
 
-class GameWithLogsExtendedDTO extends GameWithLogsDTO {
+class GameWithLogsExtendedDTO extends GameDTO {
   /// Returns a new [GameWithLogsExtendedDTO] instance.
   GameWithLogsExtendedDTO({
     required super.addedDatetime,
@@ -18,7 +18,6 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     super.coverUrl,
     required super.edition,
     required super.id,
-    super.logs = const [],
     required this.longestSession,
     required this.longestStreak,
     required super.name,
@@ -28,18 +27,21 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     required super.saveFolder,
     required super.screenshotFolder,
     required super.status,
-    this.streaks = const [],
-    required this.totalTime,
+    required this.totalSessions,
+    required Duration totalTime,
+    this.totalTimeGrouped = const {},
     required super.updatedDatetime,
-  });
+  }) {
+    super.totalTime = totalTime;
+  }
 
   GameLogDTO longestSession;
 
   GameStreakDTO longestStreak;
 
-  List<GameStreakDTO> streaks;
+  int totalSessions;
 
-  Duration? totalTime;
+  Map<String, Duration> totalTimeGrouped;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GameWithLogsExtendedDTO &&
@@ -49,7 +51,6 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     other.coverUrl == coverUrl &&
     other.edition == edition &&
     other.id == id &&
-    _deepEquality.equals(other.logs, logs) &&
     other.longestSession == longestSession &&
     other.longestStreak == longestStreak &&
     other.name == name &&
@@ -59,8 +60,9 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     other.saveFolder == saveFolder &&
     other.screenshotFolder == screenshotFolder &&
     other.status == status &&
-    _deepEquality.equals(other.streaks, streaks) &&
+    other.totalSessions == totalSessions &&
     other.totalTime == totalTime &&
+    _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped) &&
     other.updatedDatetime == updatedDatetime;
 
   @override
@@ -72,7 +74,6 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
     (id.hashCode) +
-    (logs.hashCode) +
     (longestSession.hashCode) +
     (longestStreak.hashCode) +
     (name.hashCode) +
@@ -82,12 +83,13 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     (saveFolder.hashCode) +
     (screenshotFolder.hashCode) +
     (status.hashCode) +
-    (streaks.hashCode) +
+    (totalSessions.hashCode) +
     (totalTime.hashCode) +
+    (totalTimeGrouped.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameWithLogsExtendedDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, logs=$logs, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, streaks=$streaks, totalTime=$totalTime, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameWithLogsExtendedDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -105,7 +107,6 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     }
       json[r'edition'] = this.edition;
       json[r'id'] = this.id;
-      json[r'logs'] = this.logs;
       json[r'longest_session'] = this.longestSession;
       json[r'longest_streak'] = this.longestStreak;
       json[r'name'] = this.name;
@@ -119,12 +120,9 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
       json[r'save_folder'] = this.saveFolder;
       json[r'screenshot_folder'] = this.screenshotFolder;
       json[r'status'] = this.status;
-      json[r'streaks'] = this.streaks;
-    if (this.totalTime != null) {
+      json[r'total_sessions'] = this.totalSessions;
       json[r'total_time'] = this.totalTime!.toIso8601String();
-    } else {
-      json[r'total_time'] = null;
-    }
+      json[r'total_time_grouped'] = this.totalTimeGrouped;
       json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
@@ -154,7 +152,6 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         id: mapValueOfType<String>(json, r'id')!,
-        logs: GameLogDTO.listFromJson(json[r'logs']),
         longestSession: GameLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GameStreakDTO.fromJson(json[r'longest_streak'])!,
         name: mapValueOfType<String>(json, r'name')!,
@@ -164,8 +161,9 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
         saveFolder: mapValueOfType<String>(json, r'save_folder')!,
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
-        streaks: GameStreakDTO.listFromJson(json[r'streaks']),
+        totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
         totalTime: mapDuration(json, r'total_time')!,
+        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => k, (v) => mapDuration({'temp': v}, 'temp')!)!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
@@ -218,7 +216,6 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     'backup',
     'edition',
     'id',
-    'logs',
     'longest_session',
     'longest_streak',
     'name',
@@ -227,8 +224,9 @@ class GameWithLogsExtendedDTO extends GameWithLogsDTO {
     'save_folder',
     'screenshot_folder',
     'status',
-    'streaks',
+    'total_sessions',
     'total_time',
+    'total_time_grouped',
     'updated_datetime',
   };
 }

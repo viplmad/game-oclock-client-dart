@@ -9,22 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class GamesLogDTO {
+class GamesLogDTO extends GameLogDTO {
   /// Returns a new [GamesLogDTO] instance.
   GamesLogDTO({
-    required this.endDatetime,
+    required super.endDatetime,
     required this.gameId,
-    required this.startDatetime,
-    required this.time,
+    required super.startDatetime,
+    required super.time,
   });
 
-  DateTime endDatetime;
-
   String gameId;
-
-  DateTime startDatetime;
-
-  String time;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GamesLogDTO &&
@@ -49,7 +43,7 @@ class GamesLogDTO {
       json[r'end_datetime'] = this.endDatetime.toIso8601String();
       json[r'game_id'] = this.gameId;
       json[r'start_datetime'] = this.startDatetime.toIso8601String();
-      json[r'time'] = this.time;
+      json[r'time'] = this.time.toIso8601String();
     return json;
   }
 
@@ -75,7 +69,7 @@ class GamesLogDTO {
         endDatetime: mapDateTime(json, r'end_datetime', r'')!,
         gameId: mapValueOfType<String>(json, r'game_id')!,
         startDatetime: mapDateTime(json, r'start_datetime', r'')!,
-        time: mapValueOfType<String>(json, r'time')!,
+        time: mapDuration(json, r'time')!,
       );
     }
     return null;

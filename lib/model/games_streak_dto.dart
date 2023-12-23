@@ -9,22 +9,16 @@
 
 part of n2t.game_collection.client;
 
-class GamesStreakDTO {
+class GamesStreakDTO extends GameStreakDTO {
   /// Returns a new [GamesStreakDTO] instance.
   GamesStreakDTO({
-    required this.days,
-    required this.endDate,
+    required super.days,
+    required super.endDate,
     this.gamesIds = const [],
-    required this.startDate,
+    required super.startDate,
   });
 
-  int days;
-
-  DateTime endDate;
-
   List<String> gamesIds;
-
-  DateTime startDate;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GamesStreakDTO &&

@@ -9,13 +9,13 @@
 
 part of n2t.game_collection.client;
 
-class GameStreakDTO {
+class GameStreakDTO extends PrimaryModel {
   /// Returns a new [GameStreakDTO] instance.
   GameStreakDTO({
     required this.days,
     required this.endDate,
     required this.startDate,
-  });
+  }) : super(id: startDate.toIso8601String());
 
   int days;
 

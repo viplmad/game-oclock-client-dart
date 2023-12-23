@@ -16,8 +16,9 @@ class GamesWithLogsExtendedDTO {
     this.gamesWithLogs = const [],
     required this.longestSession,
     required this.longestStreak,
-    this.streaks = const [],
+    required this.totalSessions,
     required this.totalTime,
+    this.totalTimeGrouped = const {},
   });
 
   int count;
@@ -28,9 +29,11 @@ class GamesWithLogsExtendedDTO {
 
   GamesStreakDTO longestStreak;
 
-  List<GamesStreakDTO> streaks;
+  int totalSessions;
 
-  String totalTime;
+  Duration totalTime;
+
+  Map<String, Duration> totalTimeGrouped;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GamesWithLogsExtendedDTO &&
@@ -38,8 +41,9 @@ class GamesWithLogsExtendedDTO {
     _deepEquality.equals(other.gamesWithLogs, gamesWithLogs) &&
     other.longestSession == longestSession &&
     other.longestStreak == longestStreak &&
-    _deepEquality.equals(other.streaks, streaks) &&
-    other.totalTime == totalTime;
+    other.totalSessions == totalSessions &&
+    other.totalTime == totalTime &&
+    _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped);
 
   @override
   int get hashCode =>
@@ -48,11 +52,12 @@ class GamesWithLogsExtendedDTO {
     (gamesWithLogs.hashCode) +
     (longestSession.hashCode) +
     (longestStreak.hashCode) +
-    (streaks.hashCode) +
-    (totalTime.hashCode);
+    (totalSessions.hashCode) +
+    (totalTime.hashCode) +
+    (totalTimeGrouped.hashCode);
 
   @override
-  String toString() => 'GamesWithLogsExtendedDTO[count=$count, gamesWithLogs=$gamesWithLogs, longestSession=$longestSession, longestStreak=$longestStreak, streaks=$streaks, totalTime=$totalTime]';
+  String toString() => 'GamesWithLogsExtendedDTO[count=$count, gamesWithLogs=$gamesWithLogs, longestSession=$longestSession, longestStreak=$longestStreak, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -60,8 +65,9 @@ class GamesWithLogsExtendedDTO {
       json[r'games_with_logs'] = this.gamesWithLogs;
       json[r'longest_session'] = this.longestSession;
       json[r'longest_streak'] = this.longestStreak;
-      json[r'streaks'] = this.streaks;
-      json[r'total_time'] = this.totalTime;
+      json[r'total_sessions'] = this.totalSessions;
+      json[r'total_time'] = this.totalTime.toIso8601String();
+      json[r'total_time_grouped'] = this.totalTimeGrouped;
     return json;
   }
 
@@ -88,8 +94,9 @@ class GamesWithLogsExtendedDTO {
         gamesWithLogs: GameWithLogsExtendedDTO.listFromJson(json[r'games_with_logs']),
         longestSession: GamesLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GamesStreakDTO.fromJson(json[r'longest_streak'])!,
-        streaks: GamesStreakDTO.listFromJson(json[r'streaks']),
-        totalTime: mapValueOfType<String>(json, r'total_time')!,
+        totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
+        totalTime: mapDuration(json, r'total_time')!,
+        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => k, (v) => mapDuration({'temp': v}, 'temp')!)!,
       );
     }
     return null;
@@ -141,7 +148,8 @@ class GamesWithLogsExtendedDTO {
     'games_with_logs',
     'longest_session',
     'longest_streak',
-    'streaks',
+    'total_sessions',
     'total_time',
+    'total_time_grouped',
   };
 }

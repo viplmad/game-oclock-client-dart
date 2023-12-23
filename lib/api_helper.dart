@@ -99,6 +99,16 @@ Map<K, V>? mapCastOfType<K, V>(dynamic map, String key) {
   return value is Map ? value.cast<K, V>() : null;
 }
 
+/// Returns a valid mappped Map<K, V> found at the specified Map [key], null otherwise.
+Map<K, V>? mapMapOfType<K, V>(dynamic map, String key, K Function(dynamic key) keyMapper, V Function(dynamic val) valueMapper) {
+  final dynamic value = map is Map ? map[key] : null;
+  return value is Map ? value.map<K, V>((dynamic k, dynamic v) {
+    final K mappedKey = keyMapper(k);
+    final V mappedValue = valueMapper(v);
+    return MapEntry(mappedKey, mappedValue);
+  }) : null;
+}
+
 /// Returns a valid [DateTime] found at the specified Map [key], null otherwise.
 DateTime? mapDateTime(dynamic map, String key, [String? pattern]) {
   final dynamic value = map is Map ? map[key] : null;
