@@ -9,14 +9,15 @@
 
 part of n2t.game_collection.client;
 
-class GameWithLogsExtendedDTO extends GameDTO {
-  /// Returns a new [GameWithLogsExtendedDTO] instance.
-  GameWithLogsExtendedDTO({
+class GamePlayedReviewDTO extends GameDTO {
+  /// Returns a new [GamePlayedReviewDTO] instance.
+  GamePlayedReviewDTO({
     required super.addedDatetime,
     required super.backup,
     super.coverFilename,
     super.coverUrl,
     required super.edition,
+    required this.firstPlayed,
     required super.id,
     required this.longestSession,
     required this.longestStreak,
@@ -28,6 +29,7 @@ class GameWithLogsExtendedDTO extends GameDTO {
     required super.screenshotFolder,
     required super.status,
     required this.totalSessions,
+    this.totalSessionsGrouped = const {},
     required Duration totalTime,
     this.totalTimeGrouped = const {},
     required super.updatedDatetime,
@@ -35,21 +37,26 @@ class GameWithLogsExtendedDTO extends GameDTO {
     super.totalTime = totalTime;
   }
 
+  bool firstPlayed;
+
   GameLogDTO longestSession;
 
   GameStreakDTO longestStreak;
 
   int totalSessions;
 
-  Map<String, Duration> totalTimeGrouped;
+  Map<int, int> totalSessionsGrouped;
+
+  Map<int, Duration> totalTimeGrouped;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GameWithLogsExtendedDTO &&
+  bool operator ==(Object other) => identical(this, other) || other is GamePlayedReviewDTO &&
     other.addedDatetime == addedDatetime &&
     other.backup == backup &&
     other.coverFilename == coverFilename &&
     other.coverUrl == coverUrl &&
     other.edition == edition &&
+    other.firstPlayed == firstPlayed &&
     other.id == id &&
     other.longestSession == longestSession &&
     other.longestStreak == longestStreak &&
@@ -61,6 +68,7 @@ class GameWithLogsExtendedDTO extends GameDTO {
     other.screenshotFolder == screenshotFolder &&
     other.status == status &&
     other.totalSessions == totalSessions &&
+    _deepEquality.equals(other.totalSessionsGrouped, totalSessionsGrouped) &&
     other.totalTime == totalTime &&
     _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped) &&
     other.updatedDatetime == updatedDatetime;
@@ -73,6 +81,7 @@ class GameWithLogsExtendedDTO extends GameDTO {
     (coverFilename == null ? 0 : coverFilename!.hashCode) +
     (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
+    (firstPlayed.hashCode) +
     (id.hashCode) +
     (longestSession.hashCode) +
     (longestStreak.hashCode) +
@@ -84,12 +93,13 @@ class GameWithLogsExtendedDTO extends GameDTO {
     (screenshotFolder.hashCode) +
     (status.hashCode) +
     (totalSessions.hashCode) +
+    (totalSessionsGrouped.hashCode) +
     (totalTime.hashCode) +
     (totalTimeGrouped.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameWithLogsExtendedDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, id=$id, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalSessionsGrouped=$totalSessionsGrouped, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -106,6 +116,7 @@ class GameWithLogsExtendedDTO extends GameDTO {
       json[r'cover_url'] = null;
     }
       json[r'edition'] = this.edition;
+      json[r'first_played'] = this.firstPlayed;
       json[r'id'] = this.id;
       json[r'longest_session'] = this.longestSession;
       json[r'longest_streak'] = this.longestStreak;
@@ -121,16 +132,17 @@ class GameWithLogsExtendedDTO extends GameDTO {
       json[r'screenshot_folder'] = this.screenshotFolder;
       json[r'status'] = this.status;
       json[r'total_sessions'] = this.totalSessions;
+      json[r'total_sessions_grouped'] = this.totalSessionsGrouped;
       json[r'total_time'] = this.totalTime!.toIso8601String();
       json[r'total_time_grouped'] = this.totalTimeGrouped;
       json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
-  /// Returns a new [GameWithLogsExtendedDTO] instance and imports its values from
+  /// Returns a new [GamePlayedReviewDTO] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GameWithLogsExtendedDTO? fromJson(dynamic value) {
+  static GamePlayedReviewDTO? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -139,18 +151,19 @@ class GameWithLogsExtendedDTO extends GameDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GameWithLogsExtendedDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GameWithLogsExtendedDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GamePlayedReviewDTO[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GamePlayedReviewDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GameWithLogsExtendedDTO(
+      return GamePlayedReviewDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
         backup: mapValueOfType<bool>(json, r'backup')!,
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
+        firstPlayed: mapValueOfType<bool>(json, r'first_played')!,
         id: mapValueOfType<String>(json, r'id')!,
         longestSession: GameLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GameStreakDTO.fromJson(json[r'longest_streak'])!,
@@ -162,19 +175,20 @@ class GameWithLogsExtendedDTO extends GameDTO {
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
+        totalSessionsGrouped: mapMapOfType(json, r'total_sessions_grouped', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalTime: mapDuration(json, r'total_time')!,
-        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => k, (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GameWithLogsExtendedDTO> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <GameWithLogsExtendedDTO>[];
+  static List<GamePlayedReviewDTO> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <GamePlayedReviewDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GameWithLogsExtendedDTO.fromJson(row);
+        final value = GamePlayedReviewDTO.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -183,12 +197,12 @@ class GameWithLogsExtendedDTO extends GameDTO {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GameWithLogsExtendedDTO> mapFromJson(dynamic json) {
-    final map = <String, GameWithLogsExtendedDTO>{};
+  static Map<String, GamePlayedReviewDTO> mapFromJson(dynamic json) {
+    final map = <String, GamePlayedReviewDTO>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GameWithLogsExtendedDTO.fromJson(entry.value);
+        final value = GamePlayedReviewDTO.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -197,14 +211,14 @@ class GameWithLogsExtendedDTO extends GameDTO {
     return map;
   }
 
-  // maps a json object with a list of GameWithLogsExtendedDTO-objects as value to a dart map
-  static Map<String, List<GameWithLogsExtendedDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<GameWithLogsExtendedDTO>>{};
+  // maps a json object with a list of GamePlayedReviewDTO-objects as value to a dart map
+  static Map<String, List<GamePlayedReviewDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<GamePlayedReviewDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GameWithLogsExtendedDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GamePlayedReviewDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -215,6 +229,7 @@ class GameWithLogsExtendedDTO extends GameDTO {
     'added_datetime',
     'backup',
     'edition',
+    'first_played',
     'id',
     'longest_session',
     'longest_streak',
@@ -225,6 +240,7 @@ class GameWithLogsExtendedDTO extends GameDTO {
     'screenshot_folder',
     'status',
     'total_sessions',
+    'total_sessions_grouped',
     'total_time',
     'total_time_grouped',
     'updated_datetime',

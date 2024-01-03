@@ -22,6 +22,11 @@ void main() {
       // TODO
     });
 
+    //Future<GamesFinishedReviewDTO> getFinishedGamesReview(DateTime startDate, DateTime endDate) async
+    test('test getFinishedGamesReview', () async {
+      // TODO
+    });
+
     //Future<GameWithFinishPageResult> getFirstFinishedGames(SearchDTO searchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getFirstFinishedGames', () async {
       // TODO

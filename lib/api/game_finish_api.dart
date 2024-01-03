@@ -63,6 +63,60 @@ class GameFinishApi {
     }
   }
 
+  /// Performs an HTTP 'POST /api/v1/games/finished/review' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [DateTime] startDate (required):
+  ///
+  /// * [DateTime] endDate (required):
+  Future<Response> getFinishedGamesReviewWithHttpInfo(DateTime startDate, DateTime endDate,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/games/finished/review';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+      queryParams.addAll(_queryParams('', 'start_date', startDate));
+      queryParams.addAll(_queryParams('', 'end_date', endDate));
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Parameters:
+  ///
+  /// * [DateTime] startDate (required):
+  ///
+  /// * [DateTime] endDate (required):
+  Future<GamesFinishedReviewDTO> getFinishedGamesReview(DateTime startDate, DateTime endDate,) async {
+    final response = await getFinishedGamesReviewWithHttpInfo(startDate, endDate,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GamesFinishedReviewDTO',) as GamesFinishedReviewDTO;
+
+    }
+    throw ApiException.unreachable();
+  }
+
   /// Performs an HTTP 'POST /api/v1/games/finished/first' operation and returns the [Response].
   /// Parameters:
   ///

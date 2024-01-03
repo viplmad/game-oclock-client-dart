@@ -42,8 +42,8 @@ void main() {
       // TODO
     });
 
-    //Future<List<GamesWithLogsExtendedDTO>> getPlayedGamesDetailed(DateTime startDate, DateTime endDate) async
-    test('test getPlayedGamesDetailed', () async {
+    //Future<GamesPlayedReviewDTO> getPlayedGamesReview(DateTime startDate, DateTime endDate) async
+    test('test getPlayedGamesReview', () async {
       // TODO
     });
 

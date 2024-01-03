@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getGameLogs**](GameLogsApi.md#getgamelogs) | **GET** /api/v1/games/{id}/logs |
 [**getLastPlayedGames**](GameLogsApi.md#getlastplayedgames) | **POST** /api/v1/games/played/last |
 [**getPlayedGames**](GameLogsApi.md#getplayedgames) | **POST** /api/v1/games/played |
-[**getPlayedGamesDetailed**](GameLogsApi.md#getplayedgamesdetailed) | **POST** /api/v1/games/played/detailed |
+[**getPlayedGamesReview**](GameLogsApi.md#getplayedgamesreview) | **POST** /api/v1/games/played/review |
 [**getTotalGameLogs**](GameLogsApi.md#gettotalgamelogs) | **GET** /api/v1/games/{id}/logs/total |
 [**postGameLog**](GameLogsApi.md#postgamelog) | **POST** /api/v1/games/{id}/logs |
 
@@ -269,8 +269,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getPlayedGamesDetailed**
-> List<GamesWithLogsExtendedDTO> getPlayedGamesDetailed(startDate, endDate)
+# **getPlayedGamesReview**
+> GamesPlayedReviewDTO getPlayedGamesReview(startDate, endDate)
 
 
 

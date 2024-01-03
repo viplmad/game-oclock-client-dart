@@ -315,15 +315,15 @@ class GameLogsApi {
     throw ApiException.unreachable();
   }
 
-  /// Performs an HTTP 'POST /api/v1/games/played/detailed' operation and returns the [Response].
+  /// Performs an HTTP 'POST /api/v1/games/played/review' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [DateTime] startDate (required):
   ///
   /// * [DateTime] endDate (required):
-  Future<Response> getPlayedGamesDetailedWithHttpInfo(DateTime startDate, DateTime endDate,) async {
+  Future<Response> getPlayedGamesReviewWithHttpInfo(DateTime startDate, DateTime endDate,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/games/played/detailed';
+    final path = r'/api/v1/games/played/review';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -354,8 +354,8 @@ class GameLogsApi {
   /// * [DateTime] startDate (required):
   ///
   /// * [DateTime] endDate (required):
-  Future<GamesWithLogsExtendedDTO> getPlayedGamesDetailed(DateTime startDate, DateTime endDate,) async {
-    final response = await getPlayedGamesDetailedWithHttpInfo(startDate, endDate,);
+  Future<GamesPlayedReviewDTO> getPlayedGamesReview(DateTime startDate, DateTime endDate,) async {
+    final response = await getPlayedGamesReviewWithHttpInfo(startDate, endDate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -363,7 +363,7 @@ class GameLogsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GamesWithLogsExtendedDTO',) as GamesWithLogsExtendedDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GamesPlayedReviewDTO',) as GamesPlayedReviewDTO;
 
     }
     throw ApiException.unreachable();

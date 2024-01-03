@@ -207,10 +207,14 @@ class ApiClient {
           return GameAvailableDTO.fromJson(value);
         case 'GameDTO':
           return GameDTO.fromJson(value);
+        case 'GameFinishedReviewDTO':
+          return GameFinishedReviewDTO.fromJson(value);
         case 'GameLogDTO':
           return GameLogDTO.fromJson(value);
         case 'GamePageResult':
           return GamePageResult.fromJson(value);
+        case 'GamePlayedReviewDTO':
+          return GamePlayedReviewDTO.fromJson(value);
         case 'GameStatus':
           return GameStatusTypeTransformer().decode(value);
         case 'GameStreakDTO':
@@ -225,14 +229,14 @@ class ApiClient {
           return GameWithLogPageResult.fromJson(value);
         case 'GameWithLogsDTO':
           return GameWithLogsDTO.fromJson(value);
-        case 'GameWithLogsExtendedDTO':
-          return GameWithLogsExtendedDTO.fromJson(value);
+        case 'GamesFinishedReviewDTO':
+          return GamesFinishedReviewDTO.fromJson(value);
         case 'GamesLogDTO':
           return GamesLogDTO.fromJson(value);
+        case 'GamesPlayedReviewDTO':
+          return GamesPlayedReviewDTO.fromJson(value);
         case 'GamesStreakDTO':
           return GamesStreakDTO.fromJson(value);
-        case 'GamesWithLogsExtendedDTO':
-          return GamesWithLogsExtendedDTO.fromJson(value);
         case 'GrantType':
           return GrantTypeTypeTransformer().decode(value);
         case 'NewDLCDTO':

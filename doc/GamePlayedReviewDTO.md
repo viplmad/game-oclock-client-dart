@@ -1,4 +1,4 @@
-# game_collection_client.model.GameWithLogsExtendedDTO
+# game_collection_client.model.GamePlayedReviewDTO
 
 ## Load the model package
 ```dart
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **coverFilename** | **String** |  | [optional] 
 **coverUrl** | **String** |  | [optional] 
 **edition** | **String** |  | 
+**firstPlayed** | **bool** |  | 
 **id** | **String** |  | 
-**logs** | [**List<GameLogDTO>**](GameLogDTO.md) |  | [default to const []]
 **longestSession** | [**GameLogDTO**](GameLogDTO.md) |  | 
 **longestStreak** | [**GameStreakDTO**](GameStreakDTO.md) |  | 
 **name** | **String** |  | 
@@ -24,8 +24,10 @@ Name | Type | Description | Notes
 **saveFolder** | **String** |  | 
 **screenshotFolder** | **String** |  | 
 **status** | [**GameStatus**](GameStatus.md) |  | 
-**streaks** | [**List<GameStreakDTO>**](GameStreakDTO.md) |  | [default to const []]
+**totalSessions** | **int** |  | 
+**totalSessionsGrouped** | **Map<String, int>** |  | [default to const {}]
 **totalTime** | **String** |  | 
+**totalTimeGrouped** | **Map<String, String>** |  | [default to const {}]
 **updatedDatetime** | [**DateTime**](DateTime.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
