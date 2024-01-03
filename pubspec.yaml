@@ -3,7 +3,7 @@
 #
 
 name: 'game_collection_client'
-version: '1.2.1+37'
+version: '1.3.0+41'
 description: 'Game collection client for dart'
 homepage: ''
 environment:
@@ -12,7 +12,7 @@ environment:
 dependencies:
   http: ^1.1.0
   collection: ^1.17.2
-  intl: ^0.18.0
+  intl: ^0.19.0
   meta: ^1.8.0
 
 dev_dependencies:
