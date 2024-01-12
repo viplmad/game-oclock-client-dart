@@ -1,14 +1,13 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
 
@@ -22,12 +21,12 @@ void main() {
       // TODO
     });
 
-    //Future<List<String>> getDlcFinishes(String id) async
+    //Future<List<DateTime>> getDlcFinishes(String id) async
     test('test getDlcFinishes', () async {
       // TODO
     });
 
-    //Future<String> getFirstDlcFinish(String id) async
+    //Future<DateTime> getFirstDlcFinish(String id) async
     test('test getFirstDlcFinish', () async {
       // TODO
     });

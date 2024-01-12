@@ -1,8 +1,8 @@
-# game_collection_client.api.UsersApi
+# game_oclock_client.api.UsersApi
 
 ## Load the API package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -75,7 +75,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -121,7 +121,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -167,7 +167,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -210,7 +210,7 @@ This endpoint does not need any parameter.
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -401,7 +401,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');

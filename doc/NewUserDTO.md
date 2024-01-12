@@ -1,8 +1,8 @@
-# game_collection_client.model.NewUserDTO
+# game_oclock_client.model.NewUserDTO
 
 ## Load the model package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 ## Properties

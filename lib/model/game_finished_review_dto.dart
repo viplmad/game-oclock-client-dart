@@ -7,7 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of n2t.game_collection.client;
+part of n2t.game_oclock.client;
 
 class GameFinishedReviewDTO extends GameDTO {
   /// Returns a new [GameFinishedReviewDTO] instance.
@@ -17,8 +17,10 @@ class GameFinishedReviewDTO extends GameDTO {
     super.coverFilename,
     super.coverUrl,
     required super.edition,
+    required DateTime firstFinish,
     required this.firstFinished,
     required super.id,
+    required this.lastFinish,
     required super.name,
     required super.notes,
     required super.rating,
@@ -29,9 +31,13 @@ class GameFinishedReviewDTO extends GameDTO {
     required this.totalFinished,
     this.totalFinishedGrouped = const {},
     required super.updatedDatetime,
-  });
+  }) {
+    super.firstFinish = firstFinish;
+  }
 
   bool firstFinished;
+
+  DateTime lastFinish;
 
   int totalFinished;
 
@@ -44,8 +50,10 @@ class GameFinishedReviewDTO extends GameDTO {
     other.coverFilename == coverFilename &&
     other.coverUrl == coverUrl &&
     other.edition == edition &&
+    other.firstFinish == firstFinish &&
     other.firstFinished == firstFinished &&
     other.id == id &&
+    other.lastFinish == lastFinish &&
     other.name == name &&
     other.notes == notes &&
     other.rating == rating &&
@@ -65,8 +73,10 @@ class GameFinishedReviewDTO extends GameDTO {
     (coverFilename == null ? 0 : coverFilename!.hashCode) +
     (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
+    (firstFinish.hashCode) +
     (firstFinished.hashCode) +
     (id.hashCode) +
+    (lastFinish.hashCode) +
     (name.hashCode) +
     (notes.hashCode) +
     (rating.hashCode) +
@@ -79,7 +89,7 @@ class GameFinishedReviewDTO extends GameDTO {
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameFinishedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstFinished=$firstFinished, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalFinished=$totalFinished, totalFinishedGrouped=$totalFinishedGrouped, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GameFinishedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstFinish=$firstFinish, firstFinished=$firstFinished, id=$id, lastFinish=$lastFinish, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalFinished=$totalFinished, totalFinishedGrouped=$totalFinishedGrouped, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -96,8 +106,10 @@ class GameFinishedReviewDTO extends GameDTO {
       json[r'cover_url'] = null;
     }
       json[r'edition'] = this.edition;
+      json[r'first_finish'] = _dateFormatter.format(this.firstFinish!);
       json[r'first_finished'] = this.firstFinished;
       json[r'id'] = this.id;
+      json[r'last_finish'] = _dateFormatter.format(this.lastFinish);
       json[r'name'] = this.name;
       json[r'notes'] = this.notes;
       json[r'rating'] = this.rating;
@@ -139,8 +151,10 @@ class GameFinishedReviewDTO extends GameDTO {
         coverFilename: mapValueOfType<String>(json, r'cover_filename'),
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
+        firstFinish: mapDateTime(json, r'first_finish', r'')!,
         firstFinished: mapValueOfType<bool>(json, r'first_finished')!,
         id: mapValueOfType<String>(json, r'id')!,
+        lastFinish: mapDateTime(json, r'last_finish', r'')!,
         name: mapValueOfType<String>(json, r'name')!,
         notes: mapValueOfType<String>(json, r'notes')!,
         rating: mapValueOfType<int>(json, r'rating')!,
@@ -201,8 +215,10 @@ class GameFinishedReviewDTO extends GameDTO {
     'added_datetime',
     'backup',
     'edition',
+    'first_finish',
     'first_finished',
     'id',
+    'last_finish',
     'name',
     'notes',
     'rating',

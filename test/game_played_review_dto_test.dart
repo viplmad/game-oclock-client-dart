@@ -1,14 +1,13 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
 // tests for GamePlayedReviewDTO
@@ -46,8 +45,18 @@ void main() {
       // TODO
     });
 
+    // DateTime firstPlayStartDatetime
+    test('to test the property `firstPlayStartDatetime`', () async {
+      // TODO
+    });
+
     // String id
     test('to test the property `id`', () async {
+      // TODO
+    });
+
+    // DateTime lastPlayStartDatetime
+    test('to test the property `lastPlayStartDatetime`', () async {
       // TODO
     });
 
@@ -98,11 +107,6 @@ void main() {
 
     // int totalSessions
     test('to test the property `totalSessions`', () async {
-      // TODO
-    });
-
-    // Map<String, int> totalSessionsGrouped (default value: const {})
-    test('to test the property `totalSessionsGrouped`', () async {
       // TODO
     });
 

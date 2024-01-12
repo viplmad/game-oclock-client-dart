@@ -7,7 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of n2t.game_collection.client;
+part of n2t.game_oclock.client;
 
 class GamesPlayedReviewDTO {
   /// Returns a new [GamesPlayedReviewDTO] instance.
@@ -19,7 +19,6 @@ class GamesPlayedReviewDTO {
     required this.totalPlayed,
     this.totalPlayedByReleaseYear = const {},
     required this.totalSessions,
-    this.totalSessionsGrouped = const {},
     required this.totalTime,
     this.totalTimeGrouped = const {},
   });
@@ -38,8 +37,6 @@ class GamesPlayedReviewDTO {
 
   int totalSessions;
 
-  Map<int, int> totalSessionsGrouped;
-
   Duration totalTime;
 
   Map<int, Duration> totalTimeGrouped;
@@ -53,7 +50,6 @@ class GamesPlayedReviewDTO {
     other.totalPlayed == totalPlayed &&
     _deepEquality.equals(other.totalPlayedByReleaseYear, totalPlayedByReleaseYear) &&
     other.totalSessions == totalSessions &&
-    _deepEquality.equals(other.totalSessionsGrouped, totalSessionsGrouped) &&
     other.totalTime == totalTime &&
     _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped);
 
@@ -67,12 +63,11 @@ class GamesPlayedReviewDTO {
     (totalPlayed.hashCode) +
     (totalPlayedByReleaseYear.hashCode) +
     (totalSessions.hashCode) +
-    (totalSessionsGrouped.hashCode) +
     (totalTime.hashCode) +
     (totalTimeGrouped.hashCode);
 
   @override
-  String toString() => 'GamesPlayedReviewDTO[games=$games, longestSession=$longestSession, longestStreak=$longestStreak, totalFirstPlayed=$totalFirstPlayed, totalPlayed=$totalPlayed, totalPlayedByReleaseYear=$totalPlayedByReleaseYear, totalSessions=$totalSessions, totalSessionsGrouped=$totalSessionsGrouped, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped]';
+  String toString() => 'GamesPlayedReviewDTO[games=$games, longestSession=$longestSession, longestStreak=$longestStreak, totalFirstPlayed=$totalFirstPlayed, totalPlayed=$totalPlayed, totalPlayedByReleaseYear=$totalPlayedByReleaseYear, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -83,7 +78,6 @@ class GamesPlayedReviewDTO {
       json[r'total_played'] = this.totalPlayed;
       json[r'total_played_by_release_year'] = this.totalPlayedByReleaseYear;
       json[r'total_sessions'] = this.totalSessions;
-      json[r'total_sessions_grouped'] = this.totalSessionsGrouped;
       json[r'total_time'] = this.totalTime.toIso8601String();
       json[r'total_time_grouped'] = this.totalTimeGrouped;
     return json;
@@ -115,7 +109,6 @@ class GamesPlayedReviewDTO {
         totalPlayed: mapValueOfType<int>(json, r'total_played')!,
         totalPlayedByReleaseYear: mapMapOfType(json, r'total_played_by_release_year', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
-        totalSessionsGrouped: mapMapOfType(json, r'total_sessions_grouped', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalTime: mapDuration(json, r'total_time')!,
         totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
       );
@@ -172,7 +165,6 @@ class GamesPlayedReviewDTO {
     'total_played',
     'total_played_by_release_year',
     'total_sessions',
-    'total_sessions_grouped',
     'total_time',
     'total_time_grouped',
   };

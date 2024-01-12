@@ -7,7 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of n2t.game_collection.client;
+part of n2t.game_oclock.client;
 
 
 class GameLogsApi {
@@ -181,7 +181,7 @@ class GameLogsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<GameLogDTO>') as List)
         .cast<GameLogDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();
@@ -309,7 +309,7 @@ class GameLogsApi {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<GameWithLogsDTO>') as List)
         .cast<GameWithLogsDTO>()
-        .toList();
+        .toList(growable: false);
 
     }
     throw ApiException.unreachable();
@@ -425,7 +425,7 @@ class GameLogsApi {
   /// * [String] id (required):
   ///   Game id
   ///
-  /// * [GameLogDTO] newGameLogDTO (required):
+  /// * [NewGameLogDTO] newGameLogDTO (required):
   ///   Game log to be added
   Future<Response> postGameLogWithHttpInfo(String id, NewGameLogDTO newGameLogDTO,) async {
     // ignore: prefer_const_declarations

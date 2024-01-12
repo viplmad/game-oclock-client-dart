@@ -7,7 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-library n2t.game_collection.client;
+library n2t.game_oclock.client;
 
 import 'dart:async';
 import 'dart:convert';

@@ -1,8 +1,8 @@
-# game_collection_client.api.PlatformsApi
+# game_oclock_client.api.PlatformsApi
 
 ## Load the API package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -74,7 +74,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -120,7 +120,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -405,7 +405,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -453,7 +453,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -463,7 +463,7 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = PlatformsApi();
 final id = id_example; // String | Platform id
-final body = String(); // String | New platform filename
+final body = String(); // String | New platform icon name
 
 try {
     api_instance.putPlatformIcon(id, body);
@@ -477,7 +477,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Platform id | 
- **body** | **String**| New platform filename | 
+ **body** | **String**| New platform icon name | 
 
 ### Return type
 

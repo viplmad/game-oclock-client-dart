@@ -1,8 +1,8 @@
-# game_collection_client.model.UserPageResult
+# game_oclock_client.model.UserPageResult
 
 ## Load the model package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 ## Properties

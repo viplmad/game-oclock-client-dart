@@ -7,7 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of n2t.game_collection.client;
+part of n2t.game_oclock.client;
 
 
 class PlatformsApi {
@@ -465,7 +465,7 @@ class PlatformsApi {
   ///   Platform id
   ///
   /// * [String] body (required):
-  ///   New platform filename
+  ///   New platform icon name
   Future<Response> putPlatformIconWithHttpInfo(String id, String body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/platforms/{id}/icon'
@@ -498,7 +498,7 @@ class PlatformsApi {
   ///   Platform id
   ///
   /// * [String] body (required):
-  ///   New platform filename
+  ///   New platform icon name
   Future<void> putPlatformIcon(String id, String body,) async {
     final response = await putPlatformIconWithHttpInfo(id, body,);
     if (response.statusCode >= HttpStatus.badRequest) {

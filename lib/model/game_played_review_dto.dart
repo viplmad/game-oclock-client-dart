@@ -7,7 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of n2t.game_collection.client;
+part of n2t.game_oclock.client;
 
 class GamePlayedReviewDTO extends GameDTO {
   /// Returns a new [GamePlayedReviewDTO] instance.
@@ -18,7 +18,9 @@ class GamePlayedReviewDTO extends GameDTO {
     super.coverUrl,
     required super.edition,
     required this.firstPlayed,
+    required this.firstPlayStartDatetime,
     required super.id,
+    required this.lastPlayStartDatetime,
     required this.longestSession,
     required this.longestStreak,
     required super.name,
@@ -29,7 +31,6 @@ class GamePlayedReviewDTO extends GameDTO {
     required super.screenshotFolder,
     required super.status,
     required this.totalSessions,
-    this.totalSessionsGrouped = const {},
     required Duration totalTime,
     this.totalTimeGrouped = const {},
     required super.updatedDatetime,
@@ -39,13 +40,15 @@ class GamePlayedReviewDTO extends GameDTO {
 
   bool firstPlayed;
 
+  DateTime firstPlayStartDatetime;
+
+  DateTime lastPlayStartDatetime;
+
   GameLogDTO longestSession;
 
   GameStreakDTO longestStreak;
 
   int totalSessions;
-
-  Map<int, int> totalSessionsGrouped;
 
   Map<int, Duration> totalTimeGrouped;
 
@@ -57,7 +60,9 @@ class GamePlayedReviewDTO extends GameDTO {
     other.coverUrl == coverUrl &&
     other.edition == edition &&
     other.firstPlayed == firstPlayed &&
+    other.firstPlayStartDatetime == firstPlayStartDatetime &&
     other.id == id &&
+    other.lastPlayStartDatetime == lastPlayStartDatetime &&
     other.longestSession == longestSession &&
     other.longestStreak == longestStreak &&
     other.name == name &&
@@ -68,7 +73,6 @@ class GamePlayedReviewDTO extends GameDTO {
     other.screenshotFolder == screenshotFolder &&
     other.status == status &&
     other.totalSessions == totalSessions &&
-    _deepEquality.equals(other.totalSessionsGrouped, totalSessionsGrouped) &&
     other.totalTime == totalTime &&
     _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped) &&
     other.updatedDatetime == updatedDatetime;
@@ -82,7 +86,9 @@ class GamePlayedReviewDTO extends GameDTO {
     (coverUrl == null ? 0 : coverUrl!.hashCode) +
     (edition.hashCode) +
     (firstPlayed.hashCode) +
+    (firstPlayStartDatetime.hashCode) +
     (id.hashCode) +
+    (lastPlayStartDatetime.hashCode) +
     (longestSession.hashCode) +
     (longestStreak.hashCode) +
     (name.hashCode) +
@@ -93,13 +99,12 @@ class GamePlayedReviewDTO extends GameDTO {
     (screenshotFolder.hashCode) +
     (status.hashCode) +
     (totalSessions.hashCode) +
-    (totalSessionsGrouped.hashCode) +
     (totalTime.hashCode) +
     (totalTimeGrouped.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, id=$id, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalSessionsGrouped=$totalSessionsGrouped, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
+  String toString() => 'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, firstPlayStartDatetime=$firstPlayStartDatetime, id=$id, lastPlayStartDatetime=$lastPlayStartDatetime, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -117,7 +122,9 @@ class GamePlayedReviewDTO extends GameDTO {
     }
       json[r'edition'] = this.edition;
       json[r'first_played'] = this.firstPlayed;
+      json[r'first_play_start_datetime'] = this.firstPlayStartDatetime.toIso8601String();
       json[r'id'] = this.id;
+      json[r'last_play_start_datetime'] = this.lastPlayStartDatetime.toIso8601String();
       json[r'longest_session'] = this.longestSession;
       json[r'longest_streak'] = this.longestStreak;
       json[r'name'] = this.name;
@@ -132,7 +139,6 @@ class GamePlayedReviewDTO extends GameDTO {
       json[r'screenshot_folder'] = this.screenshotFolder;
       json[r'status'] = this.status;
       json[r'total_sessions'] = this.totalSessions;
-      json[r'total_sessions_grouped'] = this.totalSessionsGrouped;
       json[r'total_time'] = this.totalTime!.toIso8601String();
       json[r'total_time_grouped'] = this.totalTimeGrouped;
       json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
@@ -164,7 +170,9 @@ class GamePlayedReviewDTO extends GameDTO {
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         firstPlayed: mapValueOfType<bool>(json, r'first_played')!,
+        firstPlayStartDatetime: mapDateTime(json, r'first_play_start_datetime', r'')!,
         id: mapValueOfType<String>(json, r'id')!,
+        lastPlayStartDatetime: mapDateTime(json, r'last_play_start_datetime', r'')!,
         longestSession: GameLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GameStreakDTO.fromJson(json[r'longest_streak'])!,
         name: mapValueOfType<String>(json, r'name')!,
@@ -175,7 +183,6 @@ class GamePlayedReviewDTO extends GameDTO {
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
-        totalSessionsGrouped: mapMapOfType(json, r'total_sessions_grouped', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalTime: mapDuration(json, r'total_time')!,
         totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
@@ -230,7 +237,9 @@ class GamePlayedReviewDTO extends GameDTO {
     'backup',
     'edition',
     'first_played',
+    'first_play_start_datetime',
     'id',
+    'last_play_start_datetime',
     'longest_session',
     'longest_streak',
     'name',
@@ -240,7 +249,6 @@ class GamePlayedReviewDTO extends GameDTO {
     'screenshot_folder',
     'status',
     'total_sessions',
-    'total_sessions_grouped',
     'total_time',
     'total_time_grouped',
     'updated_datetime',

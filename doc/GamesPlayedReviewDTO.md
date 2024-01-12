@@ -1,8 +1,8 @@
-# game_collection_client.model.GamesPlayedReviewDTO
+# game_oclock_client.model.GamesPlayedReviewDTO
 
 ## Load the model package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 ## Properties
@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **totalPlayed** | **int** |  | 
 **totalPlayedByReleaseYear** | **Map<String, int>** |  | [default to const {}]
 **totalSessions** | **int** |  | 
-**totalSessionsGrouped** | **Map<String, int>** |  | [default to const {}]
 **totalTime** | **String** |  | 
 **totalTimeGrouped** | **Map<String, String>** |  | [default to const {}]
 

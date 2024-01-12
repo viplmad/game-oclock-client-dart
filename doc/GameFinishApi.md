@@ -1,21 +1,21 @@
-# game_collection_client.api.GameFinishApi
+# game_oclock_client.api.GameFinishApi
 
 ## Load the API package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteGameFinish**](GameFinishApi.md#deletegamefinish) | **DELETE** /api/v1/games/{id}/finishes |
-[**getFinishedGamesReview**](GameFinishApi.md#getfinishedgamesreview) | **POST** /api/v1/games/finished/review |
-[**getFirstFinishedGames**](GameFinishApi.md#getfirstfinishedgames) | **POST** /api/v1/games/finished/first |
-[**getFirstGameFinish**](GameFinishApi.md#getfirstgamefinish) | **GET** /api/v1/games/{id}/finishes/first |
-[**getGameFinishes**](GameFinishApi.md#getgamefinishes) | **GET** /api/v1/games/{id}/finishes |
-[**getLastFinishedGames**](GameFinishApi.md#getlastfinishedgames) | **POST** /api/v1/games/finished/last |
-[**postGameFinish**](GameFinishApi.md#postgamefinish) | **POST** /api/v1/games/{id}/finishes |
+[**deleteGameFinish**](GameFinishApi.md#deletegamefinish) | **DELETE** /api/v1/games/{id}/finishes | 
+[**getFinishedGamesReview**](GameFinishApi.md#getfinishedgamesreview) | **POST** /api/v1/games/finished/review | 
+[**getFirstFinishedGames**](GameFinishApi.md#getfirstfinishedgames) | **POST** /api/v1/games/finished/first | 
+[**getFirstGameFinish**](GameFinishApi.md#getfirstgamefinish) | **GET** /api/v1/games/{id}/finishes/first | 
+[**getGameFinishes**](GameFinishApi.md#getgamefinishes) | **GET** /api/v1/games/{id}/finishes | 
+[**getLastFinishedGames**](GameFinishApi.md#getlastfinishedgames) | **POST** /api/v1/games/finished/last | 
+[**postGameFinish**](GameFinishApi.md#postgamefinish) | **POST** /api/v1/games/{id}/finishes | 
 
 
 # **deleteGameFinish**
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -48,8 +48,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id |
- **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be deleted |
+ **id** | **String**| Game id | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be deleted | 
 
 ### Return type
 
@@ -73,7 +73,7 @@ void (empty response body)
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -82,8 +82,8 @@ import 'package:game_collection_client/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = GameFinishApi();
-final startDate = 2013-10-20; // DateTime |
-final endDate = 2013-10-20; // DateTime |
+final startDate = 2013-10-20; // DateTime | 
+final endDate = 2013-10-20; // DateTime | 
 
 try {
     final result = api_instance.getFinishedGamesReview(startDate, endDate);
@@ -97,8 +97,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **DateTime**|  |
- **endDate** | **DateTime**|  |
+ **startDate** | **DateTime**|  | 
+ **endDate** | **DateTime**|  | 
 
 ### Return type
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -132,9 +132,9 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GameFinishApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime |
-final endDate = 2013-10-20; // DateTime |
-final q = q_example; // String |
+final startDate = 2013-10-20; // DateTime | 
+final endDate = 2013-10-20; // DateTime | 
+final q = q_example; // String | 
 
 try {
     final result = api_instance.getFirstFinishedGames(searchDTO, startDate, endDate, q);
@@ -148,10 +148,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query |
- **startDate** | **DateTime**|  | [optional]
- **endDate** | **DateTime**|  | [optional]
- **q** | **String**|  | [optional]
+ **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
+ **startDate** | **DateTime**|  | [optional] 
+ **endDate** | **DateTime**|  | [optional] 
+ **q** | **String**|  | [optional] 
 
 ### Return type
 
@@ -169,13 +169,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFirstGameFinish**
-> String getFirstGameFinish(id)
+> DateTime getFirstGameFinish(id)
 
 
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -198,11 +198,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id |
+ **id** | **String**| Game id | 
 
 ### Return type
 
-**String**
+[**DateTime**](DateTime.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -245,7 +245,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id |
+ **id** | **String**| Game id | 
 
 ### Return type
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -279,9 +279,9 @@ import 'package:game_collection_client/api.dart';
 
 final api_instance = GameFinishApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
-final startDate = 2013-10-20; // DateTime |
-final endDate = 2013-10-20; // DateTime |
-final q = q_example; // String |
+final startDate = 2013-10-20; // DateTime | 
+final endDate = 2013-10-20; // DateTime | 
+final q = q_example; // String | 
 
 try {
     final result = api_instance.getLastFinishedGames(searchDTO, startDate, endDate, q);
@@ -295,10 +295,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query |
- **startDate** | **DateTime**|  | [optional]
- **endDate** | **DateTime**|  | [optional]
- **q** | **String**|  | [optional]
+ **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
+ **startDate** | **DateTime**|  | [optional] 
+ **endDate** | **DateTime**|  | [optional] 
+ **q** | **String**|  | [optional] 
 
 ### Return type
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 // TODO Configure HTTP Bearer authorization: bearer_token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -345,8 +345,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id |
- **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be added |
+ **id** | **String**| Game id | 
+ **dateDTO** | [**DateDTO**](DateDTO.md)| Game finish date to be added | 
 
 ### Return type
 
@@ -362,3 +362,4 @@ void (empty response body)
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

@@ -1,8 +1,8 @@
-# game_collection_client.api.AuthApi
+# game_oclock_client.api.AuthApi
 
 ## Load the API package
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ### Example
 ```dart
-import 'package:game_collection_client/api.dart';
+import 'package:game_oclock_client/api.dart';
 
 final api_instance = AuthApi();
 final grantType = ; // GrantType | 
