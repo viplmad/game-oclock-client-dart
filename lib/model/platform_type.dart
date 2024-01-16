@@ -1,14 +1,4 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
-
 
 class PlatformType {
   /// Instantiate a new enum with the provided [value].
@@ -31,9 +21,13 @@ class PlatformType {
     digital,
   ];
 
-  static PlatformType? fromJson(dynamic value) => PlatformTypeTypeTransformer().decode(value);
+  static PlatformType? fromJson(dynamic value) =>
+      PlatformTypeTypeTransformer().decode(value);
 
-  static List<PlatformType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PlatformType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PlatformType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -50,7 +44,8 @@ class PlatformType {
 /// Transformation class that can [encode] an instance of [PlatformType] to String,
 /// and [decode] dynamic data back to [PlatformType].
 class PlatformTypeTypeTransformer {
-  factory PlatformTypeTypeTransformer() => _instance ??= const PlatformTypeTypeTransformer._();
+  factory PlatformTypeTypeTransformer() =>
+      _instance ??= const PlatformTypeTypeTransformer._();
 
   const PlatformTypeTypeTransformer._();
 
@@ -67,8 +62,10 @@ class PlatformTypeTypeTransformer {
   PlatformType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'Physical': return PlatformType.physical;
-        case r'Digital': return PlatformType.digital;
+        case r'Physical':
+          return PlatformType.physical;
+        case r'Digital':
+          return PlatformType.digital;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

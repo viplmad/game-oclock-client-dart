@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class NewDLCDTO {
@@ -24,20 +15,23 @@ class NewDLCDTO {
   int? releaseYear;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NewDLCDTO &&
-    other.baseGameId == baseGameId &&
-    other.name == name &&
-    other.releaseYear == releaseYear;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is NewDLCDTO &&
+          other.baseGameId == baseGameId &&
+          other.name == name &&
+          other.releaseYear == releaseYear;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (baseGameId == null ? 0 : baseGameId!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (baseGameId == null ? 0 : baseGameId!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode);
 
   @override
-  String toString() => 'NewDLCDTO[baseGameId=$baseGameId, name=$name, releaseYear=$releaseYear]';
+  String toString() =>
+      'NewDLCDTO[baseGameId=$baseGameId, name=$name, releaseYear=$releaseYear]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -71,8 +65,10 @@ class NewDLCDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NewDLCDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NewDLCDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "NewDLCDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "NewDLCDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,7 +82,10 @@ class NewDLCDTO {
     return null;
   }
 
-  static List<NewDLCDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NewDLCDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <NewDLCDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,19 +113,24 @@ class NewDLCDTO {
   }
 
   // maps a json object with a list of NewDLCDTO-objects as value to a dart map
-  static Map<String, List<NewDLCDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<NewDLCDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<NewDLCDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = NewDLCDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = NewDLCDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }

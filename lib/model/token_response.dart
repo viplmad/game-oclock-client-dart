@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class TokenResponse {
@@ -27,29 +18,32 @@ class TokenResponse {
   String tokenType;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TokenResponse &&
-    other.accessToken == accessToken &&
-    other.expiresIn == expiresIn &&
-    other.refreshToken == refreshToken &&
-    other.tokenType == tokenType;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TokenResponse &&
+          other.accessToken == accessToken &&
+          other.expiresIn == expiresIn &&
+          other.refreshToken == refreshToken &&
+          other.tokenType == tokenType;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (accessToken.hashCode) +
-    (expiresIn.hashCode) +
-    (refreshToken.hashCode) +
-    (tokenType.hashCode);
+      // ignore: unnecessary_parenthesis
+      (accessToken.hashCode) +
+      (expiresIn.hashCode) +
+      (refreshToken.hashCode) +
+      (tokenType.hashCode);
 
   @override
-  String toString() => 'TokenResponse[accessToken=$accessToken, expiresIn=$expiresIn, refreshToken=$refreshToken, tokenType=$tokenType]';
+  String toString() =>
+      'TokenResponse[accessToken=$accessToken, expiresIn=$expiresIn, refreshToken=$refreshToken, tokenType=$tokenType]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'access_token'] = this.accessToken;
-      json[r'expires_in'] = this.expiresIn;
-      json[r'refresh_token'] = this.refreshToken;
-      json[r'token_type'] = this.tokenType;
+    json[r'access_token'] = this.accessToken;
+    json[r'expires_in'] = this.expiresIn;
+    json[r'refresh_token'] = this.refreshToken;
+    json[r'token_type'] = this.tokenType;
     return json;
   }
 
@@ -65,8 +59,10 @@ class TokenResponse {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TokenResponse[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TokenResponse[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TokenResponse[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TokenResponse[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -81,7 +77,10 @@ class TokenResponse {
     return null;
   }
 
-  static List<TokenResponse> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TokenResponse> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TokenResponse>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -109,13 +108,19 @@ class TokenResponse {
   }
 
   // maps a json object with a list of TokenResponse-objects as value to a dart map
-  static Map<String, List<TokenResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TokenResponse>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TokenResponse>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TokenResponse.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TokenResponse.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

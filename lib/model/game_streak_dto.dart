@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GameStreakDTO extends PrimaryModel {
@@ -24,26 +15,27 @@ class GameStreakDTO extends PrimaryModel {
   DateTime startDate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GameStreakDTO &&
-    other.days == days &&
-    other.endDate == endDate &&
-    other.startDate == startDate;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GameStreakDTO &&
+          other.days == days &&
+          other.endDate == endDate &&
+          other.startDate == startDate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (days.hashCode) +
-    (endDate.hashCode) +
-    (startDate.hashCode);
+      // ignore: unnecessary_parenthesis
+      (days.hashCode) + (endDate.hashCode) + (startDate.hashCode);
 
   @override
-  String toString() => 'GameStreakDTO[days=$days, endDate=$endDate, startDate=$startDate]';
+  String toString() =>
+      'GameStreakDTO[days=$days, endDate=$endDate, startDate=$startDate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'days'] = this.days;
-      json[r'end_date'] = _dateFormatter.format(this.endDate);
-      json[r'start_date'] = _dateFormatter.format(this.startDate);
+    json[r'days'] = this.days;
+    json[r'end_date'] = _dateFormatter.format(this.endDate);
+    json[r'start_date'] = _dateFormatter.format(this.startDate);
     return json;
   }
 
@@ -59,8 +51,10 @@ class GameStreakDTO extends PrimaryModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GameStreakDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GameStreakDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GameStreakDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GameStreakDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -74,7 +68,10 @@ class GameStreakDTO extends PrimaryModel {
     return null;
   }
 
-  static List<GameStreakDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameStreakDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GameStreakDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,13 +99,19 @@ class GameStreakDTO extends PrimaryModel {
   }
 
   // maps a json object with a list of GameStreakDTO-objects as value to a dart map
-  static Map<String, List<GameStreakDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GameStreakDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GameStreakDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GameStreakDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GameStreakDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

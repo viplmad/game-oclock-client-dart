@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class TagDTO extends PrimaryModel {
@@ -33,29 +24,32 @@ class TagDTO extends PrimaryModel {
   }
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TagDTO &&
-    other.addedDatetime == addedDatetime &&
-    other.id == id &&
-    other.name == name &&
-    other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TagDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.id == id &&
+          other.name == name &&
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (id.hashCode) +
-    (name.hashCode) +
-    (updatedDatetime.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (id.hashCode) +
+      (name.hashCode) +
+      (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'TagDTO[addedDatetime=$addedDatetime, id=$id, name=$name, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'TagDTO[addedDatetime=$addedDatetime, id=$id, name=$name, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-      json[r'id'] = this.id;
-      json[r'name'] = this.name;
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'id'] = this.id;
+    json[r'name'] = this.name;
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -71,8 +65,10 @@ class TagDTO extends PrimaryModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TagDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TagDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TagDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TagDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -87,7 +83,10 @@ class TagDTO extends PrimaryModel {
     return null;
   }
 
-  static List<TagDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TagDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TagDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -115,13 +114,19 @@ class TagDTO extends PrimaryModel {
   }
 
   // maps a json object with a list of TagDTO-objects as value to a dart map
-  static Map<String, List<TagDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TagDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TagDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TagDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TagDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

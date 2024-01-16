@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GamesFinishedReviewDTO {
@@ -30,32 +21,37 @@ class GamesFinishedReviewDTO {
   int totalFirstFinished;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GamesFinishedReviewDTO &&
-    _deepEquality.equals(other.games, games) &&
-    other.totalFinished == totalFinished &&
-    _deepEquality.equals(other.totalFinishedByReleaseYear, totalFinishedByReleaseYear) &&
-    _deepEquality.equals(other.totalFinishedGrouped, totalFinishedGrouped) &&
-    other.totalFirstFinished == totalFirstFinished;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GamesFinishedReviewDTO &&
+          _deepEquality.equals(other.games, games) &&
+          other.totalFinished == totalFinished &&
+          _deepEquality.equals(
+              other.totalFinishedByReleaseYear, totalFinishedByReleaseYear) &&
+          _deepEquality.equals(
+              other.totalFinishedGrouped, totalFinishedGrouped) &&
+          other.totalFirstFinished == totalFirstFinished;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (games.hashCode) +
-    (totalFinished.hashCode) +
-    (totalFinishedByReleaseYear.hashCode) +
-    (totalFinishedGrouped.hashCode) +
-    (totalFirstFinished.hashCode);
+      // ignore: unnecessary_parenthesis
+      (games.hashCode) +
+      (totalFinished.hashCode) +
+      (totalFinishedByReleaseYear.hashCode) +
+      (totalFinishedGrouped.hashCode) +
+      (totalFirstFinished.hashCode);
 
   @override
-  String toString() => 'GamesFinishedReviewDTO[games=$games, totalFinished=$totalFinished, totalFinishedByReleaseYear=$totalFinishedByReleaseYear, totalFinishedGrouped=$totalFinishedGrouped, totalFirstFinished=$totalFirstFinished]';
+  String toString() =>
+      'GamesFinishedReviewDTO[games=$games, totalFinished=$totalFinished, totalFinishedByReleaseYear=$totalFinishedByReleaseYear, totalFinishedGrouped=$totalFinishedGrouped, totalFirstFinished=$totalFirstFinished]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'games'] = this.games;
-      json[r'total_finished'] = this.totalFinished;
-      json[r'total_finished_by_release_year'] = this.totalFinishedByReleaseYear;
-      json[r'total_finished_grouped'] = this.totalFinishedGrouped;
-      json[r'total_first_finished'] = this.totalFirstFinished;
+    json[r'games'] = this.games;
+    json[r'total_finished'] = this.totalFinished;
+    json[r'total_finished_by_release_year'] = this.totalFinishedByReleaseYear;
+    json[r'total_finished_grouped'] = this.totalFinishedGrouped;
+    json[r'total_first_finished'] = this.totalFirstFinished;
     return json;
   }
 
@@ -71,8 +67,10 @@ class GamesFinishedReviewDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GamesFinishedReviewDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GamesFinishedReviewDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GamesFinishedReviewDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GamesFinishedReviewDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -80,15 +78,26 @@ class GamesFinishedReviewDTO {
       return GamesFinishedReviewDTO(
         games: GameFinishedReviewDTO.listFromJson(json[r'games']),
         totalFinished: mapValueOfType<int>(json, r'total_finished')!,
-        totalFinishedByReleaseYear: mapMapOfType(json, r'total_finished_by_release_year', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
-        totalFinishedGrouped: mapMapOfType(json, r'total_finished_grouped', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
+        totalFinishedByReleaseYear: mapMapOfType(
+            json,
+            r'total_finished_by_release_year',
+            (k) => int.parse('$k'),
+            (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
+        totalFinishedGrouped: mapMapOfType(
+            json,
+            r'total_finished_grouped',
+            (k) => int.parse('$k'),
+            (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalFirstFinished: mapValueOfType<int>(json, r'total_first_finished')!,
       );
     }
     return null;
   }
 
-  static List<GamesFinishedReviewDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GamesFinishedReviewDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GamesFinishedReviewDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -116,13 +125,19 @@ class GamesFinishedReviewDTO {
   }
 
   // maps a json object with a list of GamesFinishedReviewDTO-objects as value to a dart map
-  static Map<String, List<GamesFinishedReviewDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GamesFinishedReviewDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GamesFinishedReviewDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GamesFinishedReviewDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GamesFinishedReviewDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

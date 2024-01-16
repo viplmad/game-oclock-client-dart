@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GameFinishedReviewDTO extends GameDTO {
@@ -44,57 +35,61 @@ class GameFinishedReviewDTO extends GameDTO {
   Map<int, int> totalFinishedGrouped;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GameFinishedReviewDTO &&
-    other.addedDatetime == addedDatetime &&
-    other.backup == backup &&
-    other.coverFilename == coverFilename &&
-    other.coverUrl == coverUrl &&
-    other.edition == edition &&
-    other.firstFinish == firstFinish &&
-    other.firstFinished == firstFinished &&
-    other.id == id &&
-    other.lastFinish == lastFinish &&
-    other.name == name &&
-    other.notes == notes &&
-    other.rating == rating &&
-    other.releaseYear == releaseYear &&
-    other.saveFolder == saveFolder &&
-    other.screenshotFolder == screenshotFolder &&
-    other.status == status &&
-    other.totalFinished == totalFinished &&
-    _deepEquality.equals(other.totalFinishedGrouped, totalFinishedGrouped) &&
-    other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GameFinishedReviewDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.backup == backup &&
+          other.coverFilename == coverFilename &&
+          other.coverUrl == coverUrl &&
+          other.edition == edition &&
+          other.firstFinish == firstFinish &&
+          other.firstFinished == firstFinished &&
+          other.id == id &&
+          other.lastFinish == lastFinish &&
+          other.name == name &&
+          other.notes == notes &&
+          other.rating == rating &&
+          other.releaseYear == releaseYear &&
+          other.saveFolder == saveFolder &&
+          other.screenshotFolder == screenshotFolder &&
+          other.status == status &&
+          other.totalFinished == totalFinished &&
+          _deepEquality.equals(
+              other.totalFinishedGrouped, totalFinishedGrouped) &&
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (backup.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
-    (coverUrl == null ? 0 : coverUrl!.hashCode) +
-    (edition.hashCode) +
-    (firstFinish.hashCode) +
-    (firstFinished.hashCode) +
-    (id.hashCode) +
-    (lastFinish.hashCode) +
-    (name.hashCode) +
-    (notes.hashCode) +
-    (rating.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (saveFolder.hashCode) +
-    (screenshotFolder.hashCode) +
-    (status.hashCode) +
-    (totalFinished.hashCode) +
-    (totalFinishedGrouped.hashCode) +
-    (updatedDatetime.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (backup.hashCode) +
+      (coverFilename == null ? 0 : coverFilename!.hashCode) +
+      (coverUrl == null ? 0 : coverUrl!.hashCode) +
+      (edition.hashCode) +
+      (firstFinish.hashCode) +
+      (firstFinished.hashCode) +
+      (id.hashCode) +
+      (lastFinish.hashCode) +
+      (name.hashCode) +
+      (notes.hashCode) +
+      (rating.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (saveFolder.hashCode) +
+      (screenshotFolder.hashCode) +
+      (status.hashCode) +
+      (totalFinished.hashCode) +
+      (totalFinishedGrouped.hashCode) +
+      (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameFinishedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstFinish=$firstFinish, firstFinished=$firstFinished, id=$id, lastFinish=$lastFinish, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalFinished=$totalFinished, totalFinishedGrouped=$totalFinishedGrouped, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'GameFinishedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstFinish=$firstFinish, firstFinished=$firstFinished, id=$id, lastFinish=$lastFinish, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalFinished=$totalFinished, totalFinishedGrouped=$totalFinishedGrouped, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-      json[r'backup'] = this.backup;
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;
     } else {
@@ -105,25 +100,25 @@ class GameFinishedReviewDTO extends GameDTO {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'edition'] = this.edition;
-      json[r'first_finish'] = _dateFormatter.format(this.firstFinish!);
-      json[r'first_finished'] = this.firstFinished;
-      json[r'id'] = this.id;
-      json[r'last_finish'] = _dateFormatter.format(this.lastFinish);
-      json[r'name'] = this.name;
-      json[r'notes'] = this.notes;
-      json[r'rating'] = this.rating;
+    json[r'edition'] = this.edition;
+    json[r'first_finish'] = _dateFormatter.format(this.firstFinish!);
+    json[r'first_finished'] = this.firstFinished;
+    json[r'id'] = this.id;
+    json[r'last_finish'] = _dateFormatter.format(this.lastFinish);
+    json[r'name'] = this.name;
+    json[r'notes'] = this.notes;
+    json[r'rating'] = this.rating;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-      json[r'save_folder'] = this.saveFolder;
-      json[r'screenshot_folder'] = this.screenshotFolder;
-      json[r'status'] = this.status;
-      json[r'total_finished'] = this.totalFinished;
-      json[r'total_finished_grouped'] = this.totalFinishedGrouped;
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'save_folder'] = this.saveFolder;
+    json[r'screenshot_folder'] = this.screenshotFolder;
+    json[r'status'] = this.status;
+    json[r'total_finished'] = this.totalFinished;
+    json[r'total_finished_grouped'] = this.totalFinishedGrouped;
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -139,8 +134,10 @@ class GameFinishedReviewDTO extends GameDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GameFinishedReviewDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GameFinishedReviewDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GameFinishedReviewDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GameFinishedReviewDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -163,14 +160,21 @@ class GameFinishedReviewDTO extends GameDTO {
         screenshotFolder: mapValueOfType<String>(json, r'screenshot_folder')!,
         status: GameStatus.fromJson(json[r'status'])!,
         totalFinished: mapValueOfType<int>(json, r'total_finished')!,
-        totalFinishedGrouped: mapMapOfType(json, r'total_finished_grouped', (k) => int.parse('$k'), (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
+        totalFinishedGrouped: mapMapOfType(
+            json,
+            r'total_finished_grouped',
+            (k) => int.parse('$k'),
+            (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GameFinishedReviewDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameFinishedReviewDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GameFinishedReviewDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -198,13 +202,19 @@ class GameFinishedReviewDTO extends GameDTO {
   }
 
   // maps a json object with a list of GameFinishedReviewDTO-objects as value to a dart map
-  static Map<String, List<GameFinishedReviewDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GameFinishedReviewDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GameFinishedReviewDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GameFinishedReviewDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GameFinishedReviewDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

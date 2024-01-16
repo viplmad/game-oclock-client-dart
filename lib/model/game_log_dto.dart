@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GameLogDTO extends PrimaryModel {
@@ -24,26 +15,27 @@ class GameLogDTO extends PrimaryModel {
   Duration time;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GameLogDTO &&
-    other.startDatetime == startDatetime &&
-    other.endDatetime == endDatetime &&
-    other.time == time;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GameLogDTO &&
+          other.startDatetime == startDatetime &&
+          other.endDatetime == endDatetime &&
+          other.time == time;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startDatetime.hashCode) +
-    (endDatetime.hashCode) +
-    (time.hashCode);
+      // ignore: unnecessary_parenthesis
+      (startDatetime.hashCode) + (endDatetime.hashCode) + (time.hashCode);
 
   @override
-  String toString() => 'GameLogDTO[startDatetime=$startDatetime, endDatetime=$endDatetime, time=$time]';
+  String toString() =>
+      'GameLogDTO[startDatetime=$startDatetime, endDatetime=$endDatetime, time=$time]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'start_datetime'] = this.startDatetime.toIso8601String();
-      json[r'end_datetime'] = this.endDatetime.toIso8601String();
-      json[r'time'] = this.time.toIso8601String();
+    json[r'start_datetime'] = this.startDatetime.toIso8601String();
+    json[r'end_datetime'] = this.endDatetime.toIso8601String();
+    json[r'time'] = this.time.toIso8601String();
     return json;
   }
 
@@ -59,8 +51,10 @@ class GameLogDTO extends PrimaryModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GameLogDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GameLogDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GameLogDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GameLogDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -74,7 +68,10 @@ class GameLogDTO extends PrimaryModel {
     return null;
   }
 
-  static List<GameLogDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameLogDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GameLogDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,13 +99,19 @@ class GameLogDTO extends PrimaryModel {
   }
 
   // maps a json object with a list of GameLogDTO-objects as value to a dart map
-  static Map<String, List<GameLogDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GameLogDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GameLogDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GameLogDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GameLogDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

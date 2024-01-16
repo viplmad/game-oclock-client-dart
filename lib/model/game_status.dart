@@ -1,14 +1,4 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
-
 
 class GameStatus {
   /// Instantiate a new enum with the provided [value].
@@ -37,9 +27,13 @@ class GameStatus {
     wishlist,
   ];
 
-  static GameStatus? fromJson(dynamic value) => GameStatusTypeTransformer().decode(value);
+  static GameStatus? fromJson(dynamic value) =>
+      GameStatusTypeTransformer().decode(value);
 
-  static List<GameStatus> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameStatus> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GameStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -56,7 +50,8 @@ class GameStatus {
 /// Transformation class that can [encode] an instance of [GameStatus] to String,
 /// and [decode] dynamic data back to [GameStatus].
 class GameStatusTypeTransformer {
-  factory GameStatusTypeTransformer() => _instance ??= const GameStatusTypeTransformer._();
+  factory GameStatusTypeTransformer() =>
+      _instance ??= const GameStatusTypeTransformer._();
 
   const GameStatusTypeTransformer._();
 
@@ -73,11 +68,16 @@ class GameStatusTypeTransformer {
   GameStatus? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'LowPriority': return GameStatus.lowPriority;
-        case r'NextUp': return GameStatus.nextUp;
-        case r'Playing': return GameStatus.playing;
-        case r'Played': return GameStatus.played;
-        case r'Wishlist': return GameStatus.wishlist;
+        case r'LowPriority':
+          return GameStatus.lowPriority;
+        case r'NextUp':
+          return GameStatus.nextUp;
+        case r'Playing':
+          return GameStatus.playing;
+        case r'Played':
+          return GameStatus.played;
+        case r'Wishlist':
+          return GameStatus.wishlist;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

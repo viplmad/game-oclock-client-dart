@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class DLCWithFinishDTO extends DLCDTO {
@@ -26,36 +17,39 @@ class DLCWithFinishDTO extends DLCDTO {
   DateTime finishDate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DLCWithFinishDTO &&
-    other.addedDatetime == addedDatetime &&
-    other.baseGameId == baseGameId &&
-    other.coverFilename == coverFilename &&
-    other.coverUrl == coverUrl &&
-    other.finishDate == finishDate &&
-    other.id == id &&
-    other.name == name &&
-    other.releaseYear == releaseYear &&
-    other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DLCWithFinishDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.baseGameId == baseGameId &&
+          other.coverFilename == coverFilename &&
+          other.coverUrl == coverUrl &&
+          other.finishDate == finishDate &&
+          other.id == id &&
+          other.name == name &&
+          other.releaseYear == releaseYear &&
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (baseGameId == null ? 0 : baseGameId!.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
-    (coverUrl == null ? 0 : coverUrl!.hashCode) +
-    (finishDate.hashCode) +
-    (id.hashCode) +
-    (name.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (updatedDatetime.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (baseGameId == null ? 0 : baseGameId!.hashCode) +
+      (coverFilename == null ? 0 : coverFilename!.hashCode) +
+      (coverUrl == null ? 0 : coverUrl!.hashCode) +
+      (finishDate.hashCode) +
+      (id.hashCode) +
+      (name.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'DLCWithFinishDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, finishDate=$finishDate, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'DLCWithFinishDTO[addedDatetime=$addedDatetime, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, finishDate=$finishDate, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
     if (this.baseGameId != null) {
       json[r'base_game_id'] = this.baseGameId;
     } else {
@@ -71,15 +65,15 @@ class DLCWithFinishDTO extends DLCDTO {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'finish_date'] = _dateFormatter.format(this.finishDate);
-      json[r'id'] = this.id;
-      json[r'name'] = this.name;
+    json[r'finish_date'] = _dateFormatter.format(this.finishDate);
+    json[r'id'] = this.id;
+    json[r'name'] = this.name;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -95,8 +89,10 @@ class DLCWithFinishDTO extends DLCDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DLCWithFinishDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DLCWithFinishDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "DLCWithFinishDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DLCWithFinishDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -116,7 +112,10 @@ class DLCWithFinishDTO extends DLCDTO {
     return null;
   }
 
-  static List<DLCWithFinishDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DLCWithFinishDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DLCWithFinishDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -144,13 +143,19 @@ class DLCWithFinishDTO extends DLCDTO {
   }
 
   // maps a json object with a list of DLCWithFinishDTO-objects as value to a dart map
-  static Map<String, List<DLCWithFinishDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DLCWithFinishDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DLCWithFinishDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DLCWithFinishDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = DLCWithFinishDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

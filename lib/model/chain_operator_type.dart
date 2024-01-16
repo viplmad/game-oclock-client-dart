@@ -1,14 +1,4 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
-
 
 class ChainOperatorType {
   /// Instantiate a new enum with the provided [value].
@@ -31,9 +21,13 @@ class ChainOperatorType {
     or,
   ];
 
-  static ChainOperatorType? fromJson(dynamic value) => ChainOperatorTypeTypeTransformer().decode(value);
+  static ChainOperatorType? fromJson(dynamic value) =>
+      ChainOperatorTypeTypeTransformer().decode(value);
 
-  static List<ChainOperatorType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ChainOperatorType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ChainOperatorType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -50,7 +44,8 @@ class ChainOperatorType {
 /// Transformation class that can [encode] an instance of [ChainOperatorType] to String,
 /// and [decode] dynamic data back to [ChainOperatorType].
 class ChainOperatorTypeTypeTransformer {
-  factory ChainOperatorTypeTypeTransformer() => _instance ??= const ChainOperatorTypeTypeTransformer._();
+  factory ChainOperatorTypeTypeTransformer() =>
+      _instance ??= const ChainOperatorTypeTypeTransformer._();
 
   const ChainOperatorTypeTypeTransformer._();
 
@@ -67,8 +62,10 @@ class ChainOperatorTypeTypeTransformer {
   ChainOperatorType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'And': return ChainOperatorType.and;
-        case r'Or': return ChainOperatorType.or;
+        case r'And':
+          return ChainOperatorType.and;
+        case r'Or':
+          return ChainOperatorType.or;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

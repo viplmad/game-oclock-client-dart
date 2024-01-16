@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class TagPageResult extends PageResultDTO<TagDTO> {
@@ -18,26 +9,26 @@ class TagPageResult extends PageResultDTO<TagDTO> {
   });
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TagPageResult &&
-    _deepEquality.equals(other.data, data) &&
-    other.page == page &&
-    other.size == size;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TagPageResult &&
+          _deepEquality.equals(other.data, data) &&
+          other.page == page &&
+          other.size == size;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (data.hashCode) +
-    (page.hashCode) +
-    (size.hashCode);
+      // ignore: unnecessary_parenthesis
+      (data.hashCode) + (page.hashCode) + (size.hashCode);
 
   @override
   String toString() => 'TagPageResult[data=$data, page=$page, size=$size]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'data'] = this.data;
-      json[r'page'] = this.page;
-      json[r'size'] = this.size;
+    json[r'data'] = this.data;
+    json[r'page'] = this.page;
+    json[r'size'] = this.size;
     return json;
   }
 
@@ -53,8 +44,10 @@ class TagPageResult extends PageResultDTO<TagDTO> {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TagPageResult[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TagPageResult[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TagPageResult[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TagPageResult[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -68,7 +61,10 @@ class TagPageResult extends PageResultDTO<TagDTO> {
     return null;
   }
 
-  static List<TagPageResult> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TagPageResult> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TagPageResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,13 +92,19 @@ class TagPageResult extends PageResultDTO<TagDTO> {
   }
 
   // maps a json object with a list of TagPageResult-objects as value to a dart map
-  static Map<String, List<TagPageResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TagPageResult>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TagPageResult>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TagPageResult.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TagPageResult.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

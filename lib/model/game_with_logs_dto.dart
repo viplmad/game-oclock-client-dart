@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GameWithLogsDTO extends GameDTO {
@@ -51,49 +42,52 @@ class GameWithLogsDTO extends GameDTO {
   }
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GameWithLogsDTO &&
-    other.addedDatetime == addedDatetime &&
-    other.backup == backup &&
-    other.coverFilename == coverFilename &&
-    other.coverUrl == coverUrl &&
-    other.edition == edition &&
-    other.id == id &&
-    _deepEquality.equals(other.logs, logs) &&
-    other.name == name &&
-    other.notes == notes &&
-    other.rating == rating &&
-    other.releaseYear == releaseYear &&
-    other.saveFolder == saveFolder &&
-    other.screenshotFolder == screenshotFolder &&
-    other.status == status &&
-    other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GameWithLogsDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.backup == backup &&
+          other.coverFilename == coverFilename &&
+          other.coverUrl == coverUrl &&
+          other.edition == edition &&
+          other.id == id &&
+          _deepEquality.equals(other.logs, logs) &&
+          other.name == name &&
+          other.notes == notes &&
+          other.rating == rating &&
+          other.releaseYear == releaseYear &&
+          other.saveFolder == saveFolder &&
+          other.screenshotFolder == screenshotFolder &&
+          other.status == status &&
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (backup.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
-    (coverUrl == null ? 0 : coverUrl!.hashCode) +
-    (edition.hashCode) +
-    (id.hashCode) +
-    (logs.hashCode) +
-    (name.hashCode) +
-    (notes.hashCode) +
-    (rating.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (saveFolder.hashCode) +
-    (screenshotFolder.hashCode) +
-    (status.hashCode) +
-    (updatedDatetime.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (backup.hashCode) +
+      (coverFilename == null ? 0 : coverFilename!.hashCode) +
+      (coverUrl == null ? 0 : coverUrl!.hashCode) +
+      (edition.hashCode) +
+      (id.hashCode) +
+      (logs.hashCode) +
+      (name.hashCode) +
+      (notes.hashCode) +
+      (rating.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (saveFolder.hashCode) +
+      (screenshotFolder.hashCode) +
+      (status.hashCode) +
+      (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GameWithLogsDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, logs=$logs, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'GameWithLogsDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, logs=$logs, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-      json[r'backup'] = this.backup;
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;
     } else {
@@ -104,21 +98,21 @@ class GameWithLogsDTO extends GameDTO {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'edition'] = this.edition;
-      json[r'id'] = this.id;
-      json[r'logs'] = this.logs;
-      json[r'name'] = this.name;
-      json[r'notes'] = this.notes;
-      json[r'rating'] = this.rating;
+    json[r'edition'] = this.edition;
+    json[r'id'] = this.id;
+    json[r'logs'] = this.logs;
+    json[r'name'] = this.name;
+    json[r'notes'] = this.notes;
+    json[r'rating'] = this.rating;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-      json[r'save_folder'] = this.saveFolder;
-      json[r'screenshot_folder'] = this.screenshotFolder;
-      json[r'status'] = this.status;
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'save_folder'] = this.saveFolder;
+    json[r'screenshot_folder'] = this.screenshotFolder;
+    json[r'status'] = this.status;
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -134,8 +128,10 @@ class GameWithLogsDTO extends GameDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GameWithLogsDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GameWithLogsDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GameWithLogsDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GameWithLogsDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -161,7 +157,10 @@ class GameWithLogsDTO extends GameDTO {
     return null;
   }
 
-  static List<GameWithLogsDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GameWithLogsDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GameWithLogsDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -189,13 +188,19 @@ class GameWithLogsDTO extends GameDTO {
   }
 
   // maps a json object with a list of GameWithLogsDTO-objects as value to a dart map
-  static Map<String, List<GameWithLogsDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GameWithLogsDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GameWithLogsDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GameWithLogsDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GameWithLogsDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

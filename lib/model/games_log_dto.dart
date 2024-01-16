@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GamesLogDTO extends GameLogDTO {
@@ -21,29 +12,32 @@ class GamesLogDTO extends GameLogDTO {
   String gameId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GamesLogDTO &&
-    other.endDatetime == endDatetime &&
-    other.gameId == gameId &&
-    other.startDatetime == startDatetime &&
-    other.time == time;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GamesLogDTO &&
+          other.endDatetime == endDatetime &&
+          other.gameId == gameId &&
+          other.startDatetime == startDatetime &&
+          other.time == time;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (endDatetime.hashCode) +
-    (gameId.hashCode) +
-    (startDatetime.hashCode) +
-    (time.hashCode);
+      // ignore: unnecessary_parenthesis
+      (endDatetime.hashCode) +
+      (gameId.hashCode) +
+      (startDatetime.hashCode) +
+      (time.hashCode);
 
   @override
-  String toString() => 'GamesLogDTO[endDatetime=$endDatetime, gameId=$gameId, startDatetime=$startDatetime, time=$time]';
+  String toString() =>
+      'GamesLogDTO[endDatetime=$endDatetime, gameId=$gameId, startDatetime=$startDatetime, time=$time]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'end_datetime'] = this.endDatetime.toIso8601String();
-      json[r'game_id'] = this.gameId;
-      json[r'start_datetime'] = this.startDatetime.toIso8601String();
-      json[r'time'] = this.time.toIso8601String();
+    json[r'end_datetime'] = this.endDatetime.toIso8601String();
+    json[r'game_id'] = this.gameId;
+    json[r'start_datetime'] = this.startDatetime.toIso8601String();
+    json[r'time'] = this.time.toIso8601String();
     return json;
   }
 
@@ -59,8 +53,10 @@ class GamesLogDTO extends GameLogDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GamesLogDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GamesLogDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GamesLogDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GamesLogDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -75,7 +71,10 @@ class GamesLogDTO extends GameLogDTO {
     return null;
   }
 
-  static List<GamesLogDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GamesLogDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GamesLogDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -103,13 +102,19 @@ class GamesLogDTO extends GameLogDTO {
   }
 
   // maps a json object with a list of GamesLogDTO-objects as value to a dart map
-  static Map<String, List<GamesLogDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GamesLogDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GamesLogDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GamesLogDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GamesLogDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

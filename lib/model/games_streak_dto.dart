@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GamesStreakDTO extends GameStreakDTO {
@@ -21,29 +12,32 @@ class GamesStreakDTO extends GameStreakDTO {
   List<String> gamesIds;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GamesStreakDTO &&
-    other.days == days &&
-    other.endDate == endDate &&
-    _deepEquality.equals(other.gamesIds, gamesIds) &&
-    other.startDate == startDate;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GamesStreakDTO &&
+          other.days == days &&
+          other.endDate == endDate &&
+          _deepEquality.equals(other.gamesIds, gamesIds) &&
+          other.startDate == startDate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (days.hashCode) +
-    (endDate.hashCode) +
-    (gamesIds.hashCode) +
-    (startDate.hashCode);
+      // ignore: unnecessary_parenthesis
+      (days.hashCode) +
+      (endDate.hashCode) +
+      (gamesIds.hashCode) +
+      (startDate.hashCode);
 
   @override
-  String toString() => 'GamesStreakDTO[days=$days, endDate=$endDate, gamesIds=$gamesIds, startDate=$startDate]';
+  String toString() =>
+      'GamesStreakDTO[days=$days, endDate=$endDate, gamesIds=$gamesIds, startDate=$startDate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'days'] = this.days;
-      json[r'end_date'] = _dateFormatter.format(this.endDate);
-      json[r'games_ids'] = this.gamesIds;
-      json[r'start_date'] = _dateFormatter.format(this.startDate);
+    json[r'days'] = this.days;
+    json[r'end_date'] = _dateFormatter.format(this.endDate);
+    json[r'games_ids'] = this.gamesIds;
+    json[r'start_date'] = _dateFormatter.format(this.startDate);
     return json;
   }
 
@@ -59,8 +53,10 @@ class GamesStreakDTO extends GameStreakDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GamesStreakDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GamesStreakDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GamesStreakDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GamesStreakDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -69,7 +65,9 @@ class GamesStreakDTO extends GameStreakDTO {
         days: mapValueOfType<int>(json, r'days')!,
         endDate: mapDateTime(json, r'end_date', r'')!,
         gamesIds: json[r'games_ids'] is Iterable
-            ? (json[r'games_ids'] as Iterable).cast<String>().toList(growable: false)
+            ? (json[r'games_ids'] as Iterable)
+                .cast<String>()
+                .toList(growable: false)
             : const [],
         startDate: mapDateTime(json, r'start_date', r'')!,
       );
@@ -77,7 +75,10 @@ class GamesStreakDTO extends GameStreakDTO {
     return null;
   }
 
-  static List<GamesStreakDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GamesStreakDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GamesStreakDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,13 +106,19 @@ class GamesStreakDTO extends GameStreakDTO {
   }
 
   // maps a json object with a list of GamesStreakDTO-objects as value to a dart map
-  static Map<String, List<GamesStreakDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GamesStreakDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GamesStreakDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GamesStreakDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GamesStreakDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

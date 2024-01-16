@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class QueryParam {
@@ -16,11 +7,16 @@ class QueryParam {
   final String value;
 
   @override
-  String toString() => '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
+  String toString() =>
+      '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
 }
 
 // Ported from the Java version.
-Iterable<QueryParam> _queryParams(String collectionFormat, String name, dynamic value,) {
+Iterable<QueryParam> _queryParams(
+  String collectionFormat,
+  String name,
+  dynamic value,
+) {
   // Assertions to run in debug mode only.
   assert(name.isNotEmpty, 'Parameter cannot be an empty string.');
 
@@ -28,7 +24,9 @@ Iterable<QueryParam> _queryParams(String collectionFormat, String name, dynamic 
 
   if (value is List) {
     if (collectionFormat == 'multi') {
-      return value.map((dynamic v) => QueryParam(name, parameterToString(v)),);
+      return value.map(
+        (dynamic v) => QueryParam(name, parameterToString(v)),
+      );
     }
 
     // Default collection format is 'csv'.
@@ -38,7 +36,10 @@ Iterable<QueryParam> _queryParams(String collectionFormat, String name, dynamic 
 
     final delimiter = _delimiters[collectionFormat] ?? ',';
 
-    params.add(QueryParam(name, value.map<dynamic>(parameterToString).join(delimiter),));
+    params.add(QueryParam(
+      name,
+      value.map<dynamic>(parameterToString).join(delimiter),
+    ));
   } else if (value != null) {
     params.add(QueryParam(name, parameterToString(value)));
   }
@@ -82,9 +83,12 @@ String parameterToString(dynamic value) {
 /// content type. Otherwise, returns the decoded body as decoded by dart:http package.
 Future<String> _decodeBodyBytes(Response response) async {
   final contentType = response.headers['content-type'];
-  return contentType != null && contentType.toLowerCase().startsWith('application/json')
-    ? response.bodyBytes.isEmpty ? '' : utf8.decode(response.bodyBytes)
-    : response.body;
+  return contentType != null &&
+          contentType.toLowerCase().startsWith('application/json')
+      ? response.bodyBytes.isEmpty
+          ? ''
+          : utf8.decode(response.bodyBytes)
+      : response.body;
 }
 
 /// Returns a valid [T] value found at the specified Map [key], null otherwise.
@@ -100,13 +104,16 @@ Map<K, V>? mapCastOfType<K, V>(dynamic map, String key) {
 }
 
 /// Returns a valid mappped Map<K, V> found at the specified Map [key], null otherwise.
-Map<K, V>? mapMapOfType<K, V>(dynamic map, String key, K Function(dynamic key) keyMapper, V Function(dynamic val) valueMapper) {
+Map<K, V>? mapMapOfType<K, V>(dynamic map, String key,
+    K Function(dynamic key) keyMapper, V Function(dynamic val) valueMapper) {
   final dynamic value = map is Map ? map[key] : null;
-  return value is Map ? value.map<K, V>((dynamic k, dynamic v) {
-    final K mappedKey = keyMapper(k);
-    final V mappedValue = valueMapper(v);
-    return MapEntry(mappedKey, mappedValue);
-  }) : null;
+  return value is Map
+      ? value.map<K, V>((dynamic k, dynamic v) {
+          final K mappedKey = keyMapper(k);
+          final V mappedValue = valueMapper(v);
+          return MapEntry(mappedKey, mappedValue);
+        })
+      : null;
 }
 
 /// Returns a valid [DateTime] found at the specified Map [key], null otherwise.
@@ -133,7 +140,7 @@ DateTime? mapDateTime(dynamic map, String key, [String? pattern]) {
 Duration? mapDuration(dynamic map, String key) {
   final dynamic value = map is Map ? map[key] : null;
   if (value != null) {
-    if(value is String) {
+    if (value is String) {
       return DurationExtension.tryParse(value);
     }
   }
@@ -157,12 +164,13 @@ extension DurationExtension on Duration {
     }
   }
 
-  static final RegExp _parseFormat = RegExp(r'^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$');
+  static final RegExp _parseFormat = RegExp(
+      r'^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$');
 
   static Duration parse(String formattedString) {
     var re = _parseFormat;
     Match? match = re.firstMatch(formattedString);
-    if(match != null) {
+    if (match != null) {
       final day = _parseTime(formattedString, "D");
       final hour = _parseTime(formattedString, "H");
       final minute = _parseTime(formattedString, "M");
@@ -177,7 +185,6 @@ extension DurationExtension on Duration {
     } else {
       throw FormatException("Invalid duration format", formattedString);
     }
-
   }
 
   /// Private helper method for extracting a time value from the ISO8601 string.

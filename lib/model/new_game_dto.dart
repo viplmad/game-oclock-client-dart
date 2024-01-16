@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class NewGameDTO {
@@ -42,32 +33,35 @@ class NewGameDTO {
   GameStatus? status;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NewGameDTO &&
-    other.backup == backup &&
-    other.edition == edition &&
-    other.name == name &&
-    other.notes == notes &&
-    other.rating == rating &&
-    other.releaseYear == releaseYear &&
-    other.saveFolder == saveFolder &&
-    other.screenshotFolder == screenshotFolder &&
-    other.status == status;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is NewGameDTO &&
+          other.backup == backup &&
+          other.edition == edition &&
+          other.name == name &&
+          other.notes == notes &&
+          other.rating == rating &&
+          other.releaseYear == releaseYear &&
+          other.saveFolder == saveFolder &&
+          other.screenshotFolder == screenshotFolder &&
+          other.status == status;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (backup == null ? 0 : backup!.hashCode) +
-    (edition == null ? 0 : edition!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (notes == null ? 0 : notes!.hashCode) +
-    (rating == null ? 0 : rating!.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (saveFolder == null ? 0 : saveFolder!.hashCode) +
-    (screenshotFolder == null ? 0 : screenshotFolder!.hashCode) +
-    (status == null ? 0 : status!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (backup == null ? 0 : backup!.hashCode) +
+      (edition == null ? 0 : edition!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (notes == null ? 0 : notes!.hashCode) +
+      (rating == null ? 0 : rating!.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (saveFolder == null ? 0 : saveFolder!.hashCode) +
+      (screenshotFolder == null ? 0 : screenshotFolder!.hashCode) +
+      (status == null ? 0 : status!.hashCode);
 
   @override
-  String toString() => 'NewGameDTO[backup=$backup, edition=$edition, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status]';
+  String toString() =>
+      'NewGameDTO[backup=$backup, edition=$edition, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -131,8 +125,10 @@ class NewGameDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NewGameDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NewGameDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "NewGameDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "NewGameDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -152,7 +148,10 @@ class NewGameDTO {
     return null;
   }
 
-  static List<NewGameDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NewGameDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <NewGameDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -180,19 +179,24 @@ class NewGameDTO {
   }
 
   // maps a json object with a list of NewGameDTO-objects as value to a dart map
-  static Map<String, List<NewGameDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<NewGameDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<NewGameDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = NewGameDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = NewGameDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }

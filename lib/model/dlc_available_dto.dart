@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class DLCAvailableDTO extends DLCDTO {
@@ -26,37 +17,40 @@ class DLCAvailableDTO extends DLCDTO {
   DateTime availableDate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DLCAvailableDTO &&
-    other.addedDatetime == addedDatetime &&
-    other.availableDate == availableDate &&
-    other.baseGameId == baseGameId &&
-    other.coverFilename == coverFilename &&
-    other.coverUrl == coverUrl &&
-    other.id == id &&
-    other.name == name &&
-    other.releaseYear == releaseYear &&
-    other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DLCAvailableDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.availableDate == availableDate &&
+          other.baseGameId == baseGameId &&
+          other.coverFilename == coverFilename &&
+          other.coverUrl == coverUrl &&
+          other.id == id &&
+          other.name == name &&
+          other.releaseYear == releaseYear &&
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (availableDate.hashCode) +
-    (baseGameId == null ? 0 : baseGameId!.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
-    (coverUrl == null ? 0 : coverUrl!.hashCode) +
-    (id.hashCode) +
-    (name.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (updatedDatetime.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (availableDate.hashCode) +
+      (baseGameId == null ? 0 : baseGameId!.hashCode) +
+      (coverFilename == null ? 0 : coverFilename!.hashCode) +
+      (coverUrl == null ? 0 : coverUrl!.hashCode) +
+      (id.hashCode) +
+      (name.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'DLCAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'DLCAvailableDTO[addedDatetime=$addedDatetime, availableDate=$availableDate, baseGameId=$baseGameId, coverFilename=$coverFilename, coverUrl=$coverUrl, id=$id, name=$name, releaseYear=$releaseYear, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-      json[r'available_date'] = _dateFormatter.format(this.availableDate);
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'available_date'] = _dateFormatter.format(this.availableDate);
     if (this.baseGameId != null) {
       json[r'base_game_id'] = this.baseGameId;
     } else {
@@ -72,14 +66,14 @@ class DLCAvailableDTO extends DLCDTO {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'id'] = this.id;
-      json[r'name'] = this.name;
+    json[r'id'] = this.id;
+    json[r'name'] = this.name;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -95,8 +89,10 @@ class DLCAvailableDTO extends DLCDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DLCAvailableDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DLCAvailableDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "DLCAvailableDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DLCAvailableDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -116,7 +112,10 @@ class DLCAvailableDTO extends DLCDTO {
     return null;
   }
 
-  static List<DLCAvailableDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DLCAvailableDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DLCAvailableDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -144,13 +143,19 @@ class DLCAvailableDTO extends DLCDTO {
   }
 
   // maps a json object with a list of DLCAvailableDTO-objects as value to a dart map
-  static Map<String, List<DLCAvailableDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DLCAvailableDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DLCAvailableDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DLCAvailableDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = DLCAvailableDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;

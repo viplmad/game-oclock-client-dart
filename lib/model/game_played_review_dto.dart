@@ -1,12 +1,3 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
 part of n2t.game_oclock.client;
 
 class GamePlayedReviewDTO extends GameDTO {
@@ -53,63 +44,66 @@ class GamePlayedReviewDTO extends GameDTO {
   Map<int, Duration> totalTimeGrouped;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GamePlayedReviewDTO &&
-    other.addedDatetime == addedDatetime &&
-    other.backup == backup &&
-    other.coverFilename == coverFilename &&
-    other.coverUrl == coverUrl &&
-    other.edition == edition &&
-    other.firstPlayed == firstPlayed &&
-    other.firstPlayStartDatetime == firstPlayStartDatetime &&
-    other.id == id &&
-    other.lastPlayStartDatetime == lastPlayStartDatetime &&
-    other.longestSession == longestSession &&
-    other.longestStreak == longestStreak &&
-    other.name == name &&
-    other.notes == notes &&
-    other.rating == rating &&
-    other.releaseYear == releaseYear &&
-    other.saveFolder == saveFolder &&
-    other.screenshotFolder == screenshotFolder &&
-    other.status == status &&
-    other.totalSessions == totalSessions &&
-    other.totalTime == totalTime &&
-    _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped) &&
-    other.updatedDatetime == updatedDatetime;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GamePlayedReviewDTO &&
+          other.addedDatetime == addedDatetime &&
+          other.backup == backup &&
+          other.coverFilename == coverFilename &&
+          other.coverUrl == coverUrl &&
+          other.edition == edition &&
+          other.firstPlayed == firstPlayed &&
+          other.firstPlayStartDatetime == firstPlayStartDatetime &&
+          other.id == id &&
+          other.lastPlayStartDatetime == lastPlayStartDatetime &&
+          other.longestSession == longestSession &&
+          other.longestStreak == longestStreak &&
+          other.name == name &&
+          other.notes == notes &&
+          other.rating == rating &&
+          other.releaseYear == releaseYear &&
+          other.saveFolder == saveFolder &&
+          other.screenshotFolder == screenshotFolder &&
+          other.status == status &&
+          other.totalSessions == totalSessions &&
+          other.totalTime == totalTime &&
+          _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped) &&
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addedDatetime.hashCode) +
-    (backup.hashCode) +
-    (coverFilename == null ? 0 : coverFilename!.hashCode) +
-    (coverUrl == null ? 0 : coverUrl!.hashCode) +
-    (edition.hashCode) +
-    (firstPlayed.hashCode) +
-    (firstPlayStartDatetime.hashCode) +
-    (id.hashCode) +
-    (lastPlayStartDatetime.hashCode) +
-    (longestSession.hashCode) +
-    (longestStreak.hashCode) +
-    (name.hashCode) +
-    (notes.hashCode) +
-    (rating.hashCode) +
-    (releaseYear == null ? 0 : releaseYear!.hashCode) +
-    (saveFolder.hashCode) +
-    (screenshotFolder.hashCode) +
-    (status.hashCode) +
-    (totalSessions.hashCode) +
-    (totalTime.hashCode) +
-    (totalTimeGrouped.hashCode) +
-    (updatedDatetime.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addedDatetime.hashCode) +
+      (backup.hashCode) +
+      (coverFilename == null ? 0 : coverFilename!.hashCode) +
+      (coverUrl == null ? 0 : coverUrl!.hashCode) +
+      (edition.hashCode) +
+      (firstPlayed.hashCode) +
+      (firstPlayStartDatetime.hashCode) +
+      (id.hashCode) +
+      (lastPlayStartDatetime.hashCode) +
+      (longestSession.hashCode) +
+      (longestStreak.hashCode) +
+      (name.hashCode) +
+      (notes.hashCode) +
+      (rating.hashCode) +
+      (releaseYear == null ? 0 : releaseYear!.hashCode) +
+      (saveFolder.hashCode) +
+      (screenshotFolder.hashCode) +
+      (status.hashCode) +
+      (totalSessions.hashCode) +
+      (totalTime.hashCode) +
+      (totalTimeGrouped.hashCode) +
+      (updatedDatetime.hashCode);
 
   @override
-  String toString() => 'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, firstPlayStartDatetime=$firstPlayStartDatetime, id=$id, lastPlayStartDatetime=$lastPlayStartDatetime, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
+  String toString() =>
+      'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, firstPlayStartDatetime=$firstPlayStartDatetime, id=$id, lastPlayStartDatetime=$lastPlayStartDatetime, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
-      json[r'backup'] = this.backup;
+    json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    json[r'backup'] = this.backup;
     if (this.coverFilename != null) {
       json[r'cover_filename'] = this.coverFilename;
     } else {
@@ -120,28 +114,30 @@ class GamePlayedReviewDTO extends GameDTO {
     } else {
       json[r'cover_url'] = null;
     }
-      json[r'edition'] = this.edition;
-      json[r'first_played'] = this.firstPlayed;
-      json[r'first_play_start_datetime'] = this.firstPlayStartDatetime.toIso8601String();
-      json[r'id'] = this.id;
-      json[r'last_play_start_datetime'] = this.lastPlayStartDatetime.toIso8601String();
-      json[r'longest_session'] = this.longestSession;
-      json[r'longest_streak'] = this.longestStreak;
-      json[r'name'] = this.name;
-      json[r'notes'] = this.notes;
-      json[r'rating'] = this.rating;
+    json[r'edition'] = this.edition;
+    json[r'first_played'] = this.firstPlayed;
+    json[r'first_play_start_datetime'] =
+        this.firstPlayStartDatetime.toIso8601String();
+    json[r'id'] = this.id;
+    json[r'last_play_start_datetime'] =
+        this.lastPlayStartDatetime.toIso8601String();
+    json[r'longest_session'] = this.longestSession;
+    json[r'longest_streak'] = this.longestStreak;
+    json[r'name'] = this.name;
+    json[r'notes'] = this.notes;
+    json[r'rating'] = this.rating;
     if (this.releaseYear != null) {
       json[r'release_year'] = this.releaseYear;
     } else {
       json[r'release_year'] = null;
     }
-      json[r'save_folder'] = this.saveFolder;
-      json[r'screenshot_folder'] = this.screenshotFolder;
-      json[r'status'] = this.status;
-      json[r'total_sessions'] = this.totalSessions;
-      json[r'total_time'] = this.totalTime!.toIso8601String();
-      json[r'total_time_grouped'] = this.totalTimeGrouped;
-      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
+    json[r'save_folder'] = this.saveFolder;
+    json[r'screenshot_folder'] = this.screenshotFolder;
+    json[r'status'] = this.status;
+    json[r'total_sessions'] = this.totalSessions;
+    json[r'total_time'] = this.totalTime!.toIso8601String();
+    json[r'total_time_grouped'] = this.totalTimeGrouped;
+    json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 
@@ -157,8 +153,10 @@ class GamePlayedReviewDTO extends GameDTO {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GamePlayedReviewDTO[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GamePlayedReviewDTO[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GamePlayedReviewDTO[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GamePlayedReviewDTO[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -170,9 +168,11 @@ class GamePlayedReviewDTO extends GameDTO {
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         firstPlayed: mapValueOfType<bool>(json, r'first_played')!,
-        firstPlayStartDatetime: mapDateTime(json, r'first_play_start_datetime', r'')!,
+        firstPlayStartDatetime:
+            mapDateTime(json, r'first_play_start_datetime', r'')!,
         id: mapValueOfType<String>(json, r'id')!,
-        lastPlayStartDatetime: mapDateTime(json, r'last_play_start_datetime', r'')!,
+        lastPlayStartDatetime:
+            mapDateTime(json, r'last_play_start_datetime', r'')!,
         longestSession: GameLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GameStreakDTO.fromJson(json[r'longest_streak'])!,
         name: mapValueOfType<String>(json, r'name')!,
@@ -184,14 +184,18 @@ class GamePlayedReviewDTO extends GameDTO {
         status: GameStatus.fromJson(json[r'status'])!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
         totalTime: mapDuration(json, r'total_time')!,
-        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped', (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
     return null;
   }
 
-  static List<GamePlayedReviewDTO> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GamePlayedReviewDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GamePlayedReviewDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -219,13 +223,19 @@ class GamePlayedReviewDTO extends GameDTO {
   }
 
   // maps a json object with a list of GamePlayedReviewDTO-objects as value to a dart map
-  static Map<String, List<GamePlayedReviewDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GamePlayedReviewDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GamePlayedReviewDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GamePlayedReviewDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GamePlayedReviewDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
