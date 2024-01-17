@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class GameLogsApi extends BaseApi {
+  GameLogsApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'DELETE /api/v1/games/{id}/logs' operation and returns the [Response].
   /// Parameters:
   ///

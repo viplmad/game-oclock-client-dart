@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class DLCsApi extends BaseApi {
+  DLCsApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}' operation and returns the [Response].
   /// Parameters:
   ///

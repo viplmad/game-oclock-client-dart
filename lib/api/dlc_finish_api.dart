@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class DLCFinishApi extends BaseApi {
+  DLCFinishApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///

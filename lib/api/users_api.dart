@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class UsersApi extends BaseApi {
+  UsersApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'PUT /api/v1/myself/change-password' operation and returns the [Response].
   /// Parameters:
   ///

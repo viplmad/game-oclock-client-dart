@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class AuthApi extends BaseApi {
+  AuthApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'POST /auth/token' operation and returns the [Response].
   /// Parameters:
   ///

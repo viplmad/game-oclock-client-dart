@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class HealthCheckApi extends BaseApi {
+  HealthCheckApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'GET /health' operation and returns the [Response].
   Future<Response> healthWithHttpInfo() async {
     // ignore: prefer_const_declarations

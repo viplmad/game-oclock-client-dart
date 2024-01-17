@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class GameFinishApi extends BaseApi {
+  GameFinishApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'DELETE /api/v1/games/{id}/finishes' operation and returns the [Response].
   /// Parameters:
   ///

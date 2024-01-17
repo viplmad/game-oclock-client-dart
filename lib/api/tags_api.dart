@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class TagsApi extends BaseApi {
+  TagsApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'DELETE /api/v1/tags/{id}' operation and returns the [Response].
   /// Parameters:
   ///

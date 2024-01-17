@@ -1,6 +1,8 @@
 part of n2t.game_oclock.client;
 
 class PlatformsApi extends BaseApi {
+  PlatformsApi([ApiClient? apiClient]) : super(apiClient);
+
   /// Performs an HTTP 'DELETE /api/v1/platforms/{id}' operation and returns the [Response].
   /// Parameters:
   ///
