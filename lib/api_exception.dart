@@ -1,41 +1,59 @@
 part of n2t.game_oclock.client;
 
+enum ErrorCode {
+  // Server
+  invalidParameter,
+  alreadyExists,
+  notFound,
+  notSupported,
+  forbidden,
+  unknown,
+
+  // Auth
+  authInvalidRequest,
+  authInvalidGrant,
+  authUnsupportedGrantType,
+
+  // Client
+  connectionFailed,
+  responseMismatch,
+  unexpected,
+}
+
 abstract class ApiException implements Exception {
   ApiException({required this.error, required this.errorDescription});
 
-  String error;
+  ErrorCode error;
   String errorDescription;
 
   factory ApiException.fromServer(
       int statusCode, String error, String errorDescription) {
     switch (error) {
       case InvalidParameterApiException.code:
-        return InvalidParameterApiException(
-            statusCode, error, errorDescription);
+        return InvalidParameterApiException(statusCode, errorDescription);
       case AlreadyExistsApiException.code:
-        return AlreadyExistsApiException(statusCode, error, errorDescription);
+        return AlreadyExistsApiException(statusCode, errorDescription);
       case NotFoundApiException.code:
-        return NotFoundApiException(statusCode, error, errorDescription);
-      case InvalidRequestTokenException.code:
-        return InvalidRequestTokenException(
-            statusCode, error, errorDescription);
-      case InvalidGrantTokenException.code:
-        return InvalidGrantTokenException(statusCode, error, errorDescription);
-      case UnsupportedGrantTypeTokenException.code:
-        return UnsupportedGrantTypeTokenException(
-            statusCode, error, errorDescription);
+        return NotFoundApiException(statusCode, errorDescription);
+      case AuthInvalidRequestTokenException.code:
+        return AuthInvalidRequestTokenException(statusCode, errorDescription);
+      case AuthInvalidGrantTokenException.code:
+        return AuthInvalidGrantTokenException(statusCode, errorDescription);
+      case AuthUnsupportedGrantTypeTokenException.code:
+        return AuthUnsupportedGrantTypeTokenException(
+            statusCode, errorDescription);
       case NotSupportedApiException.code:
-        return NotSupportedApiException(statusCode, error, errorDescription);
+        return NotSupportedApiException(statusCode, errorDescription);
       case ForbiddenApiException.code:
-        return ForbiddenApiException(statusCode, error, errorDescription);
+        return ForbiddenApiException(statusCode, errorDescription);
       case UnknownErrorApiException.code:
-        return UnknownErrorApiException(statusCode, error, errorDescription);
+        return UnknownErrorApiException(statusCode, errorDescription);
     }
-    return ServerApiException(statusCode, error, errorDescription);
+    return UnknownErrorApiException(statusCode, errorDescription);
   }
 }
 
-class ClientApiException extends ApiException {
+abstract class ClientApiException extends ApiException {
   ClientApiException(
       {required super.error,
       required super.errorDescription,
@@ -54,44 +72,48 @@ class ClientApiException extends ApiException {
   }
 }
 
-class DeserializationErrorApiException extends ClientApiException {
-  DeserializationErrorApiException(String errorDescription,
-      [Exception? innerException, StackTrace? stackTrace])
-      : super(
-            error: 'deserialization_error',
-            errorDescription: errorDescription,
-            innerException: innerException,
-            stackTrace: stackTrace);
-}
-
 class ConnectionFailedApiException extends ClientApiException {
-  ConnectionFailedApiException(String errorDescription,
-      [Exception? innerException, StackTrace? stackTrace])
-      : super(
-            error: 'connection_failed',
+  ConnectionFailedApiException(
+    String errorDescription, [
+    Exception? innerException,
+    StackTrace? stackTrace,
+  ]) : super(
+            error: ErrorCode.connectionFailed,
             errorDescription: errorDescription,
             innerException: innerException,
             stackTrace: stackTrace);
 }
 
-class OperationInvalidApiException extends ClientApiException {
-  OperationInvalidApiException(String errorDescription)
-      : super(error: 'operation_invalid', errorDescription: errorDescription);
-}
-
-class UnknoenApiException extends ClientApiException {
-  UnknoenApiException(String errorDescription,
-      [Exception? innerException, StackTrace? stackTrace])
-      : super(
-            error: 'unknown_exception',
+class ResponseMismatchApiException extends ClientApiException {
+  ResponseMismatchApiException(
+    String errorDescription, [
+    Exception? innerException,
+    StackTrace? stackTrace,
+  ]) : super(
+            error: ErrorCode.responseMismatch,
             errorDescription: errorDescription,
             innerException: innerException,
             stackTrace: stackTrace);
 }
 
-class ServerApiException extends ApiException {
-  ServerApiException(this.statusCode, String error, String errorDescription)
-      : super(error: error, errorDescription: errorDescription);
+class UnexpectedApiException extends ClientApiException {
+  UnexpectedApiException(
+    String errorDescription, [
+    Exception? innerException,
+    StackTrace? stackTrace,
+  ]) : super(
+            error: ErrorCode.responseMismatch,
+            errorDescription: errorDescription,
+            innerException: innerException,
+            stackTrace: stackTrace);
+}
+
+abstract class ServerApiException extends ApiException {
+  ServerApiException({
+    required this.statusCode,
+    required super.error,
+    required super.errorDescription,
+  });
 
   int statusCode = 0;
 
@@ -104,54 +126,116 @@ class ServerApiException extends ApiException {
 class InvalidParameterApiException extends ServerApiException {
   static const String code = 'invalid_parameter';
 
-  InvalidParameterApiException(super.code, super.error, super.errorDescription);
+  InvalidParameterApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.invalidParameter,
+          errorDescription: errorDescription,
+        );
 }
 
 class AlreadyExistsApiException extends ServerApiException {
   static const String code = 'already_exists';
 
-  AlreadyExistsApiException(super.code, super.error, super.errorDescription);
+  AlreadyExistsApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.alreadyExists,
+          errorDescription: errorDescription,
+        );
 }
 
 class NotFoundApiException extends ServerApiException {
   static const String code = 'not_found';
 
-  NotFoundApiException(super.code, super.error, super.errorDescription);
-}
-
-class UnknownErrorApiException extends ServerApiException {
-  static const String code = 'unknown_error';
-
-  UnknownErrorApiException(super.code, super.error, super.errorDescription);
+  NotFoundApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.notFound,
+          errorDescription: errorDescription,
+        );
 }
 
 class NotSupportedApiException extends ServerApiException {
   static const String code = 'not_supported';
 
-  NotSupportedApiException(super.code, super.error, super.errorDescription);
+  NotSupportedApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.notSupported,
+          errorDescription: errorDescription,
+        );
 }
 
 class ForbiddenApiException extends ServerApiException {
   static const String code = 'forbidden';
 
-  ForbiddenApiException(super.code, super.error, super.errorDescription);
+  ForbiddenApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.forbidden,
+          errorDescription: errorDescription,
+        );
 }
 
-class InvalidRequestTokenException extends ServerApiException {
+class UnknownErrorApiException extends ServerApiException {
+  static const String code = 'unknown_error';
+
+  UnknownErrorApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.unknown,
+          errorDescription: errorDescription,
+        );
+}
+
+class AuthInvalidRequestTokenException extends ServerApiException {
   static const String code = 'invalid_request';
 
-  InvalidRequestTokenException(super.code, super.error, super.errorDescription);
+  AuthInvalidRequestTokenException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.authInvalidRequest,
+          errorDescription: errorDescription,
+        );
 }
 
-class InvalidGrantTokenException extends ServerApiException {
+class AuthInvalidGrantTokenException extends ServerApiException {
   static const String code = 'invalid_grant';
 
-  InvalidGrantTokenException(super.code, super.error, super.errorDescription);
+  AuthInvalidGrantTokenException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.authInvalidGrant,
+          errorDescription: errorDescription,
+        );
 }
 
-class UnsupportedGrantTypeTokenException extends ServerApiException {
+class AuthUnsupportedGrantTypeTokenException extends ServerApiException {
   static const String code = 'unsupported_grant_type';
 
-  UnsupportedGrantTypeTokenException(
-      super.code, super.error, super.errorDescription);
+  AuthUnsupportedGrantTypeTokenException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.authUnsupportedGrantType,
+          errorDescription: errorDescription,
+        );
 }

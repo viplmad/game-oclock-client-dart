@@ -11,7 +11,7 @@ abstract class BaseApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isEmpty || response.statusCode == HttpStatus.noContent) {
-      throw DeserializationErrorApiException(
+      throw ResponseMismatchApiException(
           'Cannot decode 204 response with empty string');
     }
   }

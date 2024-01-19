@@ -147,16 +147,15 @@ class ApiClient {
         trace,
       );
     } on Exception catch (error, trace) {
-      throw UnknoenApiException(
+      throw UnexpectedApiException(
         'Exception occurred: $method $path',
         error,
         trace,
       );
     }
 
-    throw OperationInvalidApiException(
-      'Invalid HTTP operation: $method $path',
-    );
+    // Unreachable
+    throw Error();
   }
 
   Future<dynamic> deserializeAsync(
@@ -346,13 +345,13 @@ class ApiClient {
           }
       }
     } on Exception catch (error, trace) {
-      throw DeserializationErrorApiException(
+      throw ResponseMismatchApiException(
         'Exception during deserialization.',
         error,
         trace,
       );
     }
-    throw DeserializationErrorApiException(
+    throw ResponseMismatchApiException(
         'Could not find a suitable class for deserialization');
   }
 }
