@@ -66,9 +66,9 @@ abstract class ClientApiException extends ApiException {
   @override
   String toString() {
     if (innerException != null) {
-      return 'ApiException $error: $errorDescription (Inner exception: $innerException)\n\n$stackTrace';
+      return 'ApiException ${error.name}: $errorDescription (Inner exception: $innerException)\n\n$stackTrace';
     }
-    return 'ApiException $error: $errorDescription';
+    return 'ApiException ${error.name}: $errorDescription';
   }
 }
 
@@ -119,7 +119,7 @@ abstract class ServerApiException extends ApiException {
 
   @override
   String toString() {
-    return 'ApiException [$statusCode] $error: $errorDescription';
+    return 'ApiException [$statusCode] ${error.name}: $errorDescription';
   }
 }
 
