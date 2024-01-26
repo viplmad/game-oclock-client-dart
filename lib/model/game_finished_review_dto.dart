@@ -8,7 +8,7 @@ class GameFinishedReviewDTO extends GameDTO {
     super.coverFilename,
     super.coverUrl,
     required super.edition,
-    required DateTime firstFinish,
+    required this.firstFinish,
     required this.firstFinished,
     required super.id,
     required this.lastFinish,
@@ -22,9 +22,9 @@ class GameFinishedReviewDTO extends GameDTO {
     required this.totalFinished,
     this.totalFinishedGrouped = const {},
     required super.updatedDatetime,
-  }) {
-    super.firstFinish = firstFinish;
-  }
+  });
+
+  DateTime firstFinish;
 
   bool firstFinished;
 
@@ -101,7 +101,7 @@ class GameFinishedReviewDTO extends GameDTO {
       json[r'cover_url'] = null;
     }
     json[r'edition'] = this.edition;
-    json[r'first_finish'] = _dateFormatter.format(this.firstFinish!);
+    json[r'first_finish'] = _dateFormatter.format(this.firstFinish);
     json[r'first_finished'] = this.firstFinished;
     json[r'id'] = this.id;
     json[r'last_finish'] = _dateFormatter.format(this.lastFinish);

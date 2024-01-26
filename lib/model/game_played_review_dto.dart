@@ -22,12 +22,10 @@ class GamePlayedReviewDTO extends GameDTO {
     required super.screenshotFolder,
     required super.status,
     required this.totalSessions,
-    required Duration totalTime,
+    required this.totalTime,
     this.totalTimeGrouped = const {},
     required super.updatedDatetime,
-  }) {
-    super.totalTime = totalTime;
-  }
+  });
 
   bool firstPlayed;
 
@@ -40,6 +38,8 @@ class GamePlayedReviewDTO extends GameDTO {
   GameStreakDTO longestStreak;
 
   int totalSessions;
+
+  Duration totalTime;
 
   Map<int, Duration> totalTimeGrouped;
 
@@ -135,7 +135,7 @@ class GamePlayedReviewDTO extends GameDTO {
     json[r'screenshot_folder'] = this.screenshotFolder;
     json[r'status'] = this.status;
     json[r'total_sessions'] = this.totalSessions;
-    json[r'total_time'] = this.totalTime!.toIso8601String();
+    json[r'total_time'] = this.totalTime.toIso8601String();
     json[r'total_time_grouped'] = this.totalTimeGrouped;
     json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;

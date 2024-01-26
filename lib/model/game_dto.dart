@@ -45,10 +45,6 @@ class GameDTO extends PrimaryModel {
 
   DateTime updatedDatetime;
 
-  DateTime? firstFinish;
-
-  Duration? totalTime;
-
   NewGameDTO newWith({
     bool? backup,
     String? edition,
@@ -106,9 +102,7 @@ class GameDTO extends PrimaryModel {
           other.saveFolder == saveFolder &&
           other.screenshotFolder == screenshotFolder &&
           other.status == status &&
-          other.updatedDatetime == updatedDatetime &&
-          other.firstFinish == firstFinish &&
-          other.totalTime == totalTime;
+          other.updatedDatetime == updatedDatetime;
 
   @override
   int get hashCode =>
@@ -126,13 +120,11 @@ class GameDTO extends PrimaryModel {
       (saveFolder.hashCode) +
       (screenshotFolder.hashCode) +
       (status.hashCode) +
-      (updatedDatetime.hashCode) +
-      (firstFinish == null ? 0 : firstFinish!.hashCode) +
-      (totalTime == null ? 0 : totalTime!.hashCode);
+      (updatedDatetime.hashCode);
 
   @override
   String toString() =>
-      'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime, firstFinish=$firstFinish, totalTime=$totalTime]';
+      'GameDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, id=$id, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
