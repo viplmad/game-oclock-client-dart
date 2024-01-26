@@ -20,6 +20,8 @@ class GameWithLogsDTO extends GameDTO {
     required super.updatedDatetime,
   });
 
+  Duration? totalTime;
+
   List<GameLogDTO> logs;
 
   static GameWithLogsDTO withLogs(GameDTO game, List<GameLogDTO> logs) {
