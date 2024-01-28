@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **longestStreak** | [**GamesStreakDTO**](GamesStreakDTO.md) |  | 
 **totalFirstPlayed** | **int** |  | 
 **totalPlayed** | **int** |  | 
+**totalPlayedByRating** | **Map<String, int>** |  | [default to const {}]
 **totalPlayedByReleaseYear** | **Map<String, int>** |  | [default to const {}]
 **totalSessions** | **int** |  | 
 **totalTime** | **String** |  | 

@@ -40,6 +40,11 @@ void main() {
       // TODO
     });
 
+    // Map<String, int> totalPlayedByRating (default value: const {})
+    test('to test the property `totalPlayedByRating`', () async {
+      // TODO
+    });
+
     // Map<String, int> totalPlayedByReleaseYear (default value: const {})
     test('to test the property `totalPlayedByReleaseYear`', () async {
       // TODO
