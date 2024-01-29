@@ -194,7 +194,7 @@ class GamesPlayedReviewDTO {
     'total_played',
     'total_played_by_release_year',
     'total_rated',
-    'total_played_by_rating',
+    'total_rated_by_rating',
     'total_sessions',
     'total_time',
     'total_time_grouped',
