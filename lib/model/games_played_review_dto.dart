@@ -8,8 +8,9 @@ class GamesPlayedReviewDTO {
     required this.longestStreak,
     required this.totalFirstPlayed,
     required this.totalPlayed,
-    this.totalPlayedByRating = const {},
     this.totalPlayedByReleaseYear = const {},
+    required this.totalRated,
+    this.totalRatedByRating = const {},
     required this.totalSessions,
     required this.totalTime,
     this.totalTimeGrouped = const {},
@@ -25,9 +26,11 @@ class GamesPlayedReviewDTO {
 
   int totalPlayed;
 
-  Map<int, int> totalPlayedByRating;
-
   Map<int, int> totalPlayedByReleaseYear;
+
+  int totalRated;
+
+  Map<int, int> totalRatedByRating;
 
   int totalSessions;
 
@@ -45,9 +48,9 @@ class GamesPlayedReviewDTO {
           other.totalFirstPlayed == totalFirstPlayed &&
           other.totalPlayed == totalPlayed &&
           _deepEquality.equals(
-              other.totalPlayedByRating, totalPlayedByRating) &&
-          _deepEquality.equals(
               other.totalPlayedByReleaseYear, totalPlayedByReleaseYear) &&
+          other.totalRated == totalRated &&
+          _deepEquality.equals(other.totalRatedByRating, totalRatedByRating) &&
           other.totalSessions == totalSessions &&
           other.totalTime == totalTime &&
           _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped);
@@ -60,15 +63,16 @@ class GamesPlayedReviewDTO {
       (longestStreak.hashCode) +
       (totalFirstPlayed.hashCode) +
       (totalPlayed.hashCode) +
-      (totalPlayedByRating.hashCode) +
       (totalPlayedByReleaseYear.hashCode) +
+      (totalRated.hashCode) +
+      (totalRatedByRating.hashCode) +
       (totalSessions.hashCode) +
       (totalTime.hashCode) +
       (totalTimeGrouped.hashCode);
 
   @override
   String toString() =>
-      'GamesPlayedReviewDTO[games=$games, longestSession=$longestSession, longestStreak=$longestStreak, totalFirstPlayed=$totalFirstPlayed, totalPlayed=$totalPlayed, totalPlayedByRating=$totalPlayedByRating, totalPlayedByReleaseYear=$totalPlayedByReleaseYear, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped]';
+      'GamesPlayedReviewDTO[games=$games, longestSession=$longestSession, longestStreak=$longestStreak, totalFirstPlayed=$totalFirstPlayed, totalPlayed=$totalPlayed, totalPlayedByReleaseYear=$totalPlayedByReleaseYear, totalRated=$totalRated, totalRatedByRating=$totalRatedByRating, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -77,8 +81,9 @@ class GamesPlayedReviewDTO {
     json[r'longest_streak'] = this.longestStreak;
     json[r'total_first_played'] = this.totalFirstPlayed;
     json[r'total_played'] = this.totalPlayed;
-    json[r'total_played_by_rating'] = this.totalPlayedByRating;
     json[r'total_played_by_release_year'] = this.totalPlayedByReleaseYear;
+    json[r'total_rated'] = this.totalRated;
+    json[r'total_rated_by_rating'] = this.totalRatedByRating;
     json[r'total_sessions'] = this.totalSessions;
     json[r'total_time'] = this.totalTime.toIso8601String();
     json[r'total_time_grouped'] = this.totalTimeGrouped;
@@ -111,14 +116,15 @@ class GamesPlayedReviewDTO {
         longestStreak: GamesStreakDTO.fromJson(json[r'longest_streak'])!,
         totalFirstPlayed: mapValueOfType<int>(json, r'total_first_played')!,
         totalPlayed: mapValueOfType<int>(json, r'total_played')!,
-        totalPlayedByRating: mapMapOfType(
-            json,
-            r'total_played_by_rating',
-            (k) => int.parse('$k'),
-            (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalPlayedByReleaseYear: mapMapOfType(
             json,
             r'total_played_by_release_year',
+            (k) => int.parse('$k'),
+            (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
+        totalRated: mapValueOfType<int>(json, r'total_rated')!,
+        totalRatedByRating: mapMapOfType(
+            json,
+            r'total_rated_by_rating',
             (k) => int.parse('$k'),
             (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
@@ -186,8 +192,9 @@ class GamesPlayedReviewDTO {
     'longest_streak',
     'total_first_played',
     'total_played',
-    'total_played_by_rating',
     'total_played_by_release_year',
+    'total_rated',
+    'total_played_by_rating',
     'total_sessions',
     'total_time',
     'total_time_grouped',
