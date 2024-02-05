@@ -6,6 +6,7 @@ enum ErrorCode {
   alreadyExists,
   notFound,
   notSupported,
+  unauthorized,
   forbidden,
   unknown,
 
@@ -44,6 +45,8 @@ abstract class ApiException implements Exception {
             statusCode, errorDescription);
       case NotSupportedApiException.code:
         return NotSupportedApiException(statusCode, errorDescription);
+      case UnauthorizedApiException.code:
+        return UnauthorizedApiException(statusCode, errorDescription);
       case ForbiddenApiException.code:
         return ForbiddenApiException(statusCode, errorDescription);
       case UnknownErrorApiException.code:
@@ -171,6 +174,19 @@ class NotSupportedApiException extends ServerApiException {
   ) : super(
           statusCode: statusCode,
           error: ErrorCode.notSupported,
+          errorDescription: errorDescription,
+        );
+}
+
+class UnauthorizedApiException extends ServerApiException {
+  static const String code = 'unauthorized';
+
+  UnauthorizedApiException(
+    int statusCode,
+    String errorDescription,
+  ) : super(
+          statusCode: statusCode,
+          error: ErrorCode.unauthorized,
           errorDescription: errorDescription,
         );
 }

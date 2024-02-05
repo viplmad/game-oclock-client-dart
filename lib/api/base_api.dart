@@ -17,6 +17,13 @@ abstract class BaseApi {
   }
 
   Future<void> checkEmptyResponse(Response response) async {
+    // Handle 401 without body from regular calls
+    if (response.statusCode == HttpStatus.unauthorized &&
+        response.body.isEmpty) {
+      throw ApiException.fromServer(
+          response.statusCode, 'unauthorized', 'Access token not valid');
+    }
+
     if (response.statusCode >= HttpStatus.badRequest) {
       final errorMessage = await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
