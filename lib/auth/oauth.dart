@@ -5,7 +5,7 @@ class OAuth implements Authentication {
 
   String accessToken;
   String refreshToken;
-  final (String, String) Function(String)? refresh;
+  final Future<(String, String)> Function(String)? refresh;
 
   @override
   Future<void> applyToParams(
@@ -18,9 +18,10 @@ class OAuth implements Authentication {
   }
 
   @override
-  void onRefresh() {
+  void onRefresh() async {
     if (refresh != null) {
-      final (newAccessToken, newRefreshToken) = this.refresh!(refreshToken);
+      final (newAccessToken, newRefreshToken) =
+          await this.refresh!(refreshToken);
       accessToken = newAccessToken;
       refreshToken = newRefreshToken;
     }
