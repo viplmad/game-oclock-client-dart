@@ -41,10 +41,9 @@ class TagsApi extends BaseApi {
   Future<void> deleteTag(
     String id,
   ) async {
-    final response = await deleteTagWithHttpInfo(
+    await deleteTagWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'GET /api/v1/games/{id}/tags' operation and returns the [Response].
@@ -297,10 +296,9 @@ class TagsApi extends BaseApi {
     String id,
     NewTagDTO newTagDTO,
   ) async {
-    final response = await putTagWithHttpInfo(
+    await putTagWithHttpInfo(
       id,
       newTagDTO,
     );
-    await checkEmptyResponse(response);
   }
 }

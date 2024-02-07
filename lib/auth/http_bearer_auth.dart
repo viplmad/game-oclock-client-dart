@@ -3,9 +3,10 @@ part of n2t.game_oclock.client;
 typedef HttpBearerAuthProvider = String Function();
 
 class HttpBearerAuth implements Authentication {
-  HttpBearerAuth();
+  HttpBearerAuth({this.refresh});
 
   dynamic _accessToken;
+  final void Function()? refresh;
 
   dynamic get accessToken => _accessToken;
 
@@ -38,6 +39,13 @@ class HttpBearerAuth implements Authentication {
 
     if (accessToken.isNotEmpty) {
       headerParams['Authorization'] = 'Bearer $accessToken';
+    }
+  }
+
+  @override
+  void onRefresh() {
+    if (refresh != null) {
+      this.refresh!();
     }
   }
 }

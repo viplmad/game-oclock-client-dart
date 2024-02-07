@@ -41,10 +41,9 @@ class PlatformsApi extends BaseApi {
   Future<void> deletePlatform(
     String id,
   ) async {
-    final response = await deletePlatformWithHttpInfo(
+    await deletePlatformWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/platforms/{id}/icon' operation and returns the [Response].
@@ -85,10 +84,9 @@ class PlatformsApi extends BaseApi {
   Future<void> deletePlatformIcon(
     String id,
   ) async {
-    final response = await deletePlatformIconWithHttpInfo(
+    await deletePlatformIconWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'GET /api/v1/dlcs/{id}/platforms' operation and returns the [Response].
@@ -392,11 +390,10 @@ class PlatformsApi extends BaseApi {
     String id,
     MultipartFile file,
   ) async {
-    final response = await postPlatformIconWithHttpInfo(
+    await postPlatformIconWithHttpInfo(
       id,
       file,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/platforms/{id}' operation and returns the [Response].
@@ -445,11 +442,10 @@ class PlatformsApi extends BaseApi {
     String id,
     NewPlatformDTO newPlatformDTO,
   ) async {
-    final response = await putPlatformWithHttpInfo(
+    await putPlatformWithHttpInfo(
       id,
       newPlatformDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/platforms/{id}/icon' operation and returns the [Response].
@@ -498,10 +494,9 @@ class PlatformsApi extends BaseApi {
     String id,
     String body,
   ) async {
-    final response = await putPlatformIconWithHttpInfo(
+    await putPlatformIconWithHttpInfo(
       id,
       body,
     );
-    await checkEmptyResponse(response);
   }
 }

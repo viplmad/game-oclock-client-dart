@@ -45,8 +45,6 @@ abstract class ApiException implements Exception {
             statusCode, errorDescription);
       case NotSupportedApiException.code:
         return NotSupportedApiException(statusCode, errorDescription);
-      case UnauthorizedApiException.code:
-        return UnauthorizedApiException(statusCode, errorDescription);
       case ForbiddenApiException.code:
         return ForbiddenApiException(statusCode, errorDescription);
       case UnknownErrorApiException.code:

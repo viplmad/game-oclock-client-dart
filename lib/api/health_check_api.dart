@@ -29,7 +29,6 @@ class HealthCheckApi extends BaseApi {
   }
 
   Future<void> health() async {
-    final response = await healthWithHttpInfo();
-    await checkEmptyResponse(response);
+    await healthWithHttpInfo();
   }
 }

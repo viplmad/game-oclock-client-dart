@@ -49,11 +49,10 @@ class GameLogsApi extends BaseApi {
     String id,
     DateTimeDTO dateTimeDTO,
   ) async {
-    final response = await deleteGameLogWithHttpInfo(
+    await deleteGameLogWithHttpInfo(
       id,
       dateTimeDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'POST /api/v1/games/played/first' operation and returns the [Response].
@@ -470,10 +469,9 @@ class GameLogsApi extends BaseApi {
     String id,
     NewGameLogDTO newGameLogDTO,
   ) async {
-    final response = await postGameLogWithHttpInfo(
+    await postGameLogWithHttpInfo(
       id,
       newGameLogDTO,
     );
-    await checkEmptyResponse(response);
   }
 }

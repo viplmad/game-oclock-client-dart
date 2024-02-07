@@ -41,10 +41,9 @@ class GamesApi extends BaseApi {
   Future<void> deleteGame(
     String id,
   ) async {
-    final response = await deleteGameWithHttpInfo(
+    await deleteGameWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/games/{id}/cover' operation and returns the [Response].
@@ -85,10 +84,9 @@ class GamesApi extends BaseApi {
   Future<void> deleteGameCover(
     String id,
   ) async {
-    final response = await deleteGameCoverWithHttpInfo(
+    await deleteGameCoverWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'GET /api/v1/games/{id}' operation and returns the [Response].
@@ -352,12 +350,11 @@ class GamesApi extends BaseApi {
     String otherId,
     DateDTO dateDTO,
   ) async {
-    final response = await linkGamePlatformWithHttpInfo(
+    await linkGamePlatformWithHttpInfo(
       id,
       otherId,
       dateDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/games/{id}/tags/{other_id}' operation and returns the [Response].
@@ -408,11 +405,10 @@ class GamesApi extends BaseApi {
     String id,
     String otherId,
   ) async {
-    final response = await linkGameTagWithHttpInfo(
+    await linkGameTagWithHttpInfo(
       id,
       otherId,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'POST /api/v1/games' operation and returns the [Response].
@@ -511,11 +507,10 @@ class GamesApi extends BaseApi {
     String id,
     MultipartFile file,
   ) async {
-    final response = await postGameCoverWithHttpInfo(
+    await postGameCoverWithHttpInfo(
       id,
       file,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/games/{id}' operation and returns the [Response].
@@ -564,11 +559,10 @@ class GamesApi extends BaseApi {
     String id,
     NewGameDTO newGameDTO,
   ) async {
-    final response = await putGameWithHttpInfo(
+    await putGameWithHttpInfo(
       id,
       newGameDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/games/{id}/cover' operation and returns the [Response].
@@ -617,11 +611,10 @@ class GamesApi extends BaseApi {
     String id,
     String body,
   ) async {
-    final response = await putGameCoverWithHttpInfo(
+    await putGameCoverWithHttpInfo(
       id,
       body,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/games/{id}/platforms/{other_id}' operation and returns the [Response].
@@ -672,11 +665,10 @@ class GamesApi extends BaseApi {
     String id,
     String otherId,
   ) async {
-    final response = await unlinkGamePlatformWithHttpInfo(
+    await unlinkGamePlatformWithHttpInfo(
       id,
       otherId,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/games/{id}/tags/{other_id}' operation and returns the [Response].
@@ -727,10 +719,9 @@ class GamesApi extends BaseApi {
     String id,
     String otherId,
   ) async {
-    final response = await unlinkGameTagWithHttpInfo(
+    await unlinkGameTagWithHttpInfo(
       id,
       otherId,
     );
-    await checkEmptyResponse(response);
   }
 }

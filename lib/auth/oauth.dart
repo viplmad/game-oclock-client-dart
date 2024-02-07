@@ -1,9 +1,10 @@
 part of n2t.game_oclock.client;
 
 class OAuth implements Authentication {
-  OAuth({this.accessToken = ''});
+  OAuth({this.accessToken = '', this.refresh});
 
   String accessToken;
+  final void Function()? refresh;
 
   @override
   Future<void> applyToParams(
@@ -12,6 +13,13 @@ class OAuth implements Authentication {
   ) async {
     if (accessToken.isNotEmpty) {
       headerParams['Authorization'] = 'Bearer $accessToken';
+    }
+  }
+
+  @override
+  void onRefresh() {
+    if (refresh != null) {
+      this.refresh!();
     }
   }
 }
