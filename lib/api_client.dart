@@ -197,9 +197,9 @@ class ApiClient {
       retryIf: (error) =>
           (error is UnauthorizedApiException && authentication != null) ||
           (error is! UnauthorizedApiException),
-      onRetry: (error) {
+      onRetry: (error) async {
         if (error is UnauthorizedApiException) {
-          authentication!.onRefresh();
+          await authentication!.onRefresh();
         }
       },
     );

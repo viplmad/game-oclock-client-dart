@@ -5,7 +5,7 @@ class HttpBasicAuth implements Authentication {
 
   String username;
   String password;
-  final void Function()? refresh;
+  final FutureOr<void> Function()? refresh;
 
   @override
   Future<void> applyToParams(
@@ -20,9 +20,9 @@ class HttpBasicAuth implements Authentication {
   }
 
   @override
-  void onRefresh() {
+  FutureOr<void> onRefresh() async {
     if (refresh != null) {
-      this.refresh!();
+      await this.refresh!();
     }
   }
 }

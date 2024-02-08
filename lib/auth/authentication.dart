@@ -6,5 +6,5 @@ abstract class Authentication {
       List<QueryParam> queryParams, Map<String, String> headerParams);
 
   /// Callback to refresh authentication
-  void onRefresh();
+  FutureOr<void> onRefresh();
 }

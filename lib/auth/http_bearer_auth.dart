@@ -6,7 +6,7 @@ class HttpBearerAuth implements Authentication {
   HttpBearerAuth({this.refresh});
 
   dynamic _accessToken;
-  final void Function()? refresh;
+  final FutureOr<void> Function()? refresh;
 
   dynamic get accessToken => _accessToken;
 
@@ -43,9 +43,9 @@ class HttpBearerAuth implements Authentication {
   }
 
   @override
-  void onRefresh() {
+  FutureOr<void> onRefresh() async {
     if (refresh != null) {
-      this.refresh!();
+      await this.refresh!();
     }
   }
 }

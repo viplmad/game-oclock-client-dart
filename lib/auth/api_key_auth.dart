@@ -8,7 +8,7 @@ class ApiKeyAuth implements Authentication {
 
   String apiKeyPrefix = '';
   String apiKey = '';
-  final void Function()? refresh;
+  final FutureOr<void> Function()? refresh;
 
   @override
   Future<void> applyToParams(
@@ -33,9 +33,9 @@ class ApiKeyAuth implements Authentication {
   }
 
   @override
-  void onRefresh() {
+  FutureOr<void> onRefresh() async {
     if (refresh != null) {
-      this.refresh!();
+      await this.refresh!();
     }
   }
 }
