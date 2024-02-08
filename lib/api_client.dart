@@ -195,8 +195,10 @@ class ApiClient {
         return response;
       },
       retryIf: (error) =>
+          // If it's unauthorized and this client has authentication (retrying to refresh)
           (error is UnauthorizedApiException && authentication != null) ||
-          (error is! UnauthorizedApiException),
+          // If it's a client error (retrying will not change response)
+          (error is ClientApiException),
       onRetry: (error) async {
         if (error is UnauthorizedApiException) {
           await authentication!.onRefresh();
