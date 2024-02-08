@@ -28,9 +28,61 @@ class ApiClient {
     _defaultHeaderMap[key] = value;
   }
 
+  Future<Response> invokeApi(
+    String path,
+    String method,
+    List<QueryParam> queryParams,
+    Object? body,
+    Map<String, String> headerParams,
+    Map<String, String> formParams,
+    String? contentType,
+  ) async {
+    final retry = RetryOptions(maxAttempts: 3);
+    return await retry.retry(
+      () async {
+        final Response response = await _invokeAPI(
+          path,
+          method,
+          queryParams,
+          body,
+          headerParams,
+          formParams,
+          contentType,
+        );
+
+        // Handle 401 without body from regular calls
+        if (response.statusCode == HttpStatus.unauthorized &&
+            response.body.isEmpty) {
+          throw UnauthorizedApiException(
+              HttpStatus.unauthorized, 'Access token not valid');
+        }
+        if (response.statusCode >= HttpStatus.badRequest) {
+          final errorMessage = await deserializeAsync(
+            await _decodeBodyBytes(response),
+            'ErrorMessage',
+          ) as ErrorMessage;
+          throw ApiException.fromServer(response.statusCode, errorMessage.error,
+              errorMessage.errorDescription);
+        }
+
+        return response;
+      },
+      retryIf: (error) =>
+          // If it's unauthorized and this client has authentication (retrying to refresh)
+          (error is UnauthorizedApiException && authentication != null) ||
+          // If it's a client error (retrying will not change response)
+          (error is ClientApiException),
+      onRetry: (error) async {
+        if (error is UnauthorizedApiException) {
+          await authentication!.onRefresh();
+        }
+      },
+    );
+  }
+
   // We don't use a Map<String, String> for queryParams.
   // If collectionFormat is 'multi', a key might appear multiple times.
-  Future<Response> invokeAPI(
+  Future<Response> _invokeAPI(
     String path,
     String method,
     List<QueryParam> queryParams,
@@ -52,92 +104,76 @@ class ApiClient {
         : '';
     final uri = Uri.parse('$basePath$path$queryString');
 
-    late final FutureOr<Response> Function() requestFn;
-
-    // Special case for uploading a single file which isn't a 'multipart/form-data'.
-    if (body is MultipartFile &&
-        (contentType == null ||
-            !contentType.toLowerCase().startsWith('multipart/form-data'))) {
-      final request = StreamedRequest(method, uri);
-      request.headers.addAll(headerParams);
-      request.contentLength = body.length;
-      body.finalize().listen(
-            request.sink.add,
-            onDone: request.sink.close,
-            // ignore: avoid_types_on_closure_parameters
-            onError: (Object error, StackTrace trace) => request.sink.close(),
-            cancelOnError: true,
-          );
-      requestFn = () async {
-        final response = await _client.send(request);
-        return Response.fromStream(response);
-      };
-    }
-
-    if (body is MultipartRequest) {
-      final request = MultipartRequest(method, uri);
-      request.fields.addAll(body.fields);
-      request.files.addAll(body.files);
-      request.headers.addAll(body.headers);
-      request.headers.addAll(headerParams);
-      requestFn = () async {
-        final response = await _client.send(request);
-        return Response.fromStream(response);
-      };
-    }
-
-    final msgBody = contentType == 'application/x-www-form-urlencoded'
-        ? formParams
-        : await serializeAsync(body);
-    final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
-
-    switch (method) {
-      case 'POST':
-        requestFn = () => _client.post(
-              uri,
-              headers: nullableHeaderParams,
-              body: msgBody,
-            );
-      case 'PUT':
-        requestFn = () => _client.put(
-              uri,
-              headers: nullableHeaderParams,
-              body: msgBody,
-            );
-      case 'DELETE':
-        requestFn = () => _client.delete(
-              uri,
-              headers: nullableHeaderParams,
-              body: msgBody,
-            );
-      case 'PATCH':
-        requestFn = () => _client.patch(
-              uri,
-              headers: nullableHeaderParams,
-              body: msgBody,
-            );
-      case 'HEAD':
-        requestFn = () => _client.head(
-              uri,
-              headers: nullableHeaderParams,
-            );
-      case 'GET':
-        requestFn = () => _client.get(
-              uri,
-              headers: nullableHeaderParams,
-            );
-    }
-
-    return _invokeAPI(() => checkClientErrors(method, path, requestFn));
-  }
-
-  Future<Response> checkClientErrors(
-    String method,
-    String path,
-    FutureOr<Response> Function() request,
-  ) async {
     try {
-      return await request();
+      // Special case for uploading a single file which isn't a 'multipart/form-data'.
+      if (body is MultipartFile &&
+          (contentType == null ||
+              !contentType.toLowerCase().startsWith('multipart/form-data'))) {
+        final request = StreamedRequest(method, uri);
+        request.headers.addAll(headerParams);
+        request.contentLength = body.length;
+        body.finalize().listen(
+              request.sink.add,
+              onDone: request.sink.close,
+              // ignore: avoid_types_on_closure_parameters
+              onError: (Object error, StackTrace trace) => request.sink.close(),
+              cancelOnError: true,
+            );
+        final response = await _client.send(request);
+        return Response.fromStream(response);
+      }
+
+      if (body is MultipartRequest) {
+        final request = MultipartRequest(method, uri);
+        request.fields.addAll(body.fields);
+        request.files.addAll(body.files);
+        request.headers.addAll(body.headers);
+        request.headers.addAll(headerParams);
+        final response = await _client.send(request);
+        return Response.fromStream(response);
+      }
+
+      final msgBody = contentType == 'application/x-www-form-urlencoded'
+          ? formParams
+          : await serializeAsync(body);
+      final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
+
+      switch (method) {
+        case 'POST':
+          return await _client.post(
+            uri,
+            headers: nullableHeaderParams,
+            body: msgBody,
+          );
+        case 'PUT':
+          return await _client.put(
+            uri,
+            headers: nullableHeaderParams,
+            body: msgBody,
+          );
+        case 'DELETE':
+          return await _client.delete(
+            uri,
+            headers: nullableHeaderParams,
+            body: msgBody,
+          );
+        case 'PATCH':
+          return await _client.patch(
+            uri,
+            headers: nullableHeaderParams,
+            body: msgBody,
+          );
+        case 'HEAD':
+          return await _client.head(
+            uri,
+            headers: nullableHeaderParams,
+          );
+        case 'GET':
+          return await _client.get(
+            uri,
+            headers: nullableHeaderParams,
+          );
+      }
     } on SocketException catch (error, trace) {
       throw ConnectionFailedApiException(
         'Socket operation failed: $method $path',
@@ -169,42 +205,9 @@ class ApiClient {
         trace,
       );
     }
-  }
 
-  Future<Response> _invokeAPI(FutureOr<Response> Function() request) async {
-    final retry = RetryOptions(maxAttempts: 3);
-    return await retry.retry(
-      () async {
-        final Response response = await request();
-
-        // Handle 401 without body from regular calls
-        if (response.statusCode == HttpStatus.unauthorized &&
-            response.body.isEmpty) {
-          throw UnauthorizedApiException(
-              HttpStatus.unauthorized, 'Access token not valid');
-        }
-        if (response.statusCode >= HttpStatus.badRequest) {
-          final errorMessage = await deserializeAsync(
-            await _decodeBodyBytes(response),
-            'ErrorMessage',
-          ) as ErrorMessage;
-          throw ApiException.fromServer(response.statusCode, errorMessage.error,
-              errorMessage.errorDescription);
-        }
-
-        return response;
-      },
-      retryIf: (error) =>
-          // If it's unauthorized and this client has authentication (retrying to refresh)
-          (error is UnauthorizedApiException && authentication != null) ||
-          // If it's a client error (retrying will not change response)
-          (error is ClientApiException),
-      onRetry: (error) async {
-        if (error is UnauthorizedApiException) {
-          await authentication!.onRefresh();
-        }
-      },
-    );
+    // Unreachable
+    throw Error();
   }
 
   Future<dynamic> deserializeAsync(
