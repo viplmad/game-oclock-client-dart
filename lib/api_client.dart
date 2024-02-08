@@ -28,7 +28,7 @@ class ApiClient {
     _defaultHeaderMap[key] = value;
   }
 
-  Future<Response> invokeApi(
+  Future<Response> invokeAPI(
     String path,
     String method,
     List<QueryParam> queryParams,
