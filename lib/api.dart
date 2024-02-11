@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:http/http.dart';
+import 'package:retry/retry.dart';
 import 'package:intl/intl.dart';
 
 part 'api_client.dart';

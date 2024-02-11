@@ -49,11 +49,10 @@ class DLCFinishApi extends BaseApi {
     String id,
     DateDTO dateDTO,
   ) async {
-    final response = await deleteDlcFinishWithHttpInfo(
+    await deleteDlcFinishWithHttpInfo(
       id,
       dateDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'GET /api/v1/dlcs/{id}/finishes' operation and returns the [Response].
@@ -357,10 +356,9 @@ class DLCFinishApi extends BaseApi {
     String id,
     DateDTO dateDTO,
   ) async {
-    final response = await postDlcFinishWithHttpInfo(
+    await postDlcFinishWithHttpInfo(
       id,
       dateDTO,
     );
-    await checkEmptyResponse(response);
   }
 }

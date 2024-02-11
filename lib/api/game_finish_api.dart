@@ -49,11 +49,10 @@ class GameFinishApi extends BaseApi {
     String id,
     DateDTO dateDTO,
   ) async {
-    final response = await deleteGameFinishWithHttpInfo(
+    await deleteGameFinishWithHttpInfo(
       id,
       dateDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'POST /api/v1/games/finished/review' operation and returns the [Response].
@@ -413,10 +412,9 @@ class GameFinishApi extends BaseApi {
     String id,
     DateDTO dateDTO,
   ) async {
-    final response = await postGameFinishWithHttpInfo(
+    await postGameFinishWithHttpInfo(
       id,
       dateDTO,
     );
-    await checkEmptyResponse(response);
   }
 }

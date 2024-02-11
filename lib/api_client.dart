@@ -28,9 +28,61 @@ class ApiClient {
     _defaultHeaderMap[key] = value;
   }
 
+  Future<Response> invokeAPI(
+    String path,
+    String method,
+    List<QueryParam> queryParams,
+    Object? body,
+    Map<String, String> headerParams,
+    Map<String, String> formParams,
+    String? contentType,
+  ) async {
+    final retry = RetryOptions(maxAttempts: 3);
+    return await retry.retry(
+      () async {
+        final Response response = await _invokeAPI(
+          path,
+          method,
+          queryParams,
+          body,
+          headerParams,
+          formParams,
+          contentType,
+        ).timeout(Duration(seconds: 10));
+
+        // Handle 401 without body from regular calls
+        if (response.statusCode == HttpStatus.unauthorized &&
+            response.body.isEmpty) {
+          throw UnauthorizedApiException(
+              HttpStatus.unauthorized, 'Access token not valid');
+        }
+        if (response.statusCode >= HttpStatus.badRequest) {
+          final errorMessage = await deserializeAsync(
+            await _decodeBodyBytes(response),
+            'ErrorMessage',
+          ) as ErrorMessage;
+          throw ApiException.fromServer(response.statusCode, errorMessage.error,
+              errorMessage.errorDescription);
+        }
+
+        return response;
+      },
+      retryIf: (error) =>
+          // If it's unauthorized and this client has authentication (retrying to refresh)
+          (error is UnauthorizedApiException && authentication != null) ||
+          // If it's a client error (retrying will not change response)
+          (error is ClientApiException),
+      onRetry: (error) async {
+        if (error is UnauthorizedApiException) {
+          await authentication!.onRefresh();
+        }
+      },
+    );
+  }
+
   // We don't use a Map<String, String> for queryParams.
   // If collectionFormat is 'multi', a key might appear multiple times.
-  Future<Response> invokeAPI(
+  Future<Response> _invokeAPI(
     String path,
     String method,
     List<QueryParam> queryParams,
@@ -164,11 +216,9 @@ class ApiClient {
     bool growable = false,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
-      deserialize(value, targetType, growable: growable);
+      _deserialize(value, targetType, growable: growable);
 
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(
+  dynamic _deserialize(
     String value,
     String targetType, {
     bool growable = false,
@@ -184,11 +234,9 @@ class ApiClient {
   }
 
   // ignore: deprecated_member_use_from_same_package
-  Future<String> serializeAsync(Object? value) async => serialize(value);
+  Future<String> serializeAsync(Object? value) async => _serialize(value);
 
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
-  String serialize(Object? value) => value == null ? '' : json.encode(value);
+  String _serialize(Object? value) => value == null ? '' : json.encode(value);
 
   /// Returns a native instance of an OpenAPI class matching the [specified type][targetType].
   static dynamic fromJson(

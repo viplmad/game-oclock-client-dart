@@ -41,10 +41,9 @@ class DLCsApi extends BaseApi {
   Future<void> deleteDlc(
     String id,
   ) async {
-    final response = await deleteDlcWithHttpInfo(
+    await deleteDlcWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/cover' operation and returns the [Response].
@@ -85,10 +84,9 @@ class DLCsApi extends BaseApi {
   Future<void> deleteDlcCover(
     String id,
   ) async {
-    final response = await deleteDlcCoverWithHttpInfo(
+    await deleteDlcCoverWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'GET /api/v1/dlcs/{id}' operation and returns the [Response].
@@ -392,11 +390,10 @@ class DLCsApi extends BaseApi {
     String id,
     String otherId,
   ) async {
-    final response = await linkDlcGameWithHttpInfo(
+    await linkDlcGameWithHttpInfo(
       id,
       otherId,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/dlcs/{id}/platforms/{other_id}' operation and returns the [Response].
@@ -455,12 +452,11 @@ class DLCsApi extends BaseApi {
     String otherId,
     DateDTO dateDTO,
   ) async {
-    final response = await linkDlcPlatformWithHttpInfo(
+    await linkDlcPlatformWithHttpInfo(
       id,
       otherId,
       dateDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'POST /api/v1/dlcs' operation and returns the [Response].
@@ -559,11 +555,10 @@ class DLCsApi extends BaseApi {
     String id,
     MultipartFile file,
   ) async {
-    final response = await postDlcCoverWithHttpInfo(
+    await postDlcCoverWithHttpInfo(
       id,
       file,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/dlcs/{id}' operation and returns the [Response].
@@ -612,11 +607,10 @@ class DLCsApi extends BaseApi {
     String id,
     NewDLCDTO newDLCDTO,
   ) async {
-    final response = await putDlcWithHttpInfo(
+    await putDlcWithHttpInfo(
       id,
       newDLCDTO,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/dlcs/{id}/cover' operation and returns the [Response].
@@ -665,11 +659,10 @@ class DLCsApi extends BaseApi {
     String id,
     String body,
   ) async {
-    final response = await putDlcCoverWithHttpInfo(
+    await putDlcCoverWithHttpInfo(
       id,
       body,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/base-game' operation and returns the [Response].
@@ -710,10 +703,9 @@ class DLCsApi extends BaseApi {
   Future<void> unlinkDlcGame(
     String id,
   ) async {
-    final response = await unlinkDlcGameWithHttpInfo(
+    await unlinkDlcGameWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/dlcs/{id}/platforms/{other_id}' operation and returns the [Response].
@@ -764,10 +756,9 @@ class DLCsApi extends BaseApi {
     String id,
     String otherId,
   ) async {
-    final response = await unlinkDlcPlatformWithHttpInfo(
+    await unlinkDlcPlatformWithHttpInfo(
       id,
       otherId,
     );
-    await checkEmptyResponse(response);
   }
 }

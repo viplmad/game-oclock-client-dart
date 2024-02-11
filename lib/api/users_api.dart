@@ -48,11 +48,10 @@ class UsersApi extends BaseApi {
     String currentPassword,
     String newPassword,
   ) async {
-    final response = await changePasswordWithHttpInfo(
+    await changePasswordWithHttpInfo(
       currentPassword,
       newPassword,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'DELETE /api/v1/users/{id}' operation and returns the [Response].
@@ -93,10 +92,9 @@ class UsersApi extends BaseApi {
   Future<void> deleteUser(
     String id,
   ) async {
-    final response = await deleteUserWithHttpInfo(
+    await deleteUserWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/users/{id}/demote' operation and returns the [Response].
@@ -137,10 +135,9 @@ class UsersApi extends BaseApi {
   Future<void> demoteUser(
     String id,
   ) async {
-    final response = await demoteUserWithHttpInfo(
+    await demoteUserWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'GET /api/v1/myself' operation and returns the [Response].
@@ -379,10 +376,9 @@ class UsersApi extends BaseApi {
   Future<void> promoteUser(
     String id,
   ) async {
-    final response = await promoteUserWithHttpInfo(
+    await promoteUserWithHttpInfo(
       id,
     );
-    await checkEmptyResponse(response);
   }
 
   /// Performs an HTTP 'PUT /api/v1/users/{id}' operation and returns the [Response].
@@ -431,10 +427,9 @@ class UsersApi extends BaseApi {
     String id,
     NewUserDTO newUserDTO,
   ) async {
-    final response = await putUserWithHttpInfo(
+    await putUserWithHttpInfo(
       id,
       newUserDTO,
     );
-    await checkEmptyResponse(response);
   }
 }
