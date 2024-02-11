@@ -48,7 +48,7 @@ class ApiClient {
           headerParams,
           formParams,
           contentType,
-        );
+        ).timeout(Duration(seconds: 10));
 
         // Handle 401 without body from regular calls
         if (response.statusCode == HttpStatus.unauthorized &&
