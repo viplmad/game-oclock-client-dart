@@ -21,11 +21,11 @@ class GamesPlayedReviewDTO {
     this.totalTimeByWeekday = const {},
   });
 
-  GameLogDTO firstSession;
+  GamesLogDTO firstSession;
 
   List<GamePlayedReviewDTO> games;
 
-  GameLogDTO lastSession;
+  GamesLogDTO lastSession;
 
   GamesLogDTO longestSession;
 
