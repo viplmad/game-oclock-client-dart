@@ -25,12 +25,8 @@ Method | HTTP request | Description
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = DLCFinishApi();
 final id = id_example; // String | DLC id
@@ -56,7 +52,7 @@ void (empty response body)
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -73,12 +69,8 @@ void (empty response body)
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = DLCFinishApi();
 final id = id_example; // String | DLC id
@@ -103,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -120,12 +112,8 @@ Name | Type | Description  | Notes
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = DLCFinishApi();
 final id = id_example; // String | DLC id
@@ -150,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -167,12 +155,8 @@ Name | Type | Description  | Notes
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = DLCFinishApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
@@ -203,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -220,12 +204,8 @@ Name | Type | Description  | Notes
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = DLCFinishApi();
 final searchDTO = SearchDTO(); // SearchDTO | Query
@@ -256,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -273,12 +253,8 @@ Name | Type | Description  | Notes
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
-// TODO Configure HTTP Bearer authorization: bearer_token
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearer_token').setAccessToken(yourTokenGeneratorFunction);
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = DLCFinishApi();
 final id = id_example; // String | DLC id
@@ -304,7 +280,7 @@ void (empty response body)
 
 ### Authorization
 
-[bearer_token](../README.md#bearer_token)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

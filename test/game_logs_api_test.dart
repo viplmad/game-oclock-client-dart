@@ -10,7 +10,6 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for GameLogsApi
 void main() {
   // final instance = GameLogsApi();
@@ -55,6 +54,5 @@ void main() {
     test('test postGameLog', () async {
       // TODO
     });
-
   });
 }

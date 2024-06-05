@@ -15,8 +15,18 @@ void main() {
   // final instance = GamesPlayedReviewDTO();
 
   group('test GamesPlayedReviewDTO', () {
+    // GamesLogDTO firstSession
+    test('to test the property `firstSession`', () async {
+      // TODO
+    });
+
     // List<GamePlayedReviewDTO> games (default value: const [])
     test('to test the property `games`', () async {
+      // TODO
+    });
+
+    // GamesLogDTO lastSession
+    test('to test the property `lastSession`', () async {
       // TODO
     });
 
@@ -65,12 +75,24 @@ void main() {
       // TODO
     });
 
-    // Map<String, String> totalTimeGrouped (default value: const {})
-    test('to test the property `totalTimeGrouped`', () async {
+    // Map<String, String> totalTimeByHour (default value: const {})
+    test('to test the property `totalTimeByHour`', () async {
       // TODO
     });
 
+    // Map<String, String> totalTimeByMonth (default value: const {})
+    test('to test the property `totalTimeByMonth`', () async {
+      // TODO
+    });
 
+    // Map<String, String> totalTimeByWeek (default value: const {})
+    test('to test the property `totalTimeByWeek`', () async {
+      // TODO
+    });
+
+    // Map<String, String> totalTimeByWeekday (default value: const {})
+    test('to test the property `totalTimeByWeekday`', () async {
+      // TODO
+    });
   });
-
 }

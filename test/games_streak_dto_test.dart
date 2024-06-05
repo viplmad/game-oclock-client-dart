@@ -34,8 +34,5 @@ void main() {
     test('to test the property `startDate`', () async {
       // TODO
     });
-
-
   });
-
 }

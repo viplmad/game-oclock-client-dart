@@ -10,7 +10,6 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for HealthCheckApi
 void main() {
   // final instance = HealthCheckApi();
@@ -20,6 +19,5 @@ void main() {
     test('test health', () async {
       // TODO
     });
-
   });
 }

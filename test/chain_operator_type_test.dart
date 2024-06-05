@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for ChainOperatorType
 void main() {
-
-  group('test ChainOperatorType', () {
-
-  });
-
+  group('test ChainOperatorType', () {});
 }

@@ -45,8 +45,8 @@ void main() {
       // TODO
     });
 
-    // DateTime firstPlayStartDatetime
-    test('to test the property `firstPlayStartDatetime`', () async {
+    // GameLogDTO firstSession
+    test('to test the property `firstSession`', () async {
       // TODO
     });
 
@@ -55,8 +55,8 @@ void main() {
       // TODO
     });
 
-    // DateTime lastPlayStartDatetime
-    test('to test the property `lastPlayStartDatetime`', () async {
+    // GameLogDTO lastSession
+    test('to test the property `lastSession`', () async {
       // TODO
     });
 
@@ -115,8 +115,23 @@ void main() {
       // TODO
     });
 
-    // Map<String, String> totalTimeGrouped (default value: const {})
-    test('to test the property `totalTimeGrouped`', () async {
+    // Map<String, String> totalTimeByHour (default value: const {})
+    test('to test the property `totalTimeByHour`', () async {
+      // TODO
+    });
+
+    // Map<String, String> totalTimeByMonth (default value: const {})
+    test('to test the property `totalTimeByMonth`', () async {
+      // TODO
+    });
+
+    // Map<String, String> totalTimeByWeek (default value: const {})
+    test('to test the property `totalTimeByWeek`', () async {
+      // TODO
+    });
+
+    // Map<String, String> totalTimeByWeekday (default value: const {})
+    test('to test the property `totalTimeByWeekday`', () async {
       // TODO
     });
 
@@ -124,8 +139,5 @@ void main() {
     test('to test the property `updatedDatetime`', () async {
       // TODO
     });
-
-
   });
-
 }

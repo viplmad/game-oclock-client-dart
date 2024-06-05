@@ -3,7 +3,9 @@ part of n2t.game_oclock.client;
 class GamesPlayedReviewDTO {
   /// Returns a new [GamesPlayedReviewDTO] instance.
   GamesPlayedReviewDTO({
+    required this.firstSession,
     this.games = const [],
+    required this.lastSession,
     required this.longestSession,
     required this.longestStreak,
     required this.totalFirstPlayed,
@@ -13,10 +15,17 @@ class GamesPlayedReviewDTO {
     this.totalRatedByRating = const {},
     required this.totalSessions,
     required this.totalTime,
-    this.totalTimeGrouped = const {},
+    this.totalTimeByHour = const {},
+    this.totalTimeByMonth = const {},
+    this.totalTimeByWeek = const {},
+    this.totalTimeByWeekday = const {},
   });
 
+  GameLogDTO firstSession;
+
   List<GamePlayedReviewDTO> games;
+
+  GameLogDTO lastSession;
 
   GamesLogDTO longestSession;
 
@@ -36,13 +45,21 @@ class GamesPlayedReviewDTO {
 
   Duration totalTime;
 
-  Map<int, Duration> totalTimeGrouped;
+  Map<int, Duration> totalTimeByHour;
+
+  Map<int, Duration> totalTimeByMonth;
+
+  Map<int, Duration> totalTimeByWeek;
+
+  Map<int, Duration> totalTimeByWeekday;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is GamesPlayedReviewDTO &&
+          other.firstSession == firstSession &&
           _deepEquality.equals(other.games, games) &&
+          other.lastSession == lastSession &&
           other.longestSession == longestSession &&
           other.longestStreak == longestStreak &&
           other.totalFirstPlayed == totalFirstPlayed &&
@@ -53,12 +70,17 @@ class GamesPlayedReviewDTO {
           _deepEquality.equals(other.totalRatedByRating, totalRatedByRating) &&
           other.totalSessions == totalSessions &&
           other.totalTime == totalTime &&
-          _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped);
+          _deepEquality.equals(other.totalTimeByHour, totalTimeByHour) &&
+          _deepEquality.equals(other.totalTimeByMonth, totalTimeByMonth) &&
+          _deepEquality.equals(other.totalTimeByWeek, totalTimeByWeek) &&
+          _deepEquality.equals(other.totalTimeByWeekday, totalTimeByWeekday);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
+      (firstSession.hashCode) +
       (games.hashCode) +
+      (lastSession.hashCode) +
       (longestSession.hashCode) +
       (longestStreak.hashCode) +
       (totalFirstPlayed.hashCode) +
@@ -68,15 +90,20 @@ class GamesPlayedReviewDTO {
       (totalRatedByRating.hashCode) +
       (totalSessions.hashCode) +
       (totalTime.hashCode) +
-      (totalTimeGrouped.hashCode);
+      (totalTimeByHour.hashCode) +
+      (totalTimeByMonth.hashCode) +
+      (totalTimeByWeek.hashCode) +
+      (totalTimeByWeekday.hashCode);
 
   @override
   String toString() =>
-      'GamesPlayedReviewDTO[games=$games, longestSession=$longestSession, longestStreak=$longestStreak, totalFirstPlayed=$totalFirstPlayed, totalPlayed=$totalPlayed, totalPlayedByReleaseYear=$totalPlayedByReleaseYear, totalRated=$totalRated, totalRatedByRating=$totalRatedByRating, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped]';
+      'GamesPlayedReviewDTO[firstSession=$firstSession, games=$games, lastSession=$lastSession, longestSession=$longestSession, longestStreak=$longestStreak, totalFirstPlayed=$totalFirstPlayed, totalPlayed=$totalPlayed, totalPlayedByReleaseYear=$totalPlayedByReleaseYear, totalRated=$totalRated, totalRatedByRating=$totalRatedByRating, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeByHour=$totalTimeByHour, totalTimeByMonth=$totalTimeByMonth, totalTimeByWeek=$totalTimeByWeek, totalTimeByWeekday=$totalTimeByWeekday]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'first_session'] = this.firstSession;
     json[r'games'] = this.games;
+    json[r'last_session'] = this.lastSession;
     json[r'longest_session'] = this.longestSession;
     json[r'longest_streak'] = this.longestStreak;
     json[r'total_first_played'] = this.totalFirstPlayed;
@@ -85,8 +112,11 @@ class GamesPlayedReviewDTO {
     json[r'total_rated'] = this.totalRated;
     json[r'total_rated_by_rating'] = this.totalRatedByRating;
     json[r'total_sessions'] = this.totalSessions;
-    json[r'total_time'] = this.totalTime.toIso8601String();
-    json[r'total_time_grouped'] = this.totalTimeGrouped;
+    json[r'total_time'] = this.totalTime;
+    json[r'total_time_by_hour'] = this.totalTimeByHour;
+    json[r'total_time_by_month'] = this.totalTimeByMonth;
+    json[r'total_time_by_week'] = this.totalTimeByWeek;
+    json[r'total_time_by_weekday'] = this.totalTimeByWeekday;
     return json;
   }
 
@@ -111,7 +141,9 @@ class GamesPlayedReviewDTO {
       }());
 
       return GamesPlayedReviewDTO(
+        firstSession: GamesLogDTO.fromJson(json[r'first_session'])!,
         games: GamePlayedReviewDTO.listFromJson(json[r'games']),
+        lastSession: GamesLogDTO.fromJson(json[r'last_session'])!,
         longestSession: GamesLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GamesStreakDTO.fromJson(json[r'longest_streak'])!,
         totalFirstPlayed: mapValueOfType<int>(json, r'total_first_played')!,
@@ -129,7 +161,13 @@ class GamesPlayedReviewDTO {
             (v) => mapValueOfType<int>({'temp': v}, 'temp')!)!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
         totalTime: mapDuration(json, r'total_time')!,
-        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped',
+        totalTimeByHour: mapMapOfType(json, r'total_time_by_hour',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeByMonth: mapMapOfType(json, r'total_time_by_month',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeByWeek: mapMapOfType(json, r'total_time_by_week',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeByWeekday: mapMapOfType(json, r'total_time_by_weekday',
             (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
       );
     }
@@ -187,7 +225,9 @@ class GamesPlayedReviewDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'first_session',
     'games',
+    'last_session',
     'longest_session',
     'longest_streak',
     'total_first_played',
@@ -197,6 +237,9 @@ class GamesPlayedReviewDTO {
     'total_rated_by_rating',
     'total_sessions',
     'total_time',
-    'total_time_grouped',
+    'total_time_by_hour',
+    'total_time_by_month',
+    'total_time_by_week',
+    'total_time_by_weekday',
   };
 }

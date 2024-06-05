@@ -10,7 +10,6 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for PlatformsApi
 void main() {
   // final instance = PlatformsApi();
@@ -65,6 +64,5 @@ void main() {
     test('test putPlatformIcon', () async {
       // TODO
     });
-
   });
 }

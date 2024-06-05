@@ -8,7 +8,9 @@ import 'package:game_oclock_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**firstSession** | [**GamesLogDTO**](GamesLogDTO.md) |  | 
 **games** | [**List<GamePlayedReviewDTO>**](GamePlayedReviewDTO.md) |  | [default to const []]
+**lastSession** | [**GamesLogDTO**](GamesLogDTO.md) |  | 
 **longestSession** | [**GamesLogDTO**](GamesLogDTO.md) |  | 
 **longestStreak** | [**GamesStreakDTO**](GamesStreakDTO.md) |  | 
 **totalFirstPlayed** | **int** |  | 
@@ -18,7 +20,10 @@ Name | Type | Description | Notes
 **totalRatedByRating** | **Map<String, int>** |  | [default to const {}]
 **totalSessions** | **int** |  | 
 **totalTime** | **String** |  | 
-**totalTimeGrouped** | **Map<String, String>** |  | [default to const {}]
+**totalTimeByHour** | **Map<String, String>** |  | [default to const {}]
+**totalTimeByMonth** | **Map<String, String>** |  | [default to const {}]
+**totalTimeByWeek** | **Map<String, String>** |  | [default to const {}]
+**totalTimeByWeekday** | **Map<String, String>** |  | [default to const {}]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

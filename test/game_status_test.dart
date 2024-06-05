@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for GameStatus
 void main() {
-
-  group('test GameStatus', () {
-
-  });
-
+  group('test GameStatus', () {});
 }

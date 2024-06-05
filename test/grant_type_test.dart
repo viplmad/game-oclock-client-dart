@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for GrantType
 void main() {
-
-  group('test GrantType', () {
-
-  });
-
+  group('test GrantType', () {});
 }

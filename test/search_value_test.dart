@@ -14,8 +14,5 @@ import 'package:test/test.dart';
 void main() {
   // final instance = SearchValue();
 
-  group('test SearchValue', () {
-
-  });
-
+  group('test SearchValue', () {});
 }

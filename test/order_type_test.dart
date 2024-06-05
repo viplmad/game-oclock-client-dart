@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for OrderType
 void main() {
-
-  group('test OrderType', () {
-
-  });
-
+  group('test OrderType', () {});
 }

@@ -10,7 +10,6 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for DLCsApi
 void main() {
   // final instance = DLCsApi();
@@ -90,6 +89,5 @@ void main() {
     test('test unlinkDlcPlatform', () async {
       // TODO
     });
-
   });
 }

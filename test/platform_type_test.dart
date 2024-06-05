@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for PlatformType
 void main() {
-
-  group('test PlatformType', () {
-
-  });
-
+  group('test PlatformType', () {});
 }

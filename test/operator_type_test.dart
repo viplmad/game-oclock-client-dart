@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for OperatorType
 void main() {
-
-  group('test OperatorType', () {
-
-  });
-
+  group('test OperatorType', () {});
 }

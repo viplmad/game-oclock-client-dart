@@ -19,8 +19,5 @@ void main() {
     test('to test the property `date`', () async {
       // TODO
     });
-
-
   });
-
 }

@@ -9,9 +9,9 @@ class GamePlayedReviewDTO extends GameDTO {
     super.coverUrl,
     required super.edition,
     required this.firstPlayed,
-    required this.firstPlayStartDatetime,
+    required this.firstSession,
     required super.id,
-    required this.lastPlayStartDatetime,
+    required this.lastSession,
     required this.longestSession,
     required this.longestStreak,
     required super.name,
@@ -23,15 +23,18 @@ class GamePlayedReviewDTO extends GameDTO {
     required super.status,
     required this.totalSessions,
     required this.totalTime,
-    this.totalTimeGrouped = const {},
+    this.totalTimeByHour = const {},
+    this.totalTimeByMonth = const {},
+    this.totalTimeByWeek = const {},
+    this.totalTimeByWeekday = const {},
     required super.updatedDatetime,
   });
 
   bool firstPlayed;
 
-  DateTime firstPlayStartDatetime;
+  GameLogDTO firstSession;
 
-  DateTime lastPlayStartDatetime;
+  GameLogDTO lastSession;
 
   GameLogDTO longestSession;
 
@@ -41,7 +44,13 @@ class GamePlayedReviewDTO extends GameDTO {
 
   Duration totalTime;
 
-  Map<int, Duration> totalTimeGrouped;
+  Map<int, Duration> totalTimeByHour;
+
+  Map<int, Duration> totalTimeByMonth;
+
+  Map<int, Duration> totalTimeByWeek;
+
+  Map<int, Duration> totalTimeByWeekday;
 
   @override
   bool operator ==(Object other) =>
@@ -53,9 +62,9 @@ class GamePlayedReviewDTO extends GameDTO {
           other.coverUrl == coverUrl &&
           other.edition == edition &&
           other.firstPlayed == firstPlayed &&
-          other.firstPlayStartDatetime == firstPlayStartDatetime &&
+          other.firstSession == firstSession &&
           other.id == id &&
-          other.lastPlayStartDatetime == lastPlayStartDatetime &&
+          other.lastSession == lastSession &&
           other.longestSession == longestSession &&
           other.longestStreak == longestStreak &&
           other.name == name &&
@@ -67,7 +76,10 @@ class GamePlayedReviewDTO extends GameDTO {
           other.status == status &&
           other.totalSessions == totalSessions &&
           other.totalTime == totalTime &&
-          _deepEquality.equals(other.totalTimeGrouped, totalTimeGrouped) &&
+          _deepEquality.equals(other.totalTimeByHour, totalTimeByHour) &&
+          _deepEquality.equals(other.totalTimeByMonth, totalTimeByMonth) &&
+          _deepEquality.equals(other.totalTimeByWeek, totalTimeByWeek) &&
+          _deepEquality.equals(other.totalTimeByWeekday, totalTimeByWeekday) &&
           other.updatedDatetime == updatedDatetime;
 
   @override
@@ -79,9 +91,9 @@ class GamePlayedReviewDTO extends GameDTO {
       (coverUrl == null ? 0 : coverUrl!.hashCode) +
       (edition.hashCode) +
       (firstPlayed.hashCode) +
-      (firstPlayStartDatetime.hashCode) +
+      (firstSession.hashCode) +
       (id.hashCode) +
-      (lastPlayStartDatetime.hashCode) +
+      (lastSession.hashCode) +
       (longestSession.hashCode) +
       (longestStreak.hashCode) +
       (name.hashCode) +
@@ -93,12 +105,15 @@ class GamePlayedReviewDTO extends GameDTO {
       (status.hashCode) +
       (totalSessions.hashCode) +
       (totalTime.hashCode) +
-      (totalTimeGrouped.hashCode) +
+      (totalTimeByHour.hashCode) +
+      (totalTimeByMonth.hashCode) +
+      (totalTimeByWeek.hashCode) +
+      (totalTimeByWeekday.hashCode) +
       (updatedDatetime.hashCode);
 
   @override
   String toString() =>
-      'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, firstPlayStartDatetime=$firstPlayStartDatetime, id=$id, lastPlayStartDatetime=$lastPlayStartDatetime, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeGrouped=$totalTimeGrouped, updatedDatetime=$updatedDatetime]';
+      'GamePlayedReviewDTO[addedDatetime=$addedDatetime, backup=$backup, coverFilename=$coverFilename, coverUrl=$coverUrl, edition=$edition, firstPlayed=$firstPlayed, firstSession=$firstSession, id=$id, lastSession=$lastSession, longestSession=$longestSession, longestStreak=$longestStreak, name=$name, notes=$notes, rating=$rating, releaseYear=$releaseYear, saveFolder=$saveFolder, screenshotFolder=$screenshotFolder, status=$status, totalSessions=$totalSessions, totalTime=$totalTime, totalTimeByHour=$totalTimeByHour, totalTimeByMonth=$totalTimeByMonth, totalTimeByWeek=$totalTimeByWeek, totalTimeByWeekday=$totalTimeByWeekday, updatedDatetime=$updatedDatetime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -116,11 +131,9 @@ class GamePlayedReviewDTO extends GameDTO {
     }
     json[r'edition'] = this.edition;
     json[r'first_played'] = this.firstPlayed;
-    json[r'first_play_start_datetime'] =
-        this.firstPlayStartDatetime.toIso8601String();
+    json[r'first_session'] = this.firstSession;
     json[r'id'] = this.id;
-    json[r'last_play_start_datetime'] =
-        this.lastPlayStartDatetime.toIso8601String();
+    json[r'last_session'] = this.lastSession;
     json[r'longest_session'] = this.longestSession;
     json[r'longest_streak'] = this.longestStreak;
     json[r'name'] = this.name;
@@ -135,8 +148,11 @@ class GamePlayedReviewDTO extends GameDTO {
     json[r'screenshot_folder'] = this.screenshotFolder;
     json[r'status'] = this.status;
     json[r'total_sessions'] = this.totalSessions;
-    json[r'total_time'] = this.totalTime.toIso8601String();
-    json[r'total_time_grouped'] = this.totalTimeGrouped;
+    json[r'total_time'] = this.totalTime;
+    json[r'total_time_by_hour'] = this.totalTimeByHour;
+    json[r'total_time_by_month'] = this.totalTimeByMonth;
+    json[r'total_time_by_week'] = this.totalTimeByWeek;
+    json[r'total_time_by_weekday'] = this.totalTimeByWeekday;
     json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
@@ -168,11 +184,9 @@ class GamePlayedReviewDTO extends GameDTO {
         coverUrl: mapValueOfType<String>(json, r'cover_url'),
         edition: mapValueOfType<String>(json, r'edition')!,
         firstPlayed: mapValueOfType<bool>(json, r'first_played')!,
-        firstPlayStartDatetime:
-            mapDateTime(json, r'first_play_start_datetime', r'')!,
+        firstSession: GameLogDTO.fromJson(json[r'first_session'])!,
         id: mapValueOfType<String>(json, r'id')!,
-        lastPlayStartDatetime:
-            mapDateTime(json, r'last_play_start_datetime', r'')!,
+        lastSession: GameLogDTO.fromJson(json[r'last_session'])!,
         longestSession: GameLogDTO.fromJson(json[r'longest_session'])!,
         longestStreak: GameStreakDTO.fromJson(json[r'longest_streak'])!,
         name: mapValueOfType<String>(json, r'name')!,
@@ -184,7 +198,13 @@ class GamePlayedReviewDTO extends GameDTO {
         status: GameStatus.fromJson(json[r'status'])!,
         totalSessions: mapValueOfType<int>(json, r'total_sessions')!,
         totalTime: mapDuration(json, r'total_time')!,
-        totalTimeGrouped: mapMapOfType(json, r'total_time_grouped',
+        totalTimeByHour: mapMapOfType(json, r'total_time_by_hour',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeByMonth: mapMapOfType(json, r'total_time_by_month',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeByWeek: mapMapOfType(json, r'total_time_by_week',
+            (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
+        totalTimeByWeekday: mapMapOfType(json, r'total_time_by_weekday',
             (k) => int.parse('$k'), (v) => mapDuration({'temp': v}, 'temp')!)!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
@@ -247,9 +267,9 @@ class GamePlayedReviewDTO extends GameDTO {
     'backup',
     'edition',
     'first_played',
-    'first_play_start_datetime',
+    'first_session',
     'id',
-    'last_play_start_datetime',
+    'last_session',
     'longest_session',
     'longest_streak',
     'name',
@@ -260,7 +280,10 @@ class GamePlayedReviewDTO extends GameDTO {
     'status',
     'total_sessions',
     'total_time',
-    'total_time_grouped',
+    'total_time_by_hour',
+    'total_time_by_month',
+    'total_time_by_week',
+    'total_time_by_weekday',
     'updated_datetime',
   };
 }

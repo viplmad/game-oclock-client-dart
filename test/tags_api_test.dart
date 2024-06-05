@@ -10,7 +10,6 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for TagsApi
 void main() {
   // final instance = TagsApi();
@@ -45,6 +44,5 @@ void main() {
     test('test putTag', () async {
       // TODO
     });
-
   });
 }

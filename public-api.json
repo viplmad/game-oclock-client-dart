@@ -4,7 +4,7 @@
     "title": "game-oclock-server",
     "description": "",
     "license": { "name": "" },
-    "version": "1.3.7"
+    "version": "1.4.0"
   },
   "paths": {
     "/api/v1/dlcs": {
@@ -70,7 +70,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/finished/first": {
@@ -150,7 +150,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/finished/last": {
@@ -230,7 +230,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/list": {
@@ -288,7 +288,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}": {
@@ -346,7 +346,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["DLCs"],
@@ -412,7 +412,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["DLCs"],
@@ -461,7 +461,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/base-game": {
@@ -519,7 +519,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["DLCs"],
@@ -576,7 +576,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/base-game/{other_id}": {
@@ -634,7 +634,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/cover": {
@@ -702,7 +702,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["DLCs"],
@@ -764,7 +764,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["DLCs"],
@@ -821,7 +821,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/finishes": {
@@ -882,7 +882,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "post": {
         "tags": ["DLCFinish"],
@@ -948,7 +948,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["DLCFinish"],
@@ -1006,7 +1006,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/finishes/first": {
@@ -1064,7 +1064,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/platforms": {
@@ -1127,7 +1127,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/dlcs/{id}/platforms/{other_id}": {
@@ -1202,7 +1202,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["DLCs"],
@@ -1266,7 +1266,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games": {
@@ -1332,7 +1332,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/finished/first": {
@@ -1412,7 +1412,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/finished/last": {
@@ -1492,7 +1492,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/finished/review": {
@@ -1549,7 +1549,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/list": {
@@ -1607,7 +1607,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/played": {
@@ -1665,7 +1665,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/played/first": {
@@ -1745,7 +1745,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/played/last": {
@@ -1825,7 +1825,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/played/review": {
@@ -1882,7 +1882,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}": {
@@ -1940,7 +1940,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["Games"],
@@ -2006,7 +2006,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Games"],
@@ -2055,7 +2055,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/cover": {
@@ -2123,7 +2123,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["Games"],
@@ -2185,7 +2185,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Games"],
@@ -2242,7 +2242,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/dlcs": {
@@ -2303,7 +2303,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/finishes": {
@@ -2364,7 +2364,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "post": {
         "tags": ["GameFinish"],
@@ -2430,7 +2430,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["GameFinish"],
@@ -2488,7 +2488,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/finishes/first": {
@@ -2546,7 +2546,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/logs": {
@@ -2607,7 +2607,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "post": {
         "tags": ["GameLogs"],
@@ -2673,7 +2673,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["GameLogs"],
@@ -2731,7 +2731,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/logs/total": {
@@ -2787,7 +2787,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/platforms": {
@@ -2850,7 +2850,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/platforms/{other_id}": {
@@ -2925,7 +2925,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Games"],
@@ -2989,7 +2989,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/tags": {
@@ -3050,7 +3050,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/games/{id}/tags/{other_id}": {
@@ -3116,7 +3116,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Games"],
@@ -3180,7 +3180,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/myself": {
@@ -3229,7 +3229,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/myself/change-password": {
@@ -3288,7 +3288,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/platforms": {
@@ -3354,7 +3354,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/platforms/list": {
@@ -3412,7 +3412,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/platforms/{id}": {
@@ -3470,7 +3470,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["Platforms"],
@@ -3536,7 +3536,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Platforms"],
@@ -3585,7 +3585,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/platforms/{id}/dlcs": {
@@ -3646,7 +3646,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/platforms/{id}/games": {
@@ -3707,7 +3707,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/platforms/{id}/icon": {
@@ -3775,7 +3775,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["Platforms"],
@@ -3837,7 +3837,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Platforms"],
@@ -3894,7 +3894,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/tags": {
@@ -3960,7 +3960,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/tags/list": {
@@ -4018,7 +4018,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/tags/{id}": {
@@ -4076,7 +4076,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["Tags"],
@@ -4142,7 +4142,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Tags"],
@@ -4191,7 +4191,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/tags/{id}/games": {
@@ -4252,7 +4252,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/users": {
@@ -4326,7 +4326,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/users/list": {
@@ -4384,7 +4384,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/users/{id}": {
@@ -4442,7 +4442,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "put": {
         "tags": ["Users"],
@@ -4508,7 +4508,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       },
       "delete": {
         "tags": ["Users"],
@@ -4557,7 +4557,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/users/{id}/demote": {
@@ -4616,7 +4616,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/api/v1/users/{id}/promote": {
@@ -4675,7 +4675,7 @@
             }
           }
         },
-        "security": [{ "bearer_token": [] }]
+        "security": [{ "OAuth2": [] }]
       }
     },
     "/auth/token": {
@@ -5021,14 +5021,17 @@
           "save_folder",
           "screenshot_folder",
           "backup",
+          "first_played",
           "longest_streak",
           "longest_session",
+          "first_session",
+          "last_session",
           "total_sessions",
           "total_time",
-          "total_time_grouped",
-          "first_played",
-          "first_play_start_datetime",
-          "last_play_start_datetime"
+          "total_time_by_month",
+          "total_time_by_week",
+          "total_time_by_weekday",
+          "total_time_by_hour"
         ],
         "properties": {
           "added_datetime": { "type": "string", "format": "date-time" },
@@ -5036,16 +5039,10 @@
           "cover_filename": { "type": "string", "nullable": true },
           "cover_url": { "type": "string", "nullable": true },
           "edition": { "type": "string" },
-          "first_play_start_datetime": {
-            "type": "string",
-            "format": "date-time"
-          },
           "first_played": { "type": "boolean" },
+          "first_session": { "$ref": "#/components/schemas/GameLogDTO" },
           "id": { "type": "string" },
-          "last_play_start_datetime": {
-            "type": "string",
-            "format": "date-time"
-          },
+          "last_session": { "$ref": "#/components/schemas/GameLogDTO" },
           "longest_session": { "$ref": "#/components/schemas/GameLogDTO" },
           "longest_streak": { "$ref": "#/components/schemas/GameStreakDTO" },
           "name": { "type": "string" },
@@ -5061,7 +5058,25 @@
           "status": { "$ref": "#/components/schemas/GameStatus" },
           "total_sessions": { "type": "integer", "format": "int32" },
           "total_time": { "type": "string" },
-          "total_time_grouped": {
+          "total_time_by_hour": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "total_time_by_month": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "total_time_by_week": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "total_time_by_weekday": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -5271,19 +5286,26 @@
           "total_first_played",
           "longest_streak",
           "longest_session",
+          "first_session",
+          "last_session",
           "total_sessions",
           "total_time",
-          "total_time_grouped",
+          "total_time_by_month",
+          "total_time_by_week",
+          "total_time_by_weekday",
+          "total_time_by_hour",
           "total_played_by_release_year",
           "total_rated",
           "total_rated_by_rating",
           "games"
         ],
         "properties": {
+          "first_session": { "$ref": "#/components/schemas/GamesLogDTO" },
           "games": {
             "type": "array",
             "items": { "$ref": "#/components/schemas/GamePlayedReviewDTO" }
           },
+          "last_session": { "$ref": "#/components/schemas/GamesLogDTO" },
           "longest_session": { "$ref": "#/components/schemas/GamesLogDTO" },
           "longest_streak": { "$ref": "#/components/schemas/GamesStreakDTO" },
           "total_first_played": { "type": "integer", "format": "int32" },
@@ -5299,7 +5321,25 @@
           },
           "total_sessions": { "type": "integer", "format": "int32" },
           "total_time": { "type": "string" },
-          "total_time_grouped": {
+          "total_time_by_hour": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "total_time_by_month": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "total_time_by_week": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "total_time_by_weekday": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -5582,10 +5622,15 @@
       }
     },
     "securitySchemes": {
-      "bearer_token": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "password": {
+            "tokenUrl": "/auth/token",
+            "scopes": { "read": "read", "write": "write" }
+          }
+        },
+        "description": "OAuth2 flow"
       }
     }
   }
