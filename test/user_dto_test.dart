@@ -1,6 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=3.9
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -20,13 +21,13 @@ void main() {
       // TODO
     });
 
-    // bool admin
-    test('to test the property `admin`', () async {
+    // String id
+    test('to test the property `id`', () async {
       // TODO
     });
 
-    // String id
-    test('to test the property `id`', () async {
+    // String role
+    test('to test the property `role`', () async {
       // TODO
     });
 
@@ -39,5 +40,8 @@ void main() {
     test('to test the property `username`', () async {
       // TODO
     });
+
+
   });
+
 }

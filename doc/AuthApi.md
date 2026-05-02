@@ -9,23 +9,23 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**token**](AuthApi.md#token) | **POST** /auth/token | 
+[**token**](AuthApi.md#token) | **POST** /auth/token | Authenticate through OAuth flow
 
 
 # **token**
 > TokenResponse token(grantType, password, refreshToken, username)
 
-
+Authenticate through OAuth flow
 
 ### Example
 ```dart
 import 'package:game_oclock_client/api.dart';
 
 final api_instance = AuthApi();
-final grantType = ; // GrantType | 
-final password = password_example; // String | 
-final refreshToken = refreshToken_example; // String | 
-final username = username_example; // String | 
+final grantType = ; // GrantType | Grant type
+final password = password_example; // String | Password (used in password grant type)
+final refreshToken = refreshToken_example; // String | Refresh token (used in refresh_token grant type)
+final username = username_example; // String | Username (used in password grant type)
 
 try {
     final result = api_instance.token(grantType, password, refreshToken, username);
@@ -39,10 +39,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantType** | [**GrantType**](GrantType.md)|  | 
- **password** | **String**|  | [optional] 
- **refreshToken** | **String**|  | [optional] 
- **username** | **String**|  | [optional] 
+ **grantType** | [**GrantType**](GrantType.md)| Grant type | 
+ **password** | **String**| Password (used in password grant type) | [optional] 
+ **refreshToken** | **String**| Refresh token (used in refresh_token grant type) | [optional] 
+ **username** | **String**| Username (used in password grant type) | [optional] 
 
 ### Return type
 

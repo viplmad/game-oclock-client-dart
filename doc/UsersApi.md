@@ -9,21 +9,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changePassword**](UsersApi.md#changepassword) | **PUT** /api/v1/myself/change-password | 
-[**deleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/v1/users/{id} | 
-[**demoteUser**](UsersApi.md#demoteuser) | **PUT** /api/v1/users/{id}/demote | 
-[**getCurrentUser**](UsersApi.md#getcurrentuser) | **GET** /api/v1/myself | 
-[**getUser**](UsersApi.md#getuser) | **GET** /api/v1/users/{id} | 
-[**getUsers**](UsersApi.md#getusers) | **POST** /api/v1/users/list | 
-[**postUser**](UsersApi.md#postuser) | **POST** /api/v1/users | 
-[**promoteUser**](UsersApi.md#promoteuser) | **PUT** /api/v1/users/{id}/promote | 
-[**putUser**](UsersApi.md#putuser) | **PUT** /api/v1/users/{id} | 
+[**aggregateUsers**](UsersApi.md#aggregateusers) | **POST** /api/v1/users/aggregate | Aggregate users
+[**changePassword**](UsersApi.md#changepassword) | **PUT** /api/v1/users/{id}/change-password | Change a user password
+[**createUser**](UsersApi.md#createuser) | **POST** /api/v1/users | Create a user
+[**deleteUser**](UsersApi.md#deleteuser) | **DELETE** /api/v1/users/{id} | Delete a user
+[**demoteUser**](UsersApi.md#demoteuser) | **PUT** /api/v1/users/{id}/demote | Demote a user
+[**getCurrentUser**](UsersApi.md#getcurrentuser) | **GET** /api/v1/myself | Get current user
+[**getUser**](UsersApi.md#getuser) | **GET** /api/v1/users/{id} | Get a user
+[**getUsers**](UsersApi.md#getusers) | **POST** /api/v1/users/list | Search users
+[**promoteUser**](UsersApi.md#promoteuser) | **PUT** /api/v1/users/{id}/promote | Promote a user
+[**updateUser**](UsersApi.md#updateuser) | **PUT** /api/v1/users/{id} | Update a user
 
 
-# **changePassword**
-> changePassword(currentPassword, newPassword)
+# **aggregateUsers**
+> AggregateResultDTO aggregateUsers(aggregateSearchDTO, q)
 
-
+Aggregate users
 
 ### Example
 ```dart
@@ -32,11 +33,57 @@ import 'package:game_oclock_client/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = UsersApi();
+final aggregateSearchDTO = AggregateSearchDTO(); // AggregateSearchDTO | Query
+final q = q_example; // String | 
+
+try {
+    final result = api_instance.aggregateUsers(aggregateSearchDTO, q);
+    print(result);
+} catch (e) {
+    print('Exception when calling UsersApi->aggregateUsers: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **aggregateSearchDTO** | [**AggregateSearchDTO**](AggregateSearchDTO.md)| Query | 
+ **q** | **String**|  | [optional] 
+
+### Return type
+
+[**AggregateResultDTO**](AggregateResultDTO.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **changePassword**
+> changePassword(id, currentPassword, newPassword)
+
+Change a user password
+
+### Example
+```dart
+import 'package:game_oclock_client/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = UsersApi();
+final id = id_example; // String | User id
 final currentPassword = currentPassword_example; // String | 
 final newPassword = newPassword_example; // String | 
 
 try {
-    api_instance.changePassword(currentPassword, newPassword);
+    api_instance.changePassword(id, currentPassword, newPassword);
 } catch (e) {
     print('Exception when calling UsersApi->changePassword: $e\n');
 }
@@ -46,6 +93,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **String**| User id | 
  **currentPassword** | **String**|  | 
  **newPassword** | **String**|  | 
 
@@ -64,10 +112,55 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **createUser**
+> String createUser(password, newUserDTO)
+
+Create a user
+
+### Example
+```dart
+import 'package:game_oclock_client/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = UsersApi();
+final password = password_example; // String | 
+final newUserDTO = NewUserDTO(); // NewUserDTO | User to be created
+
+try {
+    final result = api_instance.createUser(password, newUserDTO);
+    print(result);
+} catch (e) {
+    print('Exception when calling UsersApi->createUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**|  | 
+ **newUserDTO** | [**NewUserDTO**](NewUserDTO.md)| User to be created | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteUser**
 > deleteUser(id)
 
-
+Delete a user
 
 ### Example
 ```dart
@@ -109,7 +202,7 @@ void (empty response body)
 # **demoteUser**
 > demoteUser(id)
 
-
+Demote a user
 
 ### Example
 ```dart
@@ -151,7 +244,7 @@ void (empty response body)
 # **getCurrentUser**
 > UserDTO getCurrentUser()
 
-
+Get current user
 
 ### Example
 ```dart
@@ -190,7 +283,7 @@ This endpoint does not need any parameter.
 # **getUser**
 > UserDTO getUser(id)
 
-
+Get a user
 
 ### Example
 ```dart
@@ -231,9 +324,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUsers**
-> UserPageResult getUsers(searchDTO, q)
+> PageResultDTO getUsers(listSearchDTO, q)
 
-
+Search users
 
 ### Example
 ```dart
@@ -242,11 +335,11 @@ import 'package:game_oclock_client/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = UsersApi();
-final searchDTO = SearchDTO(); // SearchDTO | Query
+final listSearchDTO = ListSearchDTO(); // ListSearchDTO | Query
 final q = q_example; // String | 
 
 try {
-    final result = api_instance.getUsers(searchDTO, q);
+    final result = api_instance.getUsers(listSearchDTO, q);
     print(result);
 } catch (e) {
     print('Exception when calling UsersApi->getUsers: $e\n');
@@ -257,57 +350,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
+ **listSearchDTO** | [**ListSearchDTO**](ListSearchDTO.md)| Query | 
  **q** | **String**|  | [optional] 
 
 ### Return type
 
-[**UserPageResult**](UserPageResult.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **postUser**
-> UserDTO postUser(password, newUserDTO)
-
-
-
-### Example
-```dart
-import 'package:game_oclock_client/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2
-//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = UsersApi();
-final password = password_example; // String | 
-final newUserDTO = NewUserDTO(); // NewUserDTO | User to be created
-
-try {
-    final result = api_instance.postUser(password, newUserDTO);
-    print(result);
-} catch (e) {
-    print('Exception when calling UsersApi->postUser: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **password** | **String**|  | 
- **newUserDTO** | [**NewUserDTO**](NewUserDTO.md)| User to be created | 
-
-### Return type
-
-[**UserDTO**](UserDTO.md)
+[**PageResultDTO**](PageResultDTO.md)
 
 ### Authorization
 
@@ -323,7 +371,7 @@ Name | Type | Description  | Notes
 # **promoteUser**
 > promoteUser(id)
 
-
+Promote a user
 
 ### Example
 ```dart
@@ -362,10 +410,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **putUser**
-> putUser(id, newUserDTO)
+# **updateUser**
+> updateUser(id, newUserDTO)
 
-
+Update a user
 
 ### Example
 ```dart
@@ -378,9 +426,9 @@ final id = id_example; // String | User id
 final newUserDTO = NewUserDTO(); // NewUserDTO | User to be updated
 
 try {
-    api_instance.putUser(id, newUserDTO);
+    api_instance.updateUser(id, newUserDTO);
 } catch (e) {
-    print('Exception when calling UsersApi->putUser: $e\n');
+    print('Exception when calling UsersApi->updateUser: $e\n');
 }
 ```
 

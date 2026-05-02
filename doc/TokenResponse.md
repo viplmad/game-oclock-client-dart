@@ -8,10 +8,10 @@ import 'package:game_oclock_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessToken** | **String** |  | 
-**expiresIn** | **int** |  | 
-**refreshToken** | **String** |  | 
-**tokenType** | **String** |  | 
+**accessToken** | **String** | Access token | 
+**expiresIn** | **int** | Expires in | 
+**refreshToken** | **String** | Refresh token | 
+**tokenType** | **String** | Topke type | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

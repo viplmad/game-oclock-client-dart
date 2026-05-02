@@ -1,10 +1,17 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=3.9
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
 part of n2t.game_oclock.client;
 
 class ApiClient {
-  ApiClient({
-    this.basePath = 'http://localhost',
-    this.authentication,
-  });
+  ApiClient({this.basePath = 'http://localhost', this.authentication,});
 
   final String basePath;
   final Authentication? authentication;
@@ -25,9 +32,11 @@ class ApiClient {
   Map<String, String> get defaultHeaderMap => _defaultHeaderMap;
 
   void addDefaultHeader(String key, String value) {
-    _defaultHeaderMap[key] = value;
+     _defaultHeaderMap[key] = value;
   }
 
+  // We don't use a Map<String, String> for queryParams.
+  // If collectionFormat is 'multi', a key might appear multiple times.
   Future<Response> invokeAPI(
     String path,
     String method,
@@ -99,26 +108,25 @@ class ApiClient {
     }
 
     final urlEncodedQueryParams = queryParams.map((param) => '$param');
-    final queryString = urlEncodedQueryParams.isNotEmpty
-        ? '?${urlEncodedQueryParams.join('&')}'
-        : '';
+    final queryString = urlEncodedQueryParams.isNotEmpty ? '?${urlEncodedQueryParams.join('&')}' : '';
     final uri = Uri.parse('$basePath$path$queryString');
 
     try {
       // Special case for uploading a single file which isn't a 'multipart/form-data'.
-      if (body is MultipartFile &&
-          (contentType == null ||
-              !contentType.toLowerCase().startsWith('multipart/form-data'))) {
+      if (
+        body is MultipartFile && (contentType == null ||
+        !contentType.toLowerCase().startsWith('multipart/form-data'))
+      ) {
         final request = StreamedRequest(method, uri);
         request.headers.addAll(headerParams);
         request.contentLength = body.length;
         body.finalize().listen(
-              request.sink.add,
-              onDone: request.sink.close,
-              // ignore: avoid_types_on_closure_parameters
-              onError: (Object error, StackTrace trace) => request.sink.close(),
-              cancelOnError: true,
-            );
+          request.sink.add,
+          onDone: request.sink.close,
+          // ignore: avoid_types_on_closure_parameters
+          onError: (Object error, StackTrace trace) => request.sink.close(),
+          cancelOnError: true,
+        );
         final response = await _client.send(request);
         return Response.fromStream(response);
       }
@@ -134,45 +142,17 @@ class ApiClient {
       }
 
       final msgBody = contentType == 'application/x-www-form-urlencoded'
-          ? formParams
-          : await serializeAsync(body);
+        ? formParams
+        : await serializeAsync(body);
       final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
 
-      switch (method) {
-        case 'POST':
-          return await _client.post(
-            uri,
-            headers: nullableHeaderParams,
-            body: msgBody,
-          );
-        case 'PUT':
-          return await _client.put(
-            uri,
-            headers: nullableHeaderParams,
-            body: msgBody,
-          );
-        case 'DELETE':
-          return await _client.delete(
-            uri,
-            headers: nullableHeaderParams,
-            body: msgBody,
-          );
-        case 'PATCH':
-          return await _client.patch(
-            uri,
-            headers: nullableHeaderParams,
-            body: msgBody,
-          );
-        case 'HEAD':
-          return await _client.head(
-            uri,
-            headers: nullableHeaderParams,
-          );
-        case 'GET':
-          return await _client.get(
-            uri,
-            headers: nullableHeaderParams,
-          );
+      switch(method) {
+        case 'POST': return await _client.post(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'PUT': return await _client.put(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'DELETE': return await _client.delete(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'PATCH': return await _client.patch(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'HEAD': return await _client.head(uri, headers: nullableHeaderParams,);
+        case 'GET': return await _client.get(uri, headers: nullableHeaderParams,);
       }
     } on SocketException catch (error, trace) {
       throw ConnectionFailedApiException(
@@ -210,40 +190,29 @@ class ApiClient {
     throw Error();
   }
 
-  Future<dynamic> deserializeAsync(
-    String value,
-    String targetType, {
-    bool growable = false,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      _deserialize(value, targetType, growable: growable);
+  Future<dynamic> deserializeAsync(String value, String targetType, {bool growable = false,}) async =>
+    // ignore: deprecated_member_use_from_same_package
+    deserialize(value, targetType, growable: growable);
 
-  dynamic _deserialize(
-    String value,
-    String targetType, {
-    bool growable = false,
-  }) {
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(String value, String targetType, {bool growable = false,}) {
     // Remove all spaces. Necessary for regular expressions as well.
-    targetType =
-        targetType.replaceAll(' ', ''); // ignore: parameter_assignments
+    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
     // If the expected target type is String, nothing to do...
     return targetType == 'String'
-        ? value
-        : fromJson(json.decode(value), targetType, growable: growable);
+      ? value
+      : fromJson(json.decode(value), targetType, growable: growable);
   }
 
   // ignore: deprecated_member_use_from_same_package
-  Future<String> serializeAsync(Object? value) async => _serialize(value);
+  Future<String> serializeAsync(Object? value) async => serialize(value);
 
-  String _serialize(Object? value) => value == null ? '' : json.encode(value);
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
+  String serialize(Object? value) => value == null ? '' : json.encode(value);
 
   /// Returns a native instance of an OpenAPI class matching the [specified type][targetType].
-  static dynamic fromJson(
-    dynamic value,
-    String targetType, {
-    bool growable = false,
-  }) {
+  static dynamic fromJson(dynamic value, String targetType, {bool growable = false,}) {
     try {
       switch (targetType) {
         case 'String':
@@ -262,133 +231,174 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'Duration':
           return value is Duration ? value : DurationExtension.tryParse(value);
+        case 'AggregateCountMetricDTO':
+          return AggregateCountMetricDTO.fromJson(value);
+        case 'AggregateDateHistogramGroupDTO':
+          return AggregateDateHistogramGroupDTO.fromJson(value);
+        case 'AggregateFieldGroupDTO':
+          return AggregateFieldGroupDTO.fromJson(value);
+        case 'AggregateGroup':
+          return AggregateGroup.fromJson(value);
+        case 'AggregateGroupOneOf':
+          return AggregateGroupOneOf.fromJson(value);
+        case 'AggregateGroupOneOf1':
+          return AggregateGroupOneOf1.fromJson(value);
+        case 'AggregateGroupSearchDTO':
+          return AggregateGroupSearchDTO.fromJson(value);
+        case 'AggregateMetric':
+          return AggregateMetric.fromJson(value);
+        case 'AggregateMetricOneOf':
+          return AggregateMetricOneOf.fromJson(value);
+        case 'AggregateMetricOneOf1':
+          return AggregateMetricOneOf1.fromJson(value);
+        case 'AggregateResultDTO':
+          return AggregateResultDTO.fromJson(value);
+        case 'AggregateResultDTOOneOf':
+          return AggregateResultDTOOneOf.fromJson(value);
+        case 'AggregateResultDTOOneOf1':
+          return AggregateResultDTOOneOf1.fromJson(value);
+        case 'AggregateSearchDTO':
+          return AggregateSearchDTO.fromJson(value);
+        case 'AggregateSumMetricDTO':
+          return AggregateSumMetricDTO.fromJson(value);
+        case 'AvailableDTO':
+          return AvailableDTO.fromJson(value);
         case 'ChainOperatorType':
           return ChainOperatorTypeTypeTransformer().decode(value);
-        case 'DLCAvailableDTO':
-          return DLCAvailableDTO.fromJson(value);
-        case 'DLCDTO':
-          return DLCDTO.fromJson(value);
-        case 'DLCPageResult':
-          return DLCPageResult.fromJson(value);
-        case 'DLCWithFinishDTO':
-          return DLCWithFinishDTO.fromJson(value);
-        case 'DLCWithFinishPageResult':
-          return DLCWithFinishPageResult.fromJson(value);
-        case 'DateDTO':
-          return DateDTO.fromJson(value);
+        case 'DateHistogramInterval':
+          return DateHistogramIntervalTypeTransformer().decode(value);
         case 'DateTimeDTO':
           return DateTimeDTO.fromJson(value);
+        case 'DeviceDTO':
+          return DeviceDTO.fromJson(value);
         case 'ErrorMessage':
           return ErrorMessage.fromJson(value);
+        case 'ExternalMediaDataDTO':
+          return ExternalMediaDataDTO.fromJson(value);
+        case 'ExternalMediaIdDTO':
+          return ExternalMediaIdDTO.fromJson(value);
         case 'FilterDTO':
           return FilterDTO.fromJson(value);
-        case 'GameAvailableDTO':
-          return GameAvailableDTO.fromJson(value);
-        case 'GameDTO':
-          return GameDTO.fromJson(value);
-        case 'GameFinishedReviewDTO':
-          return GameFinishedReviewDTO.fromJson(value);
-        case 'GameLogDTO':
-          return GameLogDTO.fromJson(value);
-        case 'GamePageResult':
-          return GamePageResult.fromJson(value);
-        case 'GamePlayedReviewDTO':
-          return GamePlayedReviewDTO.fromJson(value);
-        case 'GameStatus':
-          return GameStatusTypeTransformer().decode(value);
-        case 'GameStreakDTO':
-          return GameStreakDTO.fromJson(value);
-        case 'GameWithFinishDTO':
-          return GameWithFinishDTO.fromJson(value);
-        case 'GameWithFinishPageResult':
-          return GameWithFinishPageResult.fromJson(value);
-        case 'GameWithLogDTO':
-          return GameWithLogDTO.fromJson(value);
-        case 'GameWithLogPageResult':
-          return GameWithLogPageResult.fromJson(value);
-        case 'GameWithLogsDTO':
-          return GameWithLogsDTO.fromJson(value);
-        case 'GamesFinishedReviewDTO':
-          return GamesFinishedReviewDTO.fromJson(value);
-        case 'GamesLogDTO':
-          return GamesLogDTO.fromJson(value);
-        case 'GamesPlayedReviewDTO':
-          return GamesPlayedReviewDTO.fromJson(value);
-        case 'GamesStreakDTO':
-          return GamesStreakDTO.fromJson(value);
+        case 'FilterDTOOneOf':
+          return FilterDTOOneOf.fromJson(value);
+        case 'FilterDTOOneOf1':
+          return FilterDTOOneOf1.fromJson(value);
+        case 'FilterDTOOneOf10':
+          return FilterDTOOneOf10.fromJson(value);
+        case 'FilterDTOOneOf11':
+          return FilterDTOOneOf11.fromJson(value);
+        case 'FilterDTOOneOf12':
+          return FilterDTOOneOf12.fromJson(value);
+        case 'FilterDTOOneOf13':
+          return FilterDTOOneOf13.fromJson(value);
+        case 'FilterDTOOneOf14':
+          return FilterDTOOneOf14.fromJson(value);
+        case 'FilterDTOOneOf15':
+          return FilterDTOOneOf15.fromJson(value);
+        case 'FilterDTOOneOf2':
+          return FilterDTOOneOf2.fromJson(value);
+        case 'FilterDTOOneOf3':
+          return FilterDTOOneOf3.fromJson(value);
+        case 'FilterDTOOneOf4':
+          return FilterDTOOneOf4.fromJson(value);
+        case 'FilterDTOOneOf5':
+          return FilterDTOOneOf5.fromJson(value);
+        case 'FilterDTOOneOf6':
+          return FilterDTOOneOf6.fromJson(value);
+        case 'FilterDTOOneOf7':
+          return FilterDTOOneOf7.fromJson(value);
+        case 'FilterDTOOneOf8':
+          return FilterDTOOneOf8.fromJson(value);
+        case 'FilterDTOOneOf9':
+          return FilterDTOOneOf9.fromJson(value);
         case 'GrantType':
           return GrantTypeTypeTransformer().decode(value);
-        case 'NewDLCDTO':
-          return NewDLCDTO.fromJson(value);
-        case 'NewGameDTO':
-          return NewGameDTO.fromJson(value);
-        case 'NewGameLogDTO':
-          return NewGameLogDTO.fromJson(value);
-        case 'NewPlatformDTO':
-          return NewPlatformDTO.fromJson(value);
+        case 'ListSearchDTO':
+          return ListSearchDTO.fromJson(value);
+        case 'LocationAvailableDTO':
+          return LocationAvailableDTO.fromJson(value);
+        case 'LocationDTO':
+          return LocationDTO.fromJson(value);
+        case 'MediaAvailableDTO':
+          return MediaAvailableDTO.fromJson(value);
+        case 'MediaDTO':
+          return MediaDTO.fromJson(value);
+        case 'MediaDataDTO':
+          return MediaDataDTO.fromJson(value);
+        case 'MediaSessionDTO':
+          return MediaSessionDTO.fromJson(value);
+        case 'MediaStateDTO':
+          return MediaStateDTO.fromJson(value);
+        case 'MediaStatus':
+          return MediaStatusTypeTransformer().decode(value);
+        case 'MediaTagDTO':
+          return MediaTagDTO.fromJson(value);
+        case 'MediaType':
+          return MediaTypeTypeTransformer().decode(value);
+        case 'MultipleValuesFilterDTO':
+          return MultipleValuesFilterDTO.fromJson(value);
+        case 'NewDeviceDTO':
+          return NewDeviceDTO.fromJson(value);
+        case 'NewLocationDTO':
+          return NewLocationDTO.fromJson(value);
+        case 'NewManualMediaDTO':
+          return NewManualMediaDTO.fromJson(value);
+        case 'NewMediaDTO':
+          return NewMediaDTO.fromJson(value);
+        case 'NewMediaStateDTO':
+          return NewMediaStateDTO.fromJson(value);
+        case 'NewMediaValue':
+          return NewMediaValue.fromJson(value);
+        case 'NewSessionDTO':
+          return NewSessionDTO.fromJson(value);
         case 'NewTagDTO':
           return NewTagDTO.fromJson(value);
         case 'NewUserDTO':
           return NewUserDTO.fromJson(value);
-        case 'OperatorType':
-          return OperatorTypeTypeTransformer().decode(value);
+        case 'NoValueFilterDTO':
+          return NoValueFilterDTO.fromJson(value);
+        case 'OrderDTO':
+          return OrderDTO.fromJson(value);
         case 'OrderType':
           return OrderTypeTypeTransformer().decode(value);
-        case 'PlatformAvailableDTO':
-          return PlatformAvailableDTO.fromJson(value);
-        case 'PlatformDTO':
-          return PlatformDTO.fromJson(value);
-        case 'PlatformPageResult':
-          return PlatformPageResult.fromJson(value);
-        case 'PlatformType':
-          return PlatformTypeTypeTransformer().decode(value);
-        case 'SearchDTO':
-          return SearchDTO.fromJson(value);
-        case 'SearchValue':
-          return SearchValue.fromJson(value);
+        case 'PageResultDTO':
+          return PageResultDTO.fromJson(value);
+        case 'PotentialMediaDTO':
+          return PotentialMediaDTO.fromJson(value);
+        case 'SessionDTO':
+          return SessionDTO.fromJson(value);
+        case 'SessionStreakDTO':
+          return SessionStreakDTO.fromJson(value);
+        case 'SingleValueFilterDTO':
+          return SingleValueFilterDTO.fromJson(value);
         case 'SortDTO':
           return SortDTO.fromJson(value);
         case 'TagDTO':
           return TagDTO.fromJson(value);
-        case 'TagPageResult':
-          return TagPageResult.fromJson(value);
+        case 'TagMediaDTO':
+          return TagMediaDTO.fromJson(value);
+        case 'TaggedDTO':
+          return TaggedDTO.fromJson(value);
         case 'TokenResponse':
           return TokenResponse.fromJson(value);
         case 'UserDTO':
           return UserDTO.fromJson(value);
-        case 'UserPageResult':
-          return UserPageResult.fromJson(value);
         default:
           dynamic match;
-          if (value is List &&
-              (match = _regList.firstMatch(targetType)?.group(1)) != null) {
+          if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
             return value
-                .map<dynamic>((dynamic v) => fromJson(
-                      v,
-                      match,
-                      growable: growable,
-                    ))
-                .toList(growable: growable);
+              .map<dynamic>((dynamic v) => fromJson(v, match, growable: growable,))
+              .toList(growable: growable);
           }
-          if (value is Set &&
-              (match = _regSet.firstMatch(targetType)?.group(1)) != null) {
+          if (value is Set && (match = _regSet.firstMatch(targetType)?.group(1)) != null) {
             return value
-                .map<dynamic>((dynamic v) => fromJson(
-                      v,
-                      match,
-                      growable: growable,
-                    ))
-                .toSet();
+              .map<dynamic>((dynamic v) => fromJson(v, match, growable: growable,))
+              .toSet();
           }
-          if (value is Map &&
-              (match = _regMap.firstMatch(targetType)?.group(1)) != null) {
+          if (value is Map && (match = _regMap.firstMatch(targetType)?.group(1)) != null) {
             return Map<String, dynamic>.fromIterables(
               value.keys.cast<String>(),
-              value.values.map<dynamic>((dynamic v) => fromJson(
-                    v,
-                    match,
-                    growable: growable,
-                  )),
+              value.values.map<dynamic>((dynamic v) => fromJson(v, match, growable: growable,)),
             );
           }
       }
@@ -428,7 +438,9 @@ Future<dynamic> decodeAsync(DeserializationMessage message) async {
   final targetType = message.targetType.replaceAll(' ', '');
 
   // If the expected target type is String, nothing to do...
-  return targetType == 'String' ? message.json : json.decode(message.json);
+  return targetType == 'String'
+    ? message.json
+    : json.decode(message.json);
 }
 
 /// Primarily intended for use in an isolate.
@@ -438,14 +450,13 @@ Future<dynamic> deserializeAsync(DeserializationMessage message) async {
 
   // If the expected target type is String, nothing to do...
   return targetType == 'String'
-      ? message.json
-      : ApiClient.fromJson(
-          json.decode(message.json),
-          targetType,
-          growable: message.growable,
-        );
+    ? message.json
+    : ApiClient.fromJson(
+        json.decode(message.json),
+        targetType,
+        growable: message.growable,
+      );
 }
 
 /// Primarily intended for use in an isolate.
-Future<String> serializeAsync(Object? value) async =>
-    value == null ? '' : json.encode(value);
+Future<String> serializeAsync(Object? value) async => value == null ? '' : json.encode(value);

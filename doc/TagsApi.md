@@ -9,18 +9,155 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTag**](TagsApi.md#deletetag) | **DELETE** /api/v1/tags/{id} | 
-[**getGameTags**](TagsApi.md#getgametags) | **GET** /api/v1/games/{id}/tags | 
-[**getTag**](TagsApi.md#gettag) | **GET** /api/v1/tags/{id} | 
-[**getTags**](TagsApi.md#gettags) | **POST** /api/v1/tags/list | 
-[**postTag**](TagsApi.md#posttag) | **POST** /api/v1/tags | 
-[**putTag**](TagsApi.md#puttag) | **PUT** /api/v1/tags/{id} | 
+[**aggregateMediaTags**](TagsApi.md#aggregatemediatags) | **POST** /api/v1/medias/{id}/tags/aggregate | Aggregate all tags from a media
+[**aggregateTags**](TagsApi.md#aggregatetags) | **POST** /api/v1/tags/aggregate | Aggregate tags
+[**createTag**](TagsApi.md#createtag) | **POST** /api/v1/tags | Create a tag
+[**deleteTag**](TagsApi.md#deletetag) | **DELETE** /api/v1/tags/{id} | Delete a tag
+[**getMediaTags**](TagsApi.md#getmediatags) | **POST** /api/v1/medias/{id}/tags/list | Get all tags from a media
+[**getTag**](TagsApi.md#gettag) | **GET** /api/v1/tags/{id} | Get a tag
+[**getTags**](TagsApi.md#gettags) | **POST** /api/v1/tags/list | Search tags
+[**updateTag**](TagsApi.md#updatetag) | **PUT** /api/v1/tags/{id} | Update a tag
 
+
+# **aggregateMediaTags**
+> AggregateResultDTO aggregateMediaTags(id, aggregateSearchDTO, q)
+
+Aggregate all tags from a media
+
+### Example
+```dart
+import 'package:game_oclock_client/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = TagsApi();
+final id = id_example; // String | Media id
+final aggregateSearchDTO = AggregateSearchDTO(); // AggregateSearchDTO | Query
+final q = q_example; // String | 
+
+try {
+    final result = api_instance.aggregateMediaTags(id, aggregateSearchDTO, q);
+    print(result);
+} catch (e) {
+    print('Exception when calling TagsApi->aggregateMediaTags: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Media id | 
+ **aggregateSearchDTO** | [**AggregateSearchDTO**](AggregateSearchDTO.md)| Query | 
+ **q** | **String**|  | [optional] 
+
+### Return type
+
+[**AggregateResultDTO**](AggregateResultDTO.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **aggregateTags**
+> AggregateResultDTO aggregateTags(aggregateSearchDTO, q)
+
+Aggregate tags
+
+### Example
+```dart
+import 'package:game_oclock_client/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = TagsApi();
+final aggregateSearchDTO = AggregateSearchDTO(); // AggregateSearchDTO | Query
+final q = q_example; // String | 
+
+try {
+    final result = api_instance.aggregateTags(aggregateSearchDTO, q);
+    print(result);
+} catch (e) {
+    print('Exception when calling TagsApi->aggregateTags: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **aggregateSearchDTO** | [**AggregateSearchDTO**](AggregateSearchDTO.md)| Query | 
+ **q** | **String**|  | [optional] 
+
+### Return type
+
+[**AggregateResultDTO**](AggregateResultDTO.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createTag**
+> String createTag(newTagDTO)
+
+Create a tag
+
+### Example
+```dart
+import 'package:game_oclock_client/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2
+//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = TagsApi();
+final newTagDTO = NewTagDTO(); // NewTagDTO | Tag to be createad
+
+try {
+    final result = api_instance.createTag(newTagDTO);
+    print(result);
+} catch (e) {
+    print('Exception when calling TagsApi->createTag: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **newTagDTO** | [**NewTagDTO**](NewTagDTO.md)| Tag to be createad | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteTag**
 > deleteTag(id)
 
-
+Delete a tag
 
 ### Example
 ```dart
@@ -59,10 +196,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getGameTags**
-> List<TagDTO> getGameTags(id)
+# **getMediaTags**
+> PageResultDTO getMediaTags(id, listSearchDTO, q)
 
-
+Get all tags from a media
 
 ### Example
 ```dart
@@ -71,13 +208,15 @@ import 'package:game_oclock_client/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = TagsApi();
-final id = id_example; // String | Game id
+final id = id_example; // String | Media id
+final listSearchDTO = ListSearchDTO(); // ListSearchDTO | Query
+final q = q_example; // String | 
 
 try {
-    final result = api_instance.getGameTags(id);
+    final result = api_instance.getMediaTags(id, listSearchDTO, q);
     print(result);
 } catch (e) {
-    print('Exception when calling TagsApi->getGameTags: $e\n');
+    print('Exception when calling TagsApi->getMediaTags: $e\n');
 }
 ```
 
@@ -85,11 +224,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Game id | 
+ **id** | **String**| Media id | 
+ **listSearchDTO** | [**ListSearchDTO**](ListSearchDTO.md)| Query | 
+ **q** | **String**|  | [optional] 
 
 ### Return type
 
-[**List<TagDTO>**](TagDTO.md)
+[**PageResultDTO**](PageResultDTO.md)
 
 ### Authorization
 
@@ -97,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -105,7 +246,7 @@ Name | Type | Description  | Notes
 # **getTag**
 > TagDTO getTag(id)
 
-
+Get a tag
 
 ### Example
 ```dart
@@ -146,9 +287,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTags**
-> TagPageResult getTags(searchDTO, q)
+> PageResultDTO getTags(listSearchDTO, q)
 
-
+Search tags
 
 ### Example
 ```dart
@@ -157,11 +298,11 @@ import 'package:game_oclock_client/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = TagsApi();
-final searchDTO = SearchDTO(); // SearchDTO | Query
+final listSearchDTO = ListSearchDTO(); // ListSearchDTO | Query
 final q = q_example; // String | 
 
 try {
-    final result = api_instance.getTags(searchDTO, q);
+    final result = api_instance.getTags(listSearchDTO, q);
     print(result);
 } catch (e) {
     print('Exception when calling TagsApi->getTags: $e\n');
@@ -172,12 +313,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchDTO** | [**SearchDTO**](SearchDTO.md)| Query | 
+ **listSearchDTO** | [**ListSearchDTO**](ListSearchDTO.md)| Query | 
  **q** | **String**|  | [optional] 
 
 ### Return type
 
-[**TagPageResult**](TagPageResult.md)
+[**PageResultDTO**](PageResultDTO.md)
 
 ### Authorization
 
@@ -190,53 +331,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **postTag**
-> TagDTO postTag(newTagDTO)
+# **updateTag**
+> updateTag(id, newTagDTO)
 
-
-
-### Example
-```dart
-import 'package:game_oclock_client/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2
-//defaultApiClient.getAuthentication<OAuth>('OAuth2').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = TagsApi();
-final newTagDTO = NewTagDTO(); // NewTagDTO | Tag to be createad
-
-try {
-    final result = api_instance.postTag(newTagDTO);
-    print(result);
-} catch (e) {
-    print('Exception when calling TagsApi->postTag: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **newTagDTO** | [**NewTagDTO**](NewTagDTO.md)| Tag to be createad | 
-
-### Return type
-
-[**TagDTO**](TagDTO.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **putTag**
-> putTag(id, newTagDTO)
-
-
+Update a tag
 
 ### Example
 ```dart
@@ -249,9 +347,9 @@ final id = id_example; // String | Tag id
 final newTagDTO = NewTagDTO(); // NewTagDTO | Tag to be updated
 
 try {
-    api_instance.putTag(id, newTagDTO);
+    api_instance.updateTag(id, newTagDTO);
 } catch (e) {
-    print('Exception when calling TagsApi->putTag: $e\n');
+    print('Exception when calling TagsApi->updateTag: $e\n');
 }
 ```
 

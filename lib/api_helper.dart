@@ -1,3 +1,13 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=3.9
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
 part of n2t.game_oclock.client;
 
 class QueryParam {
@@ -7,16 +17,11 @@ class QueryParam {
   final String value;
 
   @override
-  String toString() =>
-      '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
+  String toString() => '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
 }
 
 // Ported from the Java version.
-Iterable<QueryParam> _queryParams(
-  String collectionFormat,
-  String name,
-  dynamic value,
-) {
+Iterable<QueryParam> _queryParams(String collectionFormat, String name, dynamic value,) {
   // Assertions to run in debug mode only.
   assert(name.isNotEmpty, 'Parameter cannot be an empty string.');
 
@@ -24,9 +29,7 @@ Iterable<QueryParam> _queryParams(
 
   if (value is List) {
     if (collectionFormat == 'multi') {
-      return value.map(
-        (dynamic v) => QueryParam(name, parameterToString(v)),
-      );
+      return value.map((dynamic v) => QueryParam(name, parameterToString(v)),);
     }
 
     // Default collection format is 'csv'.
@@ -36,10 +39,7 @@ Iterable<QueryParam> _queryParams(
 
     final delimiter = _delimiters[collectionFormat] ?? ',';
 
-    params.add(QueryParam(
-      name,
-      value.map<dynamic>(parameterToString).join(delimiter),
-    ));
+    params.add(QueryParam(name, value.map<dynamic>(parameterToString).join(delimiter),));
   } else if (value != null) {
     params.add(QueryParam(name, parameterToString(value)));
   }
@@ -53,7 +53,7 @@ String parameterToString(dynamic value) {
     return '';
   }
   if (value is DateTime) {
-    return _dateFormatter.format(value);
+    return value.toIso8601String();
   }
   if (value is Duration) {
     return value.toIso8601String();
@@ -61,20 +61,20 @@ String parameterToString(dynamic value) {
   if (value is ChainOperatorType) {
     return ChainOperatorTypeTypeTransformer().encode(value).toString();
   }
-  if (value is GameStatus) {
-    return GameStatusTypeTransformer().encode(value).toString();
+  if (value is DateHistogramInterval) {
+    return DateHistogramIntervalTypeTransformer().encode(value).toString();
   }
   if (value is GrantType) {
     return GrantTypeTypeTransformer().encode(value).toString();
   }
-  if (value is OperatorType) {
-    return OperatorTypeTypeTransformer().encode(value).toString();
+  if (value is MediaStatus) {
+    return MediaStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is MediaType) {
+    return MediaTypeTypeTransformer().encode(value).toString();
   }
   if (value is OrderType) {
     return OrderTypeTypeTransformer().encode(value).toString();
-  }
-  if (value is PlatformType) {
-    return PlatformTypeTypeTransformer().encode(value).toString();
   }
   return value.toString();
 }
@@ -83,17 +83,17 @@ String parameterToString(dynamic value) {
 /// content type. Otherwise, returns the decoded body as decoded by dart:http package.
 Future<String> _decodeBodyBytes(Response response) async {
   final contentType = response.headers['content-type'];
-  return contentType != null &&
-          contentType.toLowerCase().startsWith('application/json')
-      ? response.bodyBytes.isEmpty
-          ? ''
-          : utf8.decode(response.bodyBytes)
-      : response.body;
+  return contentType != null && contentType.toLowerCase().startsWith('application/json')
+    ? response.bodyBytes.isEmpty ? '' : utf8.decode(response.bodyBytes)
+    : response.body;
 }
 
 /// Returns a valid [T] value found at the specified Map [key], null otherwise.
 T? mapValueOfType<T>(dynamic map, String key) {
   final dynamic value = map is Map ? map[key] : null;
+  if (T == double && value is int) {
+    return value.toDouble() as T;
+  }
   return value is T ? value : null;
 }
 

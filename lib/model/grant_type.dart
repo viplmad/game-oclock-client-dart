@@ -1,5 +1,16 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=3.9
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
 part of n2t.game_oclock.client;
 
+/// OAuth grant type
 class GrantType {
   /// Instantiate a new enum with the provided [value].
   const GrantType._(this.value);
@@ -21,13 +32,9 @@ class GrantType {
     refreshToken,
   ];
 
-  static GrantType? fromJson(dynamic value) =>
-      GrantTypeTypeTransformer().decode(value);
+  static GrantType? fromJson(dynamic value) => GrantTypeTypeTransformer().decode(value);
 
-  static List<GrantType> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GrantType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GrantType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -44,8 +51,7 @@ class GrantType {
 /// Transformation class that can [encode] an instance of [GrantType] to String,
 /// and [decode] dynamic data back to [GrantType].
 class GrantTypeTypeTransformer {
-  factory GrantTypeTypeTransformer() =>
-      _instance ??= const GrantTypeTypeTransformer._();
+  factory GrantTypeTypeTransformer() => _instance ??= const GrantTypeTypeTransformer._();
 
   const GrantTypeTypeTransformer._();
 
@@ -62,10 +68,8 @@ class GrantTypeTypeTransformer {
   GrantType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'password':
-          return GrantType.password;
-        case r'refresh_token':
-          return GrantType.refreshToken;
+        case r'password': return GrantType.password;
+        case r'refresh_token': return GrantType.refreshToken;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

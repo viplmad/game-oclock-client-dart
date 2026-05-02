@@ -9,8 +9,8 @@ import 'package:game_oclock_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addedDatetime** | [**DateTime**](DateTime.md) |  | 
-**admin** | **bool** |  | 
 **id** | **String** |  | 
+**role** | **String** |  | 
 **updatedDatetime** | [**DateTime**](DateTime.md) |  | 
 **username** | **String** |  | 
 

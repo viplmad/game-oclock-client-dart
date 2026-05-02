@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **chainOperator** | [**ChainOperatorType**](ChainOperatorType.md) |  | [optional] 
 **field** | **String** |  | 
-**operator_** | [**OperatorType**](OperatorType.md) |  | 
-**value** | [**SearchValue**](SearchValue.md) |  | 
+**value** | **String** |  | 
+**operator_** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
