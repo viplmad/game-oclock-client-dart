@@ -335,13 +335,13 @@ class LocationsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getLocations(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOLocationDTO?> getLocations(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getLocationsWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOLocationDTO',) as PageResultDTOLocationDTO;
 
     }
     return null;
@@ -401,13 +401,13 @@ class LocationsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getMediaLocations(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOLocationAvailableDTO?> getMediaLocations(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediaLocationsWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOLocationAvailableDTO',) as PageResultDTOLocationAvailableDTO;
 
     }
     return null;

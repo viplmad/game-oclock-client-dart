@@ -131,7 +131,6 @@ class DevicesApi {
   /// * [String] q:
   Future<AggregateResultDTO?> aggregateMediaDevices(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateMediaDevicesWithHttpInfo(id, aggregateSearchDTO,  q: q, );
-
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
@@ -336,13 +335,13 @@ class DevicesApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getDevices(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTODeviceDTO?> getDevices(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getDevicesWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
 
     }
     return null;
@@ -402,13 +401,13 @@ class DevicesApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getMediaDevices(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTODeviceDTO?> getMediaDevices(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediaDevicesWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
 
     }
     return null;

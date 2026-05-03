@@ -11,13 +11,13 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for PageResultDTO
+// tests for PageResultDTOLocationAvailableDTO
 void main() {
-  // final instance = PageResultDTO();
+  // final instance = PageResultDTOLocationAvailableDTO();
 
-  group('test PageResultDTO', () {
+  group('test PageResultDTOLocationAvailableDTO', () {
     // List of elements in the current page
-    // List<UserDTO> data (default value: const [])
+    // List<PageResultDTOLocationAvailableDTODataInner> data (default value: const [])
     test('to test the property `data`', () async {
       // TODO
     });

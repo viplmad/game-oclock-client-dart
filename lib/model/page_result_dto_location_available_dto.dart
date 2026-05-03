@@ -10,16 +10,16 @@
 
 part of n2t.game_oclock.client;
 
-class PageResultDTO {
-  /// Returns a new [PageResultDTO] instance.
-  PageResultDTO({
+class PageResultDTOLocationAvailableDTO {
+  /// Returns a new [PageResultDTOLocationAvailableDTO] instance.
+  PageResultDTOLocationAvailableDTO({
     this.data = const [],
     required this.page,
     required this.size,
   });
 
   /// List of elements in the current page
-  List<UserDTO> data;
+  List<LocationAvailableDTO> data;
 
   /// Current page number (starting from 1)
   ///
@@ -32,7 +32,7 @@ class PageResultDTO {
   int size;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PageResultDTO &&
+  bool operator ==(Object other) => identical(this, other) || other is PageResultDTOLocationAvailableDTO &&
     _deepEquality.equals(other.data, data) &&
     other.page == page &&
     other.size == size;
@@ -45,7 +45,7 @@ class PageResultDTO {
     (size.hashCode);
 
   @override
-  String toString() => 'PageResultDTO[data=$data, page=$page, size=$size]';
+  String toString() => 'PageResultDTOLocationAvailableDTO[data=$data, page=$page, size=$size]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -55,10 +55,10 @@ class PageResultDTO {
     return json;
   }
 
-  /// Returns a new [PageResultDTO] instance and imports its values from
+  /// Returns a new [PageResultDTOLocationAvailableDTO] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PageResultDTO? fromJson(dynamic value) {
+  static PageResultDTOLocationAvailableDTO? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -66,17 +66,17 @@ class PageResultDTO {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        assert(json.containsKey(r'data'), 'Required key "PageResultDTO[data]" is missing from JSON.');
-        assert(json[r'data'] != null, 'Required key "PageResultDTO[data]" has a null value in JSON.');
-        assert(json.containsKey(r'page'), 'Required key "PageResultDTO[page]" is missing from JSON.');
-        assert(json[r'page'] != null, 'Required key "PageResultDTO[page]" has a null value in JSON.');
-        assert(json.containsKey(r'size'), 'Required key "PageResultDTO[size]" is missing from JSON.');
-        assert(json[r'size'] != null, 'Required key "PageResultDTO[size]" has a null value in JSON.');
+        assert(json.containsKey(r'data'), 'Required key "PageResultDTOLocationAvailableDTO[data]" is missing from JSON.');
+        assert(json[r'data'] != null, 'Required key "PageResultDTOLocationAvailableDTO[data]" has a null value in JSON.');
+        assert(json.containsKey(r'page'), 'Required key "PageResultDTOLocationAvailableDTO[page]" is missing from JSON.');
+        assert(json[r'page'] != null, 'Required key "PageResultDTOLocationAvailableDTO[page]" has a null value in JSON.');
+        assert(json.containsKey(r'size'), 'Required key "PageResultDTOLocationAvailableDTO[size]" is missing from JSON.');
+        assert(json[r'size'] != null, 'Required key "PageResultDTOLocationAvailableDTO[size]" has a null value in JSON.');
         return true;
       }());
 
-      return PageResultDTO(
-        data: UserDTO.listFromJson(json[r'data']),
+      return PageResultDTOLocationAvailableDTO(
+        data: LocationAvailableDTO.listFromJson(json[r'data']),
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );
@@ -84,11 +84,11 @@ class PageResultDTO {
     return null;
   }
 
-  static List<PageResultDTO> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <PageResultDTO>[];
+  static List<PageResultDTOLocationAvailableDTO> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PageResultDTOLocationAvailableDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = PageResultDTO.fromJson(row);
+        final value = PageResultDTOLocationAvailableDTO.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -97,12 +97,12 @@ class PageResultDTO {
     return result.toList(growable: growable);
   }
 
-  static Map<String, PageResultDTO> mapFromJson(dynamic json) {
-    final map = <String, PageResultDTO>{};
+  static Map<String, PageResultDTOLocationAvailableDTO> mapFromJson(dynamic json) {
+    final map = <String, PageResultDTOLocationAvailableDTO>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PageResultDTO.fromJson(entry.value);
+        final value = PageResultDTOLocationAvailableDTO.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -111,14 +111,14 @@ class PageResultDTO {
     return map;
   }
 
-  // maps a json object with a list of PageResultDTO-objects as value to a dart map
-  static Map<String, List<PageResultDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<PageResultDTO>>{};
+  // maps a json object with a list of PageResultDTOLocationAvailableDTO-objects as value to a dart map
+  static Map<String, List<PageResultDTOLocationAvailableDTO>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PageResultDTOLocationAvailableDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = PageResultDTO.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = PageResultDTOLocationAvailableDTO.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

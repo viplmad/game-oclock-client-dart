@@ -47,7 +47,7 @@ void main() {
 
     // Get all tags from a media
     //
-    //Future<PageResultDTO> getMediaTags(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOTagMediaDTO> getMediaTags(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getMediaTags', () async {
       // TODO
     });
@@ -61,7 +61,7 @@ void main() {
 
     // Search tags
     //
-    //Future<PageResultDTO> getTags(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOTagDTO> getTags(ListSearchDTO listSearchDTO, { String q }) async
     test('test getTags', () async {
       // TODO
     });

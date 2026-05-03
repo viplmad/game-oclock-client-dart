@@ -54,14 +54,14 @@ void main() {
 
     // Get locations
     //
-    //Future<PageResultDTO> getLocations(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOLocationDTO> getLocations(ListSearchDTO listSearchDTO, { String q }) async
     test('test getLocations', () async {
       // TODO
     });
 
     // Get all locations where a media is available
     //
-    //Future<PageResultDTO> getMediaLocations(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOLocationAvailableDTO> getMediaLocations(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getMediaLocations', () async {
       // TODO
     });

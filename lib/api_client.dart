@@ -361,8 +361,30 @@ class ApiClient {
           return OrderDTO.fromJson(value);
         case 'OrderType':
           return OrderTypeTypeTransformer().decode(value);
-        case 'PageResultDTO':
-          return PageResultDTO.fromJson(value);
+        case 'PageResultDTODeviceDTO':
+          return PageResultDTODeviceDTO.fromJson(value);
+        case 'PageResultDTOLocationAvailableDTO':
+          return PageResultDTOLocationAvailableDTO.fromJson(value);
+        case 'PageResultDTOLocationDTO':
+          return PageResultDTOLocationDTO.fromJson(value);
+        case 'PageResultDTOMediaAvailableDTO':
+          return PageResultDTOMediaAvailableDTO.fromJson(value);
+        case 'PageResultDTOMediaDTO':
+          return PageResultDTOMediaDTO.fromJson(value);
+        case 'PageResultDTOMediaSessionDTO':
+          return PageResultDTOMediaSessionDTO.fromJson(value);
+        case 'PageResultDTOMediaTagDTO':
+          return PageResultDTOMediaTagDTO.fromJson(value);
+        case 'PageResultDTOSessionDTO':
+          return PageResultDTOSessionDTO.fromJson(value);
+        case 'PageResultDTOSessionStreakDTO':
+          return PageResultDTOSessionStreakDTO.fromJson(value);
+        case 'PageResultDTOTagDTO':
+          return PageResultDTOTagDTO.fromJson(value);
+        case 'PageResultDTOTagMediaDTO':
+          return PageResultDTOTagMediaDTO.fromJson(value);
+        case 'PageResultDTOUserDTO':
+          return PageResultDTOUserDTO.fromJson(value);
         case 'PotentialMediaDTO':
           return PotentialMediaDTO.fromJson(value);
         case 'SessionDTO':

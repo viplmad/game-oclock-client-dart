@@ -61,14 +61,14 @@ void main() {
 
     // Get medias where a session has been on a specified device
     //
-    //Future<PageResultDTO> getDeviceMedias(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOMediaDTO> getDeviceMedias(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getDeviceMedias', () async {
       // TODO
     });
 
     // Get all medias avaiable in a location
     //
-    //Future<PageResultDTO> getLocationMedias(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOMediaAvailableDTO> getLocationMedias(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getLocationMedias', () async {
       // TODO
     });
@@ -82,14 +82,14 @@ void main() {
 
     // Search medias
     //
-    //Future<PageResultDTO> getMedias(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOMediaDTO> getMedias(ListSearchDTO listSearchDTO, { String q }) async
     test('test getMedias', () async {
       // TODO
     });
 
     // Get all medias with specified tag
     //
-    //Future<PageResultDTO> getTagMedias(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOMediaTagDTO> getTagMedias(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getTagMedias', () async {
       // TODO
     });

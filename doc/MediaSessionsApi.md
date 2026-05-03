@@ -294,7 +294,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFirstSessionMedias**
-> PageResultDTO getFirstSessionMedias(listSearchDTO, startDate, endDate, q)
+> PageResultDTOMediaSessionDTO getFirstSessionMedias(listSearchDTO, startDate, endDate, q)
 
 Search first medias by session
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOMediaSessionDTO**](PageResultDTOMediaSessionDTO.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLastSessionMedias**
-> PageResultDTO getLastSessionMedias(listSearchDTO, startDate, endDate, q)
+> PageResultDTOMediaSessionDTO getLastSessionMedias(listSearchDTO, startDate, endDate, q)
 
 Search last medias by session
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOMediaSessionDTO**](PageResultDTOMediaSessionDTO.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaSessions**
-> PageResultDTO getMediaSessions(id, listSearchDTO, q)
+> PageResultDTOSessionDTO getMediaSessions(id, listSearchDTO, q)
 
 Get all media sessions
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOSessionDTO**](PageResultDTOSessionDTO.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSessionStreaks**
-> PageResultDTO getSessionStreaks(listSearchDTO, q)
+> PageResultDTOSessionStreakDTO getSessionStreaks(listSearchDTO, q)
 
 Get all sessions
 
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOSessionStreakDTO**](PageResultDTOSessionStreakDTO.md)
 
 ### Authorization
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSessions**
-> PageResultDTO getSessions(listSearchDTO, q)
+> PageResultDTOSessionDTO getSessions(listSearchDTO, q)
 
 Get all sessions
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOSessionDTO**](PageResultDTOSessionDTO.md)
 
 ### Authorization
 

@@ -420,13 +420,13 @@ class MediaSessionsApi {
   /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getFirstSessionMedias(ListSearchDTO listSearchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
+  Future<PageResultDTOMediaSessionDTO?> getFirstSessionMedias(ListSearchDTO listSearchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     final response = await getFirstSessionMediasWithHttpInfo(listSearchDTO,  startDate: startDate, endDate: endDate, q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaSessionDTO',) as PageResultDTOMediaSessionDTO;
 
     }
     return null;
@@ -493,13 +493,13 @@ class MediaSessionsApi {
   /// * [DateTime] endDate:
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getLastSessionMedias(ListSearchDTO listSearchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
+  Future<PageResultDTOMediaSessionDTO?> getLastSessionMedias(ListSearchDTO listSearchDTO, { DateTime? startDate, DateTime? endDate, String? q, }) async {
     final response = await getLastSessionMediasWithHttpInfo(listSearchDTO,  startDate: startDate, endDate: endDate, q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaSessionDTO',) as PageResultDTOMediaSessionDTO;
 
     }
     return null;
@@ -617,13 +617,13 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getMediaSessions(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOSessionDTO?> getMediaSessions(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediaSessionsWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOSessionDTO',) as PageResultDTOSessionDTO;
 
     }
     return null;
@@ -676,13 +676,13 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getSessionStreaks(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOSessionStreakDTO?> getSessionStreaks(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getSessionStreaksWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOSessionStreakDTO',) as PageResultDTOSessionStreakDTO;
 
     }
     return null;
@@ -735,13 +735,13 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getSessions(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOSessionDTO?> getSessions(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getSessionsWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOSessionDTO',) as PageResultDTOSessionDTO;
 
     }
     return null;

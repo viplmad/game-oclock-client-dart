@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDevices**
-> PageResultDTO getDevices(listSearchDTO, q)
+> PageResultDTODeviceDTO getDevices(listSearchDTO, q)
 
 Get devices
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTODeviceDTO**](PageResultDTODeviceDTO.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaDevices**
-> PageResultDTO getMediaDevices(id, listSearchDTO, q)
+> PageResultDTODeviceDTO getMediaDevices(id, listSearchDTO, q)
 
 Get all devices where a media has been in a session
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTODeviceDTO**](PageResultDTODeviceDTO.md)
 
 ### Authorization
 

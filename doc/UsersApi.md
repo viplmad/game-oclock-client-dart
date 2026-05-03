@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUsers**
-> PageResultDTO getUsers(listSearchDTO, q)
+> PageResultDTOUserDTO getUsers(listSearchDTO, q)
 
 Search users
 
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOUserDTO**](PageResultDTOUserDTO.md)
 
 ### Authorization
 

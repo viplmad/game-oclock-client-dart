@@ -68,7 +68,7 @@ void main() {
 
     // Search users
     //
-    //Future<PageResultDTO> getUsers(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOUserDTO> getUsers(ListSearchDTO listSearchDTO, { String q }) async
     test('test getUsers', () async {
       // TODO
     });

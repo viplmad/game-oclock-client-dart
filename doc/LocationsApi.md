@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLocations**
-> PageResultDTO getLocations(listSearchDTO, q)
+> PageResultDTOLocationDTO getLocations(listSearchDTO, q)
 
 Get locations
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOLocationDTO**](PageResultDTOLocationDTO.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaLocations**
-> PageResultDTO getMediaLocations(id, listSearchDTO, q)
+> PageResultDTOLocationAvailableDTO getMediaLocations(id, listSearchDTO, q)
 
 Get all locations where a media is available
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOLocationAvailableDTO**](PageResultDTOLocationAvailableDTO.md)
 
 ### Authorization
 

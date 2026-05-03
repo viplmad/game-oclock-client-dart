@@ -197,7 +197,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaTags**
-> PageResultDTO getMediaTags(id, listSearchDTO, q)
+> PageResultDTOTagMediaDTO getMediaTags(id, listSearchDTO, q)
 
 Get all tags from a media
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOTagMediaDTO**](PageResultDTOTagMediaDTO.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTags**
-> PageResultDTO getTags(listSearchDTO, q)
+> PageResultDTOTagDTO getTags(listSearchDTO, q)
 
 Search tags
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOTagDTO**](PageResultDTOTagDTO.md)
 
 ### Authorization
 

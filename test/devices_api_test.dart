@@ -54,14 +54,14 @@ void main() {
 
     // Get devices
     //
-    //Future<PageResultDTO> getDevices(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTODeviceDTO> getDevices(ListSearchDTO listSearchDTO, { String q }) async
     test('test getDevices', () async {
       // TODO
     });
 
     // Get all devices where a media has been in a session
     //
-    //Future<PageResultDTO> getMediaDevices(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTODeviceDTO> getMediaDevices(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getMediaDevices', () async {
       // TODO
     });

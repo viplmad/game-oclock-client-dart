@@ -303,7 +303,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDeviceMedias**
-> PageResultDTO getDeviceMedias(id, listSearchDTO, q)
+> PageResultDTOMediaDTO getDeviceMedias(id, listSearchDTO, q)
 
 Get medias where a session has been on a specified device
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOMediaDTO**](PageResultDTOMediaDTO.md)
 
 ### Authorization
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLocationMedias**
-> PageResultDTO getLocationMedias(id, listSearchDTO, q)
+> PageResultDTOMediaAvailableDTO getLocationMedias(id, listSearchDTO, q)
 
 Get all medias avaiable in a location
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOMediaAvailableDTO**](PageResultDTOMediaAvailableDTO.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMedias**
-> PageResultDTO getMedias(listSearchDTO, q)
+> PageResultDTOMediaDTO getMedias(listSearchDTO, q)
 
 Search medias
 
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOMediaDTO**](PageResultDTOMediaDTO.md)
 
 ### Authorization
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTagMedias**
-> PageResultDTO getTagMedias(id, listSearchDTO, q)
+> PageResultDTOMediaTagDTO getTagMedias(id, listSearchDTO, q)
 
 Get all medias with specified tag
 
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageResultDTO**](PageResultDTO.md)
+[**PageResultDTOMediaTagDTO**](PageResultDTOMediaTagDTO.md)
 
 ### Authorization
 

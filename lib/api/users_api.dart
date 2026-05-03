@@ -418,13 +418,13 @@ class UsersApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTO?> getUsers(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOUserDTO?> getUsers(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getUsersWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTO',) as PageResultDTO;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOUserDTO',) as PageResultDTOUserDTO;
 
     }
     return null;

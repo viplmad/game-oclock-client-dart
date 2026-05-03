@@ -61,14 +61,14 @@ void main() {
 
     // Search first medias by session
     //
-    //Future<PageResultDTO> getFirstSessionMedias(ListSearchDTO listSearchDTO, { DateTime startDate, DateTime endDate, String q }) async
+    //Future<PageResultDTOMediaSessionDTO> getFirstSessionMedias(ListSearchDTO listSearchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getFirstSessionMedias', () async {
       // TODO
     });
 
     // Search last medias by session
     //
-    //Future<PageResultDTO> getLastSessionMedias(ListSearchDTO listSearchDTO, { DateTime startDate, DateTime endDate, String q }) async
+    //Future<PageResultDTOMediaSessionDTO> getLastSessionMedias(ListSearchDTO listSearchDTO, { DateTime startDate, DateTime endDate, String q }) async
     test('test getLastSessionMedias', () async {
       // TODO
     });
@@ -82,21 +82,21 @@ void main() {
 
     // Get all media sessions
     //
-    //Future<PageResultDTO> getMediaSessions(String id, ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOSessionDTO> getMediaSessions(String id, ListSearchDTO listSearchDTO, { String q }) async
     test('test getMediaSessions', () async {
       // TODO
     });
 
     // Get all sessions
     //
-    //Future<PageResultDTO> getSessionStreaks(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOSessionStreakDTO> getSessionStreaks(ListSearchDTO listSearchDTO, { String q }) async
     test('test getSessionStreaks', () async {
       // TODO
     });
 
     // Get all sessions
     //
-    //Future<PageResultDTO> getSessions(ListSearchDTO listSearchDTO, { String q }) async
+    //Future<PageResultDTOSessionDTO> getSessions(ListSearchDTO listSearchDTO, { String q }) async
     test('test getSessions', () async {
       // TODO
     });
