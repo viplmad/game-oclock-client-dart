@@ -29,6 +29,20 @@ class ListSearchDTO {
 
   List<SortDTO>? sort;
 
+  ListSearchDTO copyWith({
+    final List<FilterDTO>? filter,
+    final int? page,
+    final int? size,
+    final List<SortDTO>? sort,
+  }) {
+    return ListSearchDTO(
+      filter: filter ?? this.filter,
+      page: page ?? this.page,
+      size: size ?? this.size,
+      sort: sort ?? this.sort,
+    );
+  }
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is ListSearchDTO &&
     _deepEquality.equals(other.filter, filter) &&
