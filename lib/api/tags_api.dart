@@ -70,7 +70,7 @@ class TagsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateMediaTags(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateMediaTags(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateMediaTagsWithHttpInfo(id, aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -79,7 +79,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Aggregate tags
@@ -129,7 +129,7 @@ class TagsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateTags(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateTags(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateTagsWithHttpInfo(aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -138,7 +138,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Create a tag
@@ -180,7 +180,7 @@ class TagsApi {
   ///
   /// * [NewTagDTO] newTagDTO (required):
   ///   Tag to be createad
-  Future<String?> createTag(NewTagDTO newTagDTO,) async {
+  Future<String> createTag(NewTagDTO newTagDTO,) async {
     final response = await createTagWithHttpInfo(newTagDTO,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -189,7 +189,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Delete a tag
@@ -290,7 +290,7 @@ class TagsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOTagMediaDTO?> getMediaTags(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOTagMediaDTO> getMediaTags(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediaTagsWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -299,7 +299,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOTagMediaDTO',) as PageResultDTOTagMediaDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get a tag
@@ -342,7 +342,7 @@ class TagsApi {
   ///
   /// * [String] id (required):
   ///   Tag id
-  Future<TagDTO?> getTag(String id,) async {
+  Future<TagDTO> getTag(String id,) async {
     final response = await getTagWithHttpInfo(id,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -351,7 +351,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TagDTO',) as TagDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Search tags
@@ -401,7 +401,7 @@ class TagsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOTagDTO?> getTags(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOTagDTO> getTags(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getTagsWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -410,7 +410,7 @@ class TagsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOTagDTO',) as PageResultDTOTagDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Update a tag

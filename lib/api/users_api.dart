@@ -63,7 +63,7 @@ class UsersApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateUsers(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateUsers(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateUsersWithHttpInfo(aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -72,7 +72,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Change a user password
@@ -178,7 +178,7 @@ class UsersApi {
   ///
   /// * [NewUserDTO] newUserDTO (required):
   ///   User to be created
-  Future<String?> createUser(String password, NewUserDTO newUserDTO,) async {
+  Future<String> createUser(String password, NewUserDTO newUserDTO,) async {
     final response = await createUserWithHttpInfo(password, newUserDTO,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -187,7 +187,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Delete a user
@@ -307,7 +307,7 @@ class UsersApi {
   }
 
   /// Get current user
-  Future<UserDTO?> getCurrentUser() async {
+  Future<UserDTO> getCurrentUser() async {
     final response = await getCurrentUserWithHttpInfo();
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -316,7 +316,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDTO',) as UserDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get a user
@@ -359,7 +359,7 @@ class UsersApi {
   ///
   /// * [String] id (required):
   ///   User id
-  Future<UserDTO?> getUser(String id,) async {
+  Future<UserDTO> getUser(String id,) async {
     final response = await getUserWithHttpInfo(id,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -368,7 +368,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDTO',) as UserDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Search users
@@ -418,7 +418,7 @@ class UsersApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOUserDTO?> getUsers(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOUserDTO> getUsers(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getUsersWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -427,7 +427,7 @@ class UsersApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOUserDTO',) as PageResultDTOUserDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Promote a user

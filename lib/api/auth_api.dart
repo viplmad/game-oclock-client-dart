@@ -85,7 +85,7 @@ class AuthApi {
   ///
   /// * [String] username:
   ///   Username (used in password grant type)
-  Future<TokenResponse?> token(GrantType grantType, { String? password, String? refreshToken, String? username, }) async {
+  Future<TokenResponse> token(GrantType grantType, { String? password, String? refreshToken, String? username, }) async {
     final response = await tokenWithHttpInfo(grantType,  password: password, refreshToken: refreshToken, username: username, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -94,6 +94,6 @@ class AuthApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TokenResponse',) as TokenResponse;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 }

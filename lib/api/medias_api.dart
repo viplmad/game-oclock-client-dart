@@ -70,7 +70,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateDeviceMedias(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateDeviceMedias(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateDeviceMediasWithHttpInfo(id, aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -79,7 +79,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Aggregate all medias avaiable in a location
@@ -136,7 +136,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateLocationMedias(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateLocationMedias(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateLocationMediasWithHttpInfo(id, aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -145,7 +145,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Aggregate medias
@@ -195,7 +195,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateMedias(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateMedias(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateMediasWithHttpInfo(aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -204,7 +204,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Aggregate all medias with specified tag
@@ -261,7 +261,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateTagMedias(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateTagMedias(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateTagMediasWithHttpInfo(id, aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -270,7 +270,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Create a media
@@ -312,7 +312,7 @@ class MediasApi {
   ///
   /// * [NewMediaDTO] newMediaDTO (required):
   ///   Media to be created
-  Future<String?> createMedia(NewMediaDTO newMediaDTO,) async {
+  Future<String> createMedia(NewMediaDTO newMediaDTO,) async {
     final response = await createMediaWithHttpInfo(newMediaDTO,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -321,7 +321,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Delete a media
@@ -422,7 +422,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOMediaDTO?> getDeviceMedias(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOMediaDTO> getDeviceMedias(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getDeviceMediasWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -431,7 +431,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaDTO',) as PageResultDTOMediaDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get all medias avaiable in a location
@@ -488,7 +488,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOMediaAvailableDTO?> getLocationMedias(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOMediaAvailableDTO> getLocationMedias(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getLocationMediasWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -497,7 +497,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaAvailableDTO',) as PageResultDTOMediaAvailableDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get a media
@@ -540,7 +540,7 @@ class MediasApi {
   ///
   /// * [String] id (required):
   ///   Media id
-  Future<MediaDTO?> getMedia(String id,) async {
+  Future<MediaDTO> getMedia(String id,) async {
     final response = await getMediaWithHttpInfo(id,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -549,7 +549,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MediaDTO',) as MediaDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Search medias
@@ -599,7 +599,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOMediaDTO?> getMedias(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOMediaDTO> getMedias(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediasWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -608,7 +608,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaDTO',) as PageResultDTOMediaDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get all medias with specified tag
@@ -665,7 +665,7 @@ class MediasApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOMediaTagDTO?> getTagMedias(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOMediaTagDTO> getTagMedias(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getTagMediasWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -674,7 +674,7 @@ class MediasApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaTagDTO',) as PageResultDTOMediaTagDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Add a location as available to a media
@@ -881,7 +881,7 @@ class MediasApi {
   /// * [String] source_ (required):
   ///
   /// * [String] q (required):
-  Future<List<PotentialMediaDTO>?> searchExternalMedias(String source_, String q,) async {
+  Future<List<PotentialMediaDTO>> searchExternalMedias(String source_, String q,) async {
     final response = await searchExternalMediasWithHttpInfo(source_, q,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -893,7 +893,7 @@ class MediasApi {
         .toList(growable: false);
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Sync a media

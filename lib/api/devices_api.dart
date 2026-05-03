@@ -63,7 +63,7 @@ class DevicesApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateDevices(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateDevices(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateDevicesWithHttpInfo(aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -72,7 +72,7 @@ class DevicesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Aggregate all devices where a media has been in a session
@@ -129,7 +129,7 @@ class DevicesApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateMediaDevices(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateMediaDevices(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateMediaDevicesWithHttpInfo(id, aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -138,7 +138,7 @@ class DevicesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Create a device
@@ -180,7 +180,7 @@ class DevicesApi {
   ///
   /// * [NewDeviceDTO] newDeviceDTO (required):
   ///   Device to be createad
-  Future<String?> createDevice(NewDeviceDTO newDeviceDTO,) async {
+  Future<String> createDevice(NewDeviceDTO newDeviceDTO,) async {
     final response = await createDeviceWithHttpInfo(newDeviceDTO,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -189,7 +189,7 @@ class DevicesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Delete a device
@@ -276,7 +276,7 @@ class DevicesApi {
   ///
   /// * [String] id (required):
   ///   Device id
-  Future<DeviceDTO?> getDevice(String id,) async {
+  Future<DeviceDTO> getDevice(String id,) async {
     final response = await getDeviceWithHttpInfo(id,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -285,7 +285,7 @@ class DevicesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDTO',) as DeviceDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get devices
@@ -335,7 +335,7 @@ class DevicesApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTODeviceDTO?> getDevices(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTODeviceDTO> getDevices(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getDevicesWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -344,7 +344,7 @@ class DevicesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get all devices where a media has been in a session
@@ -401,7 +401,7 @@ class DevicesApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTODeviceDTO?> getMediaDevices(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTODeviceDTO> getMediaDevices(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediaDevicesWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -410,7 +410,7 @@ class DevicesApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Update a device

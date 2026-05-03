@@ -63,7 +63,7 @@ class LocationsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateLocations(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateLocations(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateLocationsWithHttpInfo(aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -72,7 +72,7 @@ class LocationsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Aggregate all locations where a media is available
@@ -129,7 +129,7 @@ class LocationsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO?> aggregateMediaLocations(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  Future<AggregateResultDTO> aggregateMediaLocations(String id, AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
     final response = await aggregateMediaLocationsWithHttpInfo(id, aggregateSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -138,7 +138,7 @@ class LocationsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Create a location
@@ -180,7 +180,7 @@ class LocationsApi {
   ///
   /// * [NewLocationDTO] newLocationDTO (required):
   ///   Location to be createad
-  Future<String?> createLocation(NewLocationDTO newLocationDTO,) async {
+  Future<String> createLocation(NewLocationDTO newLocationDTO,) async {
     final response = await createLocationWithHttpInfo(newLocationDTO,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -189,7 +189,7 @@ class LocationsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Delete a location
@@ -276,7 +276,7 @@ class LocationsApi {
   ///
   /// * [String] id (required):
   ///   Location id
-  Future<LocationDTO?> getLocation(String id,) async {
+  Future<LocationDTO> getLocation(String id,) async {
     final response = await getLocationWithHttpInfo(id,);
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -285,7 +285,7 @@ class LocationsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'LocationDTO',) as LocationDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get locations
@@ -335,7 +335,7 @@ class LocationsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOLocationDTO?> getLocations(ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOLocationDTO> getLocations(ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getLocationsWithHttpInfo(listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -344,7 +344,7 @@ class LocationsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOLocationDTO',) as PageResultDTOLocationDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Get all locations where a media is available
@@ -401,7 +401,7 @@ class LocationsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOLocationAvailableDTO?> getMediaLocations(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
+  Future<PageResultDTOLocationAvailableDTO> getMediaLocations(String id, ListSearchDTO listSearchDTO, { String? q, }) async {
     final response = await getMediaLocationsWithHttpInfo(id, listSearchDTO,  q: q, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -410,7 +410,7 @@ class LocationsApi {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOLocationAvailableDTO',) as PageResultDTOLocationAvailableDTO;
 
     }
-    return null;
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
   /// Update a location
