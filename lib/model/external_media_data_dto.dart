@@ -110,7 +110,7 @@ class ExternalMediaDataDTO {
       json[r'parent_order'] = null;
     }
     if (this.releaseDate != null) {
-      json[r'release_date'] = this.releaseDate!.toUtc().toIso8601String();
+      json[r'release_date'] = this.releaseDate!.toIso8601String();
     } else {
       json[r'release_date'] = null;
     }

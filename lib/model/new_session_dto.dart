@@ -58,14 +58,14 @@ class NewSessionDTO {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'device_id'] = this.deviceId;
-      json[r'end_datetime'] = this.endDatetime.toUtc().toIso8601String();
+      json[r'end_datetime'] = this.endDatetime.toIso8601String();
     if (this.finishedStatus != null) {
       json[r'finished_status'] = this.finishedStatus;
     } else {
       json[r'finished_status'] = null;
     }
       json[r'group_id'] = this.groupId;
-      json[r'start_datetime'] = this.startDatetime.toUtc().toIso8601String();
+      json[r'start_datetime'] = this.startDatetime.toIso8601String();
       json[r'started'] = this.started;
     return json;
   }

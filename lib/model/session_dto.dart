@@ -83,13 +83,13 @@ class SessionDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
     if (this.deviceId != null) {
       json[r'device_id'] = this.deviceId;
     } else {
       json[r'device_id'] = null;
     }
-      json[r'end_datetime'] = this.endDatetime.toUtc().toIso8601String();
+      json[r'end_datetime'] = this.endDatetime.toIso8601String();
     if (this.finishedStatus != null) {
       json[r'finished_status'] = this.finishedStatus;
     } else {
@@ -97,10 +97,10 @@ class SessionDTO {
     }
       json[r'group_id'] = this.groupId;
       json[r'media_id'] = this.mediaId;
-      json[r'start_datetime'] = this.startDatetime.toUtc().toIso8601String();
+      json[r'start_datetime'] = this.startDatetime.toIso8601String();
       json[r'started'] = this.started;
       json[r'time'] = this.time;
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 

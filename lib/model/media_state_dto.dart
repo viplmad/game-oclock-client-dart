@@ -53,11 +53,11 @@ class MediaStateDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
       json[r'notes'] = this.notes;
       json[r'rating'] = this.rating;
       json[r'status'] = this.status;
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 

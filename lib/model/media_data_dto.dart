@@ -100,7 +100,7 @@ class MediaDataDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
       json[r'edition'] = this.edition;
       json[r'genres'] = this.genres;
       json[r'id'] = this.id;
@@ -121,13 +121,13 @@ class MediaDataDTO {
       json[r'parent_order'] = null;
     }
     if (this.releaseDate != null) {
-      json[r'release_date'] = this.releaseDate!.toUtc().toIso8601String();
+      json[r'release_date'] = this.releaseDate!.toIso8601String();
     } else {
       json[r'release_date'] = null;
     }
       json[r'series'] = this.series;
       json[r'title'] = this.title;
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
 

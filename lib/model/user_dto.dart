@@ -52,10 +52,10 @@ class UserDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'added_datetime'] = this.addedDatetime.toUtc().toIso8601String();
+      json[r'added_datetime'] = this.addedDatetime.toIso8601String();
       json[r'id'] = this.id;
       json[r'role'] = this.role;
-      json[r'updated_datetime'] = this.updatedDatetime.toUtc().toIso8601String();
+      json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
       json[r'username'] = this.username;
     return json;
   }
