@@ -162,11 +162,12 @@ class AggregateMetricKindEnum {
 
   String toJson() => value;
 
+  static const count = AggregateMetricKindEnum._(r'Count');
   static const sum = AggregateMetricKindEnum._(r'Sum');
 
   /// List of all possible values in this [enum][AggregateMetricKindEnum].
   static const values = <AggregateMetricKindEnum>[
-    sum,
+    count, sum,
   ];
 
   static AggregateMetricKindEnum? fromJson(dynamic value) => AggregateMetricKindEnumTypeTransformer().decode(value);
@@ -205,6 +206,7 @@ class AggregateMetricKindEnumTypeTransformer {
   AggregateMetricKindEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
+        case r'Count': return AggregateMetricKindEnum.count;
         case r'Sum': return AggregateMetricKindEnum.sum;
         default:
           if (!allowNull) {

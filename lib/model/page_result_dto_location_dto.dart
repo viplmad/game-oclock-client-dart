@@ -10,26 +10,13 @@
 
 part of n2t.game_oclock.client;
 
-class PageResultDTOLocationDTO {
+class PageResultDTOLocationDTO extends PageResultDTO<LocationDTO> {
   /// Returns a new [PageResultDTOLocationDTO] instance.
   PageResultDTOLocationDTO({
-    this.data = const [],
-    required this.page,
-    required this.size,
+    super.data = const [],
+    required super.page,
+    required super.size,
   });
-
-  /// List of elements in the current page
-  List<DeviceDTO> data;
-
-  /// Current page number (starting from 1)
-  ///
-  /// Minimum value: 0
-  int page;
-
-  /// Number of items per page
-  ///
-  /// Minimum value: 0
-  int size;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PageResultDTOLocationDTO &&
@@ -76,7 +63,7 @@ class PageResultDTOLocationDTO {
       }());
 
       return PageResultDTOLocationDTO(
-        data: DeviceDTO.listFromJson(json[r'data']),
+        data: LocationDTO.listFromJson(json[r'data']),
         page: mapValueOfType<int>(json, r'page')!,
         size: mapValueOfType<int>(json, r'size')!,
       );

@@ -155,11 +155,12 @@ class AggregateGroupKindEnum {
 
   String toJson() => value;
 
+  static const field = AggregateGroupKindEnum._(r'Field');
   static const dateHistogram = AggregateGroupKindEnum._(r'DateHistogram');
 
   /// List of all possible values in this [enum][AggregateGroupKindEnum].
   static const values = <AggregateGroupKindEnum>[
-    dateHistogram,
+    field, dateHistogram,
   ];
 
   static AggregateGroupKindEnum? fromJson(dynamic value) => AggregateGroupKindEnumTypeTransformer().decode(value);
@@ -198,6 +199,7 @@ class AggregateGroupKindEnumTypeTransformer {
   AggregateGroupKindEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
+        case r'Field': return AggregateGroupKindEnum.field;
         case r'DateHistogram': return AggregateGroupKindEnum.dateHistogram;
         default:
           if (!allowNull) {

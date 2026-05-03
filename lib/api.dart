@@ -115,6 +115,7 @@ part 'model/page_result_dto_session_streak_dto.dart';
 part 'model/page_result_dto_tag_dto.dart';
 part 'model/page_result_dto_tag_media_dto.dart';
 part 'model/page_result_dto_user_dto.dart';
+part 'model/page_result_dto.dart';
 part 'model/potential_media_dto.dart';
 part 'model/session_dto.dart';
 part 'model/session_streak_dto.dart';

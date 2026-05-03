@@ -10,26 +10,13 @@
 
 part of n2t.game_oclock.client;
 
-class PageResultDTOSessionDTO {
+class PageResultDTOSessionDTO extends PageResultDTO<SessionDTO> {
   /// Returns a new [PageResultDTOSessionDTO] instance.
   PageResultDTOSessionDTO({
-    this.data = const [],
-    required this.page,
-    required this.size,
+    super.data = const [],
+    required super.page,
+    required super.size,
   });
-
-  /// List of elements in the current page
-  List<SessionDTO> data;
-
-  /// Current page number (starting from 1)
-  ///
-  /// Minimum value: 0
-  int page;
-
-  /// Number of items per page
-  ///
-  /// Minimum value: 0
-  int size;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PageResultDTOSessionDTO &&
