@@ -69,7 +69,7 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -135,7 +135,7 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -186,7 +186,7 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'String',) as String;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -282,7 +282,7 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDTO',) as DeviceDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'DeviceDTO',) as DeviceDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -341,7 +341,7 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -407,7 +407,7 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'PageResultDTODeviceDTO',) as PageResultDTODeviceDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');

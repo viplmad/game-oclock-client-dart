@@ -46,60 +46,6 @@ class ApiClient {
     Map<String, String> formParams,
     String? contentType,
   ) async {
-    final retry = RetryOptions(maxAttempts: 3);
-    return await retry.retry(
-      () async {
-        final Response response = await _invokeAPI(
-          path,
-          method,
-          queryParams,
-          body,
-          headerParams,
-          formParams,
-          contentType,
-        ).timeout(Duration(seconds: 10));
-
-        // Handle 401 without body from regular calls
-        if (response.statusCode == HttpStatus.unauthorized &&
-            response.body.isEmpty) {
-          throw UnauthorizedApiException(
-              HttpStatus.unauthorized, 'Access token not valid');
-        }
-        if (response.statusCode >= HttpStatus.badRequest) {
-          final errorMessage = await deserializeAsync(
-            await _decodeBodyBytes(response),
-            'ErrorMessage',
-          ) as ErrorMessage;
-          throw ApiException.fromServer(response.statusCode, errorMessage.error,
-              errorMessage.errorDescription);
-        }
-
-        return response;
-      },
-      retryIf: (error) =>
-          // If it's unauthorized and this client has authentication (retrying to refresh)
-          (error is UnauthorizedApiException && authentication != null) ||
-          // If it's a client error (retrying will not change response)
-          (error is ClientApiException),
-      onRetry: (error) async {
-        if (error is UnauthorizedApiException) {
-          await authentication!.onRefresh();
-        }
-      },
-    );
-  }
-
-  // We don't use a Map<String, String> for queryParams.
-  // If collectionFormat is 'multi', a key might appear multiple times.
-  Future<Response> _invokeAPI(
-    String path,
-    String method,
-    List<QueryParam> queryParams,
-    Object? body,
-    Map<String, String> headerParams,
-    Map<String, String> formParams,
-    String? contentType,
-  ) async {
     await authentication?.applyToParams(queryParams, headerParams);
 
     headerParams.addAll(_defaultHeaderMap);

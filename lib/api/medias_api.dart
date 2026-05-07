@@ -76,7 +76,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -142,7 +142,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -201,7 +201,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -267,7 +267,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'AggregateResultDTO',) as AggregateResultDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -318,7 +318,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'String',) as String;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -428,7 +428,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaDTO',) as PageResultDTOMediaDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'PageResultDTOMediaDTO',) as PageResultDTOMediaDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -494,7 +494,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaAvailableDTO',) as PageResultDTOMediaAvailableDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'PageResultDTOMediaAvailableDTO',) as PageResultDTOMediaAvailableDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -546,7 +546,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MediaDTO',) as MediaDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'MediaDTO',) as MediaDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -605,7 +605,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaDTO',) as PageResultDTOMediaDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'PageResultDTOMediaDTO',) as PageResultDTOMediaDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -671,7 +671,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PageResultDTOMediaTagDTO',) as PageResultDTOMediaTagDTO;
+      return await apiClient.deserializeAsync(await decodeBodyBytes(response), 'PageResultDTOMediaTagDTO',) as PageResultDTOMediaTagDTO;
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -887,7 +887,7 @@ class MediasApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
+      final responseBody = await decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PotentialMediaDTO>') as List)
         .cast<PotentialMediaDTO>()
         .toList(growable: false);

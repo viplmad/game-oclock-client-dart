@@ -18,7 +18,6 @@ import 'package:collection/collection.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
-import 'package:retry/retry.dart';
 
 part 'api_client.dart';
 part 'api_helper.dart';

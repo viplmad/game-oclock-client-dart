@@ -11,14 +11,13 @@
 part of n2t.game_oclock.client;
 
 class ApiKeyAuth implements Authentication {
-  ApiKeyAuth(this.location, this.paramName, {this.refresh});
+  ApiKeyAuth(this.location, this.paramName);
 
   final String location;
   final String paramName;
 
   String apiKeyPrefix = '';
   String apiKey = '';
-  final FutureOr<void> Function()? refresh;
 
   @override
   Future<void> applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams,) async {
@@ -36,13 +35,6 @@ class ApiKeyAuth implements Authentication {
           ifAbsent: () => '$paramName=$paramValue',
         );
       }
-    }
-  }
-
-  @override
-  FutureOr<void> onRefresh() async {
-    if (refresh != null) {
-      await this.refresh!();
     }
   }
 }
