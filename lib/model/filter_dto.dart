@@ -45,7 +45,7 @@ class FilterDTO {
     // ignore: unnecessary_parenthesis
     (chainOperator == null ? 0 : chainOperator!.hashCode) +
     (field.hashCode) +
-    (value.hashCode) +
+    (value == null ? 0 : value!.hashCode) +
     (operator_.hashCode);
 
   @override
@@ -59,7 +59,11 @@ class FilterDTO {
       json[r'chain_operator'] = null;
     }
       json[r'field'] = this.field;
+    if(this.value != null) {
       json[r'value'] = this.value;
+    } else {
+      json[r'value'] = null;
+    }
       json[r'operator'] = this.operator_;
     return json;
   }
@@ -137,7 +141,6 @@ class FilterDTO {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'field',
-    'value',
     'operator',
   };
 }

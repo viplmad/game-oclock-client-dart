@@ -66,7 +66,6 @@ part 'model/media_tag_dto.dart';
 part 'model/media_type.dart';
 part 'model/new_device_dto.dart';
 part 'model/new_location_dto.dart';
-part 'model/new_manual_media_dto.dart';
 part 'model/new_media_dto.dart';
 part 'model/new_media_state_dto.dart';
 part 'model/new_media_value.dart';

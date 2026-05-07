@@ -287,8 +287,6 @@ class ApiClient {
           return NewDeviceDTO.fromJson(value);
         case 'NewLocationDTO':
           return NewLocationDTO.fromJson(value);
-        case 'NewManualMediaDTO':
-          return NewManualMediaDTO.fromJson(value);
         case 'NewMediaDTO':
           return NewMediaDTO.fromJson(value);
         case 'NewMediaStateDTO':

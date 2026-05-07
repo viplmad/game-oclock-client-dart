@@ -17,13 +17,13 @@ class NewMediaValue {
     this.genres = const [],
     this.imageUrl,
     this.kind,
-    required this.parentId,
+    this.parentId,
     this.parentOrder,
     this.releaseDate,
     this.series = const [],
     this.title,
-    required this.id,
-    required this.source_,
+    this.id,
+    this.source_,
   });
 
   ///
@@ -52,7 +52,7 @@ class NewMediaValue {
   ///
   MediaType? kind;
 
-  String parentId;
+  String? parentId;
 
   /// Minimum value: 0
   ///
@@ -81,9 +81,9 @@ class NewMediaValue {
   ///
   String? title;
 
-  String id;
+  String? id;
 
-  String source_;
+  String? source_;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NewMediaValue &&
@@ -106,13 +106,13 @@ class NewMediaValue {
     (genres.hashCode) +
     (imageUrl == null ? 0 : imageUrl!.hashCode) +
     (kind == null ? 0 : kind!.hashCode) +
-    (parentId.hashCode) +
+    (parentId == null ? 0 : parentId.hashCode) +
     (parentOrder == null ? 0 : parentOrder!.hashCode) +
     (releaseDate == null ? 0 : releaseDate!.hashCode) +
     (series.hashCode) +
     (title == null ? 0 : title!.hashCode) +
-    (id.hashCode) +
-    (source_.hashCode);
+    (id == null ? 0 : id.hashCode) +
+    (source_ == null ? 0 : source_.hashCode);
 
   @override
   String toString() => 'NewMediaValue[edition=$edition, genres=$genres, imageUrl=$imageUrl, kind=$kind, parentId=$parentId, parentOrder=$parentOrder, releaseDate=$releaseDate, series=$series, title=$title, id=$id, source_=$source_]';
@@ -135,7 +135,11 @@ class NewMediaValue {
     } else {
       json[r'kind'] = null;
     }
+    if(this.parentId != null) {
       json[r'parent_id'] = this.parentId;
+    } else {
+      json[r'parent_id'] = null;
+    }
     if (this.parentOrder != null) {
       json[r'parent_order'] = this.parentOrder;
     } else {
@@ -152,8 +156,16 @@ class NewMediaValue {
     } else {
       json[r'title'] = null;
     }
+    if(this.id != null) {
       json[r'id'] = this.id;
+    } else {
+      json[r'id'] = null;
+    }
+    if(this.source_ != null) {
       json[r'source'] = this.source_;
+    } else {
+      json[r'source'] = null;
+    }
     return json;
   }
 
@@ -170,14 +182,8 @@ class NewMediaValue {
       assert(() {
         assert(json.containsKey(r'genres'), 'Required key "NewMediaValue[genres]" is missing from JSON.');
         assert(json[r'genres'] != null, 'Required key "NewMediaValue[genres]" has a null value in JSON.');
-        assert(json.containsKey(r'parent_id'), 'Required key "NewMediaValue[parent_id]" is missing from JSON.');
-        assert(json[r'parent_id'] != null, 'Required key "NewMediaValue[parent_id]" has a null value in JSON.');
         assert(json.containsKey(r'series'), 'Required key "NewMediaValue[series]" is missing from JSON.');
         assert(json[r'series'] != null, 'Required key "NewMediaValue[series]" has a null value in JSON.');
-        assert(json.containsKey(r'id'), 'Required key "NewMediaValue[id]" is missing from JSON.');
-        assert(json[r'id'] != null, 'Required key "NewMediaValue[id]" has a null value in JSON.');
-        assert(json.containsKey(r'source'), 'Required key "NewMediaValue[source]" is missing from JSON.');
-        assert(json[r'source'] != null, 'Required key "NewMediaValue[source]" has a null value in JSON.');
         return true;
       }());
 
@@ -188,15 +194,15 @@ class NewMediaValue {
             : const [],
         imageUrl: mapValueOfType<String>(json, r'image_url'),
         kind: MediaType.fromJson(json[r'kind']),
-        parentId: mapValueOfType<String>(json, r'parent_id')!,
+        parentId: mapValueOfType<String>(json, r'parent_id'),
         parentOrder: mapValueOfType<int>(json, r'parent_order'),
         releaseDate: mapDateTime(json, r'release_date', r''),
         series: json[r'series'] is Iterable
             ? (json[r'series'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         title: mapValueOfType<String>(json, r'title'),
-        id: mapValueOfType<String>(json, r'id')!,
-        source_: mapValueOfType<String>(json, r'source')!,
+        id: mapValueOfType<String>(json, r'id'),
+        source_: mapValueOfType<String>(json, r'source'),
       );
     }
     return null;
@@ -245,9 +251,6 @@ class NewMediaValue {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'genres',
-    'parent_id',
     'series',
-    'id',
-    'source',
   };
 }
