@@ -31,7 +31,7 @@ class AggregateGroup {
 
   AggregateGroupKindEnum kind;
 
-  DateHistogramInterval interval;
+  DateHistogramInterval? interval;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AggregateGroup &&
@@ -79,8 +79,6 @@ class AggregateGroup {
         assert(json[r'field'] != null, 'Required key "AggregateGroup[field]" has a null value in JSON.');
         assert(json.containsKey(r'kind'), 'Required key "AggregateGroup[kind]" is missing from JSON.');
         assert(json[r'kind'] != null, 'Required key "AggregateGroup[kind]" has a null value in JSON.');
-        assert(json.containsKey(r'interval'), 'Required key "AggregateGroup[interval]" is missing from JSON.');
-        assert(json[r'interval'] != null, 'Required key "AggregateGroup[interval]" has a null value in JSON.');
         return true;
       }());
 
@@ -88,7 +86,7 @@ class AggregateGroup {
         defaultValue: mapValueOfType<String>(json, r'default_value'),
         field: mapValueOfType<String>(json, r'field')!,
         kind: AggregateGroupKindEnum.fromJson(json[r'kind'])!,
-        interval: DateHistogramInterval.fromJson(json[r'interval'])!,
+        interval: DateHistogramInterval.fromJson(json[r'interval']),
       );
     }
     return null;

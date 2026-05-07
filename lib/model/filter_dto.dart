@@ -29,7 +29,7 @@ class FilterDTO {
 
   String field;
 
-  String value;
+  SearchValue? value;
 
   FilterDTOOperator_Enum operator_;
 
@@ -87,7 +87,7 @@ class FilterDTO {
       return FilterDTO(
         chainOperator: ChainOperatorType.fromJson(json[r'chain_operator']),
         field: mapValueOfType<String>(json, r'field')!,
-        value: mapValueOfType<String>(json, r'value')!,
+        value: SearchValue.fromJson(json[r'value']),
         operator_: FilterDTOOperator_Enum.fromJson(json[r'operator'])!,
       );
     }
@@ -155,10 +155,40 @@ class FilterDTOOperator_Enum {
 
   String toJson() => value;
 
+  static const eq = FilterDTOOperator_Enum._(r'Eq');
+  static const notEq = FilterDTOOperator_Enum._(r'NotEq');
+  static const gt = FilterDTOOperator_Enum._(r'Gt');
+  static const gte = FilterDTOOperator_Enum._(r'Gte');
+  static const lt = FilterDTOOperator_Enum._(r'Lt');
+  static const lte = FilterDTOOperator_Enum._(r'Lte');
+  static const in_ = FilterDTOOperator_Enum._(r'In');
+  static const notIn = FilterDTOOperator_Enum._(r'NotIn');
+  static const startsWith = FilterDTOOperator_Enum._(r'StartsWith');
+  static const notStartsWith = FilterDTOOperator_Enum._(r'NotStartsWith');
+  static const endsWith = FilterDTOOperator_Enum._(r'EndsWith');
+  static const notEndsWith = FilterDTOOperator_Enum._(r'NotEndsWith');
+  static const contains = FilterDTOOperator_Enum._(r'Contains');
+  static const notContains = FilterDTOOperator_Enum._(r'NotContains');
+  static const null_ = FilterDTOOperator_Enum._(r'Null');
   static const notNull = FilterDTOOperator_Enum._(r'NotNull');
 
   /// List of all possible values in this [enum][FilterDTOOperator_Enum].
   static const values = <FilterDTOOperator_Enum>[
+    eq,
+    notEq,
+    gt,
+    gte,
+    lt,
+    lte,
+    in_,
+    notIn,
+    startsWith,
+    notStartsWith,
+    endsWith,
+    notEndsWith,
+    contains,
+    notContains,
+    null_,
     notNull,
   ];
 
@@ -198,6 +228,21 @@ class FilterDTOOperator_EnumTypeTransformer {
   FilterDTOOperator_Enum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
+        case r'Eq': return FilterDTOOperator_Enum.eq;
+        case r'NotEq': return FilterDTOOperator_Enum.notEq;
+        case r'Gt': return FilterDTOOperator_Enum.gt;
+        case r'Gte': return FilterDTOOperator_Enum.gte;
+        case r'Lt': return FilterDTOOperator_Enum.lt;
+        case r'Lte': return FilterDTOOperator_Enum.lte;
+        case r'In': return FilterDTOOperator_Enum.in_;
+        case r'NotIn': return FilterDTOOperator_Enum.notIn;
+        case r'StartsWith': return FilterDTOOperator_Enum.startsWith;
+        case r'NotStartsWith': return FilterDTOOperator_Enum.notStartsWith;
+        case r'EndsWith': return FilterDTOOperator_Enum.endsWith;
+        case r'NotEndsWith': return FilterDTOOperator_Enum.notEndsWith;
+        case r'Contains': return FilterDTOOperator_Enum.contains;
+        case r'NotContains': return FilterDTOOperator_Enum.notContains;
+        case r'Null': return FilterDTOOperator_Enum.null_;
         case r'NotNull': return FilterDTOOperator_Enum.notNull;
         default:
           if (!allowNull) {

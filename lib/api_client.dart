@@ -231,36 +231,16 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'Duration':
           return value is Duration ? value : DurationExtension.tryParse(value);
-        case 'AggregateCountMetricDTO':
-          return AggregateCountMetricDTO.fromJson(value);
-        case 'AggregateDateHistogramGroupDTO':
-          return AggregateDateHistogramGroupDTO.fromJson(value);
-        case 'AggregateFieldGroupDTO':
-          return AggregateFieldGroupDTO.fromJson(value);
         case 'AggregateGroup':
           return AggregateGroup.fromJson(value);
-        case 'AggregateGroupOneOf':
-          return AggregateGroupOneOf.fromJson(value);
-        case 'AggregateGroupOneOf1':
-          return AggregateGroupOneOf1.fromJson(value);
         case 'AggregateGroupSearchDTO':
           return AggregateGroupSearchDTO.fromJson(value);
         case 'AggregateMetric':
           return AggregateMetric.fromJson(value);
-        case 'AggregateMetricOneOf':
-          return AggregateMetricOneOf.fromJson(value);
-        case 'AggregateMetricOneOf1':
-          return AggregateMetricOneOf1.fromJson(value);
         case 'AggregateResultDTO':
           return AggregateResultDTO.fromJson(value);
-        case 'AggregateResultDTOOneOf':
-          return AggregateResultDTOOneOf.fromJson(value);
-        case 'AggregateResultDTOOneOf1':
-          return AggregateResultDTOOneOf1.fromJson(value);
         case 'AggregateSearchDTO':
           return AggregateSearchDTO.fromJson(value);
-        case 'AggregateSumMetricDTO':
-          return AggregateSumMetricDTO.fromJson(value);
         case 'AvailableDTO':
           return AvailableDTO.fromJson(value);
         case 'ChainOperatorType':
@@ -279,38 +259,6 @@ class ApiClient {
           return ExternalMediaIdDTO.fromJson(value);
         case 'FilterDTO':
           return FilterDTO.fromJson(value);
-        case 'FilterDTOOneOf':
-          return FilterDTOOneOf.fromJson(value);
-        case 'FilterDTOOneOf1':
-          return FilterDTOOneOf1.fromJson(value);
-        case 'FilterDTOOneOf10':
-          return FilterDTOOneOf10.fromJson(value);
-        case 'FilterDTOOneOf11':
-          return FilterDTOOneOf11.fromJson(value);
-        case 'FilterDTOOneOf12':
-          return FilterDTOOneOf12.fromJson(value);
-        case 'FilterDTOOneOf13':
-          return FilterDTOOneOf13.fromJson(value);
-        case 'FilterDTOOneOf14':
-          return FilterDTOOneOf14.fromJson(value);
-        case 'FilterDTOOneOf15':
-          return FilterDTOOneOf15.fromJson(value);
-        case 'FilterDTOOneOf2':
-          return FilterDTOOneOf2.fromJson(value);
-        case 'FilterDTOOneOf3':
-          return FilterDTOOneOf3.fromJson(value);
-        case 'FilterDTOOneOf4':
-          return FilterDTOOneOf4.fromJson(value);
-        case 'FilterDTOOneOf5':
-          return FilterDTOOneOf5.fromJson(value);
-        case 'FilterDTOOneOf6':
-          return FilterDTOOneOf6.fromJson(value);
-        case 'FilterDTOOneOf7':
-          return FilterDTOOneOf7.fromJson(value);
-        case 'FilterDTOOneOf8':
-          return FilterDTOOneOf8.fromJson(value);
-        case 'FilterDTOOneOf9':
-          return FilterDTOOneOf9.fromJson(value);
         case 'GrantType':
           return GrantTypeTypeTransformer().decode(value);
         case 'ListSearchDTO':
@@ -335,8 +283,6 @@ class ApiClient {
           return MediaTagDTO.fromJson(value);
         case 'MediaType':
           return MediaTypeTypeTransformer().decode(value);
-        case 'MultipleValuesFilterDTO':
-          return MultipleValuesFilterDTO.fromJson(value);
         case 'NewDeviceDTO':
           return NewDeviceDTO.fromJson(value);
         case 'NewLocationDTO':
@@ -355,8 +301,6 @@ class ApiClient {
           return NewTagDTO.fromJson(value);
         case 'NewUserDTO':
           return NewUserDTO.fromJson(value);
-        case 'NoValueFilterDTO':
-          return NoValueFilterDTO.fromJson(value);
         case 'OrderDTO':
           return OrderDTO.fromJson(value);
         case 'OrderType':
@@ -391,8 +335,6 @@ class ApiClient {
           return SessionDTO.fromJson(value);
         case 'SessionStreakDTO':
           return SessionStreakDTO.fromJson(value);
-        case 'SingleValueFilterDTO':
-          return SingleValueFilterDTO.fromJson(value);
         case 'SortDTO':
           return SortDTO.fromJson(value);
         case 'TagDTO':
