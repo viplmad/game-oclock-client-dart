@@ -15,7 +15,7 @@ class ExternalMediaDataDTO {
   ExternalMediaDataDTO({
     required this.edition,
     this.genres = const [],
-    required this.id,
+    this.id,
     this.imageUrl,
     required this.kind,
     this.parentId,
@@ -29,7 +29,7 @@ class ExternalMediaDataDTO {
 
   List<String> genres;
 
-  String id;
+  String? id;
 
   String? imageUrl;
 
@@ -76,7 +76,7 @@ class ExternalMediaDataDTO {
     // ignore: unnecessary_parenthesis
     (edition.hashCode) +
     (genres.hashCode) +
-    (id.hashCode) +
+    (id == null ? 0 : id.hashCode) +
     (imageUrl == null ? 0 : imageUrl!.hashCode) +
     (kind.hashCode) +
     (parentId == null ? 0 : parentId!.hashCode) +
