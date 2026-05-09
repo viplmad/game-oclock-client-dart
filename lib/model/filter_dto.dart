@@ -15,41 +15,35 @@ class FilterDTO {
   FilterDTO({
     this.chainOperator,
     required this.field,
-    required this.value,
     required this.operator_,
+    this.value,
   });
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   ChainOperatorType? chainOperator;
 
   String field;
 
-  SearchValue? value;
+  OperatorType operator_;
 
-  FilterDTOOperator_Enum operator_;
+  SearchValue? value;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is FilterDTO &&
     other.chainOperator == chainOperator &&
     other.field == field &&
-    other.value == value &&
-    other.operator_ == operator_;
+    other.operator_ == operator_ &&
+    other.value == value;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (chainOperator == null ? 0 : chainOperator!.hashCode) +
     (field.hashCode) +
-    (value == null ? 0 : value!.hashCode) +
-    (operator_.hashCode);
+    (operator_.hashCode) +
+    (value == null ? 0 : value!.hashCode);
 
   @override
-  String toString() => 'FilterDTO[chainOperator=$chainOperator, field=$field, value=$value, operator_=$operator_]';
+  String toString() => 'FilterDTO[chainOperator=$chainOperator, field=$field, operator_=$operator_, value=$value]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -59,12 +53,12 @@ class FilterDTO {
       json[r'chain_operator'] = null;
     }
       json[r'field'] = this.field;
-    if(this.value != null) {
+      json[r'operator'] = this.operator_;
+    if (this.value != null) {
       json[r'value'] = this.value;
     } else {
       json[r'value'] = null;
     }
-      json[r'operator'] = this.operator_;
     return json;
   }
 
@@ -81,8 +75,6 @@ class FilterDTO {
       assert(() {
         assert(json.containsKey(r'field'), 'Required key "FilterDTO[field]" is missing from JSON.');
         assert(json[r'field'] != null, 'Required key "FilterDTO[field]" has a null value in JSON.');
-        assert(json.containsKey(r'value'), 'Required key "FilterDTO[value]" is missing from JSON.');
-        assert(json[r'value'] != null, 'Required key "FilterDTO[value]" has a null value in JSON.');
         assert(json.containsKey(r'operator'), 'Required key "FilterDTO[operator]" is missing from JSON.');
         assert(json[r'operator'] != null, 'Required key "FilterDTO[operator]" has a null value in JSON.');
         return true;
@@ -91,8 +83,8 @@ class FilterDTO {
       return FilterDTO(
         chainOperator: ChainOperatorType.fromJson(json[r'chain_operator']),
         field: mapValueOfType<String>(json, r'field')!,
+        operator_: OperatorType.fromJson(json[r'operator'])!,
         value: SearchValue.fromJson(json[r'value']),
-        operator_: FilterDTOOperator_Enum.fromJson(json[r'operator'])!,
       );
     }
     return null;
@@ -143,119 +135,4 @@ class FilterDTO {
     'field',
     'operator',
   };
-}
-
-
-class FilterDTOOperator_Enum {
-  /// Instantiate a new enum with the provided [value].
-  const FilterDTOOperator_Enum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const eq = FilterDTOOperator_Enum._(r'Eq');
-  static const notEq = FilterDTOOperator_Enum._(r'NotEq');
-  static const gt = FilterDTOOperator_Enum._(r'Gt');
-  static const gte = FilterDTOOperator_Enum._(r'Gte');
-  static const lt = FilterDTOOperator_Enum._(r'Lt');
-  static const lte = FilterDTOOperator_Enum._(r'Lte');
-  static const in_ = FilterDTOOperator_Enum._(r'In');
-  static const notIn = FilterDTOOperator_Enum._(r'NotIn');
-  static const startsWith = FilterDTOOperator_Enum._(r'StartsWith');
-  static const notStartsWith = FilterDTOOperator_Enum._(r'NotStartsWith');
-  static const endsWith = FilterDTOOperator_Enum._(r'EndsWith');
-  static const notEndsWith = FilterDTOOperator_Enum._(r'NotEndsWith');
-  static const contains = FilterDTOOperator_Enum._(r'Contains');
-  static const notContains = FilterDTOOperator_Enum._(r'NotContains');
-  static const null_ = FilterDTOOperator_Enum._(r'Null');
-  static const notNull = FilterDTOOperator_Enum._(r'NotNull');
-
-  /// List of all possible values in this [enum][FilterDTOOperator_Enum].
-  static const values = <FilterDTOOperator_Enum>[
-    eq,
-    notEq,
-    gt,
-    gte,
-    lt,
-    lte,
-    in_,
-    notIn,
-    startsWith,
-    notStartsWith,
-    endsWith,
-    notEndsWith,
-    contains,
-    notContains,
-    null_,
-    notNull,
-  ];
-
-  static FilterDTOOperator_Enum? fromJson(dynamic value) => FilterDTOOperator_EnumTypeTransformer().decode(value);
-
-  static List<FilterDTOOperator_Enum> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <FilterDTOOperator_Enum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = FilterDTOOperator_Enum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [FilterDTOOperator_Enum] to String,
-/// and [decode] dynamic data back to [FilterDTOOperator_Enum].
-class FilterDTOOperator_EnumTypeTransformer {
-  factory FilterDTOOperator_EnumTypeTransformer() => _instance ??= const FilterDTOOperator_EnumTypeTransformer._();
-
-  const FilterDTOOperator_EnumTypeTransformer._();
-
-  String encode(FilterDTOOperator_Enum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a FilterDTOOperator_Enum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  FilterDTOOperator_Enum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'Eq': return FilterDTOOperator_Enum.eq;
-        case r'NotEq': return FilterDTOOperator_Enum.notEq;
-        case r'Gt': return FilterDTOOperator_Enum.gt;
-        case r'Gte': return FilterDTOOperator_Enum.gte;
-        case r'Lt': return FilterDTOOperator_Enum.lt;
-        case r'Lte': return FilterDTOOperator_Enum.lte;
-        case r'In': return FilterDTOOperator_Enum.in_;
-        case r'NotIn': return FilterDTOOperator_Enum.notIn;
-        case r'StartsWith': return FilterDTOOperator_Enum.startsWith;
-        case r'NotStartsWith': return FilterDTOOperator_Enum.notStartsWith;
-        case r'EndsWith': return FilterDTOOperator_Enum.endsWith;
-        case r'NotEndsWith': return FilterDTOOperator_Enum.notEndsWith;
-        case r'Contains': return FilterDTOOperator_Enum.contains;
-        case r'NotContains': return FilterDTOOperator_Enum.notContains;
-        case r'Null': return FilterDTOOperator_Enum.null_;
-        case r'NotNull': return FilterDTOOperator_Enum.notNull;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [FilterDTOOperator_EnumTypeTransformer] instance.
-  static FilterDTOOperator_EnumTypeTransformer? _instance;
 }

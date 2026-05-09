@@ -17,7 +17,7 @@ class AggregateSearchDTO {
     this.filter = const [],
   });
 
-  AggregateMetric aggr;
+  AggregateMetricDTO aggr;
 
   List<FilterDTO>? filter;
 
@@ -63,7 +63,7 @@ class AggregateSearchDTO {
       }());
 
       return AggregateSearchDTO(
-        aggr: AggregateMetric.fromJson(json[r'aggr'])!,
+        aggr: AggregateMetricDTO.fromJson(json[r'aggr'])!,
         filter: FilterDTO.listFromJson(json[r'filter']),
       );
     }

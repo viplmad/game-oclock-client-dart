@@ -14,14 +14,14 @@ class TaggedDTO {
   /// Returns a new [TaggedDTO] instance.
   TaggedDTO({
     required this.addedDatetime,
-    required this.order,
+    this.order,
     required this.updatedDatetime,
   });
 
   DateTime addedDatetime;
 
   /// Minimum value: 0
-  int order;
+  int? order;
 
   DateTime updatedDatetime;
 
@@ -35,7 +35,7 @@ class TaggedDTO {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (addedDatetime.hashCode) +
-    (order.hashCode) +
+    (order == null ? 0 : order!.hashCode) +
     (updatedDatetime.hashCode);
 
   @override
@@ -44,7 +44,11 @@ class TaggedDTO {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'added_datetime'] = this.addedDatetime.toIso8601String();
+    if (this.order != null) {
       json[r'order'] = this.order;
+    } else {
+      json[r'order'] = null;
+    }
       json[r'updated_datetime'] = this.updatedDatetime.toIso8601String();
     return json;
   }
@@ -62,8 +66,6 @@ class TaggedDTO {
       assert(() {
         assert(json.containsKey(r'added_datetime'), 'Required key "TaggedDTO[added_datetime]" is missing from JSON.');
         assert(json[r'added_datetime'] != null, 'Required key "TaggedDTO[added_datetime]" has a null value in JSON.');
-        assert(json.containsKey(r'order'), 'Required key "TaggedDTO[order]" is missing from JSON.');
-        assert(json[r'order'] != null, 'Required key "TaggedDTO[order]" has a null value in JSON.');
         assert(json.containsKey(r'updated_datetime'), 'Required key "TaggedDTO[updated_datetime]" is missing from JSON.');
         assert(json[r'updated_datetime'] != null, 'Required key "TaggedDTO[updated_datetime]" has a null value in JSON.');
         return true;
@@ -71,7 +73,7 @@ class TaggedDTO {
 
       return TaggedDTO(
         addedDatetime: mapDateTime(json, r'added_datetime', r'')!,
-        order: mapValueOfType<int>(json, r'order')!,
+        order: mapValueOfType<int>(json, r'order'),
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
@@ -121,7 +123,6 @@ class TaggedDTO {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'added_datetime',
-    'order',
     'updated_datetime',
   };
 }

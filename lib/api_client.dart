@@ -177,12 +177,16 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'Duration':
           return value is Duration ? value : DurationExtension.tryParse(value);
-        case 'AggregateGroup':
-          return AggregateGroup.fromJson(value);
+        case 'AggregateGroupDTO':
+          return AggregateGroupDTO.fromJson(value);
         case 'AggregateGroupSearchDTO':
           return AggregateGroupSearchDTO.fromJson(value);
-        case 'AggregateMetric':
-          return AggregateMetric.fromJson(value);
+        case 'AggregateGroupType':
+          return AggregateGroupTypeTypeTransformer().decode(value);
+        case 'AggregateMetricDTO':
+          return AggregateMetricDTO.fromJson(value);
+        case 'AggregateMetricType':
+          return AggregateMetricTypeTypeTransformer().decode(value);
         case 'AggregateResultDTO':
           return AggregateResultDTO.fromJson(value);
         case 'AggregateSearchDTO':
@@ -245,6 +249,8 @@ class ApiClient {
           return NewTagDTO.fromJson(value);
         case 'NewUserDTO':
           return NewUserDTO.fromJson(value);
+        case 'OperatorType':
+          return OperatorTypeTypeTransformer().decode(value);
         case 'OrderDTO':
           return OrderDTO.fromJson(value);
         case 'OrderType':
@@ -275,6 +281,8 @@ class ApiClient {
           return PageResultDTOUserDTO.fromJson(value);
         case 'PotentialMediaDTO':
           return PotentialMediaDTO.fromJson(value);
+        case 'SearchValue':
+          return SearchValue.fromJson(value);
         case 'SessionDTO':
           return SessionDTO.fromJson(value);
         case 'SessionStreakDTO':

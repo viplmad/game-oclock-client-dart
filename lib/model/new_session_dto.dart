@@ -13,21 +13,21 @@ part of n2t.game_oclock.client;
 class NewSessionDTO {
   /// Returns a new [NewSessionDTO] instance.
   NewSessionDTO({
-    required this.deviceId,
+    this.deviceId,
     required this.endDatetime,
     this.finishedStatus,
-    required this.groupId,
+    this.groupId,
     required this.startDatetime,
     required this.started,
   });
 
-  String deviceId;
+  String? deviceId;
 
   DateTime endDatetime;
 
   MediaStatus? finishedStatus;
 
-  String groupId;
+  String? groupId;
 
   DateTime startDatetime;
 
@@ -45,10 +45,10 @@ class NewSessionDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (deviceId.hashCode) +
+    (deviceId == null ? 0 : deviceId!.hashCode) +
     (endDatetime.hashCode) +
     (finishedStatus == null ? 0 : finishedStatus!.hashCode) +
-    (groupId.hashCode) +
+    (groupId == null ? 0 : groupId!.hashCode) +
     (startDatetime.hashCode) +
     (started.hashCode);
 
@@ -57,14 +57,22 @@ class NewSessionDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.deviceId != null) {
       json[r'device_id'] = this.deviceId;
+    } else {
+      json[r'device_id'] = null;
+    }
       json[r'end_datetime'] = this.endDatetime.toIso8601String();
     if (this.finishedStatus != null) {
       json[r'finished_status'] = this.finishedStatus;
     } else {
       json[r'finished_status'] = null;
     }
+    if (this.groupId != null) {
       json[r'group_id'] = this.groupId;
+    } else {
+      json[r'group_id'] = null;
+    }
       json[r'start_datetime'] = this.startDatetime.toIso8601String();
       json[r'started'] = this.started;
     return json;
@@ -81,12 +89,8 @@ class NewSessionDTO {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        assert(json.containsKey(r'device_id'), 'Required key "NewSessionDTO[device_id]" is missing from JSON.');
-        assert(json[r'device_id'] != null, 'Required key "NewSessionDTO[device_id]" has a null value in JSON.');
         assert(json.containsKey(r'end_datetime'), 'Required key "NewSessionDTO[end_datetime]" is missing from JSON.');
         assert(json[r'end_datetime'] != null, 'Required key "NewSessionDTO[end_datetime]" has a null value in JSON.');
-        assert(json.containsKey(r'group_id'), 'Required key "NewSessionDTO[group_id]" is missing from JSON.');
-        assert(json[r'group_id'] != null, 'Required key "NewSessionDTO[group_id]" has a null value in JSON.');
         assert(json.containsKey(r'start_datetime'), 'Required key "NewSessionDTO[start_datetime]" is missing from JSON.');
         assert(json[r'start_datetime'] != null, 'Required key "NewSessionDTO[start_datetime]" has a null value in JSON.');
         assert(json.containsKey(r'started'), 'Required key "NewSessionDTO[started]" is missing from JSON.');
@@ -95,10 +99,10 @@ class NewSessionDTO {
       }());
 
       return NewSessionDTO(
-        deviceId: mapValueOfType<String>(json, r'device_id')!,
+        deviceId: mapValueOfType<String>(json, r'device_id'),
         endDatetime: mapDateTime(json, r'end_datetime', r'')!,
         finishedStatus: MediaStatus.fromJson(json[r'finished_status']),
-        groupId: mapValueOfType<String>(json, r'group_id')!,
+        groupId: mapValueOfType<String>(json, r'group_id'),
         startDatetime: mapDateTime(json, r'start_datetime', r'')!,
         started: mapValueOfType<bool>(json, r'started')!,
       );
@@ -148,9 +152,7 @@ class NewSessionDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'device_id',
     'end_datetime',
-    'group_id',
     'start_datetime',
     'started',
   };

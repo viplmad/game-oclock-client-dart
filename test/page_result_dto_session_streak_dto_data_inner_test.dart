@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // String deviceIds
+    // List<String> deviceIds (default value: const [])
     test('to test the property `deviceIds`', () async {
       // TODO
     });
@@ -31,7 +31,7 @@ void main() {
       // TODO
     });
 
-    // String mediaIds
+    // List<String> mediaIds (default value: const [])
     test('to test the property `mediaIds`', () async {
       // TODO
     });

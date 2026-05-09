@@ -9,9 +9,9 @@ import 'package:game_oclock_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **days** | **int** |  | 
-**deviceIds** | **String** |  | 
+**deviceIds** | **List<String>** |  | [default to const []]
 **endDate** | [**DateTime**](DateTime.md) |  | 
-**mediaIds** | **String** |  | 
+**mediaIds** | **List<String>** |  | [default to const []]
 **startDate** | [**DateTime**](DateTime.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

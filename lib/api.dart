@@ -37,9 +37,11 @@ part 'api/medias_api.dart';
 part 'api/tags_api.dart';
 part 'api/users_api.dart';
 
-part 'model/aggregate_group.dart';
+part 'model/aggregate_group_dto.dart';
 part 'model/aggregate_group_search_dto.dart';
-part 'model/aggregate_metric.dart';
+part 'model/aggregate_group_type.dart';
+part 'model/aggregate_metric_dto.dart';
+part 'model/aggregate_metric_type.dart';
 part 'model/aggregate_result_dto.dart';
 part 'model/aggregate_search_dto.dart';
 part 'model/available_dto.dart';
@@ -71,6 +73,7 @@ part 'model/new_media_value.dart';
 part 'model/new_session_dto.dart';
 part 'model/new_tag_dto.dart';
 part 'model/new_user_dto.dart';
+part 'model/operator_type.dart';
 part 'model/order_dto.dart';
 part 'model/order_type.dart';
 part 'model/page_result_dto_device_dto.dart';
@@ -87,6 +90,7 @@ part 'model/page_result_dto_tag_media_dto.dart';
 part 'model/page_result_dto_user_dto.dart';
 part 'model/page_result_dto.dart';
 part 'model/potential_media_dto.dart';
+part 'model/search_value.dart';
 part 'model/session_dto.dart';
 part 'model/session_streak_dto.dart';
 part 'model/sort_dto.dart';
@@ -95,7 +99,6 @@ part 'model/tag_media_dto.dart';
 part 'model/tagged_dto.dart';
 part 'model/token_response.dart';
 part 'model/user_dto.dart';
-part 'model/search_value.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from

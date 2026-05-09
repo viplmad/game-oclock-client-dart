@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **genres** | **List<String>** |  | [default to const []]
 **imageUrl** | **String** |  | [optional] 
 **kind** | [**MediaType**](MediaType.md) |  | [optional] 
-**parentId** | **String** |  | 
+**parentId** | **String** |  | [optional] 
 **parentOrder** | **int** |  | [optional] 
 **releaseDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **series** | **List<String>** |  | [default to const []]

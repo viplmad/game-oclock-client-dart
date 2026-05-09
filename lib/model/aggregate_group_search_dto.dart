@@ -18,11 +18,11 @@ class AggregateGroupSearchDTO {
     required this.group,
   });
 
-  AggregateMetric aggr;
+  AggregateMetricDTO aggr;
 
   List<FilterDTO>? filter;
 
-  AggregateGroup group;
+  AggregateGroupDTO group;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AggregateGroupSearchDTO &&
@@ -71,9 +71,9 @@ class AggregateGroupSearchDTO {
       }());
 
       return AggregateGroupSearchDTO(
-        aggr: AggregateMetric.fromJson(json[r'aggr'])!,
+        aggr: AggregateMetricDTO.fromJson(json[r'aggr'])!,
         filter: FilterDTO.listFromJson(json[r'filter']),
-        group: AggregateGroup.fromJson(json[r'group'])!,
+        group: AggregateGroupDTO.fromJson(json[r'group'])!,
       );
     }
     return null;

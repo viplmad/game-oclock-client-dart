@@ -16,7 +16,7 @@ void main() {
   // final instance = AggregateGroupSearchDTO();
 
   group('test AggregateGroupSearchDTO', () {
-    // AggregateMetric aggr
+    // AggregateMetricDTO aggr
     test('to test the property `aggr`', () async {
       // TODO
     });
@@ -26,7 +26,7 @@ void main() {
       // TODO
     });
 
-    // AggregateGroup group
+    // AggregateGroupDTO group
     test('to test the property `group`', () async {
       // TODO
     });

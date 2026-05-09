@@ -52,6 +52,12 @@ class NewMediaValue {
   ///
   MediaType? kind;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   String? parentId;
 
   /// Minimum value: 0
@@ -106,13 +112,13 @@ class NewMediaValue {
     (genres.hashCode) +
     (imageUrl == null ? 0 : imageUrl!.hashCode) +
     (kind == null ? 0 : kind!.hashCode) +
-    (parentId == null ? 0 : parentId.hashCode) +
+    (parentId == null ? 0 : parentId!.hashCode) +
     (parentOrder == null ? 0 : parentOrder!.hashCode) +
     (releaseDate == null ? 0 : releaseDate!.hashCode) +
     (series.hashCode) +
     (title == null ? 0 : title!.hashCode) +
-    (id == null ? 0 : id.hashCode) +
-    (source_ == null ? 0 : source_.hashCode);
+    (id == null ? 0 : id!.hashCode) +
+    (source_ == null ? 0 : source_!.hashCode);
 
   @override
   String toString() => 'NewMediaValue[edition=$edition, genres=$genres, imageUrl=$imageUrl, kind=$kind, parentId=$parentId, parentOrder=$parentOrder, releaseDate=$releaseDate, series=$series, title=$title, id=$id, source_=$source_]';
@@ -135,7 +141,7 @@ class NewMediaValue {
     } else {
       json[r'kind'] = null;
     }
-    if(this.parentId != null) {
+    if (this.parentId != null) {
       json[r'parent_id'] = this.parentId;
     } else {
       json[r'parent_id'] = null;
@@ -156,12 +162,12 @@ class NewMediaValue {
     } else {
       json[r'title'] = null;
     }
-    if(this.id != null) {
+    if (this.id != null) {
       json[r'id'] = this.id;
     } else {
       json[r'id'] = null;
     }
-    if(this.source_ != null) {
+    if (this.source_ != null) {
       json[r'source'] = this.source_;
     } else {
       json[r'source'] = null;

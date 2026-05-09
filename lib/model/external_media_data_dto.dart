@@ -35,12 +35,6 @@ class ExternalMediaDataDTO {
 
   MediaType kind;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
   String? parentId;
 
   /// Minimum value: 0
@@ -76,7 +70,7 @@ class ExternalMediaDataDTO {
     // ignore: unnecessary_parenthesis
     (edition.hashCode) +
     (genres.hashCode) +
-    (id == null ? 0 : id.hashCode) +
+    (id == null ? 0 : id!.hashCode) +
     (imageUrl == null ? 0 : imageUrl!.hashCode) +
     (kind.hashCode) +
     (parentId == null ? 0 : parentId!.hashCode) +
@@ -92,7 +86,11 @@ class ExternalMediaDataDTO {
     final json = <String, dynamic>{};
       json[r'edition'] = this.edition;
       json[r'genres'] = this.genres;
+    if (this.id != null) {
       json[r'id'] = this.id;
+    } else {
+      json[r'id'] = null;
+    }
     if (this.imageUrl != null) {
       json[r'image_url'] = this.imageUrl;
     } else {
@@ -134,8 +132,6 @@ class ExternalMediaDataDTO {
         assert(json[r'edition'] != null, 'Required key "ExternalMediaDataDTO[edition]" has a null value in JSON.');
         assert(json.containsKey(r'genres'), 'Required key "ExternalMediaDataDTO[genres]" is missing from JSON.');
         assert(json[r'genres'] != null, 'Required key "ExternalMediaDataDTO[genres]" has a null value in JSON.');
-        assert(json.containsKey(r'id'), 'Required key "ExternalMediaDataDTO[id]" is missing from JSON.');
-        assert(json[r'id'] != null, 'Required key "ExternalMediaDataDTO[id]" has a null value in JSON.');
         assert(json.containsKey(r'kind'), 'Required key "ExternalMediaDataDTO[kind]" is missing from JSON.');
         assert(json[r'kind'] != null, 'Required key "ExternalMediaDataDTO[kind]" has a null value in JSON.');
         assert(json.containsKey(r'series'), 'Required key "ExternalMediaDataDTO[series]" is missing from JSON.');
@@ -150,7 +146,7 @@ class ExternalMediaDataDTO {
         genres: json[r'genres'] is Iterable
             ? (json[r'genres'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        id: mapValueOfType<String>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id'),
         imageUrl: mapValueOfType<String>(json, r'image_url'),
         kind: MediaType.fromJson(json[r'kind'])!,
         parentId: mapValueOfType<String>(json, r'parent_id'),
@@ -209,7 +205,6 @@ class ExternalMediaDataDTO {
   static const requiredKeys = <String>{
     'edition',
     'genres',
-    'id',
     'kind',
     'series',
     'title',

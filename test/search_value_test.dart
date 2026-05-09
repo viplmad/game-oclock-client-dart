@@ -11,21 +11,11 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for AggregateSearchDTO
+// tests for SearchValue
 void main() {
-  // final instance = AggregateSearchDTO();
+  // final instance = SearchValue();
 
-  group('test AggregateSearchDTO', () {
-    // AggregateMetricDTO aggr
-    test('to test the property `aggr`', () async {
-      // TODO
-    });
-
-    // List<FilterDTO> filter (default value: const [])
-    test('to test the property `filter`', () async {
-      // TODO
-    });
-
+  group('test SearchValue', () {
 
   });
 

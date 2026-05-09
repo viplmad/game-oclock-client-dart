@@ -14,29 +14,29 @@ class SessionStreakDTO {
   /// Returns a new [SessionStreakDTO] instance.
   SessionStreakDTO({
     required this.days,
-    required this.deviceIds,
+    this.deviceIds = const [],
     required this.endDate,
-    required this.mediaIds,
+    this.mediaIds = const [],
     required this.startDate,
   });
 
   /// Minimum value: 0
   int days;
 
-  String deviceIds;
+  List<String> deviceIds;
 
   DateTime endDate;
 
-  String mediaIds;
+  List<String> mediaIds;
 
   DateTime startDate;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SessionStreakDTO &&
     other.days == days &&
-    other.deviceIds == deviceIds &&
+    _deepEquality.equals(other.deviceIds, deviceIds) &&
     other.endDate == endDate &&
-    other.mediaIds == mediaIds &&
+    _deepEquality.equals(other.mediaIds, mediaIds) &&
     other.startDate == startDate;
 
   @override
@@ -87,9 +87,13 @@ class SessionStreakDTO {
 
       return SessionStreakDTO(
         days: mapValueOfType<int>(json, r'days')!,
-        deviceIds: mapValueOfType<String>(json, r'device_ids')!,
+        deviceIds: json[r'device_ids'] is Iterable
+            ? (json[r'device_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         endDate: mapDateTime(json, r'end_date', r'')!,
-        mediaIds: mapValueOfType<String>(json, r'media_ids')!,
+        mediaIds: json[r'media_ids'] is Iterable
+            ? (json[r'media_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         startDate: mapDateTime(json, r'start_date', r'')!,
       );
     }

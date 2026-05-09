@@ -11,13 +11,13 @@
 import 'package:game_oclock_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for FilterDTO
+// tests for AggregateGroupDTO
 void main() {
-  // final instance = FilterDTO();
+  // final instance = AggregateGroupDTO();
 
-  group('test FilterDTO', () {
-    // ChainOperatorType chainOperator
-    test('to test the property `chainOperator`', () async {
+  group('test AggregateGroupDTO', () {
+    // String defaultValue
+    test('to test the property `defaultValue`', () async {
       // TODO
     });
 
@@ -26,13 +26,13 @@ void main() {
       // TODO
     });
 
-    // OperatorType operator_
-    test('to test the property `operator_`', () async {
+    // DateHistogramInterval interval
+    test('to test the property `interval`', () async {
       // TODO
     });
 
-    // SearchValue value
-    test('to test the property `value`', () async {
+    // AggregateGroupType kind
+    test('to test the property `kind`', () async {
       // TODO
     });
 

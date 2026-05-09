@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **edition** | **String** |  | 
 **genres** | **List<String>** |  | [default to const []]
-**id** | **String** |  | 
+**id** | **String** |  | [optional] 
 **imageUrl** | **String** |  | [optional] 
 **kind** | [**MediaType**](MediaType.md) |  | 
 **parentId** | **String** |  | [optional] 

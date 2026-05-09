@@ -8,10 +8,10 @@ import 'package:game_oclock_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deviceId** | **String** |  | 
+**deviceId** | **String** |  | [optional] 
 **endDatetime** | [**DateTime**](DateTime.md) |  | 
 **finishedStatus** | [**MediaStatus**](MediaStatus.md) |  | [optional] 
-**groupId** | **String** |  | 
+**groupId** | **String** |  | [optional] 
 **startDatetime** | [**DateTime**](DateTime.md) |  | 
 **started** | **bool** |  | 
 

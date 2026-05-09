@@ -58,6 +58,12 @@ String parameterToString(dynamic value) {
   if (value is Duration) {
     return value.toIso8601String();
   }
+  if (value is AggregateGroupType) {
+    return AggregateGroupTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is AggregateMetricType) {
+    return AggregateMetricTypeTypeTransformer().encode(value).toString();
+  }
   if (value is ChainOperatorType) {
     return ChainOperatorTypeTypeTransformer().encode(value).toString();
   }
@@ -72,6 +78,9 @@ String parameterToString(dynamic value) {
   }
   if (value is MediaType) {
     return MediaTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is OperatorType) {
+    return OperatorTypeTypeTransformer().encode(value).toString();
   }
   if (value is OrderType) {
     return OrderTypeTypeTransformer().encode(value).toString();
