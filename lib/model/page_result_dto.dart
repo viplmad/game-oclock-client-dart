@@ -10,7 +10,7 @@
 
 part of n2t.game_oclock.client;
 
-abstract class PageResultDTO<T extends Object> {
+class PageResultDTO<T extends Object> {
   /// Returns a new [PageResultDTO] instance.
   PageResultDTO({
     this.data = const [],
