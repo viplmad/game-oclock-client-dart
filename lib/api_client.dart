@@ -181,6 +181,10 @@ class ApiClient {
           return AggregateGroupDTO.fromJson(value);
         case 'AggregateGroupSearchDTO':
           return AggregateGroupSearchDTO.fromJson(value);
+        case 'AggregateGroupSortDTO':
+          return AggregateGroupSortDTO.fromJson(value);
+        case 'AggregateGroupSortType':
+          return AggregateGroupSortTypeTypeTransformer().decode(value);
         case 'AggregateGroupType':
           return AggregateGroupTypeTypeTransformer().decode(value);
         case 'AggregateMetricDTO':

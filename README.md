@@ -136,6 +136,8 @@ Class | Method | HTTP request | Description
 
  - [AggregateGroupDTO](doc//AggregateGroupDTO.md)
  - [AggregateGroupSearchDTO](doc//AggregateGroupSearchDTO.md)
+ - [AggregateGroupSortDTO](doc//AggregateGroupSortDTO.md)
+ - [AggregateGroupSortType](doc//AggregateGroupSortType.md)
  - [AggregateGroupType](doc//AggregateGroupType.md)
  - [AggregateMetricDTO](doc//AggregateMetricDTO.md)
  - [AggregateMetricType](doc//AggregateMetricType.md)

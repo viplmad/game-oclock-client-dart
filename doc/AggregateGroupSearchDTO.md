@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **aggr** | [**AggregateMetricDTO**](AggregateMetricDTO.md) |  | 
 **filter** | [**List<FilterDTO>**](FilterDTO.md) |  | [optional] [default to const []]
 **group** | [**AggregateGroupDTO**](AggregateGroupDTO.md) |  | 
+**size** | **int** |  | [optional] 
+**sort** | [**AggregateGroupSortDTO**](AggregateGroupSortDTO.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

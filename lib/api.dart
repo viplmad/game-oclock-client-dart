@@ -39,6 +39,8 @@ part 'api/users_api.dart';
 
 part 'model/aggregate_group_dto.dart';
 part 'model/aggregate_group_search_dto.dart';
+part 'model/aggregate_group_sort_dto.dart';
+part 'model/aggregate_group_sort_type.dart';
 part 'model/aggregate_group_type.dart';
 part 'model/aggregate_metric_dto.dart';
 part 'model/aggregate_metric_type.dart';

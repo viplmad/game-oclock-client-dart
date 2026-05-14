@@ -16,6 +16,8 @@ class AggregateGroupSearchDTO {
     required this.aggr,
     this.filter = const [],
     required this.group,
+    this.size,
+    this.sort,
   });
 
   AggregateMetricDTO aggr;
@@ -24,21 +26,30 @@ class AggregateGroupSearchDTO {
 
   AggregateGroupDTO group;
 
+  /// Minimum value: 0
+  int? size;
+
+  AggregateGroupSortDTO? sort;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is AggregateGroupSearchDTO &&
     other.aggr == aggr &&
     _deepEquality.equals(other.filter, filter) &&
-    other.group == group;
+    other.group == group &&
+    other.size == size &&
+    other.sort == sort;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (aggr.hashCode) +
     (filter == null ? 0 : filter!.hashCode) +
-    (group.hashCode);
+    (group.hashCode) +
+    (size == null ? 0 : size!.hashCode) +
+    (sort == null ? 0 : sort!.hashCode);
 
   @override
-  String toString() => 'AggregateGroupSearchDTO[aggr=$aggr, filter=$filter, group=$group]';
+  String toString() => 'AggregateGroupSearchDTO[aggr=$aggr, filter=$filter, group=$group, size=$size, sort=$sort]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -49,6 +60,16 @@ class AggregateGroupSearchDTO {
       json[r'filter'] = null;
     }
       json[r'group'] = this.group;
+    if (this.size != null) {
+      json[r'size'] = this.size;
+    } else {
+      json[r'size'] = null;
+    }
+    if (this.sort != null) {
+      json[r'sort'] = this.sort;
+    } else {
+      json[r'sort'] = null;
+    }
     return json;
   }
 
@@ -74,6 +95,8 @@ class AggregateGroupSearchDTO {
         aggr: AggregateMetricDTO.fromJson(json[r'aggr'])!,
         filter: FilterDTO.listFromJson(json[r'filter']),
         group: AggregateGroupDTO.fromJson(json[r'group'])!,
+        size: mapValueOfType<int>(json, r'size'),
+        sort: AggregateGroupSortDTO.fromJson(json[r'sort']),
       );
     }
     return null;
