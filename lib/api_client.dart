@@ -283,6 +283,10 @@ class ApiClient {
           return PageResultDTOTagMediaDTO.fromJson(value);
         case 'PageResultDTOUserDTO':
           return PageResultDTOUserDTO.fromJson(value);
+        case 'AggregateGroupResultIntIntDTO':
+          return AggregateGroupResultIntIntDTO.fromJson(value);
+        case 'AggregateGroupResultStringDurationDTO':
+          return AggregateGroupResultStringDurationDTO.fromJson(value);
         case 'PotentialMediaDTO':
           return PotentialMediaDTO.fromJson(value);
         case 'SearchValue':

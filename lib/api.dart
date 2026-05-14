@@ -101,6 +101,7 @@ part 'model/tag_media_dto.dart';
 part 'model/tagged_dto.dart';
 part 'model/token_response.dart';
 part 'model/user_dto.dart';
+part 'model/aggregate_group_result_dto.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from
