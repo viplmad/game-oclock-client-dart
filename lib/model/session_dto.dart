@@ -41,7 +41,7 @@ class SessionDTO {
 
   bool started;
 
-  String time;
+  Duration time;
 
   DateTime updatedDatetime;
 
@@ -137,7 +137,7 @@ class SessionDTO {
         mediaId: mapValueOfType<String>(json, r'media_id')!,
         startDatetime: mapDateTime(json, r'start_datetime', r'')!,
         started: mapValueOfType<bool>(json, r'started')!,
-        time: mapValueOfType<String>(json, r'time')!,
+        time: mapDuration(json, r'time')!,
         updatedDatetime: mapDateTime(json, r'updated_datetime', r'')!,
       );
     }
