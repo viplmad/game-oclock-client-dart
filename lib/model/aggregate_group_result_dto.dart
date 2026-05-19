@@ -22,9 +22,9 @@ abstract class AggregateGroupResultDTO<K, V> {
   V value;
 }
 
-class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultDTO<int, List<AggregateGroupResultStringDurationDTO>> {
-  /// Returns a new [AggregateGroupResultIntegerStringDurationDTO] instance.
-  AggregateGroupResultIntegerStringDurationDTO({
+class AggregateGroupResultIntStringDurationDTO extends AggregateGroupResultDTO<int, List<AggregateGroupResultStringDurationDTO>> {
+  /// Returns a new [AggregateGroupResultIntStringDurationDTO] instance.
+  AggregateGroupResultIntStringDurationDTO({
     required super.key,
     required super.value,
   });
@@ -32,7 +32,7 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AggregateGroupResultIntegerStringDurationDTO &&
+      other is AggregateGroupResultIntStringDurationDTO &&
           other.key == key &&
           other.value == value;
 
@@ -42,7 +42,7 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
       (key.hashCode) + (value.hashCode);
 
   @override
-  String toString() => 'AggregateGroupResultIntegerStringDurationDTO[key=$key, value=$value]';
+  String toString() => 'AggregateGroupResultIntStringDurationDTO[key=$key, value=$value]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -51,10 +51,10 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
     return json;
   }
 
-  /// Returns a new [AggregateGroupResultIntegerStringDurationDTO] instance and imports its values from
+  /// Returns a new [AggregateGroupResultIntStringDurationDTO] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AggregateGroupResultIntegerStringDurationDTO? fromJson(dynamic value) {
+  static AggregateGroupResultIntStringDurationDTO? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,17 +63,17 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
       // Note 2: this code is stripped in release mode!
       assert(() {
         assert(json.containsKey(r'key'),
-            'Required key "AggregateGroupResultIntegerStringDurationDTO[key]" is missing from JSON.');
+            'Required key "AggregateGroupResultIntStringDurationDTO[key]" is missing from JSON.');
         assert(json[r'key'] != null,
-            'Required key "AggregateGroupResultIntegerStringDurationDTO[key]" has a null value in JSON.');
+            'Required key "AggregateGroupResultIntStringDurationDTO[key]" has a null value in JSON.');
         assert(json.containsKey(r'value'),
-            'Required key "AggregateGroupResultIntegerStringDurationDTO[value]" is missing from JSON.');
+            'Required key "AggregateGroupResultIntStringDurationDTO[value]" is missing from JSON.');
         assert(json[r'value'] != null,
-            'Required key "AggregateGroupResultIntegerStringDurationDTO[value]" has a null value in JSON.');
+            'Required key "AggregateGroupResultIntStringDurationDTO[value]" has a null value in JSON.');
         return true;
       }());
 
-      return AggregateGroupResultIntegerStringDurationDTO(
+      return AggregateGroupResultIntStringDurationDTO(
         key: mapValueOfType<int>(json, r'key')!,
         value: AggregateGroupResultStringDurationDTO.listFromJson(json[r'value']),
       );
@@ -81,14 +81,14 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
     return null;
   }
 
-  static List<AggregateGroupResultIntegerStringDurationDTO> listFromJson(
+  static List<AggregateGroupResultIntStringDurationDTO> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <AggregateGroupResultIntegerStringDurationDTO>[];
+    final result = <AggregateGroupResultIntStringDurationDTO>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = AggregateGroupResultIntegerStringDurationDTO.fromJson(row);
+        final value = AggregateGroupResultIntStringDurationDTO.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -97,12 +97,12 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
     return result.toList(growable: growable);
   }
 
-  static Map<String, AggregateGroupResultIntegerStringDurationDTO> mapFromJson(dynamic json) {
-    final map = <String, AggregateGroupResultIntegerStringDurationDTO>{};
+  static Map<String, AggregateGroupResultIntStringDurationDTO> mapFromJson(dynamic json) {
+    final map = <String, AggregateGroupResultIntStringDurationDTO>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AggregateGroupResultIntegerStringDurationDTO.fromJson(entry.value);
+        final value = AggregateGroupResultIntStringDurationDTO.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -111,17 +111,17 @@ class AggregateGroupResultIntegerStringDurationDTO extends AggregateGroupResultD
     return map;
   }
 
-  // maps a json object with a list of AggregateGroupResultIntegerStringDurationDTO-objects as value to a dart map
-  static Map<String, List<AggregateGroupResultIntegerStringDurationDTO>> mapListFromJson(
+  // maps a json object with a list of AggregateGroupResultIntStringDurationDTO-objects as value to a dart map
+  static Map<String, List<AggregateGroupResultIntStringDurationDTO>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<AggregateGroupResultIntegerStringDurationDTO>>{};
+    final map = <String, List<AggregateGroupResultIntStringDurationDTO>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AggregateGroupResultIntegerStringDurationDTO.listFromJson(
+        map[entry.key] = AggregateGroupResultIntStringDurationDTO.listFromJson(
           entry.value,
           growable: growable,
         );
