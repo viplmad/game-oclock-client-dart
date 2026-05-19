@@ -17,7 +17,8 @@ class AggregateGroupSearchDTO {
     this.filter = const [],
     required this.group,
     this.size,
-    this.sort,
+    this.sort = const [],
+    this.subgroup,
   });
 
   AggregateMetricDTO aggr;
@@ -29,7 +30,9 @@ class AggregateGroupSearchDTO {
   /// Minimum value: 0
   int? size;
 
-  AggregateGroupSortDTO? sort;
+  List<AggregateGroupSortDTO>? sort;
+
+  AggregateGroupDTO? subgroup;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AggregateGroupSearchDTO &&
@@ -37,7 +40,8 @@ class AggregateGroupSearchDTO {
     _deepEquality.equals(other.filter, filter) &&
     other.group == group &&
     other.size == size &&
-    other.sort == sort;
+    _deepEquality.equals(other.sort, sort) &&
+    other.subgroup == subgroup;
 
   @override
   int get hashCode =>
@@ -46,10 +50,11 @@ class AggregateGroupSearchDTO {
     (filter == null ? 0 : filter!.hashCode) +
     (group.hashCode) +
     (size == null ? 0 : size!.hashCode) +
-    (sort == null ? 0 : sort!.hashCode);
+    (sort == null ? 0 : sort!.hashCode) +
+    (subgroup == null ? 0 : subgroup!.hashCode);
 
   @override
-  String toString() => 'AggregateGroupSearchDTO[aggr=$aggr, filter=$filter, group=$group, size=$size, sort=$sort]';
+  String toString() => 'AggregateGroupSearchDTO[aggr=$aggr, filter=$filter, group=$group, size=$size, sort=$sort, subgroup=$subgroup]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -69,6 +74,11 @@ class AggregateGroupSearchDTO {
       json[r'sort'] = this.sort;
     } else {
       json[r'sort'] = null;
+    }
+    if (this.subgroup != null) {
+      json[r'subgroup'] = this.subgroup;
+    } else {
+      json[r'subgroup'] = null;
     }
     return json;
   }
@@ -96,7 +106,8 @@ class AggregateGroupSearchDTO {
         filter: FilterDTO.listFromJson(json[r'filter']),
         group: AggregateGroupDTO.fromJson(json[r'group'])!,
         size: mapValueOfType<int>(json, r'size'),
-        sort: AggregateGroupSortDTO.fromJson(json[r'sort']),
+        sort: AggregateGroupSortDTO.listFromJson(json[r'sort']),
+        subgroup: AggregateGroupDTO.fromJson(json[r'subgroup']),
       );
     }
     return null;
