@@ -285,6 +285,8 @@ class ApiClient {
           return PageResultDTOUserDTO.fromJson(value);
         case 'AggregateGroupResultIntIntDTO':
           return AggregateGroupResultIntIntDTO.fromJson(value);
+        case 'AggregateGroupResultStringIntDTO':
+          return AggregateGroupResultStringIntDTO.fromJson(value);
         case 'AggregateGroupResultStringDurationDTO':
           return AggregateGroupResultStringDurationDTO.fromJson(value);
         case 'AggregateGroupResultIntDurationDTO':
