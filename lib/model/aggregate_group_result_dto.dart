@@ -252,6 +252,121 @@ class AggregateGroupResultStringDurationDTO extends AggregateGroupResultDTO<Stri
   };
 }
 
+class AggregateGroupResultIntDurationDTO extends AggregateGroupResultDTO<int, Duration> {
+  /// Returns a new [AggregateGroupResultIntDurationDTO] instance.
+  AggregateGroupResultIntDurationDTO({
+    required super.key,
+    required super.value,
+  });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AggregateGroupResultIntDurationDTO &&
+          other.key == key &&
+          other.value == value;
+
+  @override
+  int get hashCode =>
+      // ignore: unnecessary_parenthesis
+      (key.hashCode) + (value.hashCode);
+
+  @override
+  String toString() => 'AggregateGroupResultIntDurationDTO[key=$key, value=$value]';
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json[r'key'] = this.key;
+    json[r'value'] = this.value;
+    return json;
+  }
+
+  /// Returns a new [AggregateGroupResultIntDurationDTO] instance and imports its values from
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static AggregateGroupResultIntDurationDTO? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        assert(json.containsKey(r'key'),
+            'Required key "AggregateGroupResultIntDurationDTO[key]" is missing from JSON.');
+        assert(json[r'key'] != null,
+            'Required key "AggregateGroupResultIntDurationDTO[key]" has a null value in JSON.');
+        assert(json.containsKey(r'value'),
+            'Required key "AggregateGroupResultIntDurationDTO[value]" is missing from JSON.');
+        assert(json[r'value'] != null,
+            'Required key "AggregateGroupResultIntDurationDTO[value]" has a null value in JSON.');
+        return true;
+      }());
+
+      return AggregateGroupResultIntDurationDTO(
+        key: mapValueOfType<int>(json, r'key')!,
+        value: mapDuration(json, r'value')!,
+      );
+    }
+    return null;
+  }
+
+  static List<AggregateGroupResultIntDurationDTO> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
+    final result = <AggregateGroupResultIntDurationDTO>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AggregateGroupResultIntDurationDTO.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, AggregateGroupResultIntDurationDTO> mapFromJson(dynamic json) {
+    final map = <String, AggregateGroupResultIntDurationDTO>{};
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AggregateGroupResultIntDurationDTO.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
+    }
+    return map;
+  }
+
+  // maps a json object with a list of AggregateGroupResultIntDurationDTO-objects as value to a dart map
+  static Map<String, List<AggregateGroupResultIntDurationDTO>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
+    final map = <String, List<AggregateGroupResultIntDurationDTO>>{};
+    if (json is Map && json.isNotEmpty) {
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
+      for (final entry in json.entries) {
+        map[entry.key] = AggregateGroupResultIntDurationDTO.listFromJson(
+          entry.value,
+          growable: growable,
+        );
+      }
+    }
+    return map;
+  }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'key',
+    'value',
+  };
+}
+
 class AggregateGroupResultIntIntDTO extends AggregateGroupResultDTO<int, int> {
   /// Returns a new [AggregateGroupResultIntIntDTO] instance.
   AggregateGroupResultIntIntDTO({

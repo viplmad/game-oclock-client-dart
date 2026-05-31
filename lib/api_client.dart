@@ -287,6 +287,8 @@ class ApiClient {
           return AggregateGroupResultIntIntDTO.fromJson(value);
         case 'AggregateGroupResultStringDurationDTO':
           return AggregateGroupResultStringDurationDTO.fromJson(value);
+        case 'AggregateGroupResultIntDurationDTO':
+          return AggregateGroupResultIntDurationDTO.fromJson(value);
         case 'AggregateGroupResultIntStringDurationDTO':
           return AggregateGroupResultIntStringDurationDTO.fromJson(value);
         case 'PotentialMediaDTO':
