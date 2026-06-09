@@ -54,6 +54,7 @@ part 'model/device_dto.dart';
 part 'model/error_message.dart';
 part 'model/external_media_data_dto.dart';
 part 'model/external_media_id_dto.dart';
+part 'model/fetch_mode.dart';
 part 'model/filter_dto.dart';
 part 'model/grant_type.dart';
 part 'model/list_search_dto.dart';

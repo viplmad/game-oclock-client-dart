@@ -43,9 +43,9 @@ import 'package:game_oclock_client/api.dart';
 
 final api_instance = AuthApi();
 final grantType = ; // GrantType | Grant type
-final password = password_example; // String | Password (used in password grant type)
-final refreshToken = refreshToken_example; // String | Refresh token (used in refresh_token grant type)
-final username = username_example; // String | Username (used in password grant type)
+final password = password_example; // String | Password (used in `password` grant type)
+final refreshToken = refreshToken_example; // String | Refresh token (used in `refresh_token` grant type)
+final username = username_example; // String | Username (used in `password` grant type)
 
 try {
     final result = api_instance.token(grantType, password, refreshToken, username);
@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
  - [ErrorMessage](doc//ErrorMessage.md)
  - [ExternalMediaDataDTO](doc//ExternalMediaDataDTO.md)
  - [ExternalMediaIdDTO](doc//ExternalMediaIdDTO.md)
+ - [FetchMode](doc//FetchMode.md)
  - [FilterDTO](doc//FilterDTO.md)
  - [GrantType](doc//GrantType.md)
  - [ListSearchDTO](doc//ListSearchDTO.md)

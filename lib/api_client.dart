@@ -211,6 +211,8 @@ class ApiClient {
           return ExternalMediaDataDTO.fromJson(value);
         case 'ExternalMediaIdDTO':
           return ExternalMediaIdDTO.fromJson(value);
+        case 'FetchMode':
+          return FetchModeTypeTransformer().decode(value);
         case 'FilterDTO':
           return FilterDTO.fromJson(value);
         case 'GrantType':

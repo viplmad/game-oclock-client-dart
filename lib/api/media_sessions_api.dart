@@ -26,7 +26,9 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<Response> aggregateFirstSessionsWithHttpInfo(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  ///
+  /// * [FetchMode] mode:
+  Future<Response> aggregateFirstSessionsWithHttpInfo(AggregateSearchDTO aggregateSearchDTO, { String? q, FetchMode? mode, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/medias/sessions/first/aggregate';
 
@@ -39,6 +41,9 @@ class MediaSessionsApi {
 
     if (q != null) {
       queryParams.addAll(_queryParams('', 'q', q));
+    }
+    if (mode != null) {
+      queryParams.addAll(_queryParams('', 'mode', mode));
     }
 
     const contentTypes = <String>['application/json'];
@@ -63,8 +68,10 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO> aggregateFirstSessions(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
-    final response = await aggregateFirstSessionsWithHttpInfo(aggregateSearchDTO,  q: q, );
+  ///
+  /// * [FetchMode] mode:
+  Future<AggregateResultDTO> aggregateFirstSessions(AggregateSearchDTO aggregateSearchDTO, { String? q, FetchMode? mode, }) async {
+    final response = await aggregateFirstSessionsWithHttpInfo(aggregateSearchDTO,  q: q, mode: mode, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
@@ -85,7 +92,9 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<Response> aggregateGroupSessionsWithHttpInfo(AggregateGroupSearchDTO aggregateGroupSearchDTO, { String? q, }) async {
+  ///
+  /// * [FetchMode] mode:
+  Future<Response> aggregateGroupSessionsWithHttpInfo(AggregateGroupSearchDTO aggregateGroupSearchDTO, { String? q, FetchMode? mode, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/medias/sessions/aggregate-group';
 
@@ -98,6 +107,9 @@ class MediaSessionsApi {
 
     if (q != null) {
       queryParams.addAll(_queryParams('', 'q', q));
+    }
+    if (mode != null) {
+      queryParams.addAll(_queryParams('', 'mode', mode));
     }
 
     const contentTypes = <String>['application/json'];
@@ -122,13 +134,18 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<Map<String, AggregateResultDTO>> aggregateGroupSessions(AggregateGroupSearchDTO aggregateGroupSearchDTO, { String? q, }) async {
-    final response = await aggregateGroupSessionsWithHttpInfo(aggregateGroupSearchDTO,  q: q, );
+  ///
+  /// * [FetchMode] mode:
+  Future<List<AggregateGroupResultDTO>> aggregateGroupSessions(AggregateGroupSearchDTO aggregateGroupSearchDTO, { String? q, FetchMode? mode, }) async {
+    final response = await aggregateGroupSessionsWithHttpInfo(aggregateGroupSearchDTO,  q: q, mode: mode, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, AggregateResultDTO>.from(await apiClient.deserializeAsync(await decodeBodyBytes(response), 'Map<String, AggregateResultDTO>'),);
+      final responseBody = await decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<AggregateGroupResultDTO>') as List)
+        .cast<AggregateGroupResultDTO>()
+        .toList(growable: false);
 
     }
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
@@ -210,7 +227,9 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<Response> aggregateSessionsWithHttpInfo(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
+  ///
+  /// * [FetchMode] mode:
+  Future<Response> aggregateSessionsWithHttpInfo(AggregateSearchDTO aggregateSearchDTO, { String? q, FetchMode? mode, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/medias/sessions/aggregate';
 
@@ -223,6 +242,9 @@ class MediaSessionsApi {
 
     if (q != null) {
       queryParams.addAll(_queryParams('', 'q', q));
+    }
+    if (mode != null) {
+      queryParams.addAll(_queryParams('', 'mode', mode));
     }
 
     const contentTypes = <String>['application/json'];
@@ -247,8 +269,10 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<AggregateResultDTO> aggregateSessions(AggregateSearchDTO aggregateSearchDTO, { String? q, }) async {
-    final response = await aggregateSessionsWithHttpInfo(aggregateSearchDTO,  q: q, );
+  ///
+  /// * [FetchMode] mode:
+  Future<AggregateResultDTO> aggregateSessions(AggregateSearchDTO aggregateSearchDTO, { String? q, FetchMode? mode, }) async {
+    final response = await aggregateSessionsWithHttpInfo(aggregateSearchDTO,  q: q, mode: mode, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
@@ -639,7 +663,9 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<Response> getSessionStreaksWithHttpInfo(ListSearchDTO listSearchDTO, { String? q, }) async {
+  ///
+  /// * [FetchMode] mode:
+  Future<Response> getSessionStreaksWithHttpInfo(ListSearchDTO listSearchDTO, { String? q, FetchMode? mode, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/medias/sessions/streaks';
 
@@ -652,6 +678,9 @@ class MediaSessionsApi {
 
     if (q != null) {
       queryParams.addAll(_queryParams('', 'q', q));
+    }
+    if (mode != null) {
+      queryParams.addAll(_queryParams('', 'mode', mode));
     }
 
     const contentTypes = <String>['application/json'];
@@ -676,8 +705,10 @@ class MediaSessionsApi {
   ///   Query
   ///
   /// * [String] q:
-  Future<PageResultDTOSessionStreakDTO> getSessionStreaks(ListSearchDTO listSearchDTO, { String? q, }) async {
-    final response = await getSessionStreaksWithHttpInfo(listSearchDTO,  q: q, );
+  ///
+  /// * [FetchMode] mode:
+  Future<PageResultDTOSessionStreakDTO> getSessionStreaks(ListSearchDTO listSearchDTO, { String? q, FetchMode? mode, }) async {
+    final response = await getSessionStreaksWithHttpInfo(listSearchDTO,  q: q, mode: mode, );
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.

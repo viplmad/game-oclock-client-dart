@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 
 # **aggregateFirstSessions**
-> AggregateResultDTO aggregateFirstSessions(aggregateSearchDTO, q)
+> AggregateResultDTO aggregateFirstSessions(aggregateSearchDTO, q, mode)
 
 Aggregate all first sessions
 
@@ -37,9 +37,10 @@ import 'package:game_oclock_client/api.dart';
 final api_instance = MediaSessionsApi();
 final aggregateSearchDTO = AggregateSearchDTO(); // AggregateSearchDTO | Query
 final q = q_example; // String | 
+final mode = ; // FetchMode | 
 
 try {
-    final result = api_instance.aggregateFirstSessions(aggregateSearchDTO, q);
+    final result = api_instance.aggregateFirstSessions(aggregateSearchDTO, q, mode);
     print(result);
 } catch (e) {
     print('Exception when calling MediaSessionsApi->aggregateFirstSessions: $e\n');
@@ -52,6 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aggregateSearchDTO** | [**AggregateSearchDTO**](AggregateSearchDTO.md)| Query | 
  **q** | **String**|  | [optional] 
+ **mode** | [**FetchMode**](.md)|  | [optional] 
 
 ### Return type
 
@@ -69,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **aggregateGroupSessions**
-> Map<String, AggregateResultDTO> aggregateGroupSessions(aggregateGroupSearchDTO, q)
+> List<AggregateGroupResultDTO> aggregateGroupSessions(aggregateGroupSearchDTO, q, mode)
 
 Aggregate group all sessions
 
@@ -82,9 +84,10 @@ import 'package:game_oclock_client/api.dart';
 final api_instance = MediaSessionsApi();
 final aggregateGroupSearchDTO = AggregateGroupSearchDTO(); // AggregateGroupSearchDTO | Query
 final q = q_example; // String | 
+final mode = ; // FetchMode | 
 
 try {
-    final result = api_instance.aggregateGroupSessions(aggregateGroupSearchDTO, q);
+    final result = api_instance.aggregateGroupSessions(aggregateGroupSearchDTO, q, mode);
     print(result);
 } catch (e) {
     print('Exception when calling MediaSessionsApi->aggregateGroupSessions: $e\n');
@@ -97,10 +100,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aggregateGroupSearchDTO** | [**AggregateGroupSearchDTO**](AggregateGroupSearchDTO.md)| Query | 
  **q** | **String**|  | [optional] 
+ **mode** | [**FetchMode**](.md)|  | [optional] 
 
 ### Return type
 
-[**Map<String, AggregateResultDTO>**](AggregateResultDTO.md)
+[**List<AggregateGroupResultDTO>**](AggregateGroupResultDTO.md)
 
 ### Authorization
 
@@ -161,7 +165,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **aggregateSessions**
-> AggregateResultDTO aggregateSessions(aggregateSearchDTO, q)
+> AggregateResultDTO aggregateSessions(aggregateSearchDTO, q, mode)
 
 Aggregate all sessions
 
@@ -174,9 +178,10 @@ import 'package:game_oclock_client/api.dart';
 final api_instance = MediaSessionsApi();
 final aggregateSearchDTO = AggregateSearchDTO(); // AggregateSearchDTO | Query
 final q = q_example; // String | 
+final mode = ; // FetchMode | 
 
 try {
-    final result = api_instance.aggregateSessions(aggregateSearchDTO, q);
+    final result = api_instance.aggregateSessions(aggregateSearchDTO, q, mode);
     print(result);
 } catch (e) {
     print('Exception when calling MediaSessionsApi->aggregateSessions: $e\n');
@@ -189,6 +194,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aggregateSearchDTO** | [**AggregateSearchDTO**](AggregateSearchDTO.md)| Query | 
  **q** | **String**|  | [optional] 
+ **mode** | [**FetchMode**](.md)|  | [optional] 
 
 ### Return type
 
@@ -484,7 +490,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSessionStreaks**
-> PageResultDTOSessionStreakDTO getSessionStreaks(listSearchDTO, q)
+> PageResultDTOSessionStreakDTO getSessionStreaks(listSearchDTO, q, mode)
 
 Get all sessions
 
@@ -497,9 +503,10 @@ import 'package:game_oclock_client/api.dart';
 final api_instance = MediaSessionsApi();
 final listSearchDTO = ListSearchDTO(); // ListSearchDTO | Query
 final q = q_example; // String | 
+final mode = ; // FetchMode | 
 
 try {
-    final result = api_instance.getSessionStreaks(listSearchDTO, q);
+    final result = api_instance.getSessionStreaks(listSearchDTO, q, mode);
     print(result);
 } catch (e) {
     print('Exception when calling MediaSessionsApi->getSessionStreaks: $e\n');
@@ -512,6 +519,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listSearchDTO** | [**ListSearchDTO**](ListSearchDTO.md)| Query | 
  **q** | **String**|  | [optional] 
+ **mode** | [**FetchMode**](.md)|  | [optional] 
 
 ### Return type
 

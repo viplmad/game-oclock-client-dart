@@ -23,9 +23,9 @@ import 'package:game_oclock_client/api.dart';
 
 final api_instance = AuthApi();
 final grantType = ; // GrantType | Grant type
-final password = password_example; // String | Password (used in password grant type)
-final refreshToken = refreshToken_example; // String | Refresh token (used in refresh_token grant type)
-final username = username_example; // String | Username (used in password grant type)
+final password = password_example; // String | Password (used in `password` grant type)
+final refreshToken = refreshToken_example; // String | Refresh token (used in `refresh_token` grant type)
+final username = username_example; // String | Username (used in `password` grant type)
 
 try {
     final result = api_instance.token(grantType, password, refreshToken, username);
@@ -40,9 +40,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **grantType** | [**GrantType**](GrantType.md)| Grant type | 
- **password** | **String**| Password (used in password grant type) | [optional] 
- **refreshToken** | **String**| Refresh token (used in refresh_token grant type) | [optional] 
- **username** | **String**| Username (used in password grant type) | [optional] 
+ **password** | **String**| Password (used in `password` grant type) | [optional] 
+ **refreshToken** | **String**| Refresh token (used in `refresh_token` grant type) | [optional] 
+ **username** | **String**| Username (used in `password` grant type) | [optional] 
 
 ### Return type
 
