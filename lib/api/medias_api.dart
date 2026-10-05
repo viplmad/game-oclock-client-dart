@@ -1086,6 +1086,50 @@ class MediasApi {
     final response = await unlinkParentMediaWithHttpInfo(id,);
   }
 
+  /// Unsync a media
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   Media id
+  Future<Response> unsyncMediaWithHttpInfo(String id) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/medias/{id}/unsync'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Unsync a media
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   Media id
+  Future<void> unsyncMedia(String id) async {
+    final response = await unsyncMediaWithHttpInfo(id, );
+  }
+
   /// Update a media
   ///
   /// Note: This method returns the HTTP [Response].

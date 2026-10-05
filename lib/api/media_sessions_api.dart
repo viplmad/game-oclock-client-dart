@@ -653,6 +653,74 @@ class MediaSessionsApi {
     throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
   }
 
+  /// Get all dates
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [ListSearchDTO] listSearchDTO (required):
+  ///   Query
+  ///
+  /// * [String] q:
+  ///
+  /// * [FetchMode] mode:
+  Future<Response> getSessionDatesWithHttpInfo(ListSearchDTO listSearchDTO, { String? q, FetchMode? mode }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/medias/sessions/dates';
+
+    // ignore: prefer_final_locals
+    Object? postBody = listSearchDTO;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (q != null) {
+      queryParams.addAll(_queryParams('', 'q', q));
+    }
+    if (mode != null) {
+      queryParams.addAll(_queryParams('', 'mode', mode));
+    }
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first
+    );
+  }
+
+  /// Get all dates
+  ///
+  /// Parameters:
+  ///
+  /// * [ListSearchDTO] listSearchDTO (required):
+  ///   Query
+  ///
+  /// * [String] q:
+  ///
+  /// * [FetchMode] mode:
+  Future<List<DateTime>> getSessionDates(ListSearchDTO listSearchDTO, { String? q, FetchMode? mode }) async {
+    final response = await getSessionDatesWithHttpInfo(listSearchDTO, q: q, mode: mode, );
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await decodeBodyBytes(response), 'List<DateTime>') as List)
+        .cast<DateTime>()
+        .toList(growable: false);
+
+    }
+    throw ResponseMismatchApiException('Cannot decode 204 response with empty string');
+  }
+
   /// Get all sessions
   ///
   /// Note: This method returns the HTTP [Response].
